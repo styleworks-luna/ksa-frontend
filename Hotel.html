@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>KSA 하계포럼</title>
 
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/common.css">
@@ -62,7 +62,7 @@
     <main>
         <div data-pc_process_box>
             <ul>
-                <li><a>참가자정보입력</a></li>
+                <li><a href="./Information.html">참가자정보입력</a></li>
                 <li><a href="./Flight.html">항공예약</a></li>
                 <li class="present"><a href="./Hotel.html">호텔예약</a></li>
                 <li><a href="./Rentalcar.html">렌터카예약</a></li>
@@ -154,8 +154,13 @@
                 </tr>
             </table>
             <div data-notice_box>
-                <p>· 패밀리트윈으로 변경 시 36,600원 / 1박</p>
-                <p>· Extra Bed, 침구 추가 시 48,400원 / 1박</p>
+                <p>· 보조침대나 침구 추가 시, 1박에 48,400원의 추가 비용이 발생합니다. (3박 시 145,200원)</p>
+                <p>· 포럼일정 기간동안 KSA 하계 CEO포럼 참가자들은 단체 특별 할인 금액이 적용됩니다.</p>
+                <p>· 호텔 결제는 교육비와 함께 일괄적으로 계산서 처리 가능합니다. (혹은 현장 체크아웃 시 카드결제 가능)</p>
+                <p>· 객실 타입을 패밀리트윈(더블+싱글)로 선택 시, 1박에 60,500원의 추가 비용이 발생합니다.</p>
+                <p>· 프리미어 가든 타입은 기본 패밀리 트윈(더블+싱글)이며, 패밀리 더블(더블+더블)로 선택 시, 1박에 60,500원 추가 비용이 발생합니다.</p>
+                <p>· 객실 수 제약으로 선착순 예약 원칙이오니 빠른 예약 부탁드립니다.</p>
+                <p>· 객실(블록)마감 : 2023년 7월 14일(금)까지이며 해당 일자에 만실이 예상되오니, 사전예약 바랍니다.</p>
             </div>
             <div data-button_box>
                 <button data-pre_btn type="button">이전</button>
@@ -279,13 +284,13 @@
                                     let bed = item.isSubBedPresent === true ? 48400 : 0
                                     let family = item.isBedFamilyTwin === true ? 36600 : 0
 
-                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost + (bed * cal_date) +  (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label><span>|</span><label><input type='checkbox' value='36600' data-twin_check " + (item.isBedFamilyTwin === true ? "checked" : "") + "> 패밀리 트윈으로 변경</label></div></div>");
+                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost + (bed * cal_date) +  (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label></div></div>");
                                 });
                             } else {
                                 $.each(response.hotelOrders, function (index, item) {
                                     let bed = item.isSubBedPresent === true ? 48400 : 0
                                     let family = item.isBedFamilyTwin === true ? 36600 : 0
-                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " / " + item.hotel.roomType + "<span data-cost>" + (total_cost[index].cost + (bed * cal_date) + (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' "+ (item.isSubBedPresent === true ? "checked" : "") + " data-bed_check> 보조침대 신청</label><span>|</span><label><input type='checkbox' value='36600' " + (item.isBedFamilyTwin === true ? "checked" : "") + " data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " / " + item.hotel.roomType + "<span data-cost>" + (total_cost[index].cost + (bed * cal_date) + (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' "+ (item.isSubBedPresent === true ? "checked" : "") + " data-bed_check> 보조침대 신청</label></div></div>");
                                 });
                             }
                             $("textarea").val(response.userMemo);
@@ -372,17 +377,16 @@
                         $(".room").show();
                         // PC 화면 일때
                         if (window.innerWidth > 760) {
-                            $("[data-show_row]").append("<div data-add_row='"+ hotel_val +"'><div><p>["+ start_val +"~"+ end_val +"] "+ hotel_txt +"<span data-bar>ㅣ</span><span data-cost>" + (hotel_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label><span>|</span><label><input type='checkbox' value='36600' data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                            $("[data-show_row]").append("<div data-add_row='"+ hotel_val +"'><div><p>["+ start_val +"~"+ end_val +"] "+ hotel_txt +"<span data-bar>ㅣ</span><span data-cost>" + (hotel_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
                         // Mobile 화면 일때
                         } else {
-                            $("[data-show_row]").append("<div data-add_row='" + hotel_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + hotel_txt +"<span data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label><span>|</span><label><input type='checkbox' value='36600' data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                            $("[data-show_row]").append("<div data-add_row='" + hotel_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + hotel_txt +"<span data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
 
                         }
                         room_list.push({
                             "hotelId": Number(hotel_val),
                             "stayStartDate": start_val,
                             "stayEndDate": end_val,
-                            "isBedFamilyTwin": $("[data-twin_check]").is(":checked") === true ? true : false,
                             "isSubBedPresent": $("[data-bed_check]").is(":checked") === true ? true : false
                         });
 
@@ -412,22 +416,6 @@
                     }
                     if (total_cost.length > index) {
                         total_cost.splice(index, 1);
-                        updateTotalCost();
-                    }
-                });
-
-                // 패밀리트윈 체크 여부
-                $(document).on("change", "[data-twin_check]", function () {
-                    var index = $("[data-twin_check]").index($(this));
-                    room_list[index].isBedFamilyTwin = $(this).is(":checked") === true ? true : false;
-                    console.log(index)
-                    // 체크박스 상태에 따라 total_cost 업데이트
-                    if ($(this).is(":checked")) {
-                        total_cost[index].cost += (36600 * Number(total_cost[index].date));
-                        updateTotalCost();
-                        console.log(total_cost[index].cost)
-                    } else {
-                        total_cost[index].cost -= (36600 * total_cost[index].date);
                         updateTotalCost();
                     }
                 });
