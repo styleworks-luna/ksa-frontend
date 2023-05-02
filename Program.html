@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/program.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/information.js"></script>
+</head>
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="./Notice.html">공지사항</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+            <li class="" data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div>
+            <a href="Index.html" data-logo_box></a>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-pc_process_box>
+            <ul>
+                <li><a>참가자정보입력</a></li>
+                <li><a href="./Flight.html">항공예약</a></li>
+                <li><a href="./Hotel.html">호텔예약</a></li>
+                <li><a href="./Rentalcar.html">렌터카예약</a></li>
+                <li class="present"><a href="./Program.html">프로그램</a></li>
+                <li><a href="./InformationConfirm.html">신청확인</a></li>
+                <li><button type="button" data-logout_btn>로그아웃</button></li>
+            </ul>
+        </div>
+        <div data-mobile_process_box>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="./Information.html">참가자정보입력</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Flight.html">항공예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Hotel.html">호텔예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Rentalcar.html">렌터카예약</a>
+                    </div>
+                    <div class="swiper-slide present">
+                        <a href="./Program.html">프로그램</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./InformationConfirm.html">신청확인</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <button type="button" data-logout_btn>로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-content_box="pc">
+            <div data-title_box>프로그램</div>
+            <div data-table_box>
+                <span data-date_row>7월 27일 (목)</span>
+                <table data-golf_thu_table>
+                    <tr>
+                        <th>종류</th>
+                        <th>내용</th>
+                        <th>참가비</th>
+                        <th>참여자</th>
+                        <th>기타</th>
+                    </tr>
+                    <tr data-golf_thu_row> </tr>
+                </table>
+                <p data-notice_row>· 그린피/캐디비/카트비, 그늘집 이용, 중식, 이동 차량의 비용이 포함되어 있습니다. (단, 클럽하우스 내 주류 이용료는 개별 부담)</p>
+                <table data-tour_thu_table>
+                    <tr>
+                        <th>종류</th>
+                        <th>내용</th>
+                        <th>참가비</th>
+                        <th>참여자</th>
+                        <th>기타</th>
+                    </tr>
+                </table>
+            </div>
+            <div data-table_box>
+                <span data-date_row>7월 28일 (금)</span>
+                <table data-golf_fri_table>
+                    <tr>
+                        <th>종류</th>
+                        <th>내용</th>
+                        <th>참가비</th>
+                        <th>참여자</th>
+                        <th>기타</th>
+                    </tr>
+                    <tr data-golf_fri_row>
+
+                    </tr>
+                </table>
+                <p data-notice_row>· 그린피/캐디비/카트비, 그늘집 이용, 중식, 이동 차량의 비용이 포함되어 있습니다. (단, 클럽하우스 내 주류 이용료는 개별 부담)</p>
+                <table data-tour_fri_table>
+                    <tr>
+                        <th>종류</th>
+                        <th>내용</th>
+                        <th>참가비</th>
+                        <th>참여자</th>
+                        <th>기타</th>
+                    </tr>
+                </table>
+                <table data-total_table>
+                    <tr>
+                        <th>요청사항</th>
+                        <td>
+                            <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>합계총액</span></th>
+                        <td>
+                            <p><span data-total>0</span>원</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div data-notice_box>
+                <p>· 골프와 관광 프로그램은 모두 동 시간대 진행되므로, 1인 1프로그램 선택만 가능합니다.</p>
+                <p>· 골프와 관광은 중식과 모든 제반 비용포함이며, 12시 ~ 18시 진행됩니다.</p>
+            </div>
+            <div data-button_box>
+                <button data-pre_btn type="button">이전</button>
+                <button type="submit">프로그램 저장</button>
+            </div>
+        </div>
+        <div data-content_box="mobile">
+            <div data-title_box>프로그램</div>
+            <div data-table_box>
+                <span data-date_row>7월 27일 (목)</span>
+                <div data-content="golf_thu">
+                </div>
+                <div data-content="tour_thu"></div>
+            </div>
+            <div data-table_box>
+                <span data-date_row>7월 28일 (금)</span>
+                <div data-content="golf_fri"></div>
+                <div data-content="tour_fri"></div>
+            </div>
+            <table data-total_table>
+                <tr>
+                    <th>요청사항</th>
+                    <td>
+                        <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th><span>합계총액</span></th>
+                    <td>
+                        <p><span data-total>0</span>원</p>
+                    </td>
+                </tr>
+            </table>
+            <div data-notice_box>
+                <p>· 골프와 관광 프로그램은 모두 동 시간대 진행되므로, 1인 1프로그램 선택만 가능합니다.</p>
+                <p>· 골프와 관광은 중식과 모든 제반 비용포함이며, 12시 ~ 18시 진행됩니다.</p>
+            </div>
+            <div data-button_box>
+                <button data-pre_btn type="button">이전</button>
+                <button type="submit">프로그램 저장</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    (사)한국산업기술진흥협회 · 대표자 구자균 · 사업자등록번호 220-82-00051 · 통신판매번호 서초 제09539 · 대표번호 02-3460-9114<br>
+                    COPYRIGHT ⓒ2020 Korea Industrial Technology Association all rights reserved.
+                </p>
+                <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        const id_num = getParameterByName('id');
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto',
+            spaceBetween: 23.5,
+            freeMode: true,
+        });
+        $(document).ready(function () {
+            const attend_id = sessionStorage.getItem('attend_id');
+            let golf_list = [];
+            let tour_list = [];
+            let thu_tour_list = [];
+            let thu_golf_list = [];
+            let fri_tour_list = [];
+            let fri_golf_list = [];
+            let total_cost = [];
+            let thu_list = [];
+            let fri_list = [];
+            let passenger
+            const tour_type = {
+                "NONE" : "없음",
+                "NATURAL" : "자연경관",
+                "CULTURE_TOUR" : "문화탐방",
+                "CULTURE_EXP" : "문화체험",
+                "HEALING_TOUR" : "힐링투어",
+            }
+
+            // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
+            if(attend_id !== null){
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-ksa.onoffmix.xyz/api/v1/program-orders?attendId=" + attend_id,
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        if (response.attendStatus === "DONE") {
+                            alert("이미 제출을 완료하셨습니다.\n신청 확인 페이지로 이동합니다.");
+                            window.location.href = "./InformationConfirm.html";
+                        }
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });   
+
+                //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-ksa.onoffmix.xyz/api/v1/programs?date=2023-07-27",
+                    success: function (response) {
+                        const data = response;
+                        const tour = data.tours;
+                        const golf = data.golfCourses;
+                        console.log(data)
+                        if (window.innerWidth > 760) {
+                            $.each(golf, function (index, item) {
+                                let full = item.capacity === item.currentAttenderNumber;
+                                $("[data-golf_thu_table]").append("<tr  " + (full === true ? "data-full_row" : "") + "><td>골프</td><td>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select data-thu_golf " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='golf'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
+                            });
+                            $.each(tour, function (index, array) {
+                                $.each(array, function (index, item) {
+                                    $("[data-tour_thu_table]").append("<tr><td rowspan='"+ array.length +"'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType +"' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='tour'></div></td></tr>");
+                                });
+                            });
+                        } else{
+                            $.each(golf, function (index, item) {
+                                let full = item.capacity === item.currentAttenderNumber;
+                                $("[data-content='golf_thu']").append("<div data-text_wrap><div data-flex_box='" + (full === true ? "full" : "") + "'><div data-text_box><span>골프</span><span>" + item.name + "</span><span>참가비 <span>" + item.cost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.roundDate + "' " + (full === true ? "disabled" : "") + " data-thu_golf data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost +"'><option selected disabled value=''>선택</option></select></div></div><div data-show_box='golf'></div></div>" + (full === true ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>" : "<p>· 그린피/캐디비/카트비, 그늘집 이용, 중식, 이동 차량의 비용이 포함되어 있습니다. (단, 클럽하우스 내 주류 이용료는 개별 부담)</p>") + "");
+                            });
+                            $.each(tour, function (index, array) {
+                                $.each(array, function (index, item) {
+                                    $("[data-content='tour_thu']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>" + tour_type[item.tourType] + "</span><span>" + item.description + "</span><span data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +">성인 <span>" + item.adultCost.toLocaleString() + "</span>소인 <span>" + item.childCost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></div></div><div data-show_box='tour'></div></div>");
+                                });
+                            });
+                        }
+                        //투어 정보 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/programs?date=2023-07-28",
+                            success: function (response) {
+                                const data = response;
+                                const tour = data.tours;
+                                const golf = data.golfCourses;
+
+                                if (window.innerWidth > 760) {
+                                    $.each(golf, function (index, item) {
+                                        let full = item.capacity === item.currentAttenderNumber;
+                                        $("[data-golf_fri_table]").append("<tr  " + (full === true ? "data-full_row" : "") + "><td>골프</td><td>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select data-date='" + item.roundDate + "' data-fri_golf " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='golf'></div></td></tr>");
+                                    });
+
+                                    $.each(tour, function (index, array) {
+                                        var rowspan = array.length;
+                                        $.each(array, function (index, item) {
+                                            if (index == 0) {
+                                                $("[data-tour_fri_table]").append("<tr><td rowspan='" + rowspan + "'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='tour'></div></td></tr>");
+                                            } else {
+                                                $("[data-tour_fri_table]").append("<tr><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult="+ item.adultCost +" data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='tour'></div></td></tr>");
+                                            }
+                                        });
+                                    });
+                                } else{
+                                    $.each(golf, function (index, item) {
+                                        let full = item.capacity === item.currentAttenderNumber;
+                                        $("[data-content='golf_fri']").append("<div data-text_wrap><div data-flex_box='" + (full === true ? "full" : "") + "'><div data-text_box><span>골프</span><span>" + item.name + "</span><span>참가비 <span>" + item.cost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.roundDate + "' data-fri_golf  " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></div></div><div data-show_box='golf'></div></div>" + (full === true ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>" : "<p>· 그린피/캐디비/카트비, 그늘집 이용, 중식, 이동 차량의 비용이 포함되어 있습니다. (단, 클럽하우스 내 주류 이용료는 개별 부담)</p>") + "");
+                                    });
+                                    $.each(tour, function (index, array) {
+                                        $.each(array, function (index, item) {
+                                            $("[data-content='tour_fri']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>" + tour_type[item.tourType] + "</span><span>" + item.description + "</span><span data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost + ">성인 <span>" + item.adultCost.toLocaleString() + "</span>소인 <span>" + item.childCost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></div></div><div data-show_box='tour'></div></div>");
+                                        });
+                                    });
+                                }
+                                
+                                // 이미 신청한 상황이라면 신청내역 보여주기
+                                $.ajax({
+                                    "type": "GET",
+                                    "url": "https://api-ksa.onoffmix.xyz/api/v1/program-orders?attendId=" + attend_id,
+                                    beforeSend: function (xhr) {
+                                        if (sessionStorage.getItem('token')) {
+                                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                        }
+                                    },
+                                    success: function (response) {
+                                        const golf = response.golfCourseOrder;
+                                        const golf_data = response.golfCourseOrder.golfCourseAttenders;
+                                        const tour = response.tourOrder;
+                                        const tour_data = response.tourOrder.tourAttenders;
+                                        $("textarea").val(response.userMemo)
+                                        if (golf_data !== null || tour_data !== null) {
+                                            if(tour_data !== null){
+                                                const toursOnSameDate = (attenders, date) => {
+                                                    const filteredAttenders = attenders.filter(attender => attender.tourStartDate === date);
+                                                    const result = filteredAttenders.reduce((acc, attender) => {
+                                                        const attenderIndex = acc.findIndex(el => el.attenderId === attender.attenderId);
+                                                        if (attenderIndex > -1) {
+                                                            acc[attenderIndex].tours.push(attender);
+                                                        } else {
+                                                            acc.push({
+                                                                attenderId: attender.attenderId,
+                                                                attenderName: attender.attenderName,
+                                                                date: attender.tourStartDate,
+                                                                tours: [attender]
+                                                            });
+                                                        }
+                                                        return acc;
+                                                    }, []);
+                                                    return result;
+                                                };
+                                                thu_tour_list = toursOnSameDate(tour_data, '2023-07-27');
+                                                fri_tour_list = toursOnSameDate(tour_data, '2023-07-28');
+                                            }
+                                            if (golf_data !== null) {
+                                                const golfOnSameDate = (attenders, date) => {
+                                                    const filteredAttenders = attenders.filter(attender => attender.roundDate === date);
+                                                    const result = filteredAttenders.reduce((acc, attender) => {
+                                                        const attenderIndex = acc.findIndex(el => el.attenderId === attender.attenderId);
+                                                        if (attenderIndex > -1) {
+                                                            acc[attenderIndex].tours.push(attender);
+                                                        } else {
+                                                            acc.push({
+                                                                attenderId: attender.attenderId,
+                                                                attenderName: attender.attenderName,
+                                                                date: attender.roundDate,
+                                                                tours: [attender]
+                                                            });
+                                                        }
+                                                        return acc;
+                                                    }, []);
+                                                    return result;
+                                                };
+                                                thu_golf_list = golfOnSameDate(golf_data, '2023-07-27');
+                                                fri_golf_list = golfOnSameDate(golf_data, '2023-07-28');
+                                            }   
+                                            thu_list = thu_tour_list.concat(thu_golf_list);
+                                            fri_list = fri_tour_list.concat(fri_golf_list);
+                                            $.each(golf_data, function (index, item) {
+                                                golf_list.push({
+                                                    "handicap": item.handicap,
+                                                    "attenderId": item.attenderId,
+                                                    "golfCourseId": item.golfCourseId,
+                                                });
+                                                total_cost.push({
+                                                    "attenderId": item.attenderId,
+                                                    "Id": item.golfCourseId,
+                                                    "cost": item.cost,
+                                                });
+                                            });
+                                            $.each(tour_data, function (index, item) {
+                                                tour_list.push({
+                                                    "attenderId": item.attenderId,
+                                                    "tourId": item.tourId,
+                                                });
+                                                total_cost.push({
+                                                    "attenderId": item.attenderId,
+                                                    "Id": item.tourId,
+                                                    "cost": item.cost
+                                                });
+                                            });
+                                            
+                                            totalCost();
+                                            
+                                            $.each(golf_data, function (index, item) {
+                                                let full = item.capacity === item.currentAttenderNumber;
+                                                let golfCourseId = item.golfCourseId;
+                                                if (window.innerWidth > 760) {
+                                                    let $showBox = $("[data-id='" + golfCourseId + "']").closest('tr').find("[data-show_box='golf']");
+    
+                                                    $showBox.append("<div data-golf_row data-attender_id='" + item.attenderId + "' data-golf_id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='"+ item.roundDate +"'><span>" + item.attenderName + "</span><input type='text' placeholder='핸디값' data-handy_input value='"+ item.handicap +"'><button type='button' >X</button></div>");
+                                                }else{
+                                                    const $showBox = $("[data-id='" + golfCourseId + "']").closest("[data-text_wrap]").find("[data-show_box='golf']");
+                                                    
+                                                    $showBox.append("<div data-golf_row data-date='" + item.roundDate +"' data-attender_id='" + item.attenderId + "' data-golf_id='" + item.golfCourseId + "' data-cost='" + item.cost  + "'><span>" + item.attenderName + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + item.handicap +"'><button type='button'>X</button></div>");
+                                                }
+                                            });
+                                           
+                                            $.each(tour_data, function (index, item) {
+                                                if (window.innerWidth > 760) {
+                                                    console.log(tour_data)
+                                                    let $showBox = $("[data-id='" + item.tourId + "']").closest('tr').find("[data-show_box='tour']");
+    
+                                                    $showBox.append("<div data-tour_row data-date='" + item.tourStartDate +"' data-attender_id='" + item.attenderId + "' data-tour_id='" + item.tourId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
+                                                }else{
+                                                    let $showBox = $("[data-id='" + item.tourId + "']").closest('[data-text_wrap]').find("[data-show_box='tour']");
+
+                                                    $showBox.append("<div data-tour_row data-date='" + item.tourStartDate +"' data-attender_id='" + item.attenderId + "' data-tour_id='" + item.tourId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
+                                                }
+                                            });
+                                             // API 호출하여 동행인 목록 가져오기 (목 골프)
+                                            $.ajax({
+                                                "type": "GET",
+                                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                                success: function (response) {
+                                                    passenger = response;
+                                                    console.log(passenger)
+                                                    $("[data-thu_golf] option:not(:first-child)").remove();
+                                                    $.each(passenger, function (index, item) {
+                                                        if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                                            $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        }
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    alert("error")
+                                                }
+                                            });
+
+                                            // API 호출하여 동행인 목록 가져오기 (목 투어)
+                                            $.ajax({
+                                                "type": "GET",
+                                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                                success: function (response) {
+                                                    passenger = response;
+                                                    $("[data-thu_tour] option:not(:first-child)").remove();
+                                                    $.each(passenger, function (index, item) {
+                                                        if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                                            $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        }
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    alert("error")
+                                                }
+                                            });
+
+                                            // API 호출하여 동행인 목록 가져오기 (금 골프)
+                                            $.ajax({
+                                                "type": "GET",
+                                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                                success: function (response) {
+                                                    passenger = response;
+                                                    $("[data-fri_golf] option:not(:first-child)").remove();
+                                                    $.each(passenger, function (index, item) {
+                                                        if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                                            $("[data-fri_golf").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        }
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    alert("error")
+                                                }
+                                            });
+
+                                            // API 호출하여 동행인 목록 가져오기 (금 투어)
+                                            $.ajax({
+                                                "type": "GET",
+                                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                                success: function (response) {
+                                                    passenger = response;
+                                                    $("[data-fri_tour] option:not(:first-child)").remove();
+                                                    $.each(passenger, function (index, item) {
+                                                        if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                                            $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        }
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    alert("error")
+                                                }
+                                            });
+                                        }else{
+                                            $.ajax({
+                                                "type": "GET",
+                                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                                success: function (response) {
+                                                    passenger = response;
+                                                    $("select").each(function () {
+                                                        var select = $(this);
+                                                        $.each(passenger, function (index, item) {
+                                                            select.append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        });
+                                                    });
+                                                },
+                                                error: function (error) {
+                                                    alert("error")
+                                                }
+                                            });
+                                        }
+                                    },
+                                    error: function (error) {
+                                        alert("error")
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                //골프 참여자 선택시 리스트에 추가
+                $(document).on("change", "[data-golf]", function () {
+                    const val = $(this).val();
+                    const text = $(this).find("option:selected").text();
+                    const id = $(this).data("id");
+                    const date = $(this).data("date");
+                    const cost = $(this).data("cost");
+                    console.log(date)
+                    if (window.innerWidth > 760){
+                        const $showBox = $("[data-show_box='golf']", $(this).closest("tr"));
+                        $showBox.append("<div data-golf_row data-date='"+ date +"' data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input><button type='button'>X</button></div>");
+                    }else {
+                        const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='golf']");
+                        $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input><button type='button'>X</button></div>");
+                    }
+                    if(date == '2023-07-27') {
+                        thu_list.push({
+                            "attenderId": val,
+                            "Id": text,
+                            "date" : date
+                        });
+                        // API 호출하여 동행인 목록 가져오기 (목 골프)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    }else if( date == '2023-07-28' ){
+                        fri_list.push({
+                           "attenderId": val,
+                            "Id": text,
+                            "date": date
+                        });
+                        // API 호출하여 동행인 목록 가져오기 (금 골프)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    }
+                    golf_list.push({
+                        "handicap": 0,
+                        "attenderId": val,
+                        "golfCourseId": id
+                    });
+                    total_cost.push({
+                        "attenderId": val,
+                        "Id": id,
+                        "cost": cost,
+                    });
+                    totalCost();
+                    $("[data-golf]").val("");
+
+                });
+
+                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 골프 리스트에서도 삭제
+                $(document).on("click", "[data-golf_row] button", function () {
+                    const id = $(this).closest("[data-golf_row]").data("golf_id");
+                    const val = $(this).closest("[data-golf_row]").data("attender_id");
+                    const cost = $(this).closest("[data-golf_row]").data("cost");
+                    const date = $(this).closest("[data-golf_row]").data("date");
+                    console.log(date)
+                    golf_list = golf_list.filter(function (item) {
+                        return !(item.attenderId == val && item.golfCourseId == id);
+                    });
+                    total_cost = total_cost.filter(function (item) {
+                        return !(item.attenderId == val && item.Id == id && item.cost == cost);
+                    });
+                    $(this).closest("[data-golf_row]").remove();
+                    totalCost();
+
+                    if (date == '2023-07-27') {
+                        thu_list = thu_list.filter(function (item) {
+                            return !(item.attenderId == val);
+                        });
+
+                        // API 호출하여 동행인 목록 가져오기 (목)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    } else if (date == '2023-07-28') {
+                        
+                        fri_list = fri_list.filter(function (item) {
+                            return !(item.attenderId == val);
+                        });
+                       // API 호출하여 동행인 목록 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    }
+                });
+
+                // 골프 핸디값 입력시
+                $(document).on("input", "[data-handy_input]", function () {
+                    const id = $(this).closest("[data-golf_row]").data("golf_id");
+                    const val = $(this).closest("[data-golf_row]").data("attender_id");
+                    const index = golf_list.findIndex(item => item.attenderId == val && item.golfCourseId == id);
+                    if (index !== -1) {
+                        golf_list[index].handicap = $(this).val();
+                    }
+                });
+
+               // 투어 참여자 선택시 리스트에 추가
+                $(document).on("change", "[data-tour]", function () {
+                    const val = $(this).val();
+                    const text = $(this).find("option:selected").text();
+                    const type = $(this).data("tour");
+                    const date = $(this).data("date");
+                    const id = $(this).data("id");
+                    const age = $(this).find("option:selected").data("type");
+                    let cost;
+                    if (window.innerWidth > 760) {
+                        const adult = $(this).closest("tr").find("[data-amount_row]").data("adult");
+                        const child = $(this).closest("tr").find("[data-amount_row]").data("child");
+                        const $showBox = $("[data-show_box='tour']", $(this).closest("tr"));
+                        cost = age === "ADULT" ? adult : child;
+
+                        $showBox.append("<div data-tour_row data-date='" + date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
+                    }else {
+                        const adult = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("adult");
+                        const child = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("child");
+                        const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='tour']");
+                        cost = age === "ADULT" ? adult : child;
+
+                        $showBox.append("<div data-tour_row data-date='"+ date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
+                    }
+                    
+                    tour_list.push({
+                        "attenderId": val,
+                        "tourId": id
+                    });
+
+                    total_cost.push({
+                        "attenderId": val,
+                        "Id": id,
+                        "cost": cost
+                    });
+                    $("[data-tour]").val("");
+                    totalCost();
+
+                    if (date == '2023-07-27') {
+                        thu_list.push({
+                            "attenderId": val,
+                            "Id": text,
+                        });
+
+                        // API 호출하여 동행인 목록 가져오기 (목)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    } else if (date == '2023-07-28') {
+                        fri_list.push({
+                            "attenderId": val,
+                            "Id": text,
+                        });
+                        // API 호출하여 동행인 목록 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    }
+                });
+
+                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 투어 리스트에서도 삭제
+                $(document).on("click", "[data-tour_row] button", function () {
+                    const id = $(this).closest("[data-tour_row]").data("tour_id");
+                    const val = $(this).closest("[data-tour_row]").data("attender_id");
+                    const cost = $(this).closest("[data-tour_row]").data("cost");
+                    const date = $(this).closest("[data-tour_row]").data("date");
+                    tour_list = tour_list.filter(function (item) {
+                        return !(item.attenderId == val && item.tourId == id);
+                    });
+                    total_cost = total_cost.filter(function (item) {
+                        return !(item.attenderId == val && item.Id == id && item.cost == cost);
+                    });
+                    $(this).closest("[data-tour_row]").remove();
+                    totalCost();
+                    
+                    if (date == '2023-07-27') {
+                        thu_list = thu_list.filter(function (item) {
+                            return !(item.attenderId == val);
+                        });
+                        // API 호출하여 동행인 목록 가져오기 (목)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    } else if (date == '2023-07-28') {
+                        fri_list = fri_list.filter(function (item) {
+                            return !(item.attenderId == val);
+                        });
+                        // API 호출하여 동행인 목록 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            success: function (response) {
+                                passenger = response;
+                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $.each(passenger, function (index, item) {
+                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    }
+                });
+                function totalCost() {
+                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-total]").text(sum.toLocaleString());
+                };
+
+                 $("button[type='submit']").click(function () {
+                    const individual_date = $("input[type='date']").val();
+                    const time = $("input[type='time']").val();
+                    const data = {
+                        "attendId": attend_id,
+                        "golfCourseOrders": golf_list,
+                        "tourOrders": tour_list,
+                        "userMemo": $("textarea").val()
+                    };
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/program-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                            window.location.href = "./InformationConfirm.html";
+                        },
+                        error: function (xhr, status, error) {
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+            }else{
+                alert("잘못된 요청입니다.");
+                window.location.href = "./Application.html";
+            }
+        });
+    </script>
+</body>
+</html>

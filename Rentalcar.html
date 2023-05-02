@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/flight.css">
+    <link rel="stylesheet" href="/css/lentalcar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/information.js"></script>
+</head>
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="./Notice.html">공지사항</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+            <li class="" data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div>
+            <a href="Index.html" data-logo_box></a>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-pc_process_box>
+            <ul>
+                <li><a>참가자정보입력</a></li>
+                <li><a href="./Flight.html">항공예약</a></li>
+                <li><a href="./Hotel.html">호텔예약</a></li>
+                <li class="present"><a href="./Rentalcar.html">렌터카예약</a></li>
+                <li><a href="./Program.html">프로그램</a></li>
+                <li><a href="./InformationConfirm.html">신청확인</a></li>
+                <li><button type="button" data-logout_btn>로그아웃</button></li>
+            </ul>
+        </div>
+        <div data-mobile_process_box>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a>참가자정보입력</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Flight.html">항공예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Hotel.html">호텔예약</a>
+                    </div>
+                    <div class="swiper-slide present">
+                        <a href="./Rentalcar.html">렌터카예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Program.html">프로그램</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./InformationConfirm.html">신청확인</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <button type="button" data-logout_btn>로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-content_box>
+            <div data-title_box>렌터카 예약</div>
+            <table>
+                <tr>
+                    <th>차종선택</th>
+                    <td>
+                        <select data-car_select class="reset">
+                            <option selected disabled value="">선택</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr data-date_row>
+                    <th>사용일자</th>
+                    <td>
+                        <div data-date_box>
+                            <div data-time_box>
+                                <input data-start_date type="date" min="2023-07-05" max="2023-07-08" data-placeholder="대여 시작일 선택" class="reset">
+                                <div data-check_in_box>
+                                    <select data-start_hour_select class="reset">
+                                        <option selected disabled>선택</option>
+                                    </select><span>시</span>
+                                    <select data-start_min_select class="reset">
+                                        <option selected disabled>선택</option>
+                                    </select><span>분</span>
+                                </div>
+                            </div>
+                            <div data-time_box>
+                                <input data-end_date type="date" min="2023-07-05" max="2023-07-08" data-placeholder="반납일자 선택" class="reset">
+                                <div data-check_in_box>
+                                    <select data-end_hour_select class="reset">
+                                        <option selected disabled value="">선택</option>
+                                    </select><span>시</span>
+                                    <select data-end_min_select class="reset">
+                                        <option selected disabled value="">선택</option>
+                                    </select><span>분</span>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-list_row>
+                    <th><span class="car">차량현황</span></th>
+                    <td>
+                        <div data-show_row class="car">
+                        </div>
+                    </td>
+                </tr>
+                <tr data-text_row>
+                    <th>요청 사항</th>
+                    <td>
+                        <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>합계 총액</th>
+                    <td>
+                        <div data-total_box>
+                            <span><span data-total>0</span>원</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <div data-notice_box>
+                <p>· 중형,고급형,SUV,카니발급 1일(24시간) 단위로 신청가능,선착순마감(차종, 색상 랜덤 배정 / 주유비, 주차통행료 불포함)</p>
+                <p>· 제주공항에서 수령·반납 가능 (공항에서 셔틀버스 이용하여 지점으로 이동 수령·반납) 롯데호텔 수령·반납은 신청시 문의 바랍니다.</p>
+            </div>
+            <div data-button_box>
+                <button data-pre_btn type="button">이전</button>
+                <button type="submit">호텔정보 저장</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    (사)한국산업기술진흥협회 · 대표자 구자균 · 사업자등록번호 220-82-00051 · 통신판매번호 서초 제09539 · 대표번호 02-3460-9114<br>
+                    COPYRIGHT ⓒ2020 Korea Industrial Technology Association all rights reserved.
+                </p>
+                <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        const id_num = getParameterByName('id');
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto',
+            spaceBetween: 23.5,
+            freeMode: true,
+        });
+        $(document).ready(function () {
+            const attend_id = sessionStorage.getItem('attend_id');
+            let car_list = [];
+            let total_cost = [];
+            let car_val = "";
+            let car_txt = "";
+            let car_cost = 0;
+            let start_val = "";
+            let end_val = "";
+            let start_time_val = "";
+            let start_min_val = "";
+            let end_time_val = "";
+            let end_min_val = "";
+            let check_hour = "";
+            let check_min = "";
+            let cal_date;
+            let index = 0;
+            if (window.innerWidth > 760){
+                // 시간 드롭다운 목록 생성
+                for (let i = 0; i <= 23; i++) {
+                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    $("[data-start_hour_select],[data-end_hour_select]").append(hour_option);
+                }
+                // 분 드롭다운 목록 생성
+                for (let i = 0; i <= 59; i += 30) {
+                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    $("[data-start_min_select], [data-end_min_select]").append(min_option);
+                }
+
+            }else{
+                for (let i = 0; i <= 23; i++) {
+                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0') + "시");
+                    $("[data-hour_select]").append(hour_option);
+                }
+                for (let i = 0; i <= 59; i += 30) {
+                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0') + "분");
+                    $("[data-min_select]").append(min_option);
+                }
+            }
+
+            // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
+            if(attend_id !== null){
+
+                //이미 신청한 상황이라면 신청내역 보여주기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders?attendId=" + attend_id,
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        console.log(response)
+                        if (response.attendStatus === "DONE") {
+                            alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
+                            window.location.href = "./InformationConfirm.html";
+                        }
+                        if (response.renterCarOrders !== null) {
+                            $(".car").show();
+                            $.each(response.renterCarOrders, function (index, item) {
+                                cal_date = (new Date(item.renterStartDate) - new Date(item.renterEndDate)) / (1000 * 60 * 60 * 24);
+                                if (cal_date <= 0) {
+                                    cal_date = 1;
+                                } 
+                                
+                                car_list.push({
+                                    "renterCarId": Number(item.renterCar.renterCarId),
+                                    "renterStartDate": item.renterStartDate,
+                                    "renterStartTime": item.renterStartTime,
+                                    "renterEndDate": item.renterEndDate,
+                                    "renterEndTime": item.renterEndTime,
+                                    "pickUpPlace": item.pickUpPlace,
+                                    "returnPlace": item.returnPlace
+                                });
+
+                                total_cost.push({
+                                    "renterCarId": Number(item.renterCar.renterCarId),
+                                    "cost":  item.orderCost * cal_date,
+                                    "date":  cal_date
+                                });
+                            });
+                            if (window.innerWidth > 760) {
+                                $.each(response.renterCarOrders, function (index, item) {
+                                    $("[data-show_row]").append("<div data-add_row='" + item.renterCarId + "'><div data-info_box><p>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-bar>ㅣ</span><span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-pickup_check><sapn data-text>수령장소</sapn><label><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><sapn data-text>반납장소</sapn><label><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div>");
+                                });
+                            } else {
+                                $.each(response.renterCarOrders, function (index, item) {
+                                    $("[data-show_row]").append("<div data-add_row=''><div data-info_box><p>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-pickup_check><sapn data-text>수령장소</sapn><label><input type='radio'  name='pickup" + index + "' data-pick_jeju value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='hotel' data-pick_hotel " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><sapn data-text>반납장소</sapn><label><input type='radio' name='back" + index + "' value='airport' data-back_jeju " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='hotel' data-back_hotel " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div></div>");
+                                });
+                            }
+                            $("textarea").val(response.userMemo);
+                            $("[data-total]").text(response.totalCost.toLocaleString());
+                            
+                        }
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 렌터카 데이터 불러오기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-cars?year=2023",
+                    success: function (response) {
+                        console.log(response)
+                        $.each(response, function (index, item) {
+                            $("[data-car_select]").append('<option data-cost="'+ item.cost +'" value="' + item.renterCarId + '">' + item.name + " / " + item.cost.toLocaleString() +"원"+"</option>");
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 체크아웃 날짜보다 체크인 날짜가 뒤면 얼럿창 제공
+                function checkDates() {
+                    if (new Date(start_val) > new Date(end_val)) {
+                        alert("종료일이 시작일보다 먼저일수는 없습니다.");
+                        $("[data-end_date]").val("")
+                        $("[data-start_date]").val("")
+                        start_val = "";
+                        end_val = "";
+                    }else if(start_val === end_val){
+                        alert("시작일과 종료일이 같을수는 없습니다.");
+                        $("[data-start_date]").val("")
+                        $("[data-end_date]").val("")
+                        start_val = "";
+                        end_val = "";
+                    }
+                    //N박 텍스트 표기
+                    cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
+                    if(cal_date > 0){
+                        $("[data-cal_row]").text(cal_date +"박")
+                    }else{
+                        $("[data-cal_row]").text("")
+                        cal_date = 1;
+                    }
+                }
+
+                // 투숙 기간과 객실 선택 후 리스트에 추가
+                $("[data-start_date]").change(function () {
+                    const val = $(this).val();
+                    start_val = val;
+                    showSelectedInfo();
+                    checkDates();
+                });
+
+                $("[data-end_date]").change(function () {
+                    const val = $(this).val();
+                    end_val = val;
+                    showSelectedInfo();
+                    checkDates();
+                });
+
+                $("[data-start_hour_select]").change(function () {
+                    const val = $(this).val();
+                    start_time_val = val;
+                    showSelectedInfo();
+                });
+    
+                $("[data-start_min_select]").change(function () {
+                    const val = $(this).val();
+                    start_min_val = val;
+                    showSelectedInfo();
+                });
+
+                $("[data-end_hour_select]").change(function () {
+                    const val = $(this).val();
+                    end_time_val = val;
+                    showSelectedInfo();
+                });
+
+                $("[data-end_min_select]").change(function () {
+                    const val = $(this).val();
+                    end_min_val = val;
+                    showSelectedInfo();
+                });
+    
+                
+                $("[data-car_select]").change(function () {
+                    const val = $(this).val();
+                    const txt = $("option:checked", this).text();
+                    const cost = $("option:checked", this).data("cost");
+                    car_val = val;
+                    car_txt = txt;
+                    car_cost = cost;
+                    showSelectedInfo();
+                });
+
+                $("input[data-placeholder]").on("change", (event) => {
+                    const target = $(event.target);
+                    if (target.val() !== "") {
+                        target.addClass("empty");
+                    } else {
+                        target.removeClass("empty");
+                    }
+                });
+
+                function showSelectedInfo() {
+                    if (car_val !== "" && start_val !== "" && end_val !== "" && start_time_val !== "" && start_min_val !== "" && end_time_val !== "" && end_min_val !== "") {
+                        $(".car").show();
+                        // PC 화면 일때
+                        if (window.innerWidth > 760) {
+                            $("[data-show_row]").append("<div data-add_row='" + car_val + "'><div data-info_box><p>[" + start_val + "~" + end_val + "] " + car_txt +"<span data-bar>ㅣ</span><span data-cost>" + (car_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div><div data-pickup_check><sapn data-text>수령장소</sapn><label><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT'> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick>롯데호텔</label></div><div data-back_check><sapn data-text>반납장소</sapn><label><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back> 롯데호텔</label></div></div>");
+                            index++
+                            // Mobile 화면 일때
+                        } else {
+                            $("[data-show_row]").append("<div data-add_row='" + car_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + car_txt +"<span data-cost>" + (car_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label><span>|</span><label><input type='checkbox' value='36600' data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                        }
+
+                        const start_hour = start_time_val < 10 ? '0' + start_time_val.toString() : start_time_val.toString();
+                        const start_min = start_min_val < 10 ? '0' + start_min_val.toString() : start_min_val.toString();
+                        const end_hour = end_time_val < 10 ? '0' + end_time_val.toString() : end_time_val.toString();
+                        const end_min = end_min_val < 10 ? '0' + end_min_val.toString() : end_min_val.toString();
+
+                        car_list.push({
+                            "renterCarId": Number(car_val),
+                            "renterStartDate": start_val,
+                            "renterStartTime": start_hour + ":" + start_min + ":00",
+                            "renterEndDate": end_val,
+                            "renterEndTime": end_hour + ":" + end_min + ":00",
+                            "pickUpPlace": $('input[name="pickup"]:checked').val(),
+                            "returnPlace": $('input[name="back"]:checked').val()
+                        });
+
+                        total_cost.push({
+                            "hotelId": car_val,
+                            "cost": car_cost * cal_date,
+                            "date": cal_date
+                        });
+                        updateTotalCost();
+                        $('.reset').val("");
+                        start_val = "";
+                        end_val = "";
+                        start_time_val = "";
+                        start_min_val = "";
+                        end_time_val = "";
+                        end_min_val = "";
+                    }
+                }
+                
+                // 삭제 버튼 클릭 시 해당 객실 삭제 후 리스트에서도 삭제
+                $(document).on("click", "[data-add_row] button", function () {
+                    const add_row = $(this).closest("[data-add_row]");
+                    const index = add_row.index();
+                    add_row.remove();
+                    if (car_list.length > index) {
+                        car_list.splice(index, 1);
+
+                    }
+                    if (car_list.length === 0) {
+                        $(".room").hide();
+                    }
+                    if (total_cost.length > index) {
+                        total_cost.splice(index, 1);
+                        updateTotalCost();
+                    }
+                });
+
+                // 수령장소 지정
+                $(document).on("click", "[data-pick]", function () {
+                    const index = $(this).closest("[data-add_row]").index();
+                    car_list[index].pickUpPlace = $(this).val();
+                    console.log(car_list)
+                    console.log(index)
+                });
+
+                // 반납장소 지정
+                $(document).on("click", "[data-back]", function () {
+                    const index = $(this).closest("[data-add_row]").index();
+                    car_list[index].returnPlace = $(this).val();
+                    console.log(index)
+                });
+
+                $("button[type='submit']").click(function () {
+                    const data = {
+                        "attendId": attend_id,
+                        "renterCars": car_list,
+                        "userMemo": $("textarea").val(),
+                    };
+                    console.log(data)
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                            // window.location.href = "./Program.html";
+                        },
+                        error: function (xhr, status, error) {
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+                function updateTotalCost() {
+                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-total]").text(sum.toLocaleString());
+                }
+            }else{
+                alert("잘못된 요청입니다.");
+                window.location.href = "./Application.html";
+            }
+        });
+    </script>
+</body>
+</html>

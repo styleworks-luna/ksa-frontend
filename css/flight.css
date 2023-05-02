@@ -1,0 +1,396 @@
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main [data-content_box] {
+  width: 100%;
+  max-width: 1280px;
+  padding-top: 103px;
+}
+main [data-content_box] [data-title_box] {
+  width: 100%;
+  border-bottom: 1px solid #222;
+  font-size: 36px;
+  font-weight: bold;
+  padding-bottom: 23px;
+}
+main [data-content_box] table {
+  width: 100%;
+  margin-top: 18px;
+}
+main [data-content_box] table tr {
+  height: 92px;
+}
+main [data-content_box] table tr th {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 500;
+  vertical-align: middle;
+  padding-left: 31px;
+  width: 181px;
+}
+main [data-content_box] table tr td {
+  font-size: 20px;
+  vertical-align: middle;
+  padding-left: 0px;
+}
+main [data-content_box] table tr td select {
+  font-size: 20px;
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+  width: 680px;
+  height: 68px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  border: 1px solid #dedede;
+  outline: 0 none;
+  color: #222;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(/images/icon-up-small_black.svg);
+  background-position: center right 18px;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+main [data-content_box] table tr td select:focus {
+  border-color: #aaa;
+}
+main [data-content_box] table tr td select:disabled {
+  background-color: #aaa;
+  pointer-events: none;
+}
+main [data-content_box] table tr td textarea {
+  font-size: 20px;
+  margin-top: 15px;
+  width: 680px;
+  border-color: #dedede;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 20px;
+}
+main [data-content_box] table tr td textarea::placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main [data-content_box] table tr td [data-select_box] {
+  padding-left: 10px;
+}
+main [data-content_box] table tr td [data-select_box] label {
+  padding-right: 25px;
+}
+main [data-content_box] table tr td [data-select_box] label input {
+  margin-right: 14px;
+}
+main [data-content_box] table tr td [data-total_box] {
+  display: flex;
+  align-items: center;
+  padding-left: 21px;
+}
+main [data-content_box] table tr td [data-total_box] span {
+  font-size: 24px;
+}
+main [data-content_box] table tr td [data-total_box] span span {
+  color: #7e499f;
+  font-weight: bold;
+}
+main [data-content_box] table [data-none_row] {
+  height: auto;
+}
+main [data-content_box] table [data-none_row] [data-date_box] {
+  display: flex;
+  height: 92px;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input {
+  padding: 0 20px;
+  box-sizing: border-box;
+  outline: none;
+  height: 70px;
+  width: 334px;
+  border: 1px solid #dedede;
+  font-size: 20px;
+  margin-right: 12px;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input::placeholder {
+  font-size: 20px;
+  color: #c2c2c2;
+}
+main [data-content_box] table [data-none_row] .display {
+  display: none;
+}
+main [data-content_box] table [data-list_row] {
+  height: auto;
+}
+main [data-content_box] table [data-list_row] th {
+  vertical-align: top;
+}
+main [data-content_box] table [data-list_row] th .passenger {
+  font-weight: 500;
+  padding-top: 35px;
+  display: none;
+}
+main [data-content_box] table [data-list_row] td .passenger {
+  padding-top: 23px;
+  display: none;
+}
+main [data-content_box] table [data-list_row] td .passenger [data-add_row] {
+  height: 45px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+main [data-content_box] table [data-list_row] td .passenger [data-add_row] p {
+  font-size: 16px;
+}
+main [data-content_box] table [data-list_row] td .passenger [data-add_row] button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #aeaeae;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+main [data-content_box] table [data-text_row] {
+  height: auto;
+}
+main [data-content_box] [data-notice_box] {
+  width: 100%;
+  padding: 30px;
+  background-color: #f7f7f7;
+  margin-top: 50px;
+}
+main [data-content_box] [data-notice_box] p {
+  font-size: 18px;
+  line-height: 30px;
+}
+main [data-content_box] [data-notice_box] [data-red_text] {
+  color: #f10000;
+}
+main [data-content_box] [data-button_box] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 130px;
+}
+main [data-content_box] [data-button_box] button {
+  width: 200px;
+  height: 54px;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #004446;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+main [data-content_box] [data-button_box] [data-pre_btn] {
+  margin-right: 20px;
+  background-color: #a3a3a3;
+}
+
+@media (max-width: 760px) {
+  main [data-content_box] {
+    width: 100%;
+    max-width: 1280px;
+    padding-top: 39px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  main [data-content_box] [data-title_box] {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  main [data-content_box] table {
+    width: 100%;
+    margin-top: 18px;
+  }
+  main [data-content_box] table tr {
+    height: 67px;
+  }
+  main [data-content_box] table tr th {
+    font-size: 14px;
+    text-align: left;
+    font-weight: 500;
+    vertical-align: middle;
+    padding-left: 18px;
+    width: 106px;
+  }
+  main [data-content_box] table tr td {
+    font-size: 14px;
+    vertical-align: middle;
+    padding-left: 0px;
+  }
+  main [data-content_box] table tr td select {
+    font-size: 14px;
+    width: 100%;
+    height: 50px;
+    padding-right: 30px;
+  }
+  main [data-content_box] table tr td select:focus {
+    border-color: #aaa;
+  }
+  main [data-content_box] table tr td textarea {
+    font-size: 14px;
+    margin-top: 0px;
+    width: 100%;
+    height: 100px;
+    border-color: #dedede;
+    padding: 15px 20px;
+  }
+  main [data-content_box] table tr td textarea::placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-select_box] {
+    padding-top: 15px;
+    padding-left: 4px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  main [data-content_box] table tr td [data-select_box] label {
+    display: flex;
+    align-items: center;
+    padding-right: 13px;
+    padding-bottom: 23px;
+  }
+  main [data-content_box] table tr td [data-select_box] label input {
+    margin-right: 10px;
+  }
+  main [data-content_box] table tr td [data-total_box] {
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+  }
+  main [data-content_box] table tr td [data-total_box] span {
+    font-size: 16px;
+  }
+  main [data-content_box] table tr td [data-total_box] span span {
+    color: #7e499f;
+    font-weight: bold;
+  }
+  main [data-content_box] table tr:first-of-type th {
+    vertical-align: top;
+    padding-top: 15px;
+  }
+  main [data-content_box] table tr:first-of-type td {
+    vertical-align: top;
+  }
+  main [data-content_box] table [data-none_row] {
+    height: auto;
+  }
+  main [data-content_box] table [data-none_row] th {
+    vertical-align: top;
+    padding-top: 9px;
+    line-height: 18px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input {
+    padding: 0 20px;
+    height: 50px;
+    width: 100%;
+    font-size: 14px;
+    margin-right: 12px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input::placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input:first-of-type {
+    margin-bottom: 8px;
+  }
+  main [data-content_box] table [data-list_row] {
+    height: auto;
+  }
+  main [data-content_box] table [data-list_row] th {
+    vertical-align: top;
+  }
+  main [data-content_box] table [data-list_row] th .passenger {
+    padding-top: 18px;
+    display: none;
+  }
+  main [data-content_box] table [data-list_row] td .passenger {
+    padding-top: 15px;
+    padding-bottom: 12px;
+    display: none;
+  }
+  main [data-content_box] table [data-list_row] td .passenger [data-add_row] {
+    display: block;
+    height: auto;
+    border-bottom: #222 !important;
+  }
+  main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] span {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #aeaeae;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 50%;
+    margin-left: 20px;
+  }
+  main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-info_box] {
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 16px;
+    line-height: 20px;
+  }
+  main [data-content_box] [data-notice_box] {
+    width: 100%;
+    padding: 20px 16px;
+    background-color: #f7f7f7;
+    margin-top: 24px;
+  }
+  main [data-content_box] [data-notice_box] p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+  main [data-content_box] [data-button_box] {
+    padding-top: 18px;
+    padding-bottom: 70px;
+  }
+  main [data-content_box] [data-button_box] button {
+    width: 159px;
+    height: 50px;
+    font-size: 16px;
+  }
+  main [data-content_box] [data-button_box] [data-pre_btn] {
+    margin-right: 10px;
+    background-color: #a3a3a3;
+  }
+}
+
+/*# sourceMappingURL=flight.css.map */

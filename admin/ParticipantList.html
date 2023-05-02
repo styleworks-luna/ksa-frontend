@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>관리자 페이지 - KOITA</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <link href="css/button.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">KOITA</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>현황표</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="ParticipantList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>참가자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="CancledList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>취소자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
+                    <span>관리자 설정</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="NoticeList.html">
+                    <i class='fa fa-bell'></i>
+                    <span>공지사항</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="row">
+                        <h1 class="h3 mt-1 text-gray-800 col align-self-end">참가자 명단</h1>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div class="row pl-3 mb-3 justify-content-between" style="width: 100%">
+                                    <div class="row pl-3" style="width: 90%">
+                                        <select id="friendlyGroupFilter" class="form-control mr-2 border-primary text-primary font-weight-bold" style="width: 150px;">
+                                            <option selected disabled>교류회</option>
+                                            <option value="">전체</option>
+                                            <option value="EXECUTIVE">임원사</option>
+                                            <option value="NRDC">전소협</option>
+                                            <option value="NET">NET</option>
+                                            <option value="CEO">CEO</option>
+                                            <option value="CTO">CTO</option>
+                                            <option value="NEW_CTO">차세대 CTO</option>
+                                            <option value="NONE">해당없음</option>
+                                        </select>
+                                        <select id="ApplyGroupFilter" class="form-control mr-2 border-primary text-primary font-weight-bold" style="width: 150px;">
+                                            <option selected disabled>신청상태</option>
+                                            <option value="">전체</option>
+                                            <option value="APPLYING">신청중</option>
+                                            <option value="DONE">신청완료</option>
+                                        </select>
+                                        <select id="depositStatusFilter" class="form-control mr-2 border-primary text-primary font-weight-bold" style="width: 150px;">
+                                            <option selected disabled>입금여부</option>
+                                            <option value="">전체</option>
+                                            <option value="NON_PAY">미납</option>
+                                            <option value="FULL_PAY">입금완료</option>
+                                        </select>
+                                        <select id="taxbillPublishStatusFilter" class="form-control mr-2 border-primary text-primary font-weight-bold" style="width: 150px;">
+                                            <option selected disabled>계산서 발행</option>
+                                            <option value="">전체</option>
+                                            <option value="UN_PUBLISHED">미발행</option>
+                                            <option value="PUBLISHED">발행</option>
+                                        </select>
+                                    </div>
+                                    <a href="/admin/ParticipantAdd.html" class="btn btn-success mr-3 mb-1 font-weight-bold align-items-center">등록하기</a>
+                                </div>
+                                <div data-excel_table style="width: 99%">
+                                    <table class="table2excel table table-bordered text-center font-weight-bold" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th width="5%">No</th>
+                                                <th>회사명</th>
+                                                <th>이름</th>
+                                                <th>교류회</th>
+                                                <th>인원</th>
+                                                <th>등록 및 수정 일시</th>
+                                                <th>취소</th>
+                                                <th>신청상태</th>
+                                                <th>입금여부</th>
+                                                <th>계산서 발행</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+    <script>
+        const friendly = {
+            "NONE": "해당없음",
+            "NET": "NET",
+            "NRDC": "전소협",
+            "EXECUTIVE": "임원사",
+            "NEW_CTO": "차세대 CTO",
+            "CTO": "CTO",
+            "CEO": "CEO",
+        };
+        const arr = Object.keys(friendly)
+        const data = [
+            {
+                render: function (data, type, row, meta) {
+                    var data = $('#dataTable').DataTable().ajax.json();
+                    var max_index = data.length;
+                    return max_index - meta.row;
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return '<a class="font-weight-bold board-title" href="ParticipantDetail/' + row.attendId + '.html">' + row.company.companyName + '</a>';
+                },
+            },
+            {
+                render: function (data, type, row) {
+                    return row.mainAttender.koreaName;
+                },
+            },
+            {
+                render: function (data, type, row) {
+                    const friendly_groups = row.friendlyGroups;
+                    const friendly_values = friendly_groups.map((key) => friendly[key]);
+                    return friendly_values.join(", ");
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return row.familyAttenders.length + 1;
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return '<p class="mb-0 ">등록일: ' + row.createdAt + '</p><p class="mb-0">수정일: ' + row.updatedAt + '</p>';
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return '<button type="button" value="' + row.attendId + '" class="btn btn-danger btn-sm p-1 pl-3 pr-3 font-weight-bold">취소</button>'
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return row.attendStatus === "APPLYING" ? "신청중" : "신청완료";
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return row.depositStatus === "NON_PAY" ? "미납" : "입금완료";
+                },
+                "searchable": false
+            },
+            {
+                render: function (data, type, row) {
+                    return row.taxBillPublishStatus === "UN_PUBLISHED" ? "미발행" : "발행";
+                },
+                "searchable": false
+            }
+        ];
+        $('#dataTable').dataTable({
+            "ajax": {
+                "url": "https://api-koita2023.onoffmix.xyz/api/v2/attends/search",
+                "data": {
+                    "friendlyGroup": "",
+                    "attendStatus": "",
+                    "depositStatus": "",
+                    "taxBillPublishStatus": "",
+                },
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                "dataSrc": function (json) {
+                    return json;
+                },
+                "error": function (xhr, status, error) {
+                    if (xhr.status === 401) {
+                        alert("로그인이 필요한 페이지입니다.")
+                        window.location.href = 'login.html';
+                    } else {
+                        alert("error")
+                    }
+                }
+            },
+            "language": {
+                "emptyTable": "결과가 없습니다"
+            },
+            "charset": "UTF-8",
+            columns: data,
+            dom: 'lBfrtip',
+            aLengthMenu: [20, 30, 50, 100],
+            buttons: [
+                {
+                    extend: 'csvHtml5',
+                    text: '명단 엑셀 다운로드',
+                    className: 'font-weight-bold',
+                    fieldSeparator: ',',
+                    charset: 'MS949',
+                    bom: true
+                }
+            ]
+        });
+
+        let friendly_group = "";
+        let apply_status = "";
+        let deposit_status = "";
+        let taxbill_publish_status = "";
+
+        $('#friendlyGroupFilter').on('change', function () {
+            friendly_group = $('#friendlyGroupFilter option:selected').val();
+            var url = "https://api-koita2023.onoffmix.xyz/api/v2/attends/search?friendlyGroup=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            $('#dataTable').DataTable().ajax.url(url).load();
+        });
+
+        $('#ApplyGroupFilter').on('change', function () {
+            apply_status = $('#ApplyGroupFilter option:selected').val();
+            var url = "https://api-koita2023.onoffmix.xyz/api/v2/attends/search?friendlyGroup=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            $('#dataTable').DataTable().ajax.url(url).load();
+        });
+       
+        $('#depositStatusFilter').on('change', function () {
+            deposit_status = $('#depositStatusFilter option:selected').val();
+            var url = "https://api-koita2023.onoffmix.xyz/api/v2/attends/search?friendlyGroup=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            $('#dataTable').DataTable().ajax.url(url).load();
+        });
+        
+        $('#taxbillPublishStatusFilter').on('change', function () {
+            taxbill_publish_status = $('#taxbillPublishStatusFilter option:selected').val();
+            var url = "https://api-koita2023.onoffmix.xyz/api/v2/attends/search?friendlyGroup=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            $('#dataTable').DataTable().ajax.url(url).load();
+        });
+        
+        $('#dataTable').on('click', '.btn-danger', function () {
+            const id_num = $(this).val();
+            if (confirm("신청을 취소 하시겠습니까?")) {
+                $.ajax({
+                    type: "PATCH",
+                    url: "https://api-koita2023.onoffmix.xyz/api/v1/attends/"+ id_num +"/cancel",
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    "contentType": 'application/json',
+                    success: function (response) {
+                        alert("삭제되었습니다.");
+                        location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }
+        });
+
+        $('#dataTable').on('click', '.board-title', function (e) {
+            e.preventDefault();
+            var id = $(this).attr('href');
+            const num = $.trim(id.replace(/[^0-9]/g, ''));
+            window.location.href = '/admin/ParticipantDetail.html?id=' + num;
+        });
+    </script>
+</body>
+
+</html>

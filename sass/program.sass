@@ -1,0 +1,470 @@
+main
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    [data-content_box="mobile"]
+        display: none
+    [data-content_box]
+        width: 100%
+        max-width: 1280px
+        padding: 
+            top: 85px
+        [data-title_box]
+            width: 100%
+            font-size: 36px
+            font-weight: bold
+            padding-bottom: 66px
+        [data-table_box]
+            [data-date_row]
+                color: #1e6779
+                font:
+                    size: 28px
+                    weight: bold
+            table
+                width: 100%
+                font-size: 20px
+                border-collapse: collapse
+                margin-top: 14px
+                tr
+                    th
+                        height: 70px
+                        border:
+                            top: 1px solid #222
+                            right: 1px solid #dedede
+                        background-color: #f7f7f7
+                        vertical-align: middle
+                        font-weight: 500
+                        &:first-of-type
+                            width: 149px
+                        &:nth-of-type(2)
+                            width: 441px
+                        &:nth-of-type(3)
+                            width: 169px
+                        &:nth-of-type(4)
+                            width: 221px
+                        &:last-child
+                            border-right: none
+                    td
+                        vertical-align: middle
+                        text-align: center
+                        border:
+                            bottom: 1px solid #dedede
+                            right: 1px solid #dedede
+                        b
+                            font-weight: bold
+                            display: inline-block
+                            padding-bottom: 6px
+                        [data-description_row]
+                            width: 100%
+                            display: flex
+                            align-items: center
+                            justify-content: center
+                            
+                            p
+                                max-width: 370px
+                                line-height: 28px
+                                white-space: pre-line
+                        select
+                            margin: 
+                                top: 25px 
+                                bottom: 26px 
+                            font-size: 20px
+                            background: inherit
+                            border: none
+                            box-shadow: none
+                            border-radius: 0
+                            padding: 0
+                            overflow: visible
+                            cursor: pointer
+                            width: 180px
+                            height: 68px
+                            white-space: nowrap
+                            overflow: hidden
+                            text-overflow: ellipsis
+                            padding:
+                                left: 20px
+                                right: 20px
+                            box-sizing: border-box
+                            border: 1px solid #dedede
+                            outline: 0 none
+                            color: #222
+                            -webkit-appearance: none
+                            -moz-appearance: none
+                            appearance: none
+                            background:
+                                image: url(/images/icon-up-small_black.svg)
+                                position: center right 18px
+                                repeat: no-repeat
+                                color: #fff
+                            &:focus
+                                border-color: #aaa
+                            &:disabled
+                                color: #c2c2c2
+                                pointer-events: none
+                        [data-show_box]
+                            display: flex
+                            flex-direction: column
+                            align-items: center
+                            div
+                                width: 100%
+                                display: flex
+                                justify-content: space-between
+                                align-items: center
+                                padding:
+                                    left: 19px
+                                    right: 33px
+                                    top: 15px
+                                    bottom: 10px
+                                span
+                                    font-weight: bold
+                                    display: inline-block
+                                    padding-right: 10px
+                                input
+                                    width: 110px
+                                    height: 68px
+                                    border: 1px solid #dedede
+                                    margin: 
+                                        right: 10px
+                                    padding: 
+                                        left: 20px
+                                    font-size: 20px
+                                    &::placeholder
+                                        color: #c2c2c2
+                                button
+                                    width: 26px
+                                    height: 26px
+                                    display: flex
+                                    justify-content: center
+                                    align-items: center
+                                    border: none
+                                    background-color: #aeaeae
+                                    color: #fff
+                                    font-size: 12px
+                                    border-radius: 50%
+                                    // margin-left: 20px
+                            [data-tour_row]
+                                justify-content: center
+                                button
+                                    margin-left: 10px
+                    [data-amount_row]
+                        font-weight: 500
+                        p
+                            line-height: 26px
+                            font-weight: 500
+                [data-full_row]
+                    td
+                        color: #c2c2c2
+            [data-notice_row]
+                font-size: 18px
+                padding: 
+                    top: 16px
+                    bottom: 49px
+            &:nth-of-type(3)
+                margin-top: 86px
+            [data-total_table]
+                margin:
+                    top: 80px
+                    bottom: 19px
+                tr
+                    th
+                        width: 180px !important
+                        text-align: left
+                        border: none
+                        background-color: #fff
+                        padding-left: 30px
+                        span
+                            display: inline-block
+                            font-weight: 500
+                            padding:
+                                top: 41px
+                    td
+                        border: none
+                        text-align: left
+                        vertical-align: middle
+                        textarea
+                            width: 100%
+                            height: 136px
+                            border: solid 1px #dedede
+                            padding: 
+                                left: 20px
+                                top: 24px
+                                bottom: 24px
+                            font-size: 20px
+                        p
+                            font-size: 24px
+                            padding:
+                                left: 20px
+                                top: 41px
+                            span
+                                color: #413684
+                                font-weight: bold
+        [data-notice_box]
+            width: 100%
+            padding: 30px
+            background-color: #f7f7f7
+            margin-top: 50px
+            p
+                font-size: 18px
+                line-height: 30px
+            [data-red_text]
+                color: #f10000
+        [data-button_box]
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 
+                top: 80px
+                bottom: 130px 
+            button
+                width: 200px
+                height: 54px
+                color: #fff
+                border-radius: 5px
+                cursor: pointer
+                background-color: #004446
+                border: none
+                font-size: 20px
+                font-weight: bold
+            [data-pre_btn]
+                margin-right: 20px 
+                background-color: #a3a3a3
+@media (max-width: 760px)
+    main
+        [data-content_box="pc"]
+            display: none
+        [data-content_box="mobile"]
+            display: block
+            padding:
+                top: 39px
+                left: 16px
+                right: 16px
+            [data-title_box]
+                font-size: 20px
+                padding-bottom: 28px
+            [data-table_box]
+                select
+                    font-size: 14px
+                    background: inherit
+                    border: none
+                    box-shadow: none
+                    border-radius: 0
+                    padding: 0
+                    overflow: visible
+                    cursor: pointer
+                    height: 50px
+                    white-space: nowrap
+                    overflow: hidden
+                    text-overflow: ellipsis
+                    padding:
+                        left: 20px
+                        right: 20px
+                    box-sizing: border-box
+                    border: 1px solid #dedede
+                    outline: 0 none
+                    color: #222
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    appearance: none
+                    background:
+                        image: url(/images/icon-up-small_black.svg)
+                        position: center right 18px
+                        repeat: no-repeat
+                        color: #fff
+                    &:focus
+                        border-color: #aaa 
+                p
+                    font:
+                        size: 14px
+                    line-height: 22px
+                    padding-top: 12px
+                [data-disabled_row]
+                    color: #c2c2c2
+                [data-date_row]
+                    display: block
+                    font-size: 16px
+                    padding-bottom: 9px
+                    border-bottom: 1px solid #222
+                [data-content]
+                    border-bottom: 1px solid #222
+                    padding:
+                        bottom: 36px
+                    [data-text_wrap]
+                        width: 100%
+                        border-bottom: 1px solid #dedede
+                        padding:
+                            top: 27px
+                            bottom: 20px
+                        [data-flex_box]
+                            display: flex
+                            align-items: center
+                            justify-content: space-between
+                            [data-text_box]
+                                display: flex
+                                flex-direction: column
+                                padding-right: 15px
+                                span
+                                    font-size: 14px
+                                    display: inline-block
+                                    &:first-of-type
+                                        font-weight: bold
+                                        padding: 
+                                            bottom: 6px
+                                    &:nth-of-type(2)
+                                        padding: 
+                                            bottom: 13px
+                                    &:last-of-type
+                                        span
+                                            font-weight: bold
+                                            color: #413684
+                            [data-select_box]
+                                padding-bottom: 7px
+                                select
+                                    width: 122px
+                        [data-flex_box="full"]
+                            color: #c2c2c2
+                            [data-text_box]
+                                span
+                                    &:last-of-type
+                                        span
+                                            font-weight: bold
+                                            color: #c2c2c2 !important
+                            [data-select_box]
+                                select
+                                    &:disabled
+                                        color: #c2c2c2
+                                        pointer-events: none
+                        [data-show_box]
+                            display: flex
+                            flex-direction: row
+                            align-items: center
+                            flex-wrap: wrap
+                            div
+                                display: flex
+                                align-items: center
+                                padding:
+                                    top: 15px
+                                    bottom: 10px
+                                span
+                                    display: inline-block
+                                    padding-right: 5px
+                                    font-size: 14px
+                                input
+                                    width: 80px
+                                    height: 50px
+                                    border: 1px solid #dedede
+                                    padding: 
+                                        left: 20px
+                                    font-size: 14px
+                                    &::placeholder
+                                        color: #c2c2c2
+                                button
+                                    width: 26px
+                                    height: 26px
+                                    display: flex
+                                    justify-content: center
+                                    align-items: center
+                                    border: none
+                                    background-color: #aeaeae
+                                    color: #fff
+                                    font-size: 12px
+                                    border-radius: 50%
+                                    margin:
+                                        right: 11px
+                                        left: 5px
+                [data-content="tour_thu"], [data-content="tour_fri"]
+                    border-bottom: none
+                    [data-text_box]
+                        display: flex
+                        flex-direction: column
+                        span
+                            font-size: 14px
+                            display: inline-block
+                            &:first-of-type
+                                font-weight: bold
+                                padding: 
+                                    bottom: 4px
+                            &:nth-of-type(2)
+                                padding: 
+                                    bottom: 13px
+                                white-space: pre-line
+                                line-height: 20px
+                            &:last-of-type
+                                span
+                                    font-weight: bold
+                                    color: #413684
+                                    padding-right: 10px 
+                &:nth-of-type(3)
+                    margin-top: 26px
+            [data-total_table]
+                margin:
+                    top: 0px
+                    bottom: 19px
+                width: 100
+                tr
+                    th
+                        width: 107px !important
+                        text-align: left
+                        border: none
+                        background-color: #fff
+                        padding-left: 19px
+                        font-size: 14px
+                        vertical-align: middle
+                        color: #222
+                        font-weight: 500
+                        span
+                            display: inline-block
+                            font-weight: 500
+                            padding:
+                                top: 27px
+                    td
+                        // width: calc( 100% - 107px )
+                        border: none
+                        text-align: left
+                        vertical-align: middle
+                        textarea
+                            width: 100%
+                            height: 102px
+                            border: solid 1px #dedede
+                            padding: 
+                                left: 20px
+                                top: 24px
+                                bottom: 24px
+                            font-size: 14px
+                        p
+                            font-size: 16px
+                            padding:
+                                left: 0px
+                                top: 29px
+                            span
+                                color: #413684
+                                font-weight: bold
+            [data-notice_box]
+                width: 100%
+                padding: 20px 16px
+                background-color: #f7f7f7
+                margin-top: 24px
+                p
+                    font-size: 14px
+                    line-height: 23px
+            [data-button_box]
+                display: flex
+                justify-content: center
+                align-items: center
+                padding: 
+                    top: 37px
+                    bottom: 60px 
+                button
+                    width: 159px
+                    height: 50px
+                    color: #fff
+                    border-radius: 5px
+                    cursor: pointer
+                    background-color: #004446
+                    border: none
+                    font-size: 16px
+                    font-weight: bold
+                [data-pre_btn]
+                    margin-right: 10px
+                    background-color: #a3a3a3

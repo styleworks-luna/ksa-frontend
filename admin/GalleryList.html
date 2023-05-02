@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>관리자 페이지 - KOITA</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">KOITA</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>현황표</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ParticipantList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>참가자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="CancledList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>취소자 명단</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
+                    <span>관리자 설정</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="NoticeList.html">
+                    <i class='fa fa-bell'></i>
+                    <span>공지사항</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="row ">
+                        <h1 class="h3 mt-1 text-gray-800 col align-self-end">갤러리</h1>
+                        <a href="GalleryUpload.html" class="btn btn-success mr-3 mb-2 font-weight-bold">등록하기</a>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered text-center font-weight-bold" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">No</th>
+                                            <th>제목</th>
+                                            <th width="20%">수정</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        <tr></tr>
+                                        <tr></tr>
+                                        <tr></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+    <script>
+        $('#dataTable').dataTable({
+            "ajax": {
+                "url": "https://api-koita2023.onoffmix.xyz/api/v1/galleries/all",
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                "dataSrc": function (json) {
+                    return json;
+                },
+            },
+            "language": {
+                "emptyTable": "등록된 이미지가 없습니다."
+            },
+            order: [[0, "desc"]],
+            aLengthMenu: [20, 30, 50, 100],
+            columns: [
+                {
+                    render: function (data, type, row, meta) {
+                        var data = $('#dataTable').DataTable().ajax.json();
+                        var maxIndex = data.length;
+                        return maxIndex - meta.row;
+                    },
+                    "searchable": false
+                },
+                {
+                    render: function (data, type, row) {
+                        return '<p>' + row.title + '</p>';
+                    },
+                },
+                {
+                    render: function (data, type, row) {
+                        return '<td><button type="button" class="btn btn-primary btn-sm p-1 pl-3 pr-3 mr-1 font-weight-bold" value="' + row.galleryId +'">수정</button><button type="button" class="btn btn-danger btn-sm p-1 pl-3 pr-3 font-weight-bold" value="'+ row.galleryId +'">삭제</button></td>';
+                    },
+                    "searchable": false
+                },
+            ],
+            
+        });
+
+        $('#dataTable').on('click', '.btn-danger', function () {
+            const id_num = $(this).val();
+            if (confirm("해당 공지를 삭제하시겠습니까?")) {
+                $.ajax({
+                    type: "DELETE",
+                    url: "https://api-koita2023.onoffmix.xyz/api/v1/galleries/" + id_num,
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        alert("삭제되었습니다.")
+                        location.reload()
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }
+        });
+        
+        $('#dataTable').on('click', '.btn-primary', function () {
+            const id_num = $(this).val();
+            window.location.href = '/admin/GalleryUpload.html?id=' + id_num;
+        });
+    </script>
+</body>
+
+</html>

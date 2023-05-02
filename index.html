@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/js/common.js"></script>
+    <!-- <script src="/js/index.js"></script> -->
+</head>
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a onclick="alert('준비중입니다.')">SPEAKERS</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+            <li class="" data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">SPEAKERS</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+    </header>
+    <header data-mobile_header>
+        <div>
+            <a href="Index.html" data-logo_box></a>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-main_wrap>
+            <div data-notice_box><p>[공지] 제 69회 하계포럼 신청 접수중입니다.</p></div>
+            <div data-main_box>
+                <div data-title_box>
+                    <div>
+                        <a href="Application.html">참가신청</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-speaker_box="absolute">
+            <h1 data-pc_h1>연사 정보는 추후 업데이트 됩니다.</h1>
+            <h1 data-mobile_h1>연사 정보는 추후<br> 업데이트 됩니다.</h1>
+        </div>
+        <div data-speaker_box>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="/images/speaker.png">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div data-gallery_box>
+            <div class="swiper">
+                <div class="swiper-wrapper gallery-swiper"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+        <div data-sponsore_box>
+            <span>협찬</span>
+            <div data-img_box></div>
+            <div data-img_box></div>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
+                    06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                </p>
+                <p><a><span>개인정보처리방침</span></a></p>
+                <!-- <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p> -->
+            </div>
+        </div>
+    </footer>
+    <script>
+        function getDirection() {
+            var windowWidth = window.innerWidth;
+            var direction = windowWidth < 760 ? 'horizontal' : 'horizontal';
+            return direction;
+        };
+
+        var swiper = new Swiper('.swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 32,
+            freeMode: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                init: function () {
+                    this.params.direction = getDirection();
+                },
+                resize: function () {
+                    this.params.direction = getDirection();
+                    this.update();
+                }
+            }
+        });
+
+        $(document).ready(function () {
+            sessionStorage.removeItem('attend_id');
+        })
+    </script>
+</body>
+</html>

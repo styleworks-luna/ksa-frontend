@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>관리자 페이지 - KOITA</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+        <link href="css/button.css" rel="stylesheet">
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">KOITA</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>현황표</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="ParticipantList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>참가자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="CancledList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>취소자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
+                    <span>관리자 설정</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="NoticeList.html">
+                    <i class='fa fa-bell'></i>
+                    <span>공지사항</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                                    <div class="collapse navbar-collapse" id="navbarNav">
+                                        <ul class="navbar-nav tab-nav font-weight-bold">
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab1">개요</a>
+                                            </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab2">참가자 정보</a>
+                                            </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab3">항공예약</a>
+                                            </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab4">호텔예약</a>
+                                            </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab5">프로그램</a>
+                                            </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab6">강연·강좌</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <div class="tab-content">
+                                    <div id="tab1" class="tab pt-5" style="width: 100%">
+                                        <div class="mb-4 border-bottom">
+                                            <p class="font-weight-bold" style="font-size: 25px;">신청 상태</p>
+                                            <div class="form-check form-check-inline pb-3">
+                                                <input class="form-check-input" type="radio" name="apply-status" id="APPLYING" value="APPLYING">
+                                                <label class="form-check-label" for="APPLYING">신청중</label>
+                                                <input class="form-check-input ml-3" type="radio" name="apply-status" id="DONE" value="DONE">
+                                                <label class="form-check-label" for="DONE">신청완료</label>
+                                            </div>
+                                        </div>
+                                        <div class="border-bottom">
+                                            <p class="font-weight-bold" style="font-size: 25px;">세금계산서 발행 상태</p>
+                                            <div class="form-check form-check-inline pb-3">
+                                                <input class="form-check-input" type="radio" name="publish-status" id="PUBLISHED" value="PUBLISHED">
+                                                <label class="form-check-label" for="PUBLISHED">발행</label>
+                                                <input class="form-check-input ml-3" type="radio" name="publish-status" id="UN_PUBLISHED" value="UN_PUBLISHED">
+                                                <label class="form-check-label" for="UN_PUBLISHED">미발행</label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-3">
+                                            <p class="font-weight-bold" style="font-size: 25px;">01. 결제 정보</p>
+                                            <table class="table text-center align-middle" style="color: #222;">
+                                                <tr class="table-secondary">
+                                                    <th width="8%">구분</th>
+                                                    <th width="14%">참가비</th>
+                                                    <th width="14%">항공비</th>
+                                                    <th width="14%">호텔비</th>
+                                                    <th width="14%">골프비</th>
+                                                    <th width="14%">관광비</th>
+                                                    <th width="14%">총계</th>
+                                                    <th>결제상태</th>
+                                                </tr>
+                                                <tr class="default-pay">
+                                                    <th class="table-secondary">기본결제</th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary">결제수정</th>
+                                                    <td><input type="text" class="form-control" id="attendTotalCost" name="pay_mod" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')" placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><input type="text" class="form-control" id="flightTotalCost" name="pay_mod" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')" placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><input type="text" class="form-control" id="hotelTotalCost" name="pay_mod" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')" placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><input type="text" class="form-control" id="golfCourseTotalCost" name="pay_mod" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')" placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><input type="text" class="form-control" id="tourTotalCost" name="pay_mod" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')" placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><span data-admin_total>0</span>원</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="align-middle text-center">관리자 확인</th>
+                                                    <td>
+                                                        <div class="border p-3">
+                                                            <span class="pr-3">참가비)</span>
+                                                            <div class="form-check form-check-inline pr-4">
+                                                                <input class="form-check-input" type="checkbox" value="isFullCost" id="isFullCost" name="pay_admin">
+                                                                <label class="form-check-label" for="isFullCost">전액</label>
+                                                                <input class="form-check-input ml-3" type="checkbox" value="isPartCost" id="isPartCost" name="pay_admin">
+                                                                <label class="form-check-label" for="isPartCost">
+                                                                    일부 (<input type="text" class="border-0" placeholder=" 숫자만 입력 가능합니다" id="partCostMemo" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')">)
+                                                                </label>
+                                                                <input class="form-check-input ml-5" type="checkbox" value="isFullRefund" id="isFullRefund" name="pay_admin">
+                                                                <label class="form-check-label" for="isFullRefund">
+                                                                    전액환불
+                                                                </label>
+                                                                <input class="form-check-input ml-3" type="checkbox" value="isPartRefund" id="isPartRefund" name="pay_admin">
+                                                                <label class="form-check-label" for="isPartRefund">
+                                                                    부분환불 (<input type="text" placeholder=" 숫자만 입력 가능합니다" class="border-0" id="partRefundMemo" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')">)
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="align-middle text-center">관리자 메모</th>
+                                                    <td>
+                                                        <textarea class="form-control" rows="4" id="admin_memo"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="row justify-content-center" style="width: 99%;">
+                                            <button type="button" class="save-btn btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                        <div class="mt-3">
+                                            <span class="font-weight-bold pr-3" style="font-size: 25px;">02. 비밀번호</span>
+                                            <button type="button" class="btn password-reset btn-danger btn-m">초기화</button>
+                                            <p class="mt-3">※ 비밀번호 초기화 시, 참가자 휴대폰번호 뒤 4자리로 설정됩니다.</p>
+                                        </div>
+                                    </div>
+                                    <div id="tab2" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">03. 참가자 정보</p>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr class="border-0">
+                                                    <th width="10%" class="border-0 p-0"></th>
+                                                    <td colspan="3" class="border-0 p-0">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th rowspan="8">기업정보</th>
+                                                    <th width="10%" class="table-secondary align-middle">회사명</th>
+                                                    <td><input type="text" id="companyName" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">대표자명</th>
+                                                    <td><input type="text" id="companyBoss" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">사업자번호</th>
+                                                    <td><input type="text" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" id="companyBusinessNumber" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" rowspan="3" class="table-secondary align-middle">회사주소</th>
+                                                    <td>
+                                                        <input type="text" class="form-control" id="sample6_postcode" name="add_post_num" placeholder="우편번호" style="width: 30%; display: inline-block;">
+                                                        <button type="button" class="btn btn-primary btn-m ml-3" onclick="sample6_execDaumPostcode()">주소검색</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border-0 pt-0"><input type="text" id="sample6_address" name="main_add" placeholder="주소" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border-0 pt-0"><input type="text" id="sample6_detailAddress" name="sub_add" placeholder="상세주소" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr style="display: none;">
+                                                    <td class="border-0"><input type="text" id="sample6_extraAddress" placeholder="참고항목" class="form-control" style="width: 50%;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">업태</th>
+                                                    <td><input type="text" id="companyIndustry" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">종목</th>
+                                                    <td><input type="text" id="companyCategory" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th rowspan="7">참가자정보</th>
+                                                    <th width="10%" class="table-secondary align-middle">이름 (한글)</th>
+                                                    <td><input type="text" id="koreaName" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">이름 (영문)</th>
+                                                    <td><input type="text" id="englishName" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">주민등록번호</th>
+                                                    <td><input type="text" id="juminNumber" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">휴대전화번호</th>
+                                                    <td><input type="text" id="phone" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">전화번호</th>
+                                                    <td><input type="text" id="telephone" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">직위</th>
+                                                    <td><input type="text" id="grade" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">이메일</th>
+                                                    <td><input type="text" id="email" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                            </table>
+                                            <table class="table align-middle family_table" style="color: #222; width: 85%; margin-top: 40px;">
+                                                <tr class="text-center">
+                                                    <th width="3%" class="text-left">동반가족</th>
+                                                    <th class="table-secondary align-middle">관계</th>
+                                                    <th class="table-secondary align-middle">성명</th>
+                                                    <th class="table-secondary align-middle">주민등록번호</th>
+                                                    <th class="table-secondary align-middle">휴대전화</th>
+                                                    <th class="table-secondary align-middle"></th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="border-0" width="10%"></th>
+                                                    <td class="pr-3" width="15%">
+                                                        <select id="relation" class="form-control font-weight-bold">
+                                                            <option selected disabled value="">선택</option>
+                                                            <option value="PARENTS">부모</option>
+                                                            <option value="SPOUSE">배우자</option>
+                                                            <option value="CHILD">자녀</option>
+                                                            <option value="RELATIVE">친척</option>
+                                                            <option value="STAFF">직원</option>
+                                                            <option value="GRAND_CHILD">손자녀</option>
+                                                            <option value="ETC">기타</option>
+                                                        </select>
+                                                    </td>
+                                                    <td width="15%"><input type="text" id="fam_name" class="form-control"></td>
+                                                    <td width="15%"><input type="text" placeholder="‘-’없이 입력해주세요." id="fam_jumin" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d{6})(\d{7})$/, `$1-$2`)" maxlength="13"></td>
+                                                    <td width="15%"><input type="text" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11" id="fam_phone" class="form-control"></td>
+                                                    <td width="15%"><button type="button" class="add-btn btn btn-primary btn-m pl-4 pr-4">등록</button></td>
+                                                </tr>
+                                            </table>
+                                            <table class="table align-middle" style="color: #222; width: 85%; margin-top: 40px;">
+                                                <tr class="text-center">
+                                                    <th rowspan="3" width="5%" class="text-left">교육담당자</th>
+                                                    <th width="10%" class="table-secondary align-middle">성명</th>
+                                                    <td width="10%"><input type="text" id="eduManagerName" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">소속</th>
+                                                    <td width="10%"><input type="text" id="eduManagerTeam" class="form-control"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <th width="10%" class="table-secondary align-middle">일반전화</th>
+                                                    <td width="10%"><input type="text" id="eduManagerTelephone" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">직위</th>
+                                                    <td width="10%"><input type="text" id="eduManagerGrade" class="form-control"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <th width="10%" class="table-secondary align-middle">휴대전화</th>
+                                                    <td width="10%"><input type="text" id="eduManagerMobilePhone" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">E-mail</th>
+                                                    <td width="10%"><input type="text" id="eduManagerEmail" class="form-control"></td>
+                                                </tr>
+                                            </table>
+                                            <table class="table align-middle" style="color: #222; width: 85%; margin-top: 40px;">
+                                                <tr class="text-center">
+                                                    <th rowspan="4" width="5%" class="text-left">정산담당자</th>
+                                                    <th width="10%" class="table-secondary align-middle">성명</th>
+                                                    <td width="10%"><input type="text" id="calManagerName" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">소속</th>
+                                                    <td width="10%"><input type="text" id="calManagerTeam" class="form-control"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <th width="10%" class="table-secondary align-middle">일반전화</th>
+                                                    <td width="10%"><input type="text" id="calManagerTelephone" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">직위</th>
+                                                    <td width="10%"><input type="text" id="calManagerGrade" class="form-control"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <th width="10%" class="table-secondary align-middle">휴대전화</th>
+                                                    <td width="10%"><input type="text" id="calManagerMobilePhone" class="form-control"></td>
+                                                    <th width="10%" class="table-secondary align-middle">E-mail</th>
+                                                    <td width="10%"><input type="text" id="calManagerEmail" class="form-control"></td>
+                                                </tr>
+                                                <tr class="text-center">
+                                                    <th width="10%" class="table-secondary align-middle">정산정보</th>
+                                                    <td colspan="3">
+                                                        <div class="d-flex align-items-center">
+                                                            <div data-publish_row class="d-flex justify-content-start flex-column align-items-start">
+                                                                <label for="receipt">
+                                                                    <input type="radio" name="publish" value="receipt" id="receipt" class="mr-1">영수발행
+                                                                </label>
+                                                                <label for="billing">
+                                                                    <input type="radio" name="publish" value="billing" id="billing" class="mr-1">청구발행
+                                                                    <input type="date" placeholder="계산서 청구일자 선택" name="cal_date" id="cal_date" class="ml-2" style="display: none;">
+                                                                </label>
+                                                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
+                                                            </div>
+                                                            <span class="pl-5 pr-3">※ 사업자등록증</span>
+                                                            <div class="custom-file" style="width: 40%;">
+                                                                <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                                                <label class="custom-file-label text-left" for="inputGroupFile02">사업자등록증을 첨부해주세요.</label>
+                                                            </div>
+                                                            <div class="input-group-append">
+                                                                <button type="button" class="reset-btn input-group-text bg-danger text-white">reset</button>
+                                                            </div>
+                                                            <a id="koita_business_registration" class="down-btn input-group-text bg-success text-white"
+                                                                href="https://api-koita2023.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}" download>
+                                                                파일 다운로드
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th width="10%">교류회 선택</th>
+                                                    <td colspan="3">
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input" type="checkbox" name="friendly" id="EXECUTIVE" value="EXECUTIVE">
+                                                            <label class="form-check-label" for="EXECUTIVE">임원사</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="NRDC" value="NRDC">
+                                                            <label class="form-check-label" for="NRDC">전소협</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="NET" value="NET">
+                                                            <label class="form-check-label" for="NET">NET</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="CEO" value="CEO">
+                                                            <label class="form-check-label" for="CEO">CEO</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="CTO" value="CTO">
+                                                            <label class="form-check-label" for="CTO">CTO</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="NEW_CTO" value="NEW_CTO">
+                                                            <label class="form-check-label" for="NEW_CTO">차세대 CTO</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="checkbox" id="NONE" value="NONE">
+                                                            <label class="form-check-label" for="NONE">해당없음</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="info-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
+                                    <div id="tab3" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">04.항공예약 정보</p>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="table-secondary align-middle">출/도착 도시</th>
+                                                    <td>
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input ml-3" type="radio" name="city" id="서울" value="서울">
+                                                            <label class="form-check-label" for="서울">김포 - 제주</label>
+                                                            <input class="form-check-input ml-3" type="radio" name="city" id="부산" value="부산">
+                                                            <label class="form-check-label" for="부산">부산 - 제주</label>
+                                                            <input class="form-check-input ml-3" type="radio" name="city" id="광주" value="광주">
+                                                            <label class="form-check-label" for="서울">광주 - 제주</label>
+                                                            <input class="form-check-input ml-3" type="radio" name="city" id="청주" value="청주">
+                                                            <label class="form-check-label" for="청주">청주 - 제주</label>
+                                                            <input class="form-check-input ml-3" type="radio" name="city" id="대구" value="대구">
+                                                            <label class="form-check-label" for="대구">대구 - 제주</label>
+                                                            <input data-none_input class="form-check-input ml-3" type="radio" name="city" id="none" value="none">
+                                                            <label class="form-check-label" for="none">항공개별예약</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle p-0 pl-2"><span class="airport" style="display: none;">제주공항 도착시간<span></th>
+                                                    <td class="p-0">
+                                                        <div class="form-check form-check-inline pr-4 airport pb-3 pt-3" style="display: none;">
+                                                            <input class="mr-3 ml-3" type="date" min="2023-07-05" max="2023-07-08">
+                                                            <input type="time" data-time_picker>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">비행시간</th>
+                                                    <td>
+                                                        <select id="flight" class="form-control font-weight-bold" data-time_select>
+                                                            <option selected disabled value="">선택</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">탑승자 선택</th>
+                                                    <td>
+                                                        <select id="flight_passenger" class="form-control font-weight-bold" data-passenger_select>
+                                                            <option selected disabled value="">선택</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle p-0" ><span class="passenger pb-3 pt-3 pl-3" style="display: none;">탑승자 명단</span></th>
+                                                    <td class="p-0">
+                                                        <div data-show_row="flight" class="passenger pb-3 pt-3 pl-3" style="display: none;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">요청사항</th>
+                                                    <td>
+                                                        <textarea class="form-control" rows="4" id="flight_memo"></textarea>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="flight-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
+                                    <div id="tab4" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">05.호텔예약 정보</p>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="table-secondary align-middle">투숙기간</th>
+                                                    <td>
+                                                        <div data-date_box>
+                                                            <input data-start_date type="date" min="2023-07-05" max="2023-07-08" data-placeholder="시작일 선택">
+                                                            <span data-tilde>~</span>
+                                                            <input data-end_date type="date" min="2023-07-05" max="2023-07-08" data-placeholder="종료일 선택">
+                                                            <span data-cal_row></span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">객실선택</th>
+                                                    <td>
+                                                        <select id="hotel" class="form-control font-weight-bold" data-room_select>
+                                                            <option selected disabled value="">선택</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle p-0"><span class="room pb-3 pt-3 pl-3" style="display: none;">객실 현황</span></th>
+                                                    <td class="p-0">
+                                                        <div data-show_row="hotel" class="room pb-3 pt-3 pl-3" style="display: none;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">체크인 예정</th>
+                                                    <td>
+                                                        <div data-check_in_box>
+                                                            <select data-hour_select>
+                                                            </select><span>시</span>
+                                                            <select data-min_select>
+                                                            </select><span>분</span>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">요청사항</th>
+                                                    <td>
+                                                        <textarea class="form-control" rows="4" id="hotel_memo"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">금액합계</th>
+                                                    <td>
+                                                        <p><span data-total class="font-weight-bold text-primary">0</span>원</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="hotel-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
+                                    <div id="tab5" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px; margin-bottom: 30px;">06. 골프 정보</p>
+                                            <table data-golf_thu_table style="width: 100%;">
+                                            </table>
+                                            <table data-golf_fri_table style="width: 100%; margin-bottom: 30px;">
+                                            </table>
+                                        </form>
+
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">07. 관광 정보</p>
+                                            <p class="font-weight-bold text-primary">7월 6일 (목)</p>
+                                            <table data-tour_thu_table class="table align-middle" style="color: #222;"></table>
+                                        
+                                            <p class="font-weight-bold text-primary">7월 7일 (금)</p>
+                                            <table data-tour_fri_table class="table align-middle" style="color: #222;"></table>
+                                        </form>
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="program-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
+                                    <div id="tab6" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">06. 강연·강좌 정보</p>
+                                            <p class="font-weight-bold text-primary">7월 5일 (수)</p>
+                                            <table data-wed_table class="table align-middle" style="width: 100%; color: #222;"></table>
+                                            <p class="font-weight-bold text-primary">7월 6일 (목)</p>
+                                            <table data-thu_table class="table align-middle" style="color: #222;"></table>
+                                            <p class="font-weight-bold text-primary">7월 7일 (금)</p>
+                                            <table data-fri_table class="table align-middle" style="color: #222;"></table>
+                                            <p class="font-weight-bold text-primary">7월 8일 (토)</p>
+                                            <table data-sat_table class="table align-middle" style="color: #222;"></table>
+                                        </form>
+
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="lecture-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+       function sample6_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function (data) {
+                    var addr = '';
+                    var extraAddr = '';
+                    if (data.userSelectedType === 'R') { addr = data.roadAddress; }
+                    else { addr = data.jibunAddress; }
+                    if (data.userSelectedType === 'R') {
+                        if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                            extraAddr += data.bname;
+                        }
+                        if (data.buildingName !== '' && data.apartment === 'Y') {
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        if (extraAddr !== '') { extraAddr = ' (' + extraAddr + ')'; }
+                        document.getElementById("sample6_extraAddress").value = extraAddr;
+                    } else {
+                        document.getElementById("sample6_extraAddress").value = '';
+                    }
+                    document.getElementById('sample6_postcode').value = data.zonecode;
+                    document.getElementById("sample6_address").value = addr;
+                    document.getElementById("sample6_detailAddress").focus();
+                }
+            }).open();
+        };
+
+        $(document).ready(function () {
+            $(".tab-nav li:first-child").addClass("active");
+            $("#tab1").show();
+            $("#tab1").siblings('.tab').hide();
+            $('.tab-nav-item a').click(function (event) {
+                event.preventDefault();
+                $(this).parent().addClass('active');
+                $(this).parent().siblings().removeClass('active');
+
+                var tab = $(this).attr('href');
+                $(tab).siblings('.tab').hide();
+                $(tab).show();
+            });
+
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, '\\$&');
+                const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+                const results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return '';
+                return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            }
+            const id_num = getParameterByName('id');
+            const downloadLink = `https://api-koita2023.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}`;
+            let today_date = moment().format("YYYY-MM-DD");
+            $('#koita_business_registration').attr('href', downloadLink);
+
+            $('.password-reset').on("click", (event) => {
+                if (confirm("비밀번호를 초기화 하시겠습니까?")) {
+                    $.ajax({
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/attenders/by-attend-id/reset-password?attendId=" + id_num,
+                        "method": "POST",
+                        beforeSend: function (xhr) {
+                            if (localStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert('비밀번호를 초기화 하였습니다.');
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert('비밀번호 초기화에 실패하였습니다.');
+                        }
+                    });
+                }
+            });
+             
+            $("input[name='publish']").click(function () {
+                if ($("#billing").is(":checked")) {
+                    $("#cal_date").show();
+                } else {
+                    $("#cal_date").hide();
+                }
+            });
+            if (id_num !== null) {
+                $.ajax({
+                    url: "https://api-koita2023.onoffmix.xyz/api/v1/attends/"+ id_num +"/summary",
+                    "method": "GET",
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        $("input[name='apply-status']:radio[value="+ response.attendStatus +"]").attr("checked", true);
+                        $("input[name='publish-status']:radio[value="+ response.taxBillPublishStatus +"]").attr("checked", true);
+                        $("#isFullCost").attr("checked", response.adminMemo.isFullCost);
+                        $("#isPartCost").attr("checked", response.adminMemo.isPartCost);
+                        $("#isFullRefund").attr("checked", response.adminMemo.isFullRefund);
+                        $("#isPartRefund").attr("checked", response.adminMemo.isPartRefund);
+                        $("#partCostMemo").val(response.adminMemo.partCostMemo);
+                        $("#partRefundMemo").val(response.adminMemo.partRefundMemo);
+                        $("#admin_memo").val(response.adminMemo.memo);
+                        $("#attendTotalCost").val(response.finalCost.attendTotalCost);
+                        $("#flightTotalCost").val(response.finalCost.flightTotalCost)
+                        $("#hotelTotalCost").val(response.finalCost.hotelTotalCost);
+                        $("#golfCourseTotalCost").val(response.finalCost.golfCourseTotalCost)
+                        $("#tourTotalCost").val(response.finalCost.tourTotalCost);
+                        $("[data-admin_total]").text(response.finalCost.totalCost.toLocaleString());
+                        const pay_staus = response.depositStatus === 'NON_PAY' ? '결제<br>확인' : '미납<br>변경'
+                        const color = response.depositStatus === 'NON_PAY' ? 'success' : 'warning'
+
+                        $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString()  + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString()  + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="2" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
+                        
+                        $('.pay-btn').on("click", (event) => {
+                            if (response.depositStatus === 'NON_PAY') {
+                                if(confirm("결제 상태를 완납으로 변경 하시겠습니까?")){
+                                    $.ajax({
+                                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/final-cost/deposit-status/full?attendId=" + id_num,
+                                        "method": "PATCH",
+                                        beforeSend: function (xhr) {
+                                            if (localStorage.getItem('token')) {
+                                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                                            }
+                                        },
+                                        success: function (response) {
+                                            alert("변경 되었습니다.")
+                                            location.reload();
+                                        },
+                                        error: function (jqXHR, textStatus, errorThrown) {
+                                            alert('결제상태 변경에 실패하였습니다.');
+                                        }
+                                    });
+                                }
+                            } else if (response.depositStatus === 'FULL_PAY'){
+                                if (confirm("결제 상태를 미납으로 변경 하시겠습니까?")) {
+                                    $.ajax({
+                                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/final-cost/deposit-status/non?attendId=" + id_num,
+                                        "method": "PATCH",
+                                        beforeSend: function (xhr) {
+                                            if (localStorage.getItem('token')) {
+                                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                                            }
+                                        },
+                                        success: function (response) {
+                                            alert("변경 되었습니다.")
+                                            location.reload();
+                                        },
+                                        error: function (jqXHR, textStatus, errorThrown) {
+                                            alert('결제상태 변경에 실패하였습니다.');
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
+                        $('.save-btn').on("click", (event) => {
+                            const attend =  $("#attendTotalCost").val().replace(/,/g, "");
+                            const flight =  $("#flightTotalCost").val().replace(/,/g, "");
+                            const hotel =  $("#hotelTotalCost").val().replace(/,/g, "");
+                            const golf =  $("#golfCourseTotalCost").val().replace(/,/g, "");
+                            const tour =  $("#tourTotalCost").val().replace(/,/g, "");
+                            const data = {
+                                "attendId": id_num,
+                                "attendStatus": $("input[name='apply-status']:checked").val(),
+                                "taxBillPublishStatus": $("input[name='publish-status']:checked").val(),
+                                "attendTotalCost": attend !== "" ? attend : response.attendTotalCost,
+                                "flightTotalCost": flight !== "" ? flight : response.flightTotalCost,
+                                "hotelTotalCost": hotel !== "" ? hotel : response.hotelTotalCost,
+                                "golfCourseTotalCost": golf !== "" ? golf : response.golfCourseTotalCost,
+                                "tourTotalCost": tour !== "" ? tour : response.tourTotalCost,
+                                "adminMemo": {
+                                    "isFullCost": $("#isFullCost").prop("checked"),
+                                    "isPartCost": $("#isPartCost").prop("checked"),
+                                    "partCostMemo": $("#partCostMemo").val(),
+                                    "isFullRefund": $("#isFullRefund").prop("checked"),
+                                    "isPartRefund": $("#isPartRefund").prop("checked"),
+                                    "partRefundMemo": $("#partRefundMemo").val(),
+                                    "memo": $("#admin_memo").val()
+                                }
+                            }
+                            $.ajax({
+                                "url": "https://api-koita2023.onoffmix.xyz/api/v1/attends/summary",
+                                "method": "PATCH",
+                                beforeSend: function (xhr) {
+                                    if (localStorage.getItem('token')) {
+                                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                                    }
+                                },
+                                "data": JSON.stringify(data),
+                                "contentType": 'application/json',
+                                success: function (response) {
+                                    console.log(data)
+                                    alert('저장 되었습니다.');
+                                    // location.reload();
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    alert('저장에 실패했습니다.');
+                                }
+                            });
+                        });
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (jqXHR.status === 401) {
+                            window.location.href = 'login.html';
+                        }else{
+                            alert('잘못된 요청입니다.');
+                        }
+                    }
+                });
+
+                //결제수정 합계
+                $(document).ready(function () {
+                    function calculateTotal() {
+                        let total = 0;
+                        $('input[name="pay_mod"]').each(function () {
+                            const value = parseFloat($(this).val().replace(/[^0-9.]/g, '')) || 0; // 
+                            total += value;
+                        });
+                        $('[data-admin_total]').text(total.toLocaleString());
+                    }
+
+                    $('input[name="pay_mod"]').on('input', function () {
+                        calculateTotal();
+                    });
+                });
+
+                let fam_list = [];
+                let friendly_group = [];
+
+                $.ajax({
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v2/attends/" + id_num,
+                    "method": "GET",
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        friendly_group = response.friendlyGroups;
+                        response.friendlyGroups.forEach((item, index) => {
+                            $("input[name='friendly']:checkbox[value=" + response.friendlyGroups[index] + "]").prop("checked", true);
+                        });
+                        $("#companyName").val(response.company.companyName);
+                        $("#companyBoss").val(response.company.companyBoss);
+                        $("#companyBusinessNumber").val(response.company.companyBusinessNumber);
+                        $("#sample6_postcode").val(response.company.companyZipcode);
+                        $("#sample6_address").val(response.company.companyAddress);
+                        $("#sample6_detailAddress").val(response.company.companyDetailAddress);
+                        $("#companyIndustry").val(response.company.companyIndustry);
+                        $("#companyCategory").val(response.company.companyCategory);
+                        $("#koreaName").val(response.mainAttender.koreaName);
+                        $("#englishName").val(response.mainAttender.englishName);
+                        $("#juminNumber").val(response.mainAttender.juminNumber);
+                        $("#phone").val(response.mainAttender.phone);
+                        $("#telephone").val(response.mainAttender.telephone);
+                        $("#grade").val(response.mainAttender.grade);
+                        $("#email").val(response.mainAttender.email);
+                        $("#eduManagerName").val(response.mainAttender.eduManagerName);
+                        $("#eduManagerTeam").val(response.mainAttender.eduManagerTeam);
+                        $("#eduManagerTelephone").val(response.mainAttender.eduManagerTelephone);
+                        $("#eduManagerGrade").val(response.mainAttender.eduManagerGrade);
+                        $("#eduManagerMobilePhone").val(response.mainAttender.eduManagerMobilePhone);
+                        $("#eduManagerEmail").val(response.mainAttender.eduManagerEmail);
+                        $("#calManagerName").val(response.mainAttender.calManagerName);
+                        $("#calManagerTeam").val(response.mainAttender.calManagerTeam);
+                        $("#calManagerTelephone").val(response.mainAttender.calManagerTelephone);
+                        $("#calManagerGrade").val(response.mainAttender.calManagerGrade);
+                        $("#calManagerMobilePhone").val(response.mainAttender.calManagerMobilePhone);
+                        $("#calManagerEmail").val(response.mainAttender.calManagerEmail);
+                        $("#cal_date").val(response.mainAttender.billingDate);
+                        $('.custom-file-label').html(response.company.buginessRegistrationName);
+                        $("#receipt").attr("checked", response.mainAttender.isReceiptIssue);
+                        $("#billing").attr("checked", response.mainAttender.isBillingIssue);
+                         if (response.mainAttender.isBillingIssue === true) {
+                            $("#cal_date").show();
+                        };
+                        //-------------------------------동반인 추가 및 삭제-----------------------------
+                        fam_list = response.familyAttenders;
+                        
+                        const relation = {
+                            "PARENTS": "부모",
+                            "SPOUSE": "배우자",
+                            "CHILD": "자녀",
+                            "RELATIVE": "친척",
+                            "STAFF": "직원",
+                            "GRAND_CHILD": "손자녀",
+                            "ETC": "기타",
+                        };
+
+                        $('.add-btn').on("click", (event) => {
+                            const select_val = $("#relation option:selected").val();
+                            const name_val = $("#fam_name").val();
+                            const jumin_val = $("#fam_jumin").val();
+                            const phone_val = $("#fam_phone").val();
+
+                            if (jumin_val === '' || name_val === '' || phone_val === '' || select_val === ''){
+                                alert("모든 칸을 채워주세요.")
+                            }else {
+                               $(".family_table").append('<tr class="font-weight-bold" style="color: #5a5c69;"><th class="border-0" width="10%"></th><td class="pr-3 text-center" width="15%">' + relation[select_val] + '</td><td class="name_box text-center" width="15%">' + name_val + '</td><td class="text-center" width="15%">' + jumin_val + '</td><td class="text-center" width="15%">' + phone_val + '</td><td width="15%"><button type="button" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                            }
+
+                            fam_list.push({
+                                "relation": select_val,
+                                "name": name_val,
+                                "juminNumber": jumin_val,
+                                "phone": phone_val,
+                            })
+                        });
+
+                    
+                        $.each(fam_list, function (index, item) {
+                            $(".family_table").append('<tr class="font-weight-bold" style="color: #5a5c69;"><th class="border-0" width="10%"></th><td class="pr-3 text-center" width="15%">' + relation[item.relation] + '</td><td class="name_box text-center" width="15%">' + item.name + '</td><td class="text-center" width="15%">' + item.juminNumber + '</td><td class="text-center" width="15%">' + item.phone + '</td><td width="15%"><button type="button" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                        });
+
+                        $(".family_table").on("click", ".delete-btn", function () {
+                            if(confirm("이 참가자를 삭제하시겠습니까?")){
+                                $(this).closest('tr').remove();
+                                let remove = $(this).closest('tr').children('.name_box').text();
+                                fam_list.forEach((item, index) => {
+                                    if (item.name === remove) {
+                                        fam_list.splice(index, 1);
+                                    }
+                                });
+                            }
+                        });
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        if (jqXHR.status === 401) {
+                            alert("로그인이 필요한 페이지입니다.")
+                            window.location.href = 'login.html';
+                        } else {
+                            alert('잘못된 요청입니다.');
+                        }
+                    }
+                });
+
+                $('input[type="file"]').change(function (e) {
+                    var fileName = e.target.files[0].name;
+                    $('.custom-file-label').html(fileName);
+                });
+
+                $('.reset-btn').on("click", (event) => {
+                    $("#inputGroupFile02").val("");
+                    $('.custom-file-label').html("사업자등록증을 첨부해주세요.")
+                });
+
+                $("input[name='friendly']").click(function () {
+                    let value = $(this).val();
+                    if ($(this).is(":checked")) {
+                        friendly_group.push(value);
+
+                    } else {
+                        let index = friendly_group.indexOf(value);
+                        if (index > -1) {
+                            friendly_group.splice(index, 1);
+                        }
+                    }
+                });
+
+                $('.info-save').on("click", (event) => {
+                    const cal_file = $(".custom-file-input").get(0).files[0];
+                    const cal_file_val = cal_file === undefined ? "" : cal_file;
+
+                    let publish = $('input[name="publish"]:checked').val();
+                    let publish_check = ""
+                    if (publish === "billing") {
+                        publish_check = $("#cal_date").val();
+                    } else if (publish === "receipt") {
+                        publish_check = today_date;
+                    } else {
+                        publish_check = ""
+                    }
+                    const data = {
+                        "friendlyGroups": friendly_group,
+                        "mainAttender": {
+                            "koreaName": $("#koreaName").val(),
+                            "englishName": $("#englishName").val(),
+                            "juminNumber": $("#juminNumber").val(),
+                            "telephone": $("#telephone").val(),
+                            "mobilePhone": $("#phone").val(),
+                            "email": $("#email").val(),
+                            "grade": $("#grade").val(),
+                            "eduManagerName": $("#eduManagerName").val(),
+                            "eduManagerEmail": $("#eduManagerEmail").val(),
+                            "eduManagerTelephone": $("#eduManagerTelephone").val(),
+                            "eduManagerMobilePhone": $("#eduManagerMobilePhone").val(),
+                            "eduManagerTeam": $("#eduManagerTeam").val(),
+                            "eduManagerGrade": $("#eduManagerGrade").val(),
+                            "calManagerName": $("#calManagerName").val(),
+                            "calManagerEmail": $("#calManagerEmail").val(),
+                            "calManagerTelephone": $("#calManagerTelephone").val(),
+                            "calManagerMobilePhone": $("#calManagerMobilePhone").val(),
+                            "calManagerTeam": $("#calManagerTeam").val(),
+                            "calManagerGrade": $("#calManagerGrade").val(),
+                            "billingDate": publish_check,
+                            "isReceiptIssue": $("#receipt").is(":checked") === true ? true : false,
+                            "isBillingIssue": $("#billing").is(":checked") === true ? true : false
+                        },
+                        "company": {
+                            "companyAddress": $("#sample6_address").val(),
+                            "companyDetailAddress": $("#sample6_detailAddress").val(),
+                            "companyZipcode": $("#sample6_postcode").val(),
+                            "companyName": $("#companyName").val(),
+                            "companyBoss": $("#companyBoss").val(),
+                            "companyBusinessNumber": $("#companyBusinessNumber").val(),
+                            "companyIndustry": $("#companyIndustry").val(),
+                            "companyCategory": $("#companyCategory").val()
+                        },
+                        "familyAttenders": fam_list
+                    }
+                    const formData = new FormData();
+                    formData.append('attend', new Blob([JSON.stringify(data)], { type: "application/json" }));
+                    formData.append('businessRegistration', cal_file_val);
+                    $.ajax({
+                        "type": "PATCH",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v2/admin/attends/" + id_num,
+                        "data": formData,
+                        "processData": false,
+                        "contentType": false,
+                        "cache": false,
+                        "enctype": "multipart/form-data",
+                        beforeSend: function (xhr) {
+                            if (localStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.");
+                            location.reload();
+                            
+                        },
+                        error: function (xhr, status, error) {
+                            if (xhr.status === 401) {
+                                alert("로그인이 필요한 페이지입니다.")
+                                window.location.href = 'login.html';
+                            } else {
+                                alert("저장에 실패 하였습니다.");
+                            }
+                        }
+                    });
+
+                });
+
+                //---------------------- 항공시간 및 동행인 가져오기 ----------------------------
+                let passenger_list = [];
+                let flight_val = ""
+                let flight_txt = ""
+                let passenger_val = ""
+                let passenger_txt = ""
+
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/attenders?attendId=" + id_num,
+                    success: function (response) {
+                        passenger = response;
+                        $.each(passenger, function (index, item) {
+                            $("#flight_passenger").append('<option value="' + item.attenderId + '">' + item.name + '</option>');
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 항공스케쥴 가져오기
+                $("input[name='city']").click(function () {
+                    let value = $(this).val();
+                    $.ajax({
+                        "type": "GET",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/flights?startCity=" + value,
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            $("#flight option:not(:first-child)").remove();
+                            $.each(response, function (index, item) {
+                                $("#flight").append('<option value="' + item.flightId + '">[' + item.startCity + '발] ' + item.airline + ' ' + item.seatClass + ' ' + item.startDate + ' / ' + item.startFlight + ' - ' + '[제주발] ' + item.airline + ' ' + item.seatClass + ' ' + item.landingDate + ' / ' + item.endFlight + '</option>');
+                            });
+                        },
+                        error: function (error) {
+                            alert("error")
+                        }
+                    });
+                });
+
+                // 공항 신청내역 보여주기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/flight-orders?attendId=" + id_num,
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        if (response.flightTickets !== null) {
+                            $(".passenger").show();
+                            $.each(response.flightTickets, function (index, item) {
+                                $("[data-show_row='flight']").append("<div class='d-flex align-items-center mb-2' data-add_row><p class='mb-0'>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + " / " + item.flight.startFlight + " - " + "[제주발] " + item.flight.airline + ' ' + item.flight.seatClass + ' ' + item.flight.landingDate + ' / ' + item.flight.endFlight + ' ㅣ <span value="' + item.attenderId + '">' + item.attenderName + "</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                            });
+
+                            $("#flight_memo").val(response.userMemo);
+
+                            $.each(response.flightTickets, function (index, item) {
+                                passenger_list.push({
+                                    "flightId": item.flight.flightId,
+                                    "attenderId": item.attenderId
+                                });
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 삭제 버튼 클릭 시 해당 탑승객 삭제 후 리스트에서도 삭제
+                $(document).on("click", "[data-add_row] button", function () {
+                    const row = $(this).parent().find("span").attr("value");
+                    $(this).closest("[data-add_row]").remove();
+                    passenger_list.forEach((item, index) => {
+                        if (item.attenderId == row) {
+                            passenger_list.splice(index, 1);
+                        }
+                        console.log(passenger_list)
+                    });
+                    if (passenger_list.length === 0) {
+                        $(".passenger").hide();
+                    }
+                });
+
+                // 개별예약 클릭시 보이고 다른 라디오버튼 클릭시 안보이게 (PC)
+                $("#none").click(function () {
+                    $(".airport").show();
+                });
+                $('input[name="city"]').not('#none').click(function () {
+                    $(".airport").hide();
+                });
+
+                 // 비행시간과 탑승자 선택 후 리스트에 추가
+                $("[data-time_select]").change(function () {
+                    const val = $(this).val();
+                    const txt = $("option:checked", this).text();
+                    flight_val = val;
+                    flight_txt = txt;
+                    showSelectedInfo();
+                });
+
+                $("[data-passenger_select]").change(function () {
+                    const val = $(this).val();
+                    const txt = $("option:checked", this).text();
+                    passenger_val = val;
+                    passenger_txt = txt;
+                    showSelectedInfo();
+                });
+
+                function showSelectedInfo() {
+                    if (flight_val !== "" && passenger_val !== "") {
+                        $(".passenger").show();
+                        $("[data-show_row]").append("<div data-add_row class='d-flex align-items-center mb-2'><p class='mb-0'> " + flight_txt + " ㅣ <span value='" + passenger_val + "'>" + passenger_txt + "</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                        passenger_list.push({
+                            "flightId": flight_val,
+                            "attenderId": passenger_val
+                        });
+
+                        $('.reset').val("");
+                        flight_val = "";
+                        passenger_val = "";
+                    }
+                }
+                $(".flight-save").click(function () {
+                    const individual_date = $("input[type='date']").val();
+                    const time = $("input[type='time']").val();
+                    const data = {
+                        "attendId": id_num,
+                        "isIndividualOrder": $("[data-none_input]").is(":checked") === true ? true : false,
+                        "individualOrderLandingDate": $("input[type='date']").val(),
+                        "individualOrderLandingTime": time,
+                        "flightTickets": passenger_list,
+                        "userMemo": $("#flight_memo").val()
+                    };
+
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/flight-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(data)
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+
+                let room_list = [];
+                let total_cost = [];
+                let hotel_val = ""
+                let hotel_txt = ""
+                let hotel_cost = 0
+                let start_val = ""
+                let end_val = ""
+                let check_hour = ""
+                let check_min = ""
+                // 호텔 신청내역 보여주기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/hotel-orders?attendId=" + id_num,
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        if (response.hotelOrders !== null) {
+                            console.log(response)
+                            $(".room").show();
+                            $.each(response.hotelOrders, function (index, item) {
+                                room_list.push({
+                                    "hotelId": Number(item.hotel.hotelId),
+                                    "stayStartDate": item.stayStartDate,
+                                    "stayEndDate": item.stayEndDate,
+                                    "isBedFamilyTwin": item.isBedFamilyTwin,
+                                    "isSubBedPresent": item.isSubBedPresent
+                                });
+                                total_cost.push({
+                                    "hotelId": item.hotel.hotelId,
+                                    "cost": item.hotel.cost
+                                });
+                            });
+                            $.each(response.hotelOrders, function (index, item) {
+                                console.log(item.isBedFamilyTwin)
+                                $("[data-show_row='hotel']").append("<div data-add_row='" + item.hotel.hotelId + "'><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span class='font-weight-bold'>" + total_cost[index].cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? 'checked' : '') + "> 보조침대 신청</label><span class='pl-2 pr-2'>|</span><label><input type='checkbox' value='36600' "+ (item.isBedFamilyTwin === true ? "checked" : "") + " data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                            });
+                            $("#hotel_memo").val(response.userMemo);
+                            $("[data-total]").text(response.totalCost.toLocaleString());
+
+                        }
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 호텔 데이터 불러오기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/hotels/all",
+                    success: function (response) {
+                        $.each(response, function (index, item) {
+                            $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + item.hotelName + " " + item.roomType + " / " + item.bedType + "</option>");
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                for (let i = 0; i <= 23; i++) {
+                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    if (i === 15) {
+                        hour_option.attr('selected', true);
+                    }
+                    $("[data-hour_select]").append(hour_option);
+                }
+                // 분 드롭다운 목록 생성
+                for (let i = 0; i <= 59; i++) {
+                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    $("[data-min_select]").append(min_option);
+                }
+
+                // 투숙 기간과 객실 선택 후 리스트에 추가
+                $("[data-start_date]").change(function () {
+                    const val = $(this).val();
+                    start_val = val;
+                    showSelectedInfo();
+                    checkDates();
+                });
+
+                $("[data-end_date]").change(function () {
+                    const val = $(this).val();
+                    end_val = val;
+                    showSelectedInfo();
+                    checkDates();
+                });
+
+                $("[data-room_select]").change(function () {
+                    const val = $(this).val();
+                    const txt = $("option:checked", this).text();
+                    const cost = $("option:checked", this).data("cost");
+                    hotel_val = val;
+                    hotel_txt = txt;
+                    hotel_cost = cost;
+                    showSelectedInfo();
+                });
+
+                function showSelectedInfo() {
+                    if (hotel_val !== "" && start_val !== "" && end_val !== "") {
+                        $(".room").show();
+
+                        $("[data-show_row]").append("<div data-add_row='" + hotel_val + "'><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "<span data-bar>ㅣ</span><span class='font-weight-bold'>" + hotel_cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label><span class='pl-2 pr-2'>|</span><label><input type='checkbox' value='36600' data-twin_check> 패밀리 트윈으로 변경</label></div></div>");
+                        room_list.push({
+                            "hotelId": Number(hotel_val),
+                            "stayStartDate": start_val,
+                            "stayEndDate": end_val,
+                            "isBedFamilyTwin": $("[data-twin_check]").is(":checked") === true ? true : false,
+                            "isSubBedPresent": $("[data-bed_check]").is(":checked") === true ? true : false
+                        });
+
+                        total_cost.push({
+                            "hotelId": hotel_val,
+                            "cost": hotel_cost
+                        });
+                        updateTotalCost();
+
+                        $('.reset').val("");
+                    }
+                }
+
+                // 삭제 버튼 클릭 시 해당 객실 삭제 후 리스트에서도 삭제
+                $(document).on("click", "[data-add_row] button", function () {
+                    const add_row = $(this).closest("[data-add_row]");
+                    const index = add_row.index();
+                    console.log(index + 1)
+                    add_row.remove();
+                    if (room_list.length > index + 1) {
+                        room_list.splice(index + 1, 1);
+                    }
+                    if (room_list.length === 0) {
+                        $(".room").hide();
+                    }
+                    if (total_cost.length > index + 1) {
+                        total_cost.splice(index + 1, 1);
+                        updateTotalCost();
+                    }
+                });
+
+                // 패밀리트윈 체크 여부
+                $(document).on("change", "[data-twin_check]", function () {
+                    var $addRow = $(this).closest("[data-add_row]");
+                    var index = $addRow.index("[data-add_row]");
+                    room_list[index - 2].isBedFamilyTwin = this.checked;
+
+                    // 체크박스 상태에 따라 total_cost 업데이트
+                    if ($(this).is(":checked")) {
+                        total_cost[index - 2].cost += 36600;
+                        updateTotalCost();
+                    } else {
+                        total_cost[index - 2].cost -= 36600;
+                        updateTotalCost();
+                    }
+                });
+
+                // 보조침대 체크 여부
+                $(document).on("change", "[data-bed_check]", function () {
+                    var $addRow = $(this).closest("[data-add_row]");
+                    var index = $addRow.index("[data-add_row]");
+                    room_list[index - 2].isSubBedPresent = $(this).is(":checked") === true ? true : false;
+
+                    // 체크박스 상태에 따라 total_cost 업데이트
+                    if ($(this).is(":checked")) {
+                        total_cost[index - 2].cost += 48400;
+                        updateTotalCost();
+                    } else {
+                        total_cost[index - 2].cost -= 48400;
+                        updateTotalCost();
+                    }
+                });
+
+                function updateTotalCost() {
+                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-total]").text(sum.toLocaleString());
+                }
+
+                // 체크아웃 날짜보다 체크인 날짜가 뒤면 얼럿창 제공
+                function checkDates() {
+                    if (new Date(start_val) > new Date(end_val)) {
+                        alert("종료일이 시작일보다 먼저일수는 없습니다.");
+                        $("[data-end_date]").val("")
+                    } else if (start_val === end_val) {
+                        alert("시작일과 종료일이 같을수는 없습니다.");
+                        $("[data-end_date]").val("")
+                    }
+                    //N박 텍스트 표기
+                    const cal = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
+                    if (cal > 0) {
+                        $("[data-cal_row]").text(cal + "박")
+                    } else {
+                        $("[data-cal_row]").text("")
+                    }
+                }
+
+                $(".hotel-save").click(function () {
+                    const hour_ = $("[data-hour_select] option:selected").val();
+                    const min_ = $("[data-min_select] option:selected").val();
+                    const hour = hour_ < 10 ? '0' + hour_.toString() : hour_.toString();
+                    const min = min_ < 10 ? '0' + min_.toString() : min_.toString();
+                    const data = {
+                        "attendId": id_num,
+                        "hotelOrders": room_list,
+                        "estimatedCheckInTime": hour + ":" + min + ":" + "00",
+                        "userMemo": $("#hotel_memo").val(),
+                        "isIndividualPay": $("input[name='pay']").is(":checked") === true ? true : false
+                    };
+
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/hotel-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                            console.log(data)
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(data)
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+
+                let golf_list = [];
+                let tour_list = [];
+                let golf_total_cost = [];
+                let passenger
+                const tour_type = {
+                    "ISLAND_TOUR": "섬투어",
+                    "ACTIVITY": "액티비티",
+                    "CULTURE": "문화체험",
+                    "HEALING_TOUR": "힐링투어",
+                    "RECREATION_FOREST": "휴양림",
+                    "TRACKING": "트래킹",
+                }
+
+                //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/programs?date=2023-07-06",
+                    success: function (response) {
+                        const data = response;
+                        const tour = data.tours;
+                        const golf = data.golfCourses;
+                        $.each(golf, function (index, item) {
+                            let full = item.capacity === item.currentAttenderNumber;
+                            $("[data-golf_thu_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 (7월 6일)</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td class='align-middle' data-amount_row>" + item.cost.toLocaleString() + "원</td><td class='align-middle'><select " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
+                        });
+                        $.each(tour, function (index, array) {
+                            $.each(array, function (index, item) {
+                                $("[data-tour_thu_table]").append("<tr><td rowspan='" + array.length + "' class='table-secondary align-middle font-weight-bold' style='width:10%'>" + tour_type[item.tourType] + "</td><td class='align-middle' style='width:40%'><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.adultCost + "><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td class='align-middle'><select data-tour='" + item.tourType + "' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box='tour' class='mb-2'></div></td></tr>");
+                            });
+                        });
+                        
+                        //투어 정보 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-koita2023.onoffmix.xyz/api/v1/programs?date=2023-07-07",
+                            success: function (response) {
+                                const data = response;
+                                const tour = data.tours;
+                                const golf = data.golfCourses;
+                                $.each(golf, function (index, item) {
+                                    let full = item.capacity === item.currentAttenderNumber;
+                                    $("[data-golf_fri_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 (7월 7일)</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'></div></td></tr>");
+                                });
+
+                                $.each(tour, function (index, array) {
+                                var rowspan = array.length;
+                                $.each(array, function (index, item) {
+                                    if (index == 0) {
+                                        $("[data-tour_fri_table]").append("<tr> <td class='table-secondary align-middle font-weight-bold' rowspan='" + rowspan + "' style='width:10%'>" + tour_type[item.tourType] + "</td><td class='align-middle' style='width:40%'><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.adultCost + "><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td class='align-middle'><select data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box='tour' class='mb-2'></div></td></tr>");
+                                    } else {
+                                        $("[data-tour_fri_table]").append("<tr><td  style='width:40%'><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.adultCost + "><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td class='align-middle'><select  data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box='tour' class='mb-2'></div></td></tr>");
+                                    }
+                                });
+                                });
+                                
+                                // 동행인 리스트 가져오기
+                                $.ajax({
+                                    "type": "GET",
+                                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/attenders?attendId=" + id_num,
+                                    success: function (response) {
+                                        passenger = response;
+                                        $("[data-golf], [data-tour]").each(function () {
+                                            var select = $(this);
+                                            $.each(passenger, function (index, item) {
+                                                select.append('<option data-age="' + item.isAdultForTour + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                            });
+                                        });
+                                    },
+                                    error: function (error) {
+                                        alert("error")
+                                    }
+                                });
+
+                                // 이미 신청한 상황이라면 신청내역 보여주기
+                                $.ajax({
+                                    "type": "GET",
+                                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/program-orders?attendId=" + id_num,
+                                    beforeSend: function (xhr) {
+                                        if (sessionStorage.getItem('token')) {
+                                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                        }
+                                    },
+                                    success: function (response) {
+                                        const golf = response.golfCourseOrder;
+                                        const golf_data = response.golfCourseOrder.golfCourseAttenders;
+                                        const tour = response.tourOrder;
+                                        const tour_data = response.tourOrder.tourAttenders;
+                                        if (golf !== null && tour !== null) {
+                                            $.each(golf_data, function (index, item) {
+                                                golf_list.push({
+                                                    "handicap": item.handicap,
+                                                    "attenderId": item.attenderId,
+                                                    "golfCourseId": item.golfCourseId,
+                                                });
+                                                golf_total_cost.push({
+                                                    "attenderId": item.attenderId,
+                                                    "Id": item.golfCourseId,
+                                                    "cost": item.cost,
+                                                });
+                                            });
+                                            $.each(tour_data, function (index, item) {
+                                                tour_list.push({
+                                                    "attenderId": item.attenderId,
+                                                    "tourId": item.tourId,
+                                                });
+                                                golf_total_cost.push({
+                                                    "attenderId": item.attenderId,
+                                                    "Id": item.tourId,
+                                                    "cost": item.cost
+                                                });
+                                            });
+
+                                            totalCost();
+
+                                            $.each(golf_data, function (index, item) {
+                                                let full = item.capacity === item.currentAttenderNumber;
+                                                let golfCourseId = item.golfCourseId;
+                                                let $showBox = $("[data-id='" + golfCourseId + "']").closest('tr').find("[data-show_box='golf']");
+
+                                                $showBox.append("<div data-golf_row  class='mb-2' data-attender_id='" + item.attenderId + "' data-golf_id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><input type='text' placeholder='핸디값' data-handy_input value='" + item.handicap + "' class='ml-3'><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                                            });
+
+                                            $.each(tour_data, function (index, item) {
+                                                let $showBox = $("[data-id='" + item.tourId + "']").closest('tr').find("[data-show_box='tour']");
+
+                                                $showBox.append("<div data-tour_row class='mb-2' data-attender_id='" + item.attenderId + "' data-tour_id='" + item.tourId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                                            });
+                                        }
+                                    },
+                                    error: function (error) {
+                                        alert("error")
+                                    }
+                                });
+
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                //골프 참여자 선택시 리스트에 추가
+                $(document).on("change", "[data-golf]", function () {
+                    const val = $(this).val();
+                    const text = $(this).find("option:selected").text();
+                    const id = $(this).data("id");
+                    const cost = $(this).data("cost");
+                    const $showBox = $("[data-show_box='golf']", $(this).closest("tr"));
+
+                    $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input class='ml-3'><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+
+                    golf_list.push({
+                        "handicap": 0,
+                        "attenderId": val,
+                        "golfCourseId": id
+                    });
+                    total_cost.push({
+                        "attenderId": val,
+                        "Id": id,
+                        "cost": cost,
+                    });
+                    console.log(golf_list)
+                    totalCost();
+                    $("[data-golf]").val("");
+                });
+
+                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 골프 리스트에서도 삭제
+                $(document).on("click", "[data-golf_row] button", function () {
+                    const id = $(this).closest("[data-golf_row]").data("golf_id");
+                    const val = $(this).closest("[data-golf_row]").data("attender_id");
+                    const cost = $(this).closest("[data-golf_row]").data("cost");
+                    golf_list = golf_list.filter(function (item) {
+                        return !(item.attenderId == val && item.golfCourseId == id);
+                    });
+                    total_cost = total_cost.filter(function (item) {
+                        return !(item.attenderId == val && item.Id == id && item.cost == cost);
+                    });
+                    $(this).closest("[data-golf_row]").remove();
+                    totalCost();
+                });
+
+                // 골프 핸디값 입력시
+                $(document).on("input", "[data-handy_input]", function () {
+                    const id = $(this).closest("[data-golf_row]").data("golf_id");
+                    const val = $(this).closest("[data-golf_row]").data("attender_id");
+                    const index = golf_list.findIndex(item => item.attenderId == val && item.golfCourseId == id);
+                    if (index !== -1) {
+                        golf_list[index].handicap = $(this).val();
+                    }
+                    console.log(golf_list)
+                });
+
+                // 투어 참여자 선택시 리스트에 추가
+                $(document).on("change", "[data-tour]", function () {
+                    const val = $(this).val();
+                    const text = $(this).find("option:selected").text();
+                    const type = $(this).data("tour");
+                    const id = $(this).data("id");
+                    const age = $(this).data("age");
+                    let cost;
+                    
+                    const adult = $(this).closest("tr").find("[data-amount_row]").data("adult");
+                    const child = $(this).closest("tr").find("[data-amount_row]").data("child");
+                    const $showBox = $("[data-show_box='tour']", $(this).closest("tr"));
+                    cost = age === true ? adult : child;
+
+                    $showBox.append("<div class='mb-2' data-tour_row data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                    
+                    tour_list.push({
+                        "attenderId": val,
+                        "tourId": id
+                    });
+                    total_cost.push({
+                        "attenderId": val,
+                        "Id": id,
+                        "cost": cost
+                    });
+                    $("[data-tour]").val("");
+                    totalCost();
+                });
+
+                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 투어 리스트에서도 삭제
+                $(document).on("click", "[data-tour_row] button", function () {
+                    const id = $(this).closest("[data-tour_row]").data("tour_id");
+                    const val = $(this).closest("[data-tour_row]").data("attender_id");
+                    const cost = $(this).closest("[data-tour_row]").data("cost");
+                    tour_list = tour_list.filter(function (item) {
+                        return !(item.attenderId == val && item.tourId == id);
+                    });
+                    total_cost = total_cost.filter(function (item) {
+                        return !(item.attenderId == val && item.Id == id && item.cost == cost);
+                    });
+                    $(this).closest("[data-tour_row]").remove();
+                    totalCost();
+                });
+
+                function totalCost() {
+                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-total]").text(sum.toLocaleString());
+                };
+
+                $(".program-save").click(function () {
+                    const individual_date = $("input[type='date']").val();
+                    const time = $("input[type='time']").val();
+                    const data = {
+                        "attendId": id_num,
+                        "golfCourseOrders": golf_list,
+                        "tourOrders": tour_list,
+                        "userMemo": $("textarea").val()
+                    };
+
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/program-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                        },
+                        error: function (xhr, status, error) {
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+
+                let lecture_list = [];
+                //강연 정보
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/lectures?date=2023-07-06",
+                    success: function (response) {
+                        const data = response;
+                        $.each(data, function (index, item) {
+                            $("[data-thu_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>" + item.lectureType + "</td><td>" + item.startTime + " ~ " + item.endTime + "</td><td data-description_row><p>" + item.title + "</p></td><td><select data-id=" + item.lectureId + " data-lecture><option selected disabled value=''>선택</option></select></td><td><div data-show_box></div></td></tr>");
+                        });
+                        //강연 정보 가져오기 (금)
+                        $.ajax({
+                            "type": "GET",
+                            "url": "https://api-koita2023.onoffmix.xyz/api/v1/lectures?date=2023-07-07",
+                            success: function (response) {
+                                const data = response;
+                                $.each(data, function (index, item) {
+                                    $("[data-fri_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>" + item.lectureType + "</td><td>" + item.startTime + " ~ " + item.endTime + "</td><td data-description_row><p>" + item.title + "</p></td><td><select data-id=" + item.lectureId + " data-lecture><option selected disabled value=''>선택</option></select></td><td><div data-show_box></div></td></tr>");
+                                });
+
+                                $.ajax({
+                                    "type": "GET",
+                                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/lectures?date=2023-07-05",
+                                    success: function (response) {
+                                        const data = response;
+                                        $.each(data, function (index, item) {
+                                            $("[data-wed_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>" + item.lectureType + "</td><td style='width: 200px'>" + item.startTime + " ~ " + item.endTime + "</td><td data-description_row style='width:52%'><p>" + item.title + "</p></td><td><select data-id=" + item.lectureId + " data-lecture><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box></div></td></tr>");
+                                        });
+
+                                        $.ajax({
+                                            "type": "GET",
+                                            "url": "https://api-koita2023.onoffmix.xyz/api/v1/lectures?date=2023-07-08",
+                                            success: function (response) {
+                                                const data = response;
+                                                $.each(data, function (index, item) {
+                                                    $("[data-sat_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>" + item.lectureType + "</td><td style='width: 200px'>" + item.startTime + " ~ " + item.endTime + "</td><td data-description_row style='width:52%'><p>" + item.title + "</p></td><td><select data-id=" + item.lectureId + " data-lecture><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box></div></td></tr>");
+                                                });
+
+                                                // 동행인 리스트 가져오기
+                                                $.ajax({
+                                                    "type": "GET",
+                                                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/attenders?attendId=" + id_num,
+                                                    success: function (response) {
+                                                        $("[data-lecture]").each(function () {
+                                                            var select = $(this);
+                                                            $.each(response, function (index, item) {
+                                                                select.append('<option data-age="' + item.isAdultForTour + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                            });
+                                                        });
+                                                    },
+                                                    error: function (error) {
+                                                        alert("error")
+                                                    }
+                                                });
+
+                                                // 이미 신청한 상황이라면 신청내역 보여주기
+                                                $.ajax({
+                                                    "type": "GET",
+                                                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/lecture-orders?attendId=" + id_num,
+                                                    beforeSend: function (xhr) {
+                                                        if (sessionStorage.getItem('token')) {
+                                                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                                        }
+                                                    },
+                                                    success: function (response) {
+                                                        const lecture = response.lectureAttenders;
+                                                        if (lecture !== null) {
+                                                            $.each(lecture, function (index, item) {
+                                                                lecture_list.push({
+                                                                    "attenderId": item.attenderId,
+                                                                    "lectureId": item.lectureId
+                                                                });
+                                                                const $showBox = $("[data-id='" + item.lectureId + "']").closest("tr").find("[data-show_box]");
+
+                                                                $showBox.append("<div class='mb-3' data-show_row data-attender_id='" + item.attenderId + "' data-id='" + item.lectureId + "'><span>" + item.attenderName + "</span><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+                                                            });
+                                                        }
+                                                    },
+                                                    error: function (error) {
+                                                        alert("error")
+                                                    }
+                                                });
+                                            },
+                                            error: function (error) {
+                                                alert("error")
+                                            }
+                                        });
+                                    },
+                                    error: function (error) {
+                                        alert("error")
+                                    }
+                                });
+                            },
+                            error: function (error) {
+                                alert("error")
+                            }
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 강연 참여자 선택시 리스트에 추가
+                $(document).on("change", "[data-lecture]", function () {
+                    const val = $(this).val();
+                    const text = $(this).find("option:selected").text();
+                    const id = $(this).data("id");
+                    const $showBox = $("[data-show_box]", $(this).closest("tr"));
+                    $showBox.append("<div data-show_row data-attender_id='" + val + "' data-id='" + id + "'><span>" + text + "</span><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
+
+                    lecture_list.push({
+                        "attenderId": val,
+                        "lectureId": id
+                    });
+                    console.log(lecture_list)
+                    $("select").val("");
+                });
+
+                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 투어 리스트에서도 삭제
+                $(document).on("click", "[data-show_row] button", function () {
+                    const id = $(this).closest("[data-show_row]").data("id");
+                    const val = $(this).closest("[data-show_row]").data("attender_id");
+                    lecture_list = lecture_list.filter(function (item) {
+                        return !(item.attenderId == val && item.lectureId == id);
+                    });
+                    console.log(lecture_list)
+                    $(this).closest("[data-show_row]").remove();
+                });
+
+                $(".lecture-save").click(function () {
+                    const data = {
+                        "attendId": id_num,
+                        "lectureAttenders": lecture_list,
+                    };
+                    $.ajax({
+                        "type": "POST",
+                        "url": "https://api-koita2023.onoffmix.xyz/api/v1/lecture-orders",
+                        "data": JSON.stringify(data),
+                        "contentType": 'application/json',
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                            window.location.href = "/admin/ParticipantList.html";
+                        },
+                        error: function (xhr, status, error) {
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                });
+            }else{
+                if (localStorage.getItem('token') === null) {
+                    alert("로그인이 필요한 페이지입니다.");
+                    window.location.href = 'login.html';
+                } else {
+                    alert("잘못된 접근입니다.");
+                    window.location.href = "/admin/ParticipantList.html";
+                }
+            }
+
+            
+        });
+    </script>
+</body>
+
+</html>

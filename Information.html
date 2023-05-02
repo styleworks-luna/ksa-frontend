@@ -1,0 +1,1522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/information.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/information.js"></script>
+</head>
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="./Notice.html">공지사항</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+            <li class="" data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">SPEAKERS</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div>
+            <a href="Index.html" data-logo_box></a>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+             <ul>
+                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li data-logout_row><button data-logout_btn type="button">로그아웃</button></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-pc_process_box>
+            <ul>
+                <li class="present"><a>참가자정보입력</a></li>
+                <li><a href="./Flight.html">항공예약</a></li>
+                <li><a href="./Hotel.html">호텔예약</a></li>
+                <li><a href="./Rentalcar.html">렌터카예약</a></li>
+                <li><a href="./Program.html">프로그램</a></li>
+                <li><a href="./InformationConfirm.html">신청확인</a></li>
+                <li><button type="button" data-logout_btn>로그아웃</button></li>
+            </ul>
+        </div>
+        <div data-mobile_process_box>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide present">
+                        <a>참가자정보입력</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Flight.html">항공예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Hotel.html">호텔예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Rentalcar.html">렌터카예약</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./Program.html">프로그램</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="./InformationConfirm.html">신청확인</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <button>로그아웃</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-pc_content_box>
+            <form data-pc_form>
+                <div data-main_title>
+                    <span>참가자정보입력</span>
+                </div>
+                <div data-check_wrap>
+                    <span>KSA회원사 여부</span>
+                    <div data_check-box>
+                        <label for="executives">
+                            <input type="radio" name="friendly" value="MEMBER">회원사
+                        </label>
+                        <label for="koita">
+                            <input type="radio" name="friendly" value="NOT_MEMBER">비회원사
+                        </label>
+                        <label for="net">
+                            <input type="radio" name="friendly" value="HIGHEST_LEVEL">최고위과정 원우((AMQP, 기술경영, 인문경영) 및 서비스포럼사
+                        </label>
+                    </div>
+                </div>
+                <div data-info_wrap="company">
+                    <div data-title_box>기업정보</div>
+                    <table>
+                        <tr>
+                            <th><span>회사명</span></th>
+                            <td><input type="text" name="company_name" id="company_name" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>대표자명</span></th>
+                            <td><input type="text" name="ceo_name" id="ceo_name" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>사업자번호</span></th>
+                            <td><input type="text" name="bussiness_num" placeholder="‘-’없이 입력해주세요." placeholder="사업자번호를 입력해주세요 (-없이)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" id="bussiness_num" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>회사주소</span></th>
+                            <td data-address_row>
+                                <div>
+                                    <input type="text" id="sample6_postcode" name="add_post_num" placeholder="우편번호" required>
+                                    <input type="text" id="sample6_address" name="main_add" placeholder="주소" required>
+                                    <input type="button" onclick="sample6_execDaumPostcode()" value="주소검색">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td data-address_row>
+                                <input type="text" id="sample6_detailAddress" name="sub_add" placeholder="상세주소">
+                                <input type="text" id="sample6_extraAddress" placeholder="참고항목">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>업태</span></th>
+                            <td><input type="text" placeholder="업태정보" id="large_cate" name="large_cate" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>종목</span></th>
+                            <td><input type="text" placeholder="종목정보" id="small_cate" name="small_cate" required></td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="password">
+                    <div data-title_box>비밀번호</span></div>
+                    <table>
+                        <tr>
+                            <th><span>비밀번호</span></th>
+                            <td>
+                                <input type="password" placeholder="비밀번호 (대소문자,숫자,특수기호 포함 8자리 이상)" name="pass_word" id="pass_word">
+                                <p data-regex_error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>비밀번호 확인</span></th>
+                            <td>
+                                <input type="password" placeholder="동일한 비밀번호를 입력해주세요." name="pass_word_check" id="pass_word_check">
+                                <p data-check_error_row></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="participant">
+                    <div data-title_box>참가자 정보</div>
+                    <table>
+                        <tr>
+                            <th><span>이름 (한글)</span></th>
+                            <td><input type="text" name="kor_name" id="kor_name" placeholder="한글 이름을 입력해주세요." required></td>
+                        </tr>
+                        <tr>
+                            <th><span>이름 (영문)</span></th>
+                            <td><input type="text" name="eng_name" id="eng_name" placeholder="영문 이름을 입력해주세요." required></td>
+                        </tr>
+                        <tr>
+                            <th><span>주민등록번호</span></th>
+                            <td>
+                                <input type="text" name="jumin_num" id="jumin_num" placeholder="‘-’없이 입력해주세요." class="jumin_input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d{6})(\d{7})$/, `$1-$2`)" maxlength="13" required>
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>휴대전화번호</span></th>
+                            <td>
+                                <input type="text" name="phone_num" id="phone_num" placeholder="‘-’없이 입력해주세요." class="phone_input" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11" required>
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>전화번호</span></th>
+                            <td><input type="text" name="tell_num" id="tell_num" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></td>
+                        </tr>
+                        <tr>
+                            <th><span>직위</span></th>
+                            <td><input type="text" name="job_position" id="job_position" tell_numrequired></td>
+                        </tr>
+                        <tr>
+                            <th><span>이메일</span></th>
+                            <td>
+                                <input type="text" name="email" id="email" required>
+                                <p data-email_error_row></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="family">
+                    <div data-title_box>동반가족</div>
+                    <table class="default">
+                        <tr>
+                            <th>관계</th>
+                            <th>성명</th>
+                            <th>주민등록번호</th>
+                            <th>휴대전화</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <select class="select reset">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="PARENTS">부모</option>
+                                    <option value="SPOUSE">배우자</option>
+                                    <option value="CHILD">자녀</option>
+                                    <option value="RELATIVE">친척</option>
+                                    <option value="STAFF">직원</option>
+                                    <option value="GRAND_CHILD">손자녀</option>
+                                    <option value="ETC">기타</option>
+                                </select>
+                            </td>
+                            <td><input class="name reset" type="text" name="fam_name" id="fam_name"></td>
+                            <td>
+                                <div>
+                                    <input class="jumin reset jumin_input" type="text" placeholder="‘-‘ 없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d{6})(\d{7})$/, `$1-$2`)" maxlength="13" name="fam_jumin" id="fam_jumin">
+                                    <p data-error_row></p>
+                                </div>
+                            </td>
+                            <td>
+                                <input class="phone reset phone_input" type="text" placeholder="‘-‘ 없이 입력해주세요" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11" name="fam_phone" id="fam_phone">
+                                <p data-error_row></p>
+                            </td>
+                            <td><input type="button" value="등록" onclick="showInput()"></td>
+                        </tr>
+                        <tr data-padding_row></tr>
+                    </table>
+                </div>
+                <div data-info_wrap="education">
+                    <div data-title_box>교육 담당자
+                        <label for="info_default_same">
+                            <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="pc_info_default_same">참가자와 동일
+                        </label>
+                    </div>
+                    <table>
+                        <tr>
+                            <th data-none_row><span>성명</span></th>
+                            <td><input type="text" placeholder="이름을 입력해주세요." name="pc_edu_name" id="edu_name"></td>
+                            <th data-none_row><span>소속</span></th>
+                            <td><input type="text" placeholder="소속을 입력해주세요." name="pc_edu_belong" id="edu_belong"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>일반전화</span></th>
+                            <td><input type="text" placeholder="전화번호를 입력해주세요." name="pc_edu_tell" id="edu_tell"></td>
+                            <th data-none_row><span>직위</span></th>
+                            <td><input type="text" placeholder="직위를 입력해주세요." name="pc_edu_job_position" id="edu_job_position"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>휴대전화</span></th>
+                            <td><input type="text" placeholder="휴대전화 번호를 입력해주세요." name="pc_edu_phone" id="edu_phone"></td>
+                            <th data-none_row><span>E-mail</span></th>
+                            <td><input type="text" placeholder="이메일을 입력해주세요." name="pc_edu_email" id="edu_email"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="education">
+                    <div data-title_box>정산 담당자
+                        <div data-flex_box>
+                            <label for="info_edu_same">
+                                <input type="checkbox" name="info_edu_same" value="" class="info_edu_same" id="pc_info_edu_same">교육담당자와 동일
+                            </label>
+                            <div>
+                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
+                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                            </div>
+                        </div>
+                    </div>
+                    <table>
+                        <tr>
+                            <th data-none_row><span>성명</span></th>
+                            <td><input type="text" placeholder="이름을 입력해주세요." name="pc_cal_name" id="cal_name"></td>
+                            <th data-none_row><span>소속</span></th>
+                            <td><input type="text" placeholder="소속을 입력해주세요." name="pc_cal_belong" id="cal_belong"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>일반전화</span></th>
+                            <td><input type="text" placeholder="전화번호를 입력해주세요." name="pc_cal_tell" id="cal_tell"></td>
+                            <th data-none_row><span>직위</span></th>
+                            <td><input type="text" placeholder="직위를 입력해주세요." name="pc_cal_job_position" id="cal_job_position"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>휴대전화</span></th>
+                            <td><input type="text" placeholder="휴대전화 번호를 입력해주세요." name="pc_cal_phone" id="cal_phone"></td>
+                            <th data-none_row><span>E-mail</span></th>
+                            <td><input type="text" placeholder="이메일을 입력해주세요." name="pc_cal_email" id="cal_email"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>정산정보</span></th>
+                            <td>
+                                <div data-publish_row>
+                                    <label for="receipt">
+                                        <input type="radio" name="publish" value="receipt" id="receipt">영수발행
+                                    </label>
+                                    <label for="billing">
+                                        <input type="radio" name="publish" value="billing" id="billing">청구발행
+                                        <input type="date" placeholder="계산서 청구일자 선택" name="cal_date" id="cal_date">
+                                    </label>
+                                </div>
+                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
+                            </td>
+                            <th><span>사업자등록증</span></th>
+                            <td>
+                                <div data-file_row>
+                                    <input data-name_row value="첨부파일" placeholder="첨부파일" name="cal_file" id="cal_file">
+                                    <label for="file">첨부하기</label>
+                                    <input type="file" id="file">
+                                    <button data-clear_btn type="button">X</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-btn_box>
+                    <button type="submit">참가자 정보 저장</button>
+                </div>
+                <button type="button" data-test>참가자 정보 저장</button>
+            </form>
+        </div>
+        <div data-mobile_content_box>
+            <form>
+                <div data-main_title>
+                    <span>참가자정보입력</span>
+                </div>
+                <div data-info_wrap="company">
+                    <div data-check_wrap>
+                        <span>KSA회원사 여부</span>
+                        <div data_check-box>
+                            <label for="executives">
+                                <input type="radio" name="mobile" value="MEMBER">회원사
+                            </label>
+                            <label for="koita">
+                                <input type="radio" name="mobile" value="NOT_MEMBER">비회원사
+                            </label>
+                            <label for="net">
+                                <input type="radio" name="mobile" value="HIGHEST_LEVEL">최고위과정 원우((AMQP, 기술경영, 인문경영) 및 서비스포럼사
+                            </label>
+                        </div>
+                    </div>
+                    <div data-title_box>기업정보</div>
+                    <table>
+                        <tr>
+                            <th><span>회사명</span></th>
+                            <td><input type="text" name="company_name" id="company_name_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>대표자명</span></th>
+                            <td><input type="text" name="ceo_name" id="ceo_name_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>사업자번호</span></th>
+                            <td><input type="text" name="bussiness_num" id="bussiness_num_mobile" placeholder="‘-’없이 입력해주세요." placeholder="사업자번호를 입력해주세요 (-없이)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>회사주소</span></th>
+                            <td data-address_row>
+                                <div>
+                                    <input type="text" id="sample6_postcode_mobile" name="add_post_num_mobile" placeholder="우편번호" required>
+                                    <input type="button" onclick="sample6_execDaumPostcode()" value="주소검색">
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td data-address_row>
+                                <input type="text" id="sample6_address_mobile" name="main_add_mobile" placeholder="주소" required>
+                                <input type="text" id="sample6_detailAddress_mobile" name="sub_add_mobile" placeholder="상세주소">
+                                <input type="text" id="sample6_extraAddress_mobile" placeholder="참고항목">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>업태</span></th>
+                            <td><input type="text" placeholder="업태정보" name="large_cate" id="large_cate_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>종목</span></th>
+                            <td><input type="text" placeholder="종목정보" name="small_cate" id="small_cate_mobile" required></td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="password">
+                    <div data-title_box>비밀번호</div>
+                    <table>
+                        <tr>
+                            <th><span>비밀번호</span></th>
+                            <td>
+                                <input type="password" placeholder="비밀번호 (대소문자,숫자,특수기호 포함 8자리 이상)" name="pass_word" id="pass_word_mobile">
+                                <p data-regex_error_row_mobile></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>비밀번호 확인</span></th>
+                            <td>
+                                <input type="password" placeholder="동일한 비밀번호를 입력해주세요." name="pass_word_check" id="pass_word_check_mobile">
+                                <p data-check_error_row_mobile></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="participant">
+                    <div data-title_box>참가자 정보</div>
+                    <table>
+                        <tr>
+                            <th><span>이름 (한글)</span></th>
+                            <td><input type="text" name="kor_name" placeholder="한글 이름을 입력해주세요." id="kor_name_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>이름 (영문)</span></th>
+                            <td><input type="text" name="eng_name" placeholder="영문 이름을 입력해주세요." id="eng_name_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>주민등록번호</span></th>
+                            <td>
+                                <input type="text" name="jumin_num" placeholder="‘-’없이 입력해주세요." class="jumin_input_mobile" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d{6})(\d{7})$/, `$1-$2`)" maxlength="13" id="jumin_num_mobile" required>
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>휴대전화번호</span></th>
+                            <td>
+                                <input type="text" name="phone_num" class="phone_input" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11" id="phone_num_mobile" required>
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>전화번호</span></th>
+                            <td><input type="text" name="tell_num" id="tell_num_mobile" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '')"></td>
+                        </tr>
+                        <tr>
+                            <th><span>직위</span></th>
+                            <td><input type="text" name="job_position" id="job_position_mobile" required></td>
+                        </tr>
+                        <tr>
+                            <th><span>이메일</span></th>
+                            <td>
+                                <input type="text" name="email" id="email_mobile" required>
+                                <p data-email_error_row></p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-info_wrap="family">
+                    <div data-title_box>동반가족</div>
+                    <table class="default">
+                        <tr>
+                            <th>관계</th>
+                            <td>
+                                <select class="select_mobile reset">
+                                    <option value="" disabled selected>선택</option>
+                                    <option value="PARENTS">부모</option>
+                                    <option value="SPOUSE">배우자</option>
+                                    <option value="CHILD">자녀</option>
+                                    <option value="RELATIVE">친척</option>
+                                    <option value="STAFF">직원</option>
+                                    <option value="GRAND_CHILD">손자녀</option>
+                                    <option value="ETC">기타</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>성명</th>
+                            <td><input class="name reset" type="text" name="fam_name" id="fam_name_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th>주민등록번호</th>
+                            <td>
+                                <input class="jumin reset jumin_input_mobile" type="text" placeholder="‘-‘ 없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/^(\d{6})(\d{7})$/, `$1-$2`)" maxlength="13" name="fam_jumin" id="fam_jumin_mobile">
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>휴대전화</th>
+                            <td>
+                                <input class="phone reset phone_input" type="text" placeholder="‘-‘ 없이 입력해주세요" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11" name="fam_phone" id="fam_phone_mobile">
+                                <p data-error_row></p>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="button" value="등록" onclick="showInputMobile()" data-add_btn>
+                </div>
+                <div data-info_wrap="education">
+                    <div data-title_box="2">교육 담당자
+                        <label for="info_default_same">
+                            <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="info_default_same_mobile">참가자와 동일
+                        </label>
+                    </div>
+                    <table>
+                        <tr>
+                            <th data-none_row><span>성명</span></th>
+                            <td><input type="text" placeholder="이름을 입력해주세요." name="mobile_edu_name" id="edu_name_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>소속</span></th>
+                            <td><input type="text" placeholder="소속을 입력해주세요." name="mobile_edu_belong" id="edu_belong_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>일반전화</span></th>
+                            <td><input type="text" placeholder="전화번호를 입력해주세요." name="mobile_edu_tell" id="edu_tell_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>직위</span></th>
+                            <td><input type="text" placeholder="직위를 입력해주세요." name="mobile_edu_job_position" id="edu_job_position_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>휴대전화</span></th>
+                            <td><input type="text" placeholder="휴대전화 번호를 입력해주세요." name="mobile_edu_phone" id="edu_phone_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>E-mail</span></th>
+                            <td><input type="text" placeholder="이메일을 입력해주세요." name="mobile_edu_email" id="edu_email_mobile"></td>
+                        </tr>
+                    </table>
+                </div>
+        
+                <div data-info_wrap="education">
+                    <div data-title_box="2">정산 담당자
+                        <div data-flex_box>
+                            <label for="info_edu_same">
+                                <input type="checkbox" name="info_edu_same_mobile" value="" class="info_edu_same_mobile" id="info_edu_same_mobile">교육담당자와 동일
+                            </label>
+                        </div>
+                    </div>
+                    <table>
+                        <tr data-down_row>
+                            <th data-none_row><span></span></th>
+                            <td>
+                                <a href="https:///api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
+                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>성명</span></th>
+                            <td><input type="text" placeholder="이름을 입력해주세요." name="mobile_cal_name" id="cal_name_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>소속</span></th>
+                            <td><input type="text" placeholder="소속을 입력해주세요." name="mobile_cal_belong" id="cal_belong_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>일반전화</span></th>
+                            <td><input type="text" placeholder="전화번호를 입력해주세요." name="mobile_cal_tell" id="cal_tell_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>직위</span></th>
+                            <td><input type="text" placeholder="직위를 입력해주세요." name="mobile_cal_job_position" id="cal_job_position_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>휴대전화</span></th>
+                            <td><input type="text" placeholder="휴대전화 번호를 입력해주세요." name="mobile_cal_phone" id="cal_phone_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>E-mail</span></th>
+                            <td><input type="text" placeholder="이메일을 입력해주세요." name="mobile_cal_email" id="cal_email_mobile"></td>
+                        </tr>
+                        <tr>
+                            <th data-none_row><span>정산정보</span></th>
+                            <td>
+                                <div data-publish_row>
+                                    <label for="receipt">
+                                        <input type="radio" name="publish_mobile" value="receipt" id="receipt_mobile">영수발행
+                                    </label>
+                                    <label for="billing">
+                                        <input type="radio" name="publish_mobile" value="billing" id="billing_mobile">청구발행
+                                        <input type="date" placeholder="계산서 청구일자 선택" name="cal_date" id="cal_date_mobile">
+                                    </label>
+                                </div>
+                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>사업자등록증</span></th>
+                            <td>
+                                <div data-mobile_file_row>
+                                    <input data-mobile_name_row value="첨부파일" placeholder="첨부파일" name="cal_file" id="cal_file_mobile">
+                                    <label for="file_mobile">첨부하기</label>
+                                    <input type="file" id="file_mobile">
+                                    <button data-clear_btn type="button">X</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div data-btn_box>
+                    <button type="submit">참가자 정보 저장</button>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    (사)한국산업기술진흥협회 · 대표자 구자균 · 사업자등록번호 220-82-00051 · 통신판매번호 서초 제09539 · 대표번호 02-3460-9114<br>
+                    COPYRIGHT ⓒ2020 Korea Industrial Technology Association all rights reserved.
+                </p>
+                <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto',
+            spaceBetween: 23.5,
+            freeMode: true,
+        });
+        const id_num = sessionStorage.getItem('attend_id');
+        function validateJuminNum(juminNum) {
+            var jumin_pattern = /^(\d{6})(\d{7})$/;
+            if (!jumin_pattern.test(juminNum)) {
+                return false;
+            }
+            var sum = 0;
+            for (var i = 0; i < 12; i++) {
+                sum += parseInt(juminNum.charAt(i)) * ((i % 8) + 2);
+            }
+            var last = (11 - (sum % 11)) % 10;
+            if (last !== parseInt(juminNum.charAt(12))) {
+                return false;
+            }
+            return true;
+        };
+
+        let today_date = moment().format("YYYY-MM-DD");
+        //------------------------------------------PC 화면------------------------------------------------------
+        if (window.innerWidth > 760) {
+            let select_val = "";
+            let select_txt = "";
+            let jumin_val = "";
+            let phone_val = "";
+            let fam_list = [];
+            let pw_confirm = id_num !== null ? true : false;
+            let pw_regex_confirm = id_num !== null ? true : false;
+            let jumin_check = true;
+            let jumin_fam_check = "";
+            let phone_check = true;
+            let phone_fam_check = "";
+            let email_check = true;
+            let friendly_group = [];
+            $(document).ready(function () {
+                //------------------------------------------정보 수정시 input에 불러온 데이터 삽입 (PC)------------------------------------------------------
+                if (id_num !== null) {
+                    $.ajax({
+                        "type": "GET",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends/" + id_num,
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            if (response.attendStatus === "DONE") {
+                                alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
+                                window.location.href = "./InformationConfirm.html";
+                            }
+                            friendly_group = response.friendlyGroups;
+                            $("input[name='friendly']:radio[value=" + response.ksaCompanyType + "]").prop("checked", true);
+                            $("#kor_name").val(response.mainAttender.koreaName),
+                            $("#eng_name").val(response.mainAttender.englishName),
+                            $("#jumin_num").val(response.mainAttender.juminNumber),
+                            $("#tell_num").val(response.mainAttender.telephone),
+                            $("#phone_num").val(response.mainAttender.mobilePhone),
+                            $("#email").val(response.mainAttender.email),
+                            $("#job_position").val(response.mainAttender.grade),
+                            $("#pc_info_default_same").attr("checked", response.mainAttender.isSameCalManagerAndEduManager),
+                            $("#edu_name").val(response.mainAttender.eduManagerName),
+                            $("#edu_email").val(response.mainAttender.eduManagerEmail),
+                            $("#edu_tell").val(response.mainAttender.eduManagerTelephone),
+                            $("#edu_phone").val(response.mainAttender.eduManagerMobilePhone),
+                            $("#edu_belong").val(response.mainAttender.eduManagerTeam),
+                            $("#edu_job_position").val(response.mainAttender.eduManagerGrade),
+                            $("#pc_info_edu_same").attr("checked", response.mainAttender.isSameEduManagerAndAttender),
+                            $("#cal_name").val(response.mainAttender.calManagerName),
+                            $("#cal_email").val(response.mainAttender.calManagerEmail),
+                            $("#cal_tell").val(response.mainAttender.calManagerTelephone),
+                            $("#cal_phone").val(response.mainAttender.calManagerMobilePhone),
+                            $("#cal_belong").val(response.mainAttender.calManagerTeam),
+                            $("#cal_job_position").val(response.mainAttender.calManagerGrade),
+                            $("#cal_date").val(response.mainAttender.billingDate)
+                            $("input[name='main_add']").val(response.company.companyAddress),
+                            $("input[name='sub_add']").val(response.company.companyDetailAddress),
+                            $("input[name='add_post_num']").val(response.company.companyZipcode),
+                            $("#company_name").val(response.company.companyName),
+                            $("#ceo_name").val(response.company.companyBoss),
+                            $("#bussiness_num").val(response.company.companyBusinessNumber),
+                            $("#large_cate").val(response.company.companyIndustry),
+                            $("#small_cate").val(response.company.companyCategory)
+                            $("[data-name_row]").val(response.company.businessRegistrationName);
+                            $("#receipt").attr("checked", response.mainAttender.isReceiptIssue)
+                            $("#billing").attr("checked", response.mainAttender.isBillingIssue)
+                            if (response.mainAttender.isBillingIssue === true) {
+                                $("#cal_date").show();
+                            }
+                            const relation = {
+                                "PARENTS": "부모",
+                                "SPOUSE": "배우자",
+                                "CHILD": "자녀",
+                                "RELATIVE": "친척",
+                                "STAFF": "직원",
+                                "GRAND_CHILD": "손자녀",
+                                "ETC": "기타",
+                            };
+                            fam_list = response.familyAttenders
+
+                            $.each(fam_list, function (index, item) {
+                                $(".default").append('<tr data-show_row><td><div>' + relation[item.relation] + '</div></td><td><div data-name_box>' + item.name + '</div></td><td><div>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</div></td><td><div>' + item.phone + '</div></td><td><input data-delete_btn type="button" value="삭제"></td>');
+                            });
+
+                            $("[data-delete_btn]").click(function () {
+                                $(this).closest('tr').remove();
+                                let remove = $(this).closest('tr').children('td').children('[data-name_box]').text();
+                                fam_list.forEach((item, index) => {
+                                    if (item.name === remove) {
+                                        fam_list.splice(index, 1);
+                                    }
+                                });
+                            });
+
+                            const email_regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                            const saved_email = response.mainAttender.calManagerEmail;
+                            if (saved_email && email_regex.test(saved_email)) {
+
+                                email_check = true
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            alert("error")
+                        }
+                    }); 
+                }else{
+                    $('#pass_word').val(sessionStorage.getItem('user_password'));
+                    $('#bussiness_num').val(sessionStorage.getItem('bussiness_num'));
+
+                    const processBox = document.querySelector('[data-pc_process_box]');
+                    const links = processBox.querySelectorAll('a');
+                    links.forEach(link => {
+                        link.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            alert('참가자 정보 등록 후 이용이 가능합니다.');
+                        });
+                    });
+                }
+
+                //------------------------------------------비밀번호 유효성 체크 (PC)------------------------------------------------------
+                const password_val = $('#pass_word');
+                const password_check = $('#pass_word_check');
+                const regex_error_row = $("[data-regex_error_row]");
+                const check_error_row = $("[data-check_error_row]");
+                const password_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+                function isValidPassword(password) {
+                    if (password.trim() === '') {
+                        return false;
+                    }
+                    return password_regex.test(password);
+                };
+
+                function checkPasswordMatch() {
+                    const password = password_val.val();
+                    const ck_password = password_check.val();
+                    if (password !== ck_password) {
+                        check_error_row.html("비밀번호가 일치하지 않습니다.");
+                    } else {
+                        check_error_row.html("");
+                        pw_confirm = true;
+                    }
+                };
+
+                password_val.on("input", function () {
+                    const password = password_val.val();
+                    if (isValidPassword(password)) {
+                        regex_error_row.html("");
+                        pw_regex_confirm = true;
+                        regex_error_row.hide();
+                    } else {
+                        regex_error_row.html("비밀번호는 대문자, 소문자, 숫자, 특수기호를 포함하는 8자리 이상이어야 합니다.");
+                        regex_error_row.show();
+                    }
+                    checkPasswordMatch();
+                });
+
+                password_check.on("input", function () {
+                    checkPasswordMatch();
+                });
+
+                if (password_val.val() !== '') {
+                    password_val.trigger("input");
+                }
+                if (password_check.val() !== '') {
+                    password_check.trigger("input");
+                }
+                //------------------------------------------이메일 유효성 체크 (PC)------------------------------------------------------
+                const email_regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                const email_error_row = $("[data-email_error_row]");
+                const email_val = $("#email");
+                const email = email_val.val();
+                email_val.on("input", function () {
+                    const email = email_val.val();
+                    if (email_regex.test(email)) {
+                        email_error_row.html("");
+                        email_error_row.hide();
+                        email_check = true;
+                        console.log(email_check)
+                    } else {
+                        email_error_row.html("올바른 형식의 이메일을 입력해 주세요.");
+                        email_error_row.show();
+                        email_check = false;
+                        console.log(email_check)
+                    }
+                });
+                
+                //------------------------------------------ 주민등록번호 유효성 체크 (PC)------------------------------------------------------
+                $('.jumin_input').on('input', function () {
+                    var juminNum = $(this).val().replace(/[^0-9]/g, '');
+                    var fam_jumin = $("#fam_jumin").val();
+                    if (juminNum.length === 13 && validateJuminNum(juminNum)) {
+                        $(this).siblings('p[data-error_row]').text('');
+                        jumin_check = true;
+                        if (fam_jumin !== "") {
+                            jumin_fam_check = true;
+                        }
+                    } else {
+                        $(this).siblings('p[data-error_row]').text('주민등록번호를 올바르게 입력해주세요.');
+                        jumin_check = false;
+                        if (fam_jumin !== "") {
+                            jumin_fam_check = false;
+                        }
+                    }
+                });
+            });
+
+            //------------------------------------------ 핸드폰번호 유효성 체크 (PC)------------------------------------------------------
+            $('.phone_input').each(function () {
+                $(this).on('input', function () {
+                    var phone_num = $(this).val();
+                    var fam_phone = $("#fam_phone").val()
+                    if (phone_num.length === 13) {
+                        $(this).siblings('[data-error_row]').text('');
+                        phone_check = true;
+                        if (fam_phone !== "") {
+                            phone_fam_check = true;
+                        }
+                    } else {
+                        $(this).siblings('[data-error_row]').text('핸드폰 번호를 올바르게 입력해주세요.');
+                        phone_check = false;
+                        if (fam_phone !== "") {
+                            phone_fam_check = false;
+                        }
+                    }
+                });
+            });
+
+            //------------------------------------------동반인 정보 입력 (PC)------------------------------------------------------
+            $(".select").change(function () {
+                const val = $(this).val();
+                const txt = $("option:checked", this).text();
+                select_val = val;
+                select_txt = txt;
+            });
+            
+            function showInput(){
+                let name_val = $('#fam_name').val();
+                jumin_val = $('#fam_jumin').val()
+                phone_val = $('#fam_phone').val()
+                
+                if (jumin_val === '' || name_val === '' || phone_val === '' || select_val === '') {
+                    alert("모든 칸을 채워주세요.")
+                } else if(jumin_fam_check === false) {
+                    alert("주민등록번호를 다시 확인해주세요.")
+                } else if (phone_fam_check === false && phone_fam_check !== "") {
+                    alert("핸드폰번호를 다시 확인해주세요.")
+                } else {
+                    $(".default").append('<tr data-show_row><td><div>' + select_txt + '</div></td><td><div data-name_box>' + name_val + '</div></td><td><div>' + (jumin_val.substring(0, jumin_val.length - 6) + "******") + '</div></td><td><div>' + phone_val + '</div></td><td><input data-delete_btn type="button" value="삭제"></td>');
+
+                    fam_list.push({
+                        "relation": select_val,
+                        "name": name_val,
+                        "juminNumber": jumin_val,
+                        "mobilePhone": phone_val,
+                    })
+                    $('.reset').val("")
+
+                    $("[data-delete_btn]").click(function () {
+                        $(this).closest('tr').remove();
+                        let remove = $(this).closest('tr').children('td').children('[data-name_box]').text();
+                        fam_list.forEach((item, index) => {
+                            if (item.name === remove) {
+                                fam_list.splice(index, 1);
+                            }
+                        });
+                    });
+                }
+            };
+
+            //------------------------------------------교육담당자와 참가자가 같을때 (PC)------------------------------------------------------
+            $("#pc_info_default_same").click(function () {
+                if ($("#pc_info_default_same").is(":checked")) {
+                    $("#edu_name").val($("#kor_name").val());
+                    $("#edu_phone").val($("#phone_num").val());
+                    $("#edu_tell").val($("#tell_num").val());
+                    $("#edu_job_position").val($("#job_position").val());
+                    $("#edu_email").val($("#email").val());
+                    $("#edu_belong").val($("#company_name").val());
+                } else {
+                    $('input[name*=pc_edu]').val("");
+                }
+            });
+
+            //------------------------------------------교육담당자와 정산담당자가 같을때 (PC)------------------------------------------------------
+            $("#pc_info_edu_same").click(function () {
+                if ($("#pc_info_edu_same").is(":checked")) {
+                    $("#cal_name").val($("#edu_name").val());
+                    $("#cal_phone").val($("#edu_phone").val());
+                    $("#cal_tell").val($("#edu_tell").val());
+                    $("#cal_job_position").val($("#edu_job_position").val());
+                    $("#cal_email").val($("#edu_email").val());
+                    $("#cal_belong").val($("#edu_belong").val());
+                } else {
+                    $('input[name*=pc_cal]').val("");
+                }
+            });
+
+            //------------------------------------------사업자등록증 첨부 시 라벨 텍스트 변환 및 첨부파일 삭제 (PC)------------------------------------------------------
+            $("#file").on('change', function () {
+                let fileName = $("#file").val();
+                let array = fileName.split("\\");
+                let val = array[array.length - 1]
+
+                $("[data-file_row]").addClass("active");
+                $("[data-name_row]").val(val);
+            });
+
+            $("[data-clear_btn]").click(function () {
+                $("[data-name_row]").val("");
+                $("[data-file_row]").removeClass("active")
+            });
+
+            //------------------------------------------청구발행 체크시에만 날짜 선택 달력 보이게 하기 (PC)------------------------------------------------------
+            $("input[name='publish']").click(function () {
+                if($("#billing").is(":checked")){
+                    $("#cal_date").show();
+                }else{
+                    $("#cal_date").hide();
+               
+                }
+            });
+            $("[data-test]").click(function () {
+                console.log(pw_confirm)
+                console.log(pw_regex_confirm)
+            });
+
+            //----------------------------------------------------정보 전송 (PC)------------------------------------------------------
+            
+            $(document.forms).on("submit", (event) => {
+                event.preventDefault();
+                if ($("input[name='friendly']:checked").length <= 0) { alert("교류회를 선택해주세요.") }
+                else if (pw_confirm === false || pw_regex_confirm === false) { 
+                    alert("비밀번호를 확인해 주세요") 
+                }
+                 else if (jumin_check === false || (jumin_fam_check === false && jumin_fam_check !== "")) {
+                    alert("주민등록번호를 확인해 주세요")
+                }
+                else if (phone_check === false || (phone_fam_check === false && phone_fam_check !== "")) {
+                    alert("핸드폰번호를 확인해 주세요")
+                }
+                else if (email_check === false) {
+                    alert("이메일주소를 확인해 주세요")
+                }
+                else if ((id_num === null && $("#file").val() === "") || (id_num !== null && $("[data-name_row]").val() === "")) {
+                    alert("사업자등록증 첨부는 필수입니다.")
+                }
+                else {
+                    let publish = $('input[name="publish"]:checked').val();
+                    let publish_check = ""
+                    if (publish === "billing") {
+                        publish_check = $("#cal_date").val();
+                    } else if (publish === "receipt") {
+                        publish_check = today_date;
+                    } else {
+                        publish_check = ""
+                    }
+                    const cal_file = $("#file").get(0).files[0];
+                    const session_num = sessionStorage.getItem('bussiness_num');
+                    const data = {
+                        ...(id_num !== null && { "attendId": id_num }),
+                        "ksaCompanyType": $("input[name='friendly']:checked").val(),
+                        "mainAttender": {
+                            "password": $("#pass_word_check").val(),
+                            "koreaName": $("#kor_name").val(),
+                            "englishName": $("#eng_name").val(),
+                            "juminNumber": $("#jumin_num").val(),
+                            "telephone": $("#tell_num").val(),
+                            "mobilePhone": $("#phone_num").val(),
+                            "email": $("#email").val(),
+                            "grade": $("#job_position").val(),
+                            "isSameEduManagerAndAttender": $("#pc_info_default_same").is(":checked") === true ? true : false,
+                            "eduManagerName": $("#edu_name").val(),
+                            "eduManagerEmail": $("#edu_email").val(),
+                            "eduManagerTelephone": $("#edu_tell").val(),
+                            "eduManagerMobilePhone": $("#edu_phone").val(),
+                            "eduManagerTeam": $("#edu_belong").val(),
+                            "eduManagerGrade": $("#edu_job_position").val(),
+                            "isSameCalManagerAndEduManager": $("#pc_info_edu_same").is(":checked") === true ? true : false,
+                            "calManagerName": $("#cal_name").val(),
+                            "calManagerEmail": $("#cal_email").val(),
+                            "calManagerTelephone": $("#cal_tell").val(),
+                            "calManagerMobilePhone": $("#cal_phone").val(),
+                            "calManagerTeam": $("#cal_belong").val(),
+                            "calManagerGrade": $("#cal_job_position").val(),
+                            "billingDate": publish_check,
+                            "isReceiptIssue": $("#receipt").is(":checked") === true ? true : false,
+                            "isBillingIssue": $("#billing").is(":checked") === true ? true : false
+                        },
+                        "company": {
+                            "companyAddress": $("input[name='main_add']").val(),
+                            "companyDetailAddress": $("input[name='sub_add']").val(),
+                            "companyZipcode": $("input[name='add_post_num']").val(),
+                            "companyName": $("#company_name").val(),
+                            "companyBoss": $("#ceo_name").val(),
+                            "companyBusinessNumber": $("#bussiness_num").val(),
+                            "companyIndustry": $("#large_cate").val(),
+                            "companyCategory": $("#small_cate").val()
+                        },
+                        "familyAttenders": fam_list
+                    }
+                    const formData = new FormData();
+                    formData.append('attend', new Blob([JSON.stringify(data)], { type: "application/json" }));
+                    formData.append('businessRegistration', cal_file);
+                    console.log(data);
+                    $.ajax({
+                        "type": id_num !== null ? "PATCH" : "POST",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends",
+                        "data": formData,
+                        "processData": false,
+                        "contentType": false,
+                        "cache": false,
+                        "enctype": "multipart/form-data",
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            console.log(data);
+                            sessionStorage.setItem('attend_id', response.attendId);
+                            alert("저장이 완료 되었습니다.")
+                            // window.location.href = "./Flight.html";
+
+                        },
+                        error: function (xhr, status, error) {
+                            console.log(data);
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                }
+            });
+        }
+
+        //------------------------------------------------Mobile 화면------------------------------------------------------
+        else{
+            let select_val = "";
+            let select_txt = "";
+            let jumin_val = "";
+            let phone_val = "";
+            let fam_list = [];
+            let pw_confirm = id_num !== null ? true : false;
+            let pw_regex_confirm = id_num !== null ? true : false;
+            let jumin_check = true;
+            let jumin_fam_check = "";
+            let phone_check = true;
+            let phone_fam_check = "";
+            let email_check = true;
+            let friendly_group = [];
+            $(document).ready(function () {
+                //------------------------------------------정보 수정시 input에 불러온 데이터 삽입 (Mobile)------------------------------------------------------
+                if (id_num !== null) {
+                    $.ajax({
+                        "type": "GET",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends/" + id_num,
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            console.log(response)
+                            friendly_group = response.friendlyGroups;
+                            $("input[name='mobile']:radio[value=" + response.ksaCompanyType + "]").prop("checked", true);
+                            $("#kor_name_mobile").val(response.mainAttender.koreaName),
+                            $("#eng_name_mobile").val(response.mainAttender.englishName),
+                            $("#jumin_num_mobile").val(response.mainAttender.juminNumber),
+                            $("#tell_num_mobile").val(response.mainAttender.telephone),
+                            $("#phone_num_mobile").val(response.mainAttender.mobilePhone),
+                            $("#email_mobile").val(response.mainAttender.email),
+                            $("#job_position_mobile").val(response.mainAttender.grade),
+                            $("#info_default_same_mobile").attr("checked", response.mainAttender.isSameCalManagerAndEduManager),
+                            $("#edu_name_mobile").val(response.mainAttender.eduManagerName),
+                            $("#edu_email_mobile").val(response.mainAttender.eduManagerEmail),
+                            $("#edu_tell_mobile").val(response.mainAttender.eduManagerTelephone),
+                            $("#edu_phone_mobile").val(response.mainAttender.eduManagerMobilePhone),
+                            $("#edu_belong_mobile").val(response.mainAttender.eduManagerTeam),
+                            $("#edu_job_position_mobile").val(response.mainAttender.eduManagerGrade),
+                            $("#info_edu_same_mobile").attr("checked", response.mainAttender.isSameEduManagerAndAttender),
+                            $("#cal_name_mobile").val(response.mainAttender.calManagerName),
+                            $("#cal_email_mobile").val(response.mainAttender.calManagerEmail),
+                            $("#cal_tell_mobile").val(response.mainAttender.calManagerTelephone),
+                            $("#cal_phone_mobile").val(response.mainAttender.calManagerMobilePhone),
+                            $("#cal_belong_mobile").val(response.mainAttender.calManagerTeam),
+                            $("#cal_job_position_mobile").val(response.mainAttender.calManagerGrade),
+                            $("#cal_date_mobile").val(response.mainAttender.billingDate),
+                            $("input[name='main_add_mobile']").val(response.company.companyAddress),
+                            $("input[name='sub_add_mobile']").val(response.company.companyDetailAddress),
+                            $("input[name='add_post_num_mobile']").val(response.company.companyZipcode),
+                            $("#company_name_mobile").val(response.company.companyName),
+                            $("#ceo_name_mobile").val(response.company.companyBoss),
+                            $("#bussiness_num_mobile").val(response.company.companyBusinessNumber),
+                            $("#large_cate_mobile").val(response.company.companyIndustry),
+                            $("#small_cate_mobile").val(response.company.companyCategory);
+                            $("[data-mobile_name_row]").val(response.company.businessRegistrationName);
+                            $("#receipt_mobile").attr("checked", response.mainAttender.isReceiptIssue)
+                            $("#billing_mobile").attr("checked", response.mainAttender.isBillingIssue)
+                            if (response.mainAttender.isBillingIssue === true) {
+                                $("#cal_date_mobile").show();
+                            }
+                            const relation = {
+                                "PARENTS": "부모",
+                                "SPOUSE": "배우자",
+                                "CHILD": "자녀",
+                                "RELATIVE": "친척",
+                                "STAFF": "직원",
+                                "GRAND_CHILD": "손자녀",
+                                "ETC": "기타",
+                            };
+                            fam_list = response.familyAttenders
+                            console.log(fam_list)
+                            $.each(fam_list, function (index, item) {
+                                $("[data-info_wrap='family']").append('<div data-show_wrap><div data-show_box><div><p>관계<br><span>' + relation[item.relation] + '</span></p><p>주민등록번호<br><span>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</span></p></div><div><p>성명<br><span data-mobile_name_box>' + item.name + '</span></p><p>휴대전화<br><span>' + item.phone + '</span></p></div></div><button data-delete_mobile_btn>삭제</button></div>');
+                            });
+
+                            $("[data-delete_mobile_btn]").click(function () {
+                                $(this).closest('[data-show_wrap]').remove();
+                                let remove = $(this).closest('[data-show_wrap]').children('[data-show_box]').children('div').children('p').children('[data-mobile_name_box]').text();
+                                fam_list.forEach((item, index) => {
+                                    if (item.name === remove) {
+                                        fam_list.splice(index, 1);
+                                    }
+                                });
+                            });
+
+                            const email_regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                            
+                            const saved_email = response.mainAttender.calManagerEmail;
+                            if (saved_email && email_regex.test(saved_email)) {
+                                email_check = true
+                            };
+                        },
+                        error: function (xhr, status, error) {
+                            alert("error")
+                        }
+                    });
+                }
+                //------------------------------------------처음 정보 입력시 Application.html에서 세션스토리지에 저장 된 정보 input에 삽입 (Mobile)----------------------------
+                else {
+                    $('#pass_word_mobile').val(sessionStorage.getItem('user_password'));
+                    $('#bussiness_num_mobile').val(sessionStorage.getItem('bussiness_num'));
+
+                    const processBox = document.querySelector('[data-mobile_process_box]');
+                    const links = processBox.querySelectorAll('a');
+                    links.forEach(link => {
+                        link.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            alert('참가자 정보 등록 후 이용이 가능합니다.');
+                        });
+                    });
+                }
+                //------------------------------------------비밀번호 유효성 체크 (Mobile)------------------------------------------------------
+                const password_val = $('#pass_word_mobile');
+                const password_check = $('#pass_word_check_mobile');
+                const regex_error_row = $("[data-regex_error_row_mobile]");
+                const check_error_row = $("[data-check_error_row_mobile]");
+                const password_regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+                function isValidPassword(password) {
+                    if (password.trim() === '') {
+                        return false;
+                    }
+                    return password_regex.test(password);
+                };
+
+                function checkPasswordMatch() {
+                    const password = password_val.val();
+                    const ck_password = password_check.val();
+                    if (password !== ck_password) {
+                        check_error_row.html("비밀번호가 일치하지 않습니다.");
+                    } else {
+                        check_error_row.html("");
+                        pw_confirm = true;
+                    }
+                };
+
+                password_val.on("input", function () {
+                    const password = password_val.val();
+                    if (isValidPassword(password)) {
+                        regex_error_row.html("");
+                        pw_regex_confirm = true;
+                        regex_error_row.hide();
+                    } else {
+                        regex_error_row.html("비밀번호는 대문자, 소문자, 숫자, 특수기호를 포함하는 8자리 이상이어야 합니다.");
+                        regex_error_row.show();
+                    }
+                    checkPasswordMatch();
+                });
+
+                password_check.on("input", function () {
+                    checkPasswordMatch();
+                });
+
+                if (password_val.val() !== '') {
+                    password_val.trigger("input");
+                }
+                if (password_check.val() !== '') {
+                    password_check.trigger("input");
+                }
+
+                //------------------------------------------이메일 유효성 체크 (Mobile)------------------------------------------------------
+                const email_regex = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                const email_error_row = $("[data-email_error_row]");
+                const email_val = $("#email_mobile");
+                const email = email_val.val();
+
+                email_val.on("input", function () {
+                    const email = email_val.val();
+                    if (email_regex.test(email)) {
+                        email_error_row.html("");
+                        email_error_row.hide();
+                        email_check = true;
+                    } else {
+                        email_error_row.html("올바른 형식의 이메일을 입력해 주세요.");
+                        email_error_row.show();
+                        email_check = false;
+                    }
+                });
+
+                //------------------------------------------ 주민등록번호 유효성 체크 (Mobile)------------------------------------------------------
+                $('.jumin_input_mobile').on('input', function () {
+                    var juminNum = $(this).val().replace(/[^0-9]/g, '');
+                    var fam_jumin = $("#fam_jumin_mobile").val();
+                    if (juminNum.length === 13 && validateJuminNum(juminNum)) {
+                        $(this).siblings('p[data-error_row]').text('');
+                        jumin_check = true;
+                        if (fam_jumin !== "") {
+                            jumin_fam_check = true;
+                        }
+                    } else {
+                        $(this).siblings('p[data-error_row]').text('주민등록번호를 올바르게 입력해주세요.');
+                        jumin_check = false;
+                        if (fam_jumin !== "") {
+                            jumin_fam_check = false;
+                        }
+                    }
+                });
+            });
+
+            //------------------------------------------ 핸드폰번호 유효성 체크 (Mobile)------------------------------------------------------
+            $('.phone_input').each(function () {
+                $(this).on('input', function () {
+                    var phone_num = $(this).val();
+                    var fam_phone = $("#fam_phone_mobile").val()
+                    if (phone_num.length === 13) {
+                        $(this).siblings('[data-error_row]').text('');
+                        phone_check = true;
+                        if (fam_phone !== "") {
+                            phone_fam_check = true;
+                        }
+                    } else {
+                        $(this).siblings('[data-error_row]').text('핸드폰 번호를 올바르게 입력해주세요.');
+                        phone_check = false;
+                        if (fam_phone !== "") {
+                            phone_fam_check = false;
+                        }
+                    }
+                });
+            });
+
+            //------------------------------------------동반인 정보 입력 (Mobile)------------------------------------------------------
+            $(".select_mobile").change(function () {
+                const val = $(this).val();
+                const txt = $("option:checked", this).text();
+                select_val = val;
+                select_txt = txt;
+            });
+
+            function showInputMobile() {
+                let name_val = $('#fam_name_mobile').val();
+                jumin_val = $('#fam_jumin_mobile').val()
+                phone_val = $('#fam_phone_mobile').val()
+                if (jumin_val === '' || name_val === '' || phone_val === '' || select_val === '') {
+                    alert("모든 칸을 채워주세요.")
+                } else if (jumin_fam_check === false) {
+                    alert("주민등록번호를 다시 확인해주세요.")
+                } else if (phone_fam_check === false && phone_fam_check !== "") {
+                    alert("핸드폰번호를 다시 확인해주세요.")
+                } else {
+                    $("[data-info_wrap='family']").append('<div data-show_wrap><div data-show_box><div><p>관계<br><span>' + select_txt + '</span></p><p>주민등록번호<br><span>' + (jumin_val.substring(0, jumin_val.length - 6) + "******") + '</span></p></div><div><p>성명<br><span data-mobile_name_box>' + name_val + '</span></p><p>휴대전화<br><span>' + phone_val + '</span></p></div></div><button type=button" data-delete_mobile_btn>삭제</button></div>');
+
+                    fam_list.push({
+                        "relation": select_val,
+                        "name": name_val,
+                        "juminNumber": jumin_val,
+                        "mobilePhone": phone_val,
+                    })
+
+                    $('.reset').val("")
+
+                    $("[data-delete_mobile_btn]").click(function () {
+                        $(this).closest('[data-show_wrap]').remove();
+                        let remove = $(this).closest('[data-show_wrap]').children('[data-show_box]').children('div').children('p').children('[data-mobile_name_box]').text();
+                        fam_list.forEach((item, index) => {
+                            if (item.name === remove) {
+                                fam_list.splice(index, 1);
+                            }
+                        });
+                    });
+                }
+            };
+            
+            //------------------------------------------교육담당자와 참가자가 같을때 (Mobile)------------------------------------------------------
+            $("#info_default_same_mobile").click(function () {
+                if ($("#info_default_same_mobile").is(":checked")) {
+                    $("#edu_name_mobile").val($("#kor_name_mobile").val());
+                    $("#edu_phone_mobile").val($("#phone_num_mobile").val());
+                    $("#edu_tell_mobile").val($("#tell_num_mobile").val());
+                    $("#edu_job_position_mobile").val($("#job_position_mobile").val());
+                    $("#edu_email_mobile").val($("#email_mobile").val());
+                    $("#edu_belong_mobile").val($("#company_name_mobile").val());
+                } else {
+                    $('input[name*=mobile_edu]').val("");
+                }
+            });
+
+            //------------------------------------------교육담당자와 정산담당자가 같을때 (Mobile)------------------------------------------------------
+            $("#info_edu_same_mobile").click(function () {
+                if ($("#info_edu_same_mobile").is(":checked")) {
+                    $("#cal_name_mobile").val($("#edu_name_mobile").val());
+                    $("#cal_phone_mobile").val($("#edu_phone_mobile").val());
+                    $("#cal_tell_mobile").val($("#edu_tell_mobile").val());
+                    $("#cal_job_position_mobile").val($("#edu_job_position_mobile").val());
+                    $("#cal_email_mobile").val($("#edu_email_mobile").val());
+                    $("#cal_belong_mobile").val($("#edu_belong_mobile").val());
+                } else {
+                    $('input[name*=mobile_cal]').val("");
+                }
+            });
+
+            //------------------------------------------사업자등록증 첨부 시 라벨 텍스트 변환 및 첨부파일 삭제 (Mobile)------------------------------------------------------
+            $("#file_mobile").on('change', function () {
+                let fileName = $("#file_mobile").val();
+                let array = fileName.split("\\");
+                let val = array[array.length - 1]
+                $("[data-mobile_file_row]").addClass("active");
+                $("[data-mobile_name_row]").val(val);
+            });
+
+            $("[data-clear_btn]").click(function () {
+                $("[data-mobile_name_row]").val("");
+                $("[data-mobile_file_row]").removeClass("active")
+            });
+
+            //------------------------------------------청구발행 체크시에만 날짜 선택 달력 보이게 하기 (Mobile)------------------------------------------------------
+            $("input[name='publish_mobile']").click(function () {
+                if ($("#billing_mobile").is(":checked")) {
+                    $("#cal_date_mobile").show();
+                } else {
+                    $("#cal_date_mobile").hide();
+                }
+            });
+
+            //----------------------------------------------------정보 전송 (Mobile)------------------------------------------------------
+            $(document.forms).on("submit", (event) => {
+                event.preventDefault();
+                if ($("input[name='mobile']:checked").length <= 0) { alert("교류회를 선택해주세요.") }
+                else if (pw_confirm === false || pw_regex_confirm === false) { 
+                    alert("비밀번호를 확인해 주세요") 
+                } else if (jumin_check === false || (jumin_fam_check === false && jumin_fam_check !== "")) {
+                    alert("주민등록번호를 확인해 주세요")
+                } else if (id_num === null && $("#file_mobile").val() === "") {
+                    alert("사업자등록증 첨부는 필수입니다.")
+                } else if (phone_check === false || (phone_fam_check === false && phone_fam_check !== "")) {
+                    alert("핸드폰번호를 확인해 주세요")
+                } else if (email_check === false) {
+                    alert("이메일 주소를 다시 확인해주세요.")
+                }
+                else {
+                    let publish = $('input[name="publish_mobile"]:checked').val();
+                    let publish_check = ""
+                    if (publish === "billing") {
+                        publish_check = $("#cal_date_mobile").val();
+                    } else if (publish === "receipt") {
+                        publish_check = today_date;
+                    } else {
+                        publish_check = ""
+                    }
+                    const cal_file = $("#file_mobile").get(0).files[0];
+                    const session_num = sessionStorage.getItem('bussiness_num');
+                    const data = {
+                        ...(id_num !== null && { "attendId": id_num }),
+                        "ksaCompanyType": $("input[name='mobile']:checked").val(),
+                        "mainAttender": {
+                            "password": $("#pass_word_check_mobile").val(),
+                            "koreaName": $("#kor_name_mobile").val(),
+                            "englishName": $("#eng_name_mobile").val(),
+                            "juminNumber": $("#jumin_num_mobile").val(),
+                            "telephone": $("#tell_num_mobile").val(),
+                            "mobilePhone": $("#phone_num_mobile").val(),
+                            "email": $("#email_mobile").val(),
+                            "grade": $("#job_position_mobile").val(),
+                            "isSameEduManagerAndAttender": $("#info_default_same_mobile").is(":checked") === true ? true : false,
+                            "eduManagerName": $("#edu_name_mobile").val(),
+                            "eduManagerEmail": $("#edu_email_mobile").val(),
+                            "eduManagerTelephone": $("#edu_tell_mobile").val(),
+                            "eduManagerMobilePhone": $("#edu_phone_mobile").val(),
+                            "eduManagerTeam": $("#edu_belong_mobile").val(),
+                            "eduManagerGrade": $("#edu_job_position_mobile").val(),
+                            "isSameCalManagerAndEduManager": $("#info_edu_same_mobile").is(":checked") === true ? true : false,
+                            "calManagerName": $("#cal_name_mobile").val(),
+                            "calManagerEmail": $("#cal_email_mobile").val(),
+                            "calManagerTelephone": $("#cal_tell_mobile").val(),
+                            "calManagerMobilePhone": $("#cal_phone_mobile").val(),
+                            "calManagerTeam": $("#cal_belong_mobile").val(),
+                            "calManagerGrade": $("#cal_job_position_mobile").val(),
+                            "billingDate": publish_check,
+                            "isReceiptIssue": $("#receipt_mobile").is(":checked") === true ? true : false,
+                            "isBillingIssue": $("#billing_mobile").is(":checked") === true ? true : false
+                        },
+                        "company": {
+                            "companyAddress": $("input[name='main_add_mobile']").val(),
+                            "companyDetailAddress": $("input[name='sub_add_mobile']").val(),
+                            "companyZipcode": $("input[name='add_post_num_mobile']").val(),
+                            "companyName": $("#company_name_mobile").val(),
+                            "companyBoss": $("#ceo_name_mobile").val(),
+                            "companyBusinessNumber": $("#bussiness_num_mobile").val(),
+                            "companyIndustry": $("#large_cate_mobile").val(),
+                            "companyCategory": $("#small_cate_mobile").val()
+                        },
+                        "familyAttenders": fam_list
+                    }
+                    const formData = new FormData();
+                    formData.append('attend', new Blob([JSON.stringify(data)], { type: "application/json" }));
+                    formData.append('businessRegistration', cal_file);
+                    $.ajax({
+                        "type": id_num !== null ? "PATCH" : "POST",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends",
+                        "data": formData,
+                        "processData": false,
+                        "contentType": false,
+                        "cache": false,
+                        "enctype": "multipart/form-data",
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            }
+                        },
+                        success: function (response) {
+                            alert("저장이 완료 되었습니다.")
+                            if(id_num === null){
+                                sessionStorage.setItem('attend_id', response.attendId);
+                            }
+                            window.location.href = "./Flight.html";
+                        },
+                        error: function (xhr, status, error) {
+                            alert("저장에 실패 하였습니다.")
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

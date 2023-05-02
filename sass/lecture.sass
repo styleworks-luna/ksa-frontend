@@ -1,0 +1,102 @@
+main
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    [data-content_box="mobile"]
+        display: none
+    [data-content_box]
+        width: 100%
+        max-width: 1280px
+        padding: 
+            top: 85px
+        [data-table_box]
+            table
+                width: 100%
+                font-size: 20px
+                border-collapse: collapse
+                margin-top: 14px
+                tr
+                    th
+                        height: 70px
+                        border:
+                            top: 1px solid #222
+                            right: 1px solid #dedede
+                        background-color: #f7f7f7
+                        vertical-align: middle
+                        font-weight: 500
+                        &:first-of-type
+                            width: 149px
+                        &:nth-of-type(2)
+                            width: 209px
+                        &:nth-of-type(3)
+                            width: 401px
+                        &:nth-of-type(4)
+                            width: 221px
+                        &:last-child
+                            border-right: none
+                    [data-description_row]
+                        p
+                            white-space: pre-line
+                            line-height: 28px
+                    td
+                        [data-show_box]
+                            [data-show_row]
+                                justify-content: center
+@media (max-width: 760px)
+    main
+        [data-content_box="pc"]
+            display: none
+        [data-content_box="mobile"]
+            display: block
+            padding:
+                top: 39px
+                left: 16px
+                right: 16px
+            [data-table_box]
+                p
+                    padding: 0
+                    line-height: 19px
+                [data-content]
+                    border-bottom: none
+                    [data-text_wrap]
+                        padding:
+                            top: 24px
+                            bottom: 12px
+                        [data-flex_box]
+                            display: flex
+                            align-items: flex-start
+                            justify-content: space-between
+                            [data-text_box]
+                                display: flex
+                                flex-direction: column
+                                padding:
+                                    right: 15px
+                                    top: 7px
+                                span
+                                    font-size: 14px
+                                    display: inline-block
+                                    font-weight: normal
+                                    &:first-of-type
+                                        font-weight: normal
+                                        padding: 
+                                            bottom: 6px
+                                    &:nth-of-type(2)
+                                        padding: 
+                                            bottom: 6px
+                                    &:last-of-type
+                                        span
+                                            font-weight: bold
+                                            color: #7e499f 
+                                    p
+                                        padding: 0
+                                [data-time_row]
+                                    span
+                                        display: inline-block
+                                        font-weight: bold
+                                        &:nth-of-type(2)
+                                            padding-left: 5px
+                                            font-weight: normal
+                                            padding: 
+                                                bottom: 6px

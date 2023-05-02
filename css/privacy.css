@@ -1,0 +1,172 @@
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main [data-header_box] {
+  width: 100%;
+  height: 220px;
+  background-image: url(/images/pc-back.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+main [data-header_box] div {
+  width: 100%;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+main [data-header_box] div > a {
+  width: 210px;
+  height: 68px;
+  border-radius: 37px;
+  background-color: #ff8f11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+main [data-header_box] div > a:first-of-type {
+  margin-right: 20px;
+}
+main [data-content_wrap] {
+  width: 100%;
+  max-width: 1280px;
+  padding-bottom: 120px;
+}
+main [data-content_wrap] [data-title_box] {
+  width: 100%;
+  max-width: 1280px;
+  padding-top: 64px;
+  padding-bottom: 15px;
+  padding-left: 5px;
+  font-size: 32px;
+  font-weight: bold;
+  border-bottom: 1px solid #222;
+}
+main [data-content_wrap] [data-text_box] {
+  padding-top: 42px;
+}
+main [data-content_wrap] [data-text_box] ul li {
+  padding-bottom: 60px;
+}
+main [data-content_wrap] [data-text_box] ul li span {
+  display: inline-block;
+  padding-bottom: 24px;
+  font-size: 20px;
+  font-weight: bold;
+}
+main [data-content_wrap] [data-text_box] ul li p {
+  font-size: 16px;
+  line-height: 24px;
+}
+main [data-content_wrap] [data-text_box] ul li [data-main_text] {
+  padding-bottom: 9px;
+}
+
+@media (max-width: 760px) {
+  [data-mobile_header] [data-top_header] {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  [data-mobile_header] [data-top_header] [data-back_btn] {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-image: url(/images/menu-back.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #fff;
+  }
+  [data-mobile_header] [data-top_header] span {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  [data-mobile_header] [data-top_header] [data-more_box] {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    right: 0;
+    border: none;
+    background-image: url(/images/mobile-menu.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #fff;
+  }
+  main [data-header_box] {
+    width: 100%;
+    height: 150px;
+    background-image: url(/images/mobile-back.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  main [data-header_box] div {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+  }
+  main [data-header_box] div > a {
+    width: 148px;
+    height: 48px;
+    border-radius: 37px;
+    background-color: #ff8f11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  main [data-header_box] div > a:first-of-type {
+    margin-right: 10px;
+  }
+  main [data-content_wrap] {
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 60px;
+  }
+  main [data-content_wrap] [data-title_box] {
+    display: none;
+  }
+  main [data-content_wrap] [data-text_box] {
+    padding-top: 40px;
+  }
+  main [data-content_wrap] [data-text_box] ul li {
+    padding-bottom: 44px;
+  }
+  main [data-content_wrap] [data-text_box] ul li span {
+    display: inline-block;
+    padding-bottom: 16px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  main [data-content_wrap] [data-text_box] ul li p {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  main [data-content_wrap] [data-text_box] ul li [data-main_text] {
+    padding-bottom: 13px;
+  }
+  main [data-content_wrap] [data-text_box] ul li:last-child p {
+    padding-bottom: 16px;
+  }
+}
+
+/*# sourceMappingURL=privacy.css.map */

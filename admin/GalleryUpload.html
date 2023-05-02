@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>관리자 페이지 - KOITA</title>
+
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-text mx-3">KOITA</div>
+            </a>
+            <hr class="sidebar-divider my-0">
+        
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>현황표</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="ParticipantList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>참가자 명단</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="CancledList.html">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>취소자 명단</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
+                    <span>관리자 설정</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="NoticeList.html">
+                    <i class='fa fa-bell'></i>
+                    <span>공지사항</span></a>
+            </li>
+            <hr class="sidebar-divider d-none d-md-block">
+        </ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid">
+                    <div class="row ">
+                        <h1 class="h3 mt-1 text-gray-800 col align-self-end">갤러리 등록</h1>
+                    </div>
+                    <div class="card shadow mb-4">
+                        <div class="card-body" id="myForm" enctype="multipart/form-data">
+                            <input type="text" class="form-control p-3 mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="제목을 입력 해주세요.">
+                            <div class="input-group mb-3">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="inputGroupFile02">
+                                    <label class="custom-file-label" for="inputGroupFile02">이미지를 첨부해주세요.</label>
+                                </div>
+                                <div class="input-group-append">
+                                    <button class="reset-btn input-group-text bg-danger text-white" id="">reset</button>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn cancle-btn btn-secondary align-self-center mt-4 pr-4 pl-4 mr-3 font-weight-bold">취소</button>
+                                <button type="submit" class="btn upload-btn btn-primary align-self-center mt-4 pr-4 pl-4 font-weight-bold">등록</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, '\\$&');
+            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            const results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
+        const id_num = getParameterByName('id');
+        const title = $("input[type='text']").val();
+        const file = $("#inputGroupFile02").val();
+
+       var formData = new FormData();
+        $('input[type="file"]').change(function (e) {
+            var file = e.target.files[0];
+            var file_size = e.target.files[0].size;
+            var file_name = e.target.files[0].name;
+            var max_size = 5 * 1024 * 1024;
+            if (file_size > max_size) {
+                var reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    var img = new Image();
+                    img.src = this.result;
+                    img.onload = function () {
+                        var canvas = document.createElement('canvas');
+                        var ctx = canvas.getContext('2d');
+                        var max_width = 1280;
+                        var max_height = 1280;
+                        var width = img.width;
+                        var height = img.height;
+                        if (width > max_width || height > max_height) {
+                            if (width > height) {
+                                height *= max_width / width;
+                                width = max_width;
+                            } else {
+                                width *= max_height / height;
+                                height = max_height;
+                            }
+                        }
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+                        canvas.toBlob(function (blob) {
+                            formData.append('image', blob, file_name);
+                            $('.custom-file-label').html(file_name);
+                        }, 'image/jpeg', 0.8);
+                    };
+                };
+            } else {
+                formData.append('image', file);
+                $('.custom-file-label').html(file_name);
+            }
+        });
+        $('.reset-btn').on("click", (event) => {
+            $("#inputGroupFile02").val("");
+            $('.custom-file-label').html("이미지를 첨부해주세요.")
+        });
+
+        if (id_num !== null) {
+            $.ajax({
+                url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries/' + id_num,
+                type: 'GET',
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    $("input[type='text']").val(response.title);
+                    $(".custom-file-label").text(response.image.originalFileName);
+                },
+                error: function (xhr, status, error) {
+                    alert('잘못된 요청입니다.');
+                }
+            });
+            
+            $("button[type='submit']").on("click", (event) => {
+                const title = $("input[type='text']").val();
+                const file = $("#inputGroupFile02").val();
+                if (title === "") {
+                    alert("제목을 등록해주세요.")
+                } else {
+                    const data = {
+                        "title": $("input[type='text']").val(),
+                    };
+                    formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
+                    $.ajax({
+                        url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries/' + id_num,
+                        type: 'PATCH',
+                        data: formData,
+                        beforeSend: function (xhr) {
+                            if (localStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                            }
+                        },
+                        "processData": false,
+                        "contentType": false,
+                        "cache": false,
+                        "enctype": "multipart/form-data",
+                        success: function (response) {
+                            alert('수정 되었습니다.');
+                            window.location.href = "GalleryList.html";
+                        },
+                        error: function (xhr, status, error) {
+                            if (xhr.status === 401) {
+                                alert("로그인이 필요한 페이지입니다.")
+                                window.location.href = 'login.html';
+                            } else {
+                                alert('이미지 수정에 실패하였습니다.');
+                            }
+                        }
+                    });
+                 }
+                
+            })
+
+            $(".cancle-btn").on("click", (event) => {
+                if (confirm("수정을 취소 하시겠습니까?")) {
+                    window.history.back();
+                }
+            });
+        }else{
+            $("button[type='submit']").on("click", (event) => {
+                const title = $("input[type='text']").val();
+                const file = $("#inputGroupFile02").val();
+                if (title === "" || file === "") {
+                    alert("제목과 파일을 모두 등록해주세요.")
+                }else{
+                    const image = $("#inputGroupFile02").get(0).files[0];
+                    const data = {
+                        "title": $("input[type='text']").val(),
+                    };
+                    formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
+                    $.ajax({
+                        url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries',
+                        type: 'POST',
+                        data: formData,
+                        beforeSend: function (xhr) {
+                            if (localStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                            }
+                        },
+                        "processData": false,
+                        "contentType": false,
+                        "cache": false,
+                        "enctype": "multipart/form-data",
+                        success: function (response) {
+                            alert('갤러리에 등록 되었습니다.');
+                            window.location.href = "GalleryList.html";
+                        },
+                        error: function (xhr, status, error) {
+                            if (xhr.status === 401) {
+                                alert("로그인이 필요한 페이지입니다.")
+                                window.location.href = 'login.html';
+                            } else {
+                                alert('갤러리 등록에 실패하였습니다.');
+                            }
+                        }
+                    });
+                }
+            });
+            $(".cancle-btn").on("click", (event) => {
+                const title = $("input[type='text']").val();
+                const file = $("#inputGroupFile02").val();
+                if (title === "" && file === "") {
+                    window.history.back();
+                } else {
+                    if (confirm("등록을 취소 하시겠습니까?")) {
+                        window.history.back();
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

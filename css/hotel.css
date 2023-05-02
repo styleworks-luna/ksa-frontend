@@ -1,0 +1,343 @@
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main [data-content_box] {
+  padding-top: 85px;
+}
+main [data-content_box] table {
+  width: 100%;
+  margin-top: 18px;
+}
+main [data-content_box] table tr {
+  height: 92px;
+}
+main [data-content_box] table tr th {
+  font-size: 20px;
+  text-align: left;
+  font-weight: 500;
+  vertical-align: middle;
+  padding-left: 30px;
+  width: 179px;
+}
+main [data-content_box] table tr td input {
+  height: 68px;
+}
+main [data-content_box] table tr td [data-date_box] {
+  display: flex;
+  align-items: center;
+}
+main [data-content_box] table tr td [data-date_box] input {
+  padding: 0 20px;
+  box-sizing: border-box;
+  outline: none;
+  height: 69px;
+  width: 325px;
+  border: 1px solid #dedede;
+  font-size: 20px;
+  color: #222;
+  position: relative;
+}
+main [data-content_box] table tr td [data-date_box] input::placeholder {
+  font-size: 20px;
+  color: #222;
+}
+main [data-content_box] table tr td [data-date_box] input::before {
+  content: attr(data-placeholder);
+  width: calc(100% - 63px);
+  position: absolute;
+  top: 36%;
+  background-color: #fff;
+  pointer-events: all;
+}
+main [data-content_box] table tr td [data-date_box] .empty::before {
+  content: "";
+  width: 0px;
+}
+main [data-content_box] table tr td [data-date_box] [data-tilde] {
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 5px;
+}
+main [data-content_box] table tr td [data-date_box] [data-cal_row] {
+  display: inline-block;
+  padding-left: 14px;
+}
+main [data-content_box] table tr td [data-check_in_box] select {
+  width: 100px;
+}
+main [data-content_box] table tr td [data-check_in_box] span {
+  display: inline-block;
+  padding-left: 16px;
+}
+main [data-content_box] table tr td [data-check_in_box] span:first-of-type {
+  padding-right: 32px;
+}
+main [data-content_box] table tr td textarea {
+  height: 137px;
+  margin-top: 11px;
+  margin-bottom: 8px;
+}
+main [data-content_box] table tr td [data-total_box] {
+  display: flex;
+  align-items: center;
+  padding-left: 21px;
+}
+main [data-content_box] table tr td [data-total_box] span {
+  font-size: 24px;
+}
+main [data-content_box] table tr td [data-total_box] span span {
+  color: #7e499f;
+  font-weight: bold;
+}
+main [data-content_box] table tr td [data-total_box] label {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  padding-left: 12px;
+}
+main [data-content_box] table [data-list_row] {
+  height: auto;
+}
+main [data-content_box] table [data-list_row] th {
+  vertical-align: top;
+}
+main [data-content_box] table [data-list_row] th .room {
+  font-weight: 500;
+  padding-top: 35px;
+  display: none;
+}
+main [data-content_box] table [data-list_row] td .room {
+  padding-top: 32px;
+  display: none;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] {
+  height: auto;
+  margin-bottom: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] div p {
+  width: 674px;
+  font-size: 16px;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] div p span {
+  font-weight: bold;
+  font-size: 20px;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] div p [data-bar] {
+  font-size: 16px;
+  font-weight: normal;
+  display: inline-block;
+  padding-left: 9px;
+  padding-right: 8px;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] div button {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: #aeaeae;
+  color: #fff;
+  font-size: 10px;
+  border-radius: 50%;
+  margin-left: 20px;
+  cursor: pointer;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  height: 42px;
+  padding-left: 10px;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] label {
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] label input {
+  height: auto;
+  margin-right: 15px;
+}
+main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] span {
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (max-width: 760px) {
+  main [data-content_box] {
+    width: 100%;
+    max-width: 1280px;
+    padding-top: 39px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  main [data-content_box] [data-title_box] {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+  main [data-content_box] table {
+    width: 100%;
+    margin-top: 18px;
+  }
+  main [data-content_box] table tr {
+    height: 66px;
+  }
+  main [data-content_box] table tr th {
+    font-size: 14px;
+    padding-left: 18px;
+    width: 106px;
+  }
+  main [data-content_box] table tr td input {
+    width: 100%;
+    height: 50px;
+  }
+  main [data-content_box] table tr td [data-date_box] {
+    flex-direction: column;
+    padding-bottom: 5px;
+  }
+  main [data-content_box] table tr td [data-date_box] input {
+    height: 50px;
+    width: 100%;
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-date_box] input:first-of-type {
+    margin-bottom: 6px;
+  }
+  main [data-content_box] table tr td [data-date_box] input::placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-tilde] {
+    display: none;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-cal_row] {
+    display: none;
+  }
+  main [data-content_box] table tr td [data-check_in_box] select {
+    width: 107px;
+  }
+  main [data-content_box] table tr td [data-check_in_box] select:first-of-type {
+    margin-right: 4px;
+  }
+  main [data-content_box] table tr td [data-check_in_box] span {
+    display: none;
+  }
+  main [data-content_box] table tr td textarea {
+    height: 100px;
+    margin-top: 0px;
+    margin-bottom: 8px;
+  }
+  main [data-content_box] table tr td [data-total_box] {
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+  }
+  main [data-content_box] table tr td [data-total_box] span {
+    font-size: 16px;
+  }
+  main [data-content_box] table tr td [data-total_box] span span {
+    color: #7e499f;
+    font-weight: bold;
+  }
+  main [data-content_box] table tr td [data-total_box] label {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    padding-left: 12px;
+  }
+  main [data-content_box] table tr td [data-total_box] label input {
+    width: 10px;
+  }
+  main [data-content_box] table [data-list_row] {
+    height: auto;
+  }
+  main [data-content_box] table [data-list_row] th {
+    vertical-align: top;
+  }
+  main [data-content_box] table [data-list_row] th .room {
+    font-weight: 500;
+    padding-top: 35px;
+    display: none;
+  }
+  main [data-content_box] table [data-list_row] td .room {
+    padding-top: 32px;
+    display: none;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] {
+    height: auto;
+    margin-bottom: 8px;
+    display: flex;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] div p {
+    width: calc(100% - 40px);
+    font-size: 14px;
+    line-height: 20px;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] div p span {
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    color: #7e499f;
+    padding-top: 10px;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] div button {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background-color: #aeaeae;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    height: 42px;
+    padding-left: 0px;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] label {
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] label input {
+    width: 12px;
+    height: auto;
+    margin: 0px;
+    margin-right: 6px;
+  }
+  main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check] span {
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+/*# sourceMappingURL=hotel.css.map */

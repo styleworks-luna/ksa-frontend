@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/notice.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+    <script src="/js/common.js"></script>
+</head>
+
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="./Notice.html">공지사항</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+            <li class="" data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="Application.html">참가신청</a></li>
+                <li><a href="InformationInput.html">신청내역/수정</a></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div data-top_header>
+            <button type="button" onclick="history.back()" data-back_btn></button>
+            <span>공지사항</span>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="Application.html">참가신청</a></li>
+                <li><a href="InformationInput.html">신청내역/수정</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-header_box>
+            <div>
+                <a href="./Application.html">참가신청</a>
+                <a href="InformationInput.html">신청내역/수정</a>
+            </div>
+        </div>
+        <div data-pc_content_wrap>
+            <div data-title_box>공지사항</div>
+            <div data-notice_wrap>
+                <div data-th_row>
+                    <div>번호</div>
+                    <div>제목</div>
+                    <div>글쓴이</div>
+                    <div>등록일</div>
+                    <div>조회수</div>
+                </div>
+                <ul id="data-container">
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div>10</div>
+                            <div>공지사항을 입력해주세요.</div>
+                            <div>관리자</div>
+                            <div>2023.03.20</div>
+                            <div>521</div>
+                        </div>
+                        <div data-content_box>
+                    
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-pagination_box></div>
+        </div>
+        <div data-mobile_content_wrap>
+            <div data-notice_wrap>
+                <ul id="data-container-mobile">
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div>
+                                <p></p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div data-content_box>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-mobile_pagination_box></div>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    (사)한국산업기술진흥협회 · 대표자 구자균 · 사업자등록번호 220-82-00051 · 통신판매번호 서초 제09539 · 대표번호 02-3460-9114<br>
+                    COPYRIGHT ⓒ2020 Korea Industrial Technology Association all rights reserved.
+                </p>
+                <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        $(function () {
+            if( window.innerWidth > 760 ){
+                $.ajax({
+                    type: "GET",
+                    url: "https://api-koita2023.onoffmix.xyz/api/v1/notices/all",
+                    success: function (response) {
+                        let container = $('[data-pagination_box]');
+                        container.pagination({
+                            dataSource: response,
+                            callback: function (data, pagination) {
+                                var dataHtml = '<ul id="data-container">';
+                                    $.each(data, function (index, item) {
+                                    dataHtml += '<li data-td_row><div data-title_row ><div data-index_row="'+ item.id +'">' + (index+1) + '</div><div>' + item.title + '</div><div>관리자</div><div>' + item.createdAt + '</div><div>' + item.view + '</div></div><div data-content_box>' + item.content + '</div></li>';
+                                });
+    
+                                dataHtml += '</ul>';
+    
+                                $("#data-container").html(dataHtml);
+    
+                                $("[data-title_row]").click(function () { 
+                                    $(this).siblings("[data-content_box]").toggle("active");
+                                    var id_num = $(this).children("[data-index_row]").data('index_row');
+                                    console.log(id_num)
+                                    $.ajax({
+                                        type: "PATCH",
+                                        url: "https://api-koita2023.onoffmix.xyz/api/v1/notices/"+ id_num +"/view",
+                                        success: function (response) {},
+                                        error: function (xhr, status, error) {}
+                                    });
+                                });
+                            }
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }else{
+                 $.ajax({
+                    type: "GET",
+                    url: "https://api-koita2023.onoffmix.xyz/api/v1/notices/all",
+                    success: function (response) {
+                        let container = $('[data-mobile_pagination_box]');
+                        container.pagination({
+                            dataSource: response,
+                            callback: function (data, pagination) {
+                                var dataHtml = '<ul id="data-container-mobile">';
+                                $.each(data, function (index, item) {
+                                    dataHtml += '<li data-td_row><div data-title_row="'+ item.id +'"><div><p>'+ item.title +'</p><span>' + item.createdAt + '</span></div></div><div data-content_box>'+ item.content +'</div></li>';
+                                });
+
+                                dataHtml += '</ul>';
+                                $("#data-container-mobile").html(dataHtml);
+
+
+                                $("[data-title_row]").click(function () {
+                                    $(this).siblings("[data-content_box]").toggle("active");
+                                    var id_num = $(this).attr("data-title_row");
+                                    $.ajax({
+                                        type: "PATCH",
+                                        url: "https://api-koita2023.onoffmix.xyz/api/v1/notices/" + id_num + "/view",
+                                        success: function (response) { },
+                                        error: function (xhr, status, error) { }
+                                    });
+                                });
+                            }
+                        })
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

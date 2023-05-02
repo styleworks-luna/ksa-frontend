@@ -1,0 +1,119 @@
+main {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+main [data-content_box=mobile] {
+  display: none;
+}
+main [data-content_box] {
+  width: 100%;
+  max-width: 1280px;
+  padding-top: 85px;
+}
+main [data-content_box] [data-table_box] [data-date_row]:nth-of-type(3) {
+  display: block;
+  margin-top: 45px;
+}
+main [data-content_box] [data-table_box] table {
+  width: 100%;
+  font-size: 20px;
+  border-collapse: collapse;
+  margin-top: 14px;
+}
+main [data-content_box] [data-table_box] table tr th {
+  height: 70px;
+  border-top: 1px solid #222;
+  border-right: 1px solid #dedede;
+  background-color: #f7f7f7;
+  vertical-align: middle;
+  font-weight: 500;
+}
+main [data-content_box] [data-table_box] table tr th:first-of-type {
+  width: 149px;
+}
+main [data-content_box] [data-table_box] table tr th:nth-of-type(2) {
+  width: 209px;
+}
+main [data-content_box] [data-table_box] table tr th:nth-of-type(3) {
+  width: 401px;
+}
+main [data-content_box] [data-table_box] table tr th:nth-of-type(4) {
+  width: 221px;
+}
+main [data-content_box] [data-table_box] table tr th:last-child {
+  border-right: none;
+}
+main [data-content_box] [data-table_box] table tr [data-description_row] p {
+  white-space: pre-line;
+  line-height: 28px;
+}
+main [data-content_box] [data-table_box] table tr td [data-show_box] [data-show_row] {
+  justify-content: center;
+}
+
+@media (max-width: 760px) {
+  main [data-content_box=pc] {
+    display: none;
+  }
+  main [data-content_box=mobile] {
+    display: block;
+    padding-top: 39px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  main [data-content_box=mobile] [data-table_box] p {
+    padding: 0;
+    line-height: 19px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] {
+    border-bottom: none;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] {
+    padding-top: 24px;
+    padding-bottom: 12px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] {
+    display: flex;
+    flex-direction: column;
+    padding-right: 15px;
+    padding-top: 7px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span {
+    font-size: 14px;
+    display: inline-block;
+    font-weight: normal;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span:first-of-type {
+    font-weight: normal;
+    padding-bottom: 6px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span:nth-of-type(2) {
+    padding-bottom: 6px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span:last-of-type span {
+    font-weight: bold;
+    color: #7e499f;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span p {
+    padding: 0;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] [data-time_row] span {
+    display: inline-block;
+    font-weight: bold;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] [data-time_row] span:nth-of-type(2) {
+    padding-left: 5px;
+    font-weight: normal;
+    padding-bottom: 6px;
+  }
+}
+
+/*# sourceMappingURL=lecture.css.map */
