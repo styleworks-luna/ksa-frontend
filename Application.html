@@ -116,7 +116,7 @@
                     한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
                     06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                 </p>
-                <p><a><span>개인정보처리방침</span></a></p>
+                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
             </div>
         </div>
     </footer>
@@ -185,8 +185,6 @@
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         success: function (response) {
-                            sessionStorage.setItem('attend_id', response.attendId);
-                            localStorage.setItem('token', response.accessToken.token);
                             if(response.attendStatus === "DONE"){
                                 alert("신청 확인 페이지로 이동합니다.");
                                 window.location.href = "./InformationConfirm.html";
@@ -196,12 +194,13 @@
                             }
                         },
                         error: function (xhr) {
-                            if(xhr.status === 401){
+                            if(xhr.responseJSON.code === 'INVALID_PASSWORD'){
+                                alert("비밀번호가 틀렸습니다.")
+                            }else if(xhr.responseJSON.code === 'USERNAME_NOT_FOUND'){
                                 alert("신규회원 등록 페이지로 이동합니다.");
                                 window.location.href = "./Information.html";
                                 sessionStorage.setItem('bussiness_num', $("input[name='business_num']").val());
                                 sessionStorage.setItem('user_password', password_val.val());
-                                
                             }
                         }
                     });
@@ -209,32 +208,7 @@
             }
         });
         $("[data-done_btn]").click(function () {
-           $.ajax({
-                "type": "POST",
-                "url": "https://api-ksa.onoffmix.xyz/api/v1/attender/login",
-                "data": JSON.stringify(data),
-                "contentType": 'application/json',
-                success: function (response) {
-                    sessionStorage.setItem('attend_id', response.attendId);
-                    localStorage.setItem('token', response.accessToken.token);
-                    if (response.attendStatus === "DONE") {
-                        alert("신청 확인 페이지로 이동합니다.");
-                        window.location.href = "./InformationConfirm.html";
-                    } else {
-                        alert("정보 수정 페이지로 이동합니다.");
-                        window.location.href = "./Information.html";
-                    }
-                },
-                error: function (xhr) {
-                    if (xhr.status === 401) {
-                        alert("신규회원 등록 페이지로 이동합니다.");
-                        window.location.href = "./Information.html";
-                        sessionStorage.setItem('bussiness_num', $("input[name='business_num']").val());
-                        sessionStorage.setItem('user_password', password_val.val());
-
-                    }
-                }
-            });
+    
         });
     </script>
 </body>

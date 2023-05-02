@@ -190,10 +190,10 @@
             <div data-logo_box></div>
             <div data-text_box>
                 <p>
-                    (사)한국산업기술진흥협회 · 대표자 구자균 · 사업자등록번호 220-82-00051 · 통신판매번호 서초 제09539 · 대표번호 02-3460-9114<br>
-                    COPYRIGHT ⓒ2020 Korea Industrial Technology Association all rights reserved.
+                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
+                    06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                 </p>
-                <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
             </div>
         </div>
     </footer>
@@ -264,7 +264,7 @@
                                     "attenderId": item.attenderId
                                 });
                                 flight_total.push({
-                                    "attenderId": item.flight.flightId,
+                                    "attenderId": item.attenderId,
                                     "cost": item.cost
                                 });
                             });
@@ -275,7 +275,6 @@
                                 "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
-                                    console.log(passenger)
                                     $("[data-passenger_select] option:not(:first-child)").remove();
                                     $.each(passenger, function (index, item) {
                                         if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
@@ -294,7 +293,6 @@
                                 "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
-                                    console.log(passenger)
                                     $("[data-passenger_select] option:not(:first-child)").remove();
                                     $.each(passenger, function (index, item) {
                                         $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
@@ -384,7 +382,7 @@
                             "flightId": flight_val,
                             "attenderId": passenger_val
                         });
-                        console.log(passenger_list)
+
                         if(passenger_type === 'CHILD'){
                             type_cost = child_cost
                         }else if(passenger_type === 'ADULT'){
@@ -392,7 +390,7 @@
                         }else if(passenger_type === 'SENIOR'){
                             type_cost = senior_cost
                         }
-
+                        console.log(passenger_type);
                         flight_total.push({
                             "attenderId": passenger_val,
                             "cost": type_cost
@@ -407,11 +405,10 @@
                             "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                console.log(passenger)
                                 $("[data-passenger_select] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-passenger_select]").append('<option value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -421,6 +418,7 @@
                         });
                         flight_val = "";
                         passenger_val = "";
+                        passenger_type = ""
                     }
                 }
 
@@ -448,7 +446,6 @@
                         "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
                         success: function (response) {
                             passenger = response;
-                            console.log(passenger)
                             $("[data-passenger_select] option:not(:first-child)").remove();
                             
                             if (passenger_list.length == 0) {
@@ -459,7 +456,6 @@
                             } else {
                                 // passenger_list에 있는 승객들만 드롭다운 메뉴에 추가
                                 $.each(passenger, function (index, item) {
-                                    console.log(passenger_list)
                                     if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
                                         $("[data-passenger_select]").append('<option data-type="' + (item.flightCostType) + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
