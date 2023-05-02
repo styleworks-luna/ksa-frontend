@@ -347,7 +347,6 @@
                 <div data-btn_box>
                     <button type="submit">참가자 정보 저장</button>
                 </div>
-                <button type="button" data-test>참가자 정보 저장</button>
             </form>
         </div>
         <div data-mobile_content_box>
@@ -987,10 +986,6 @@
                
                 }
             });
-            $("[data-test]").click(function () {
-                console.log(pw_confirm)
-                console.log(pw_regex_confirm)
-            });
 
             //----------------------------------------------------정보 전송 (PC)------------------------------------------------------
             
@@ -1084,14 +1079,14 @@
                             }
                         },
                         success: function (response) {
-                            console.log(data);
-                            sessionStorage.setItem('attend_id', response.attendId);
+                            if (id_num === null) {
+                                sessionStorage.setItem('attend_id', response.attendId);
+                            }
                             alert("저장이 완료 되었습니다.")
-                            // window.location.href = "./Flight.html";
+                            window.location.href = "./Flight.html";
 
                         },
                         error: function (xhr, status, error) {
-                            console.log(data);
                             alert("저장에 실패 하였습니다.")
                         }
                     });

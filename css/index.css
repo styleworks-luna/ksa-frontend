@@ -216,7 +216,7 @@ main [data-sponsore_box] [data-img_box] {
     width: 100%;
   }
   main [data-main_wrap] {
-    height: 400px;
+    height: 111vw;
     background-image: url(/images/mobile_main1.png);
     background-position: center center;
     background-repeat: no-repeat;
@@ -225,7 +225,7 @@ main [data-sponsore_box] [data-img_box] {
   }
   main [data-main_wrap] [data-notice_box] {
     width: 100%;
-    height: 46px;
+    height: 51px;
     background-color: rgba(243, 146, 77, 0.8823529412);
     display: flex;
     justify-content: center;
@@ -278,6 +278,7 @@ main [data-sponsore_box] [data-img_box] {
     bottom: 0;
     background-image: url(/images/arrow_mobile.png);
     background-size: contain;
+    margin-bottom: 0;
   }
   main [data-main_wrap] [data-main_box] [data-floating_box] {
     display: none;

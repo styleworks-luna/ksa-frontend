@@ -10,6 +10,7 @@ $(function () {
     $('[data-logout_btn]').on("click", function() {
         if(confirm("로그아웃 하시겠습니까?")){
             localStorage.removeItem('token');
+            alert("로그아웃 되었습니다.")
             window.location = "Index.html";
         }
     });
