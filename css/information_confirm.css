@@ -197,6 +197,10 @@ main [data-popup_box] div button:first-of-type {
 main [data-popup_box] div button:nth-of-type(2) {
   background-color: #004446;
 }
+main [data-popup_box] div button:nth-of-type(2):disabled {
+  background-color: #a3a3a3;
+  pointer-events: none;
+}
 
 @media (max-width: 760px) {
   main {
@@ -356,7 +360,7 @@ main [data-popup_box] div button:nth-of-type(2) {
   main [data-mobile_content_box] [data-button_box] button {
     width: 159px;
     height: 50px;
-    border-radius: 27px;
+    border-radius: 5px;
     border: none;
     font-size: 16px;
     color: #fff;
@@ -366,15 +370,15 @@ main [data-popup_box] div button:nth-of-type(2) {
     background-color: #a3a3a3;
   }
   main [data-mobile_content_box] [data-button_box] button:nth-of-type(2) {
-    background-color: #7e499f;
+    background-color: #004446;
   }
   main [data-mobile_content_box] [data-button_box] [data-print_btn] {
-    background-color: #ff8f11 !important;
+    background-color: #3cb4d0 !important;
   }
   main [data-popup_box] {
     width: calc(100% - 32px);
     height: 235px;
-    border: 2px solid #7e499f;
+    border: 2px solid #004446;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -399,7 +403,7 @@ main [data-popup_box] div button:nth-of-type(2) {
   main [data-popup_box] div button {
     width: 143px;
     height: 50px;
-    border-radius: 27px;
+    border-radius: 5px;
     border: none;
     font-size: 16px;
     color: #fff;
@@ -409,7 +413,11 @@ main [data-popup_box] div button:nth-of-type(2) {
     background-color: #a3a3a3;
   }
   main [data-popup_box] div button:nth-of-type(2) {
-    background-color: #7e499f;
+    background-color: #004446;
+  }
+  main [data-popup_box] div button:nth-of-type(2):disabled {
+    background-color: #a3a3a3;
+    pointer-events: none;
   }
 }
 

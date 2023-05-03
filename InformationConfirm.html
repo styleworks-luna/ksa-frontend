@@ -386,6 +386,7 @@
                 $(document).on("click", "[data-submit_btn]", function () { $('[data-popup_box]').show(); })
                 $('[data-close_btn]').on("click", function () { $('[data-popup_box]').hide() });
                 $("[data-done_btn]").on("click", function () {
+                    $("[data-done_btn]").prop("disabled", true);
                     $.ajax({
                         "type": "PATCH",
                         "url": "https://api-ksa.onoffmix.xyz/api/v1/attends/"+ attend_id +"/done",
@@ -401,6 +402,7 @@
                             window.location.reload();
                         },
                         error: function (xhr, status, error) {
+                            $("[data-done_btn]").prop("disabled", false);
                             alert("저장에 실패 하였습니다.")
                         }
                     });

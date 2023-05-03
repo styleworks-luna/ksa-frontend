@@ -287,7 +287,7 @@
                                 });
                             } else {
                                 $.each(response.renterCarOrders, function (index, item) {
-                                    $("[data-show_row]").append("<div data-add_row=''><div data-info_box><p>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-pickup_check><sapn data-text>수령장소</sapn><label><input type='radio'  name='pickup" + index + "' data-pick_jeju value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + " data-pick> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + " data-pick>롯데호텔</label></div><div data-back_check><sapn data-text>반납장소</sapn><label><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + " data-back> 제주공항</label><label><input  type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_hotel " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + " data-back> 롯데호텔</label></div></div></div>");
+                                    $("[data-show_row]").append("<div data-add_row=''><div data-info_box><p>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-pickup_check><sapn data-text>수령장소</sapn><label><input type='radio'  name='pickup" + index + "' data-pick_jeju value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + " data-pick> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + " data-pick>롯데호텔</label></div><div data-back_check><sapn data-text>반납장소</sapn><label><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + " data-back> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + " data-back> 롯데호텔</label></div></div></div>");
                                 });
                             }
                             $("textarea").val(response.userMemo);
@@ -466,12 +466,14 @@
                 $(document).on("click", "[data-pick]", function () {
                     const index = $(this).closest("[data-add_row]").index();
                     car_list[index].pickUpPlace = $(this).val();
+                    console.log($(this).val())
                 });
 
                 // 반납장소 지정
                 $(document).on("click", "[data-back]", function () {
                     const index = $(this).closest("[data-add_row]").index();
                     car_list[index].returnPlace = $(this).val();
+                    console.log($(this).val())
                 });
 
                 $("button[type='submit']").click(function () {
@@ -480,6 +482,7 @@
                         "renterCars": car_list,
                         "userMemo": $("textarea").val(),
                     };
+                    console.log(data)
                     $.ajax({
                         "type": "POST",
                         "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
@@ -492,7 +495,7 @@
                         },
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
-                            window.location.href = "./Program.html";
+                            // window.location.href = "./Program.html";
                         },
                         error: function (xhr, status, error) {
                             alert("저장에 실패 하였습니다.")

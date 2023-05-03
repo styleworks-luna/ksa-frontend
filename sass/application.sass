@@ -190,11 +190,15 @@ main
                 border: none
                 font-size: 20px
                 color: #fff
+                cursor: pointer
                 &:first-of-type
                     margin-right: 20px
                     background-color: #a3a3a3
                 &:nth-of-type(2)
                     background-color: #004446
+                    &:disabled
+                        background-color: #a3a3a3
+                        pointer-events: none
 @media (max-width: 760px)
     [data-mobile_header]
         [data-top_header]
