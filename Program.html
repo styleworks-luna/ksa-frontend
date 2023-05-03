@@ -288,7 +288,7 @@
                         console.log(data)
                         if (window.innerWidth > 760) {
                             $.each(golf, function (index, item) {
-                                let full = item.capacity === item.currentAttenderNumber;
+                                let full = item.capacity <= item.currentAttenderNumber;
                                 $("[data-golf_thu_table]").append("<tr  " + (full === true ? "data-full_row" : "") + "><td>골프</td><td>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select data-thu_golf " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='golf'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
                             });
                             $.each(tour, function (index, array) {
@@ -298,7 +298,7 @@
                             });
                         } else{
                             $.each(golf, function (index, item) {
-                                let full = item.capacity === item.currentAttenderNumber;
+                                let full = item.capacity <= item.currentAttenderNumber;
                                 $("[data-content='golf_thu']").append("<div data-text_wrap><div data-flex_box='" + (full === true ? "full" : "") + "'><div data-text_box><span>골프</span><span>" + item.name + "</span><span>참가비 <span>" + item.cost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.roundDate + "' " + (full === true ? "disabled" : "") + " data-thu_golf data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost +"'><option selected disabled value=''>선택</option></select></div></div><div data-show_box='golf'></div></div>" + (full === true ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>" : "<p>· 그린피/캐디비/카트비, 그늘집 이용, 중식, 이동 차량의 비용이 포함되어 있습니다. (단, 클럽하우스 내 주류 이용료는 개별 부담)</p>") + "");
                             });
                             $.each(tour, function (index, array) {
