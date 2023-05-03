@@ -274,6 +274,13 @@
                 spaceBetween: 23.5,
                 freeMode: true,
             });
+            const tour_type = {
+                "NONE": "없음",
+                "NATURAL": "자연경관",
+                "CULTURE_TOUR": "문화탐방",
+                "CULTURE_EXP": "문화체험",
+                "HEALING_TOUR": "힐링투어",
+            }
             if(attend_id !== null){
                 $.ajax({
                     "type": "GET",
@@ -296,7 +303,7 @@
                             "GRAND_CHILD": "손자녀",
                             "ETC": "기타",
                         };
-    
+                        
                         if (window.innerWidth > 760) {
                             $("[data-total_data]").append("<tr><td>"+ cost.attendTotalCost.toLocaleString() +"원</td><td>" + cost.flightTotalCost.toLocaleString() +"원</td><td>" + cost.hotelTotalCost.toLocaleString() +"원</td><td>" + cost.renterCarTotalCost.toLocaleString() +"원</td><td>" + cost.golfCourseTotalCost.toLocaleString() +"원</td><td>"+ cost.tourTotalCost.toLocaleString() +"원</td><td>" + cost.totalCost.toLocaleString() +"원</td></tr>");
     
@@ -323,7 +330,7 @@
                             });
 
                             $.each(response.tour.tourAttenders, function (index, item) {
-                                $("[data-program_data]").append("<tr><td>"+ item.tourStartDate + "</td><td>" + item.attenderName +"</td><td>" + item.title + "</td><td>" + item.description + "</td></tr>");
+                                $("[data-program_data]").append("<tr><td>"+ item.tourStartDate + "</td><td>" + item.attenderName +"</td><td>["+ tour_type[item.tourType] +"] "+ item.title + "</td><td>" + item.description + "</td></tr>");
                             });
 
                             if (response.attendStatus === "DONE") {
@@ -358,7 +365,7 @@
                             });
 
                             $.each(response.tour.tourAttenders, function (index, item) {
-                                $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.tourStartDate + " | " + item.title + " | <span>" + item.attenderName + "</span></p><p>" + item.description + "</p></div>");
+                                $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.tourStartDate + " | " + "["+ tour_type[item.tourType] + "] " +item.title + " | <span>" + item.attenderName + "</span></p><p>" + item.description + "</p></div>");
                             });
 
                             if(response.attendStatus === "DONE"){

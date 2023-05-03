@@ -480,6 +480,7 @@
                         "renterCars": car_list,
                         "userMemo": $("textarea").val(),
                     };
+                    console.log(data)
                     $.ajax({
                         "type": "POST",
                         "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
@@ -492,7 +493,8 @@
                         },
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
-                            window.location.href = "./Program.html";
+                            console.log(data)
+                            // window.location.href = "./Program.html";
                         },
                         error: function (xhr, status, error) {
                             alert("저장에 실패 하였습니다.")
