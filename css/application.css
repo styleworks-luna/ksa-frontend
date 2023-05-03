@@ -171,14 +171,15 @@ main form [data-reset_button] {
 }
 main [data-popup_box] {
   width: 600px;
-  height: 353px;
+  height: 500px;
   border: 2px solid #004446;
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-top: 60px;
+  padding-top: 30px;
   padding-left: 60px;
   padding-right: 60px;
+  padding-bottom: 30px;
   background-color: #fff;
   position: fixed;
   top: 50%;
@@ -187,14 +188,22 @@ main [data-popup_box] {
   display: none;
   text-align: center;
 }
+main [data-popup_box] h1 {
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+main [data-popup_box] form {
+  margin: 0;
+}
 main [data-popup_box] p {
   font-size: 20px;
   font-weight: 500;
   padding-bottom: 10px;
-  padding-top: 0px;
+  padding-top: 20px;
 }
 main [data-popup_box] p:nth-of-type(2) {
-  padding-bottom: 80px;
+  padding-bottom: 40px;
   padding-top: 10px;
 }
 main [data-popup_box] div button {
@@ -386,9 +395,9 @@ main [data-popup_box] div button:nth-of-type(2) {
   }
   main [data-popup_box] {
     width: calc(100% - 32px);
-    height: 242px;
+    height: 370px;
     display: none;
-    padding-top: 35px;
+    padding-top: 20px;
     padding-left: 20px;
     padding-right: 20px;
     position: fixed;
@@ -397,27 +406,31 @@ main [data-popup_box] div button:nth-of-type(2) {
     transform: translate(-50%, -50%);
     background-color: #fff;
   }
-  main [data-popup_box] div {
+  main [data-popup_box] h1 {
+    font-size: 20px;
+  }
+  main [data-popup_box] form {
     display: flex;
     align-items: center;
     flex-direction: column;
     text-align: center;
   }
-  main [data-popup_box] div p {
-    font-size: 16px;
+  main [data-popup_box] form p {
+    font-size: 14px;
     font-weight: 500;
     line-height: 24px;
     padding-bottom: 10px;
     padding-top: 0px;
   }
-  main [data-popup_box] div p:nth-of-type(2) {
+  main [data-popup_box] form p:nth-of-type(2) {
     padding-bottom: 20px;
-    padding-top: 10px;
+    padding-top: 0px;
   }
-  main [data-popup_box] div div {
+  main [data-popup_box] form div {
     flex-direction: row;
+    border: none;
   }
-  main [data-popup_box] div div button {
+  main [data-popup_box] form div button {
     width: 144px;
     height: 48px;
     border-radius: 5px;
@@ -425,11 +438,11 @@ main [data-popup_box] div button:nth-of-type(2) {
     font-size: 16px;
     color: #fff;
   }
-  main [data-popup_box] div div button:first-of-type {
+  main [data-popup_box] form div button:first-of-type {
     margin-right: 10px;
     background-color: #a3a3a3;
   }
-  main [data-popup_box] div div button:nth-of-type(2) {
+  main [data-popup_box] form div button:nth-of-type(2) {
     background-color: #004446;
   }
 }

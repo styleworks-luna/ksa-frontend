@@ -258,6 +258,7 @@
                         }
                         if (response.hotelOrders !== null) {
                             $(".room").show();
+                            console.log(response)
                             $.each(response.hotelOrders, function (index, item) {
                                 cal_date = (new Date(item.stayStartDate) - new Date(item.stayEndDate)) / (1000 * 60 * 60 * 24);
                                 cal_date = Math.abs(cal_date);
@@ -269,33 +270,32 @@
                                     "hotelId": Number(item.hotel.hotelId),
                                     "stayStartDate": item.stayStartDate,
                                     "stayEndDate": item.stayEndDate,
-                                    "isBedFamilyTwin": item.isBedFamilyTwin,
                                     "isSubBedPresent": item.isSubBedPresent
                                 });
                                 total_cost.push({
                                     "hotelId": item.hotel.hotelId,
-                                    "cost":  item.hotel.cost * cal_date,
+                                    "cost": ((item.hotel.cost + (item.isSubBedPresent === true ? 48400 : 0)) * cal_date),
                                     "date":  cal_date
                                 });
-
                             });
                             if (window.innerWidth > 760) {
                                 $.each(response.hotelOrders, function (index, item) {
                                     let bed = item.isSubBedPresent === true ? 48400 : 0
                                     let family = item.isBedFamilyTwin === true ? 36600 : 0
 
-                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost + (bed * cal_date) +  (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label></div></div>");
+                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label></div></div>");
                                 });
                             } else {
                                 $.each(response.hotelOrders, function (index, item) {
                                     let bed = item.isSubBedPresent === true ? 48400 : 0
                                     let family = item.isBedFamilyTwin === true ? 36600 : 0
-                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " / " + item.hotel.roomType + "<span data-cost>" + (total_cost[index].cost + (bed * cal_date) + (family * cal_date)).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' "+ (item.isSubBedPresent === true ? "checked" : "") + " data-bed_check> 보조침대 신청</label></div></div>");
+                                    
+                                    $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " / " + item.hotel.roomType + "<span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' "+ (item.isSubBedPresent === true ? "checked" : "") + " data-bed_check> 보조침대 신청</label></div></div>");
                                 });
                             }
                             $("textarea").val(response.userMemo);
                             $("[data-total]").text(response.totalCost.toLocaleString());
-                            $("input[name='pay']").prop("checked", true);
+                            $("input[name='pay']").prop("checked", response.isIndividualPay);
                         }
                     },
                     error: function (error) {
@@ -394,7 +394,6 @@
                             "cost": hotel_cost * cal_date,
                             "date": cal_date
                         });
-
                         updateTotalCost();
 
                         $('.reset').val("");
@@ -423,7 +422,6 @@
                 $(document).on("change", "[data-bed_check]", function () {
                     var index = $("[data-bed_check]").index($(this));
                     room_list[index].isSubBedPresent = $(this).is(":checked") === true ? true : false;
-                    
                     // 체크박스 상태에 따라 total_cost 업데이트
                     if ($(this).is(":checked")) {
                         total_cost[index].cost += (48400 * total_cost[index].date);
@@ -432,6 +430,7 @@
                         total_cost[index].cost -= (48400 * total_cost[index].date);
                         updateTotalCost();
                     }
+                    console.log(room_list)
                 });
 
                 $("button[type='submit']").click(function () {
@@ -471,7 +470,7 @@
 
                     room_list.forEach((room, index) => {
                         const cost = total_cost[index].cost;
-                        $(`[data-add_row="${room.hotelId}"] [data-cost]`).text(cost.toLocaleString() + "원");
+                        $(`[data-add_row]:eq(${index}) [data-cost]`).text(cost.toLocaleString() + "원");
                     });
                 }
             }else{
