@@ -186,9 +186,11 @@
                         "contentType": 'application/json',
                         success: function (response) {
                             if(response.attendStatus === "DONE"){
+                                sessionStorage.setItem('attend_id', response.attendId);
                                 alert("신청 확인 페이지로 이동합니다.");
                                 window.location.href = "./InformationConfirm.html";
                             }else{
+                                sessionStorage.setItem('attend_id', response.attendId);
                                 alert("정보 수정 페이지로 이동합니다.");
                                 window.location.href = "./Information.html";
                             }
