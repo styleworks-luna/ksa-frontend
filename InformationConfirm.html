@@ -302,9 +302,8 @@
             }
             let id_num = getParameterByName('id');
             if ( id_num !== null ) {
-                id_num = attend_id
+                attend_id = id_num
             }
-
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             var swiper = new Swiper(".mySwiper", {
                 slidesPerView: 'auto',
