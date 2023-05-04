@@ -125,7 +125,8 @@
     </footer>
     </footer>
     <script>
-        const base_url = getBaseUrl();
+        const url = window.location.href;
+        const base_url = url.split("/").slice(0, 3).join("/") + "/";
         $('[data-reset_button]').on("click", function () { $('[data-popup_box]').show(); });
         $('[data-close_btn]').on("click", function () { 
             $('[data-popup_box]').hide();

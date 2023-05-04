@@ -20,10 +20,4 @@ $(function () {
     if(attend_id !== null){
         $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>")
     }
-
-    function getBaseUrl() {
-        const url = window.location.href;
-        const base_url = url.split("/").slice(0, 3).join("/") + "/";
-        return base_url;
-    }
 });
