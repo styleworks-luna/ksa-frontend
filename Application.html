@@ -125,9 +125,11 @@
     </footer>
     </footer>
     <script>
-        const url = window.location.href;
-        const base_url = url.split("/").slice(0, 3).join("/") + "/";
-        console.log(base_url)
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if(base_url === "ksa.onoffmix.xyz"){
+            base_url = "api-" + base_url
+        }
         $('[data-reset_button]').on("click", function () { $('[data-popup_box]').show(); });
         $('[data-close_btn]').on("click", function () { 
             $('[data-popup_box]').hide();
@@ -190,7 +192,7 @@
                     }
                     $.ajax({
                         "type": "POST",
-                        "url": base_url + "/api/v1/attender/login",
+                        "url": "https://" + base_url + "/api/v1/attender/login",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         success: function (response) {
