@@ -1,6 +1,17 @@
 main {
   width: 100%;
 }
+main [data-brochure_link] {
+  position: fixed;
+  bottom: 60px;
+  right: 24.8%;
+  width: 72px;
+  height: 72px;
+  z-index: 999;
+}
+main [data-brochure_link] img {
+  width: 100%;
+}
 main [data-main_wrap] {
   width: 100%;
   height: 863px;
@@ -63,7 +74,6 @@ main [data-main_wrap] [data-main_box] div div::after {
   display: block;
   width: 37px;
   height: 97px;
-  bottom: 0;
   margin-bottom: 80px;
   background-image: url(/images/arrow.png);
   background-size: contain;
@@ -220,6 +230,14 @@ main [data-sponsore_box] [data-moblie_img_box] {
 
 @media (max-width: 760px) {
   main {
+    width: 100%;
+  }
+  main [data-brochure_link] {
+    width: 54px;
+    height: 54px;
+    right: 4.8%;
+  }
+  main [data-brochure_link] img {
     width: 100%;
   }
   main [data-main_wrap] {

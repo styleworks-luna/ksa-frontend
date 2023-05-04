@@ -92,11 +92,21 @@ main
                 tr
                     th
                         width: 33.3%
+            [data-rental_data]
+                tr
+                    th
+                        // width: 33.3%
+                        &:first-of-type
+                            width: 400px
+                        &:nth-of-type(2)
+                            width: 400px
+                        &:nth-of-type(3)
+                            width: 200px
             [data-program_data]
                 tr
                     th
                         width: 212px
-                        &:nth-of-type(4)
+                        &:nth-of-type(3)
                             width: 635px
         [data-done_txt]
             text-align: center
@@ -307,6 +317,19 @@ main
                                 right: 10px 
                     [data-request_box]
                         margin-top: 5px
+            [data-notice_box]
+                width: 100%
+                padding: 20px 16px
+                background-color: #f7f7f7
+                margin-top: 24px
+                margin-bottom: 24px
+                p
+                    font-size: 14px
+                    line-height: 23px
+                [data-cancle_title]
+                    padding:
+                        top: 10px
+                        bottom: 5px
             [data-done_txt]
                 text-align: center
                 font-size: 28px

@@ -60,8 +60,8 @@ body [data-pc_header] [data-menu_box] {
   position: absolute;
   top: 0;
   right: 0;
-  width: 500px;
-  height: 625px;
+  width: 320px;
+  height: 556px;
   background-color: #413684;
   z-index: 999;
 }
@@ -85,28 +85,28 @@ body [data-pc_header] [data-menu_box] ul {
   display: flex;
   flex-direction: column;
   text-align: left;
-  padding-left: 90px;
+  padding-left: 47px;
   padding-top: 5px;
 }
 body [data-pc_header] [data-menu_box] ul li {
-  padding-bottom: 18px;
+  padding-bottom: 12px;
 }
 body [data-pc_header] [data-menu_box] ul li a {
   width: 100%;
   text-align: left;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.6);
-  font-size: 32px;
-  font-weight: 800;
+  font-size: 28px;
   padding: 10px;
 }
 body [data-pc_header] [data-menu_box] ul li:hover a {
+  font-weight: 800;
   color: #fff;
   text-decoration: underline;
 }
 body [data-pc_header] [data-menu_box] ul [data-logout_row] {
   justify-content: flex-start;
-  padding-top: 37px;
+  padding-top: 26px;
   padding-left: 5px;
 }
 body [data-pc_header] [data-menu_box] ul [data-logout_row] button {
@@ -270,10 +270,10 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
     cursor: pointer;
     color: rgba(255, 255, 255, 0.6);
     font-size: 24px;
-    font-weight: 800;
     padding: 10px;
   }
   body [data-mobile_header] [data-menu_box] ul li:hover a {
+    font-weight: 800;
     color: #fff;
     text-decoration: underline;
   }

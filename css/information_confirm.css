@@ -102,10 +102,19 @@ main [data-pc_content_box] [data-table_box] [data-hotel_data] tr th:nth-of-type(
 main [data-pc_content_box] [data-table_box] [data-golf_data] tr th {
   width: 33.3%;
 }
+main [data-pc_content_box] [data-table_box] [data-rental_data] tr th:first-of-type {
+  width: 400px;
+}
+main [data-pc_content_box] [data-table_box] [data-rental_data] tr th:nth-of-type(2) {
+  width: 400px;
+}
+main [data-pc_content_box] [data-table_box] [data-rental_data] tr th:nth-of-type(3) {
+  width: 200px;
+}
 main [data-pc_content_box] [data-table_box] [data-program_data] tr th {
   width: 212px;
 }
-main [data-pc_content_box] [data-table_box] [data-program_data] tr th:nth-of-type(4) {
+main [data-pc_content_box] [data-table_box] [data-program_data] tr th:nth-of-type(3) {
   width: 635px;
 }
 main [data-pc_content_box] [data-done_txt] {
@@ -345,6 +354,21 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
   }
   main [data-mobile_content_box] [data-table_box] [data-rental_data=mobile] [data-request_box] {
     margin-top: 5px;
+  }
+  main [data-mobile_content_box] [data-notice_box] {
+    width: 100%;
+    padding: 20px 16px;
+    background-color: #f7f7f7;
+    margin-top: 24px;
+    margin-bottom: 24px;
+  }
+  main [data-mobile_content_box] [data-notice_box] p {
+    font-size: 14px;
+    line-height: 23px;
+  }
+  main [data-mobile_content_box] [data-notice_box] [data-cancle_title] {
+    padding-top: 10px;
+    padding-bottom: 5px;
   }
   main [data-mobile_content_box] [data-done_txt] {
     text-align: center;

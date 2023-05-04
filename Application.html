@@ -17,7 +17,7 @@
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
-            <li><a href="./Notice.html">공지사항</a></li>
+            <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
             <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
             <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
             <li class="" data-more_box></li>
@@ -90,7 +90,7 @@
         </div>
         <form>
             <input type="text" name="business_num" id="business_num" placeholder="사업자번호를 입력해주세요 (-없이)" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10">
-            <input type="text" name="phone" id="phone" placeholder="대표자 휴대전화번호를 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11">
+            <input type="text" name="phone" id="phone" placeholder="참석자 휴대전화번호를 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11">
             <p data-error_row></p>
             <input type="password" name="pass_word" id="pass_word" placeholder="비밀번호를 입력해주세요. (대소문자,숫자,특수기호 포함 8자리 이상)">
             <p data-regex_error_row></p>
@@ -101,7 +101,7 @@
             <h1>비밀번호 초기화</h1>
             <form>
                 <input type="text" name="pass_num" placeholder="사업자번호를 입력해주세요" id="pass_num" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" required>
-                <input type="text" name="phone" id="pass_phone" placeholder="대표자 휴대전화번호를 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11">
+                <input type="text" name="phone" id="pass_phone" placeholder="참석자 휴대전화번호를 입력해주세요." oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)" maxlength="11">
                 <p>비밀번호 초기화 시 신청한 대표자/교육담당자/정산담당자 이메일로 임시 비밀번호가 발급됩니다.</p>
                 <p>초기화하시겠습니까?</p>
                 <div>
@@ -117,7 +117,7 @@
             <div data-text_box>
                 <p>
                     한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    하계CEO포럼 사무국 02-6240-4981, 4984 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                 </p>
                 <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
             </div>
@@ -187,7 +187,7 @@
                     }
                     $.ajax({
                         "type": "POST",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attender/login",
+                        "url": base_url + "/api/v1/attender/login",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         success: function (response) {
@@ -224,7 +224,7 @@
                 $("[data-post_btn]").prop("disabled", true);
                 $.ajax({
                     "type": "POST",
-                    "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders/reset-password?mobilePhone=" + phone + "&businessNumber=" + num,
+                    "url": base_url + "/api/v1/attenders/reset-password?mobilePhone=" + phone + "&businessNumber=" + num,
                     "contentType": 'application/json',
                     success: function (response) {
                         alert("정상적으로 이메일이 발송되었습니다.");

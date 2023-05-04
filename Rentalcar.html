@@ -176,7 +176,7 @@
             <div data-text_box>
                 <p>
                     한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    하계CEO포럼 사무국 02-6240-4981, 4984 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                 </p>
                 <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
             </div>
@@ -331,13 +331,14 @@
                         end_val = "";
                     }
                     //N박 텍스트 표기
-                    cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
-                    if(cal_date > 0){
-                        $("[data-cal_row]").text(cal_date +"박")
-                    }else{
-                        $("[data-cal_row]").text("")
-                        cal_date = 1;
-                    }
+                    // cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
+                    // if(cal_date > 0){
+                    //     $("[data-cal_row]").text(cal_date +"박")
+                    // }else{
+                    //     $("[data-cal_row]").text("")
+                    //     cal_date = 1;
+                    // }
+
                 }
 
                 // 투숙 기간과 객실 선택 후 리스트에 추가
@@ -406,6 +407,11 @@
                         const end_hour = end_time_val < 10 ? '0' + end_time_val.toString() : end_time_val.toString();
                         const end_min = end_min_val < 10 ? '0' + end_min_val.toString() : end_min_val.toString();
 
+                        const start_date = new Date(start_val + " " + start_time_val + ":" + start_min_val);
+                        const end_date = new Date(end_val + " " + end_time_val + ":" + end_min_val);
+                        const diff = (end_date - start_date) / (1000 * 60 * 60 * 24);
+                        cal_date = Math.floor(diff > 1 ? diff + 1 : 1);
+                        
                         car_list.push({
                             "renterCarId": Number(car_val),
                             "renterStartDate": start_val,
@@ -454,7 +460,7 @@
 
                     }
                     if (car_list.length === 0) {
-                        $(".room").hide();
+                        $(".car").hide();
                     }
                     if (total_cost.length > index) {
                         total_cost.splice(index, 1);
