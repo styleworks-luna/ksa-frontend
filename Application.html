@@ -125,8 +125,6 @@
     </footer>
     </footer>
     <script>
-        const url = window.location.href;
-        const base_url = url.split("/").slice(0, 3).join("/") + "/";
         $('[data-reset_button]').on("click", function () { $('[data-popup_box]').show(); });
         $('[data-close_btn]').on("click", function () { 
             $('[data-popup_box]').hide();
@@ -189,7 +187,7 @@
                     }
                     $.ajax({
                         "type": "POST",
-                        "url": base_url + "/api/v1/attender/login",
+                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attender/login",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         success: function (response) {
@@ -226,7 +224,7 @@
                 $("[data-post_btn]").prop("disabled", true);
                 $.ajax({
                     "type": "POST",
-                    "url": base_url + "/api/v1/attenders/reset-password?mobilePhone=" + phone + "&businessNumber=" + num,
+                    "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders/reset-password?mobilePhone=" + phone + "&businessNumber=" + num,
                     "contentType": 'application/json',
                     success: function (response) {
                         alert("정상적으로 이메일이 발송되었습니다.");
