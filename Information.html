@@ -991,7 +991,7 @@
             
             $(document.forms).on("submit", (event) => {
                 event.preventDefault();
-                if ($("input[name='friendly']:checked").length <= 0) { alert("교류회를 선택해주세요.") }
+                if ($("input[name='friendly']:checked").length <= 0) { alert("KSA회원사 여부를 선택해주세요.") }
                 else if (pw_confirm === false || pw_regex_confirm === false) { 
                     alert("비밀번호를 확인해 주세요") 
                 }
@@ -1416,7 +1416,7 @@
             //----------------------------------------------------정보 전송 (Mobile)------------------------------------------------------
             $(document.forms).on("submit", (event) => {
                 event.preventDefault();
-                if ($("input[name='mobile']:checked").length <= 0) { alert("교류회를 선택해주세요.") }
+                if ($("input[name='mobile']:checked").length <= 0) { alert("KSA회원사 여부를 선택해주세요.") }
                 else if (pw_confirm === false || pw_regex_confirm === false) { 
                     alert("비밀번호를 확인해 주세요") 
                 } else if (jumin_check === false || (jumin_fam_check === false && jumin_fam_check !== "")) {

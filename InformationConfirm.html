@@ -414,7 +414,6 @@
                             }
                         }
 
-                        // 변환할 HTML 요소 선택
                         const element = $("[data-print_wrap]");
                         $(document).on("click", "[data-print_btn]", function () {
                             html2canvas(element[0]).then(canvas => {
