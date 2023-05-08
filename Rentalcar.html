@@ -216,6 +216,13 @@
             let check_min = "";
             let cal_date;
             let index = 0;
+
+            let url = window.location.href;
+            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+            if (base_url === "ksa.onoffmix.xyz") {
+                base_url = "api-" + base_url
+            }
+
             if (window.innerWidth > 760){
                 // 시간 드롭다운 목록 생성
                 for (let i = 0; i <= 23; i++) {
@@ -245,7 +252,7 @@
                 //이미 신청한 상황이라면 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders?attendId=" + attend_id,
+                    "url": "https://"+ base_url +"/api/v1/renter-car-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -303,7 +310,7 @@
                 // 렌터카 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-cars?year=2023",
+                    "url": "https://"+ base_url +"/api/v1/renter-cars?year=2023",
                     success: function (response) {
                         console.log(response)
                         $.each(response, function (index, item) {
@@ -330,15 +337,6 @@
                         start_val = "";
                         end_val = "";
                     }
-                    //N박 텍스트 표기
-                    // cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
-                    // if(cal_date > 0){
-                    //     $("[data-cal_row]").text(cal_date +"박")
-                    // }else{
-                    //     $("[data-cal_row]").text("")
-                    //     cal_date = 1;
-                    // }
-
                 }
 
                 // 투숙 기간과 객실 선택 후 리스트에 추가
@@ -499,7 +497,7 @@
                     if (!hasUndefined) {
                         $.ajax({
                             "type": "POST",
-                            "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
+                            "url": "https://"+ base_url +"/api/v1/renter-car-orders",
                             "data": JSON.stringify(data),
                             "contentType": 'application/json',
                             beforeSend: function (xhr) {

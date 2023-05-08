@@ -229,12 +229,19 @@
             let child_cost = ""
             let adult_cost = ""
             let type_cost = ""
+            
+            let url = window.location.href;
+            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+            if (base_url === "ksa.onoffmix.xyz") {
+                base_url = "api-" + base_url
+            }
+
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             if(attend_id !== null){
                 // 이미 신청한 상황이라면 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://api-ksa.onoffmix.xyz/api/v1/flight-orders?attendId=" + attend_id,
+                    "url": "https://"+ base_url +"/api/v1/flight-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -272,7 +279,7 @@
                             // API 호출하여 동행인 목록 가져오기
                             $.ajax({
                                 "type": "GET",
-                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
                                     $("[data-passenger_select] option:not(:first-child)").remove();
@@ -290,7 +297,7 @@
                         else{
                             $.ajax({
                                 "type": "GET",
-                                "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
                                     $("[data-passenger_select] option:not(:first-child)").remove();
@@ -315,7 +322,7 @@
                     let value = $(this).val();
                     $.ajax({
                        "type": "GET",
-                       "url": "https://api-ksa.onoffmix.xyz/api/v1/flights?year=2023&startCity=" + value,
+                       "url": "https://"+ base_url +"/api/v1/flights?year=2023&startCity=" + value,
                        beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -402,7 +409,7 @@
                         // 동행인 리스트 업데이트
                         $.ajax({
                             "type": "GET",
-                            "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-passenger_select] option:not(:first-child)").remove();
@@ -443,7 +450,7 @@
 
                     $.ajax({
                         "type": "GET",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attenders?attendId=" + attend_id,
+                        "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                         success: function (response) {
                             passenger = response;
                             $("[data-passenger_select] option:not(:first-child)").remove();
@@ -486,7 +493,7 @@
                     };
                     $.ajax({
                         "type": "POST",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/flight-orders",
+                        "url": "https://"+ base_url +"/api/v1/flight-orders",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {

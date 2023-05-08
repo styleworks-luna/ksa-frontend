@@ -294,8 +294,8 @@
                                 <input type="checkbox" name="info_edu_same" value="" class="info_edu_same" id="pc_info_edu_same">교육담당자와 동일
                             </label>
                             <div>
-                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
-                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
+                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
                             </div>
                         </div>
                     </div>
@@ -556,8 +556,8 @@
                         <tr data-down_row>
                             <th data-none_row><span></span></th>
                             <td>
-                                <a href="https:///api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
-                                <a href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                                <a href="https:///"+ base_url +"/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
+                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
                             </td>
                         </tr>
                         <tr>
@@ -664,6 +664,12 @@
         };
 
         let today_date = moment().format("YYYY-MM-DD");
+
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
         //------------------------------------------PC 화면------------------------------------------------------
         if (window.innerWidth > 760) {
             let select_val = "";
@@ -684,7 +690,7 @@
                 if (id_num !== null) {
                     $.ajax({
                         "type": "GET",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends/" + id_num,
+                        "url": "https://"+ base_url +"/api/v1/attends/" + id_num,
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1067,7 +1073,7 @@
                     console.log(data);
                     $.ajax({
                         "type": id_num !== null ? "PATCH" : "POST",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends",
+                        "url": "https://"+ base_url +"/api/v1/attends",
                         "data": formData,
                         "processData": false,
                         "contentType": false,
@@ -1114,7 +1120,7 @@
                 if (id_num !== null) {
                     $.ajax({
                         "type": "GET",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends/" + id_num,
+                        "url": "https://"+ base_url +"/api/v1/attends/" + id_num,
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1487,7 +1493,7 @@
                     formData.append('businessRegistration', cal_file);
                     $.ajax({
                         "type": id_num !== null ? "PATCH" : "POST",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/attends",
+                        "url": "https://"+ base_url +"/api/v1/attends",
                         "data": formData,
                         "processData": false,
                         "contentType": false,
