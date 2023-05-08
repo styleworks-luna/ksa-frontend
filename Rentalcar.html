@@ -472,41 +472,50 @@
                 $(document).on("click", "[data-pick]", function () {
                     const index = $(this).closest("[data-add_row]").index();
                     car_list[index].pickUpPlace = $(this).val();
-                    console.log($(this).val())
                 });
 
                 // 반납장소 지정
                 $(document).on("click", "[data-back]", function () {
                     const index = $(this).closest("[data-add_row]").index();
                     car_list[index].returnPlace = $(this).val();
-                    console.log($(this).val())
                 });
 
                 $("button[type='submit']").click(function () {
+                    let hasUndefined = false;
                     const data = {
                         "attendId": attend_id,
                         "renterCars": car_list,
                         "userMemo": $("textarea").val(),
                     };
-                    console.log(data)
-                    $.ajax({
-                        "type": "POST",
-                        "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
-                        "data": JSON.stringify(data),
-                        "contentType": 'application/json',
-                        beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-                            }
-                        },
-                        success: function (response) {
-                            alert("저장이 완료 되었습니다.")
-                            window.location.href = "./Program.html";
-                        },
-                        error: function (xhr, status, error) {
-                            alert("저장에 실패 하였습니다.")
+
+                    $.each(car_list, function (index, item) {
+                        if (item.returnPlace === undefined || item.pickUpPlace === undefined) {
+                            alert("수령장소와 반납장소를 모두 체크하셨는지 확인해주세요.");
+                            hasUndefined = true;
+                            return false;
                         }
                     });
+
+                    if (!hasUndefined) {
+                        $.ajax({
+                            "type": "POST",
+                            "url": "https://api-ksa.onoffmix.xyz/api/v1/renter-car-orders",
+                            "data": JSON.stringify(data),
+                            "contentType": 'application/json',
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem('token')) {
+                                    xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                }
+                            },
+                            success: function (response) {
+                                alert("저장이 완료 되었습니다.")
+                                window.location.href = "./Program.html";
+                            },
+                            error: function (xhr, status, error) {
+                                alert("저장에 실패 하였습니다.")
+                            }
+                        });
+                    }
                 });
                 function updateTotalCost() {
                     const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);

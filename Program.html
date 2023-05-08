@@ -571,14 +571,24 @@
                     const id = $(this).data("id");
                     const date = $(this).data("date");
                     const cost = $(this).data("cost");
+                    let handicap = ''; // 새로 생성될 input의 핸디값
+
+                    // golf_list에서 해당 아이디와 일치하는 input의 핸디값을 찾아 복사
+                    const index = golf_list.findIndex(item => item.attenderId == val);
+                    if (index !== -1) {
+                        handicap = golf_list[index].handicap;
+                        console.log(handicap)
+                    }
+                    
                     console.log(date)
                     if (window.innerWidth > 760){
                         const $showBox = $("[data-show_box='golf']", $(this).closest("tr"));
-                        $showBox.append("<div data-golf_row data-date='"+ date +"' data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input><button type='button'>X</button></div>");
+                        $showBox.append("<div data-golf_row data-date='"+ date +"' data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
                     }else {
                         const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='golf']");
-                        $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input><button type='button'>X</button></div>");
+                        $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
                     }
+
                     if(date == '2023-07-27') {
                         thu_list.push({
                             "attenderId": val,
@@ -710,12 +720,14 @@
 
                 // 골프 핸디값 입력시
                 $(document).on("input", "[data-handy_input]", function () {
-                    const id = $(this).closest("[data-golf_row]").data("golf_id");
                     const val = $(this).closest("[data-golf_row]").data("attender_id");
-                    const index = golf_list.findIndex(item => item.attenderId == val && item.golfCourseId == id);
-                    if (index !== -1) {
-                        golf_list[index].handicap = $(this).val();
-                    }
+                    console.log(val)
+                    golf_list.forEach(item => {
+                        if (item.attenderId == val) {
+                            item.handicap = $(this).val();
+                        }
+                    });
+                    $("[data-golf_row][data-attender_id='" + val + "'] [data-handy_input]").val($(this).val());
                 });
 
                // 투어 참여자 선택시 리스트에 추가
