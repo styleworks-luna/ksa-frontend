@@ -40,21 +40,6 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>취소자 명단</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
         <div id="content-wrapper" class="d-flex flex-column">
@@ -145,6 +130,12 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script>
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
         const data = [
             {
                 render: function (data, type, row, meta) {
@@ -161,23 +152,17 @@
             },
             {
                 render: function (data, type, row) {
-                    return row.company.companyBoss;
+                    return row.mainAttender.koreaName;
                 },
             },
             {
                 render: function (data, type, row) {
-                    if( row.mainAttender.friendlyGroup === "EXECUTIVE" ){
-                        return '임원사';
-                    } else if( row.mainAttender.friendlyGroup === "NRDC" ){
-                        return '전소협';
-                    } else if (row.mainAttender.friendlyGroup === "NET") {
-                        return 'NET';
-                    } else if (row.mainAttender.friendlyGroup === "CEO") {
-                        return 'CEO';
-                    } else if (row.mainAttender.friendlyGroup === "CTO") {
-                        return 'CTO';
-                    } else if (row.mainAttender.friendlyGroup === "NEW_CTO") {
-                        return '차세대 CTO';
+                    if( row.ksaCompanyType === "MEMBER" ){
+                        return '회원사';
+                    } else if( row.ksaCompanyType === "NOT_MEMBER" ){
+                        return '비회원사';
+                    } else if (row.ksaCompanyType === "HIGHEST_LEVEL") {
+                        return '최고위과정 및 서비스포럼사';
                     }else{
                         return '해당없음';
                     }
@@ -212,7 +197,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://api-koita2023.onoffmix.xyz/api/v1/attends/canceled",
+                "url": "https://" + base_url + "/api/v1/attends/canceled",
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -242,7 +227,7 @@
             if (confirm("목록에서 삭제 하시겠습니까? \n이 동작은 되돌릴 수 없습니다.")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://api-koita2023.onoffmix.xyz/api/v1/attends/" + id_num,
+                    url: "https://" + base_url + "/api/v1/attends/" + id_num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -265,7 +250,7 @@
             if (confirm("신청을 복구 하시겠습니까?")) {
                 $.ajax({
                     type: "PATCH",
-                    url: "https://api-koita2023.onoffmix.xyz/api/v1/attends/" + id_num + "/comeback",
+                    url: "https://" + base_url + "/api/v1/attends/" + id_num + "/comeback",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));

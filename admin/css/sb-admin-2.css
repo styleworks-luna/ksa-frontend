@@ -10861,8 +10861,9 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("/images/koita.jpg");
+  background: url("/images/ksa.jpg");
   background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
 }
 

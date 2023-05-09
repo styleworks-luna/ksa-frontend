@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>관리자 페이지 - KOITA</title>
+    <title>관리자 페이지 - KSA</title>
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -55,19 +55,24 @@
         </div>
     </div>
     <script>
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
         $(".login").on("click", (event) => {
             const id_val = $("#id").val();
             const pw_val = $("#pw").val();
             const data = {
-                "loginType": "ADMIN",
-                "username": id_val,
+                "id": id_val,
                 "password": pw_val
             }
             if(id_val === "" || pw_val === ""){
                 alert("아이디와 비밀번호를 모두 입력해주세요.")
             }else{
                 $.ajax({
-                    "url": "https://api-koita2023.onoffmix.xyz/api/v1/login",
+                    "url": "https://"+ base_url +"/api/v1/admin/login",
                     "method": "POST",
                     data: JSON.stringify(data),
                     "Content-Type": "application/json",
