@@ -442,7 +442,7 @@
                                                                 <button type="button"
                                                                     class="reset-btn input-group-text bg-danger text-white">reset</button>
                                                             </div>
-                                                            <a id="koita_business_registration"
+                                                            <a id="ksa_business_registration"
                                                                 class="down-btn input-group-text bg-success text-white"
                                                                 href="https://api-ksa.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}"
                                                                 download>
@@ -761,7 +761,7 @@
             const id_num = getParameterByName('id');
             const downloadLink = `https://api-ksa.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}`;
             let today_date = moment().format("YYYY-MM-DD");
-            $('#koita_business_registration').attr('href', downloadLink);
+            $('#ksa_business_registration').attr('href', downloadLink);
 
             $('.password-reset').on("click", (event) => {
                 if (confirm("비밀번호를 초기화 하시겠습니까?")) {
