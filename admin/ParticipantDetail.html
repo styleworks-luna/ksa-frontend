@@ -93,6 +93,9 @@
                                             <li class="nav-item tab-nav-item pr-4">
                                                 <a class="nav-link" href="#tab5">프로그램</a>
                                             </li>
+                                            <li class="nav-item tab-nav-item pr-4">
+                                                <a class="nav-link" href="#tab6">렌터카예약</a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -666,6 +669,74 @@
                                                 저장</button>
                                         </div>
                                     </div>
+                                    <div id="tab6" class="tab pt-5" style="width: 100%">
+                                        <form>
+                                            <p class="font-weight-bold" style="font-size: 25px;">06.렌터카예약 정보</p>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="table-secondary align-middle">차종선택</th>
+                                                    <td>
+                                                        <select data-car_select class="form-control font-weight-bold reset">
+                                                            <option selected disabled value="">선택</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">사용일자</th>
+                                                    <td>
+                                                        <div data-date_box>
+                                                            <div data-time_box class="d-flex">
+                                                                <span class="font-weight-bold pr-3">시작일 선택</span>
+                                                                <input data-rental_start_date type="date" min="2023-07-26" max="2023-07-29" class="reset mr-2">
+                                                                <div data-check_in_box >
+                                                                    <select data-start_hour_select class="reset">
+                                                                        <option selected disabled value="">선택</option>
+                                                                    </select><span>시</span>
+                                                                    <select data-start_min_select class="reset">
+                                                                        <option selected disabled value="">선택</option>
+                                                                    </select><span>분</span>
+                                                                </div>
+                                                            </div>
+                                                            <div data-time_box class="d-flex pt-3">
+                                                                <span class="font-weight-bold pr-3">반납일 선택</span>
+                                                                <input data-rental_end_date type="date" min="2023-07-26" max="2023-07-29" class="reset mr-2">
+                                                                <div data-check_in_box>
+                                                                    <select data-end_hour_select class="reset">
+                                                                        <option selected disabled value="">선택</option>
+                                                                    </select><span>시</span>
+                                                                    <select data-end_min_select class="reset">
+                                                                        <option selected disabled value="">선택</option>
+                                                                    </select><span>분</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle p-0"><span class="car pb-3 pt-3 pl-3" style="display: none;">차량현황</span></th>
+                                                    <td class="p-0">
+                                                        <div data-show_row="car" class="car pb-3 pt-3 pl-3" style="display: none;">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">요청사항</th>
+                                                    <td>
+                                                        <textarea class="form-control" rows="4" id="car_memo"></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">금액합계</th>
+                                                    <td>
+                                                        <p><span data-car_total class="font-weight-bold text-primary">0</span>원</p>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </form>
+                                        <div class="row justify-content-center mt-5" style="width: 99%;">
+                                            <button type="button" class="car-save btn btn-primary btn-m">입력사항 저장</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1005,7 +1076,7 @@
                                 "relation": select_val,
                                 "name": name_val,
                                 "juminNumber": jumin_val,
-                                "phone": phone_val,
+                                "mobilePhone": phone_val,
                             })
                         });
 
@@ -2247,6 +2318,277 @@
                             alert("저장에 실패 하였습니다.")
                         }
                     });
+                });
+
+                //----------------------------------- 렌터카 -----------------------------------------
+                const attend_id = sessionStorage.getItem('attend_id');
+                let car_list = [];
+                let total_cost = [];
+                let car_val = "";
+                let car_txt = "";
+                let car_cost = 0;
+                let car_start_val = "";
+                let car_end_val = "";
+                let start_time_val = "";
+                let start_min_val = "";
+                let end_time_val = "";
+                let end_min_val = "";
+                let car_cal_date;
+                let index = 0;
+
+                for (let i = 0; i <= 23; i++) {
+                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    $("[data-start_hour_select],[data-end_hour_select]").append(hour_option);
+                }
+                // 분 드롭다운 목록 생성
+                for (let i = 0; i <= 59; i += 30) {
+                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
+                    $("[data-start_min_select], [data-end_min_select]").append(min_option);
+                }
+
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://" + base_url + "/api/v1/renter-car-orders?attendId=" + id_num,
+                    beforeSend: function (xhr) {
+                        if (sessionStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        console.log(response)
+                        if (response.renterCarOrders !== null) {
+                            $(".car").show();
+                            $.each(response.renterCarOrders, function (index, item) {
+                                cal_date = (new Date(item.renterStartDate) - new Date(item.renterEndDate)) / (1000 * 60 * 60 * 24);
+                                if (cal_date <= 0) {
+                                    cal_date = 1;
+                                }
+
+                                car_list.push({
+                                    "renterCarId": Number(item.renterCar.renterCarId),
+                                    "renterStartDate": item.renterStartDate,
+                                    "renterStartTime": item.renterStartTime,
+                                    "renterEndDate": item.renterEndDate,
+                                    "renterEndTime": item.renterEndTime,
+                                    "pickUpPlace": item.pickUpPlace,
+                                    "returnPlace": item.returnPlace
+                                });
+
+                                total_cost.push({
+                                    "renterCarId": Number(item.renterCar.renterCarId),
+                                    "cost": item.orderCost * cal_date,
+                                    "date": cal_date
+                                });
+                            });
+
+                            $.each(response.renterCarOrders, function (index, item) {
+                                $("[data-show_row='car']").append("<div data-car_add_row='" + item.renterCarId + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-bar>ㅣ</span><span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div>");
+                            });
+
+                            $("#car_memo").val(response.userMemo);
+                            $("[data-car_total]").text(response.totalCost.toLocaleString());
+                        }
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 렌터카 데이터 불러오기
+                $.ajax({
+                    "type": "GET",
+                    "url": "https://" + base_url + "/api/v1/renter-cars?year=2023",
+                    success: function (response) {
+                        console.log(response)
+                        $.each(response, function (index, item) {
+                            $("[data-car_select]").append('<option data-cost="' + item.cost + '" value="' + item.renterCarId + '">' + item.name + " / " + item.cost.toLocaleString() + "원" + "</option>");
+                        });
+                    },
+                    error: function (error) {
+                        alert("error")
+                    }
+                });
+
+                // 체크아웃 날짜보다 체크인 날짜가 뒤면 얼럿창 제공
+                function checkCarDates() {
+                    if (new Date(start_val) > new Date(end_val)) {
+                        alert("종료일이 시작일보다 먼저일수는 없습니다.");
+                        $("[data-rental_end_date]").val("")
+                        $("[data-rental_start_date]").val("")
+                        start_val = "";
+                        end_val = "";
+                    } else if (start_val === end_val) {
+                        alert("시작일과 종료일이 같을수는 없습니다.");
+                        $("[data-rental_start_date]").val("")
+                        $("[data-rental_end_date]").val("")
+                        start_val = "";
+                        end_val = "";
+                    }
+                }
+
+                // 투숙 기간과 객실 선택 후 리스트에 추가
+                $("[data-rental_start_date]").change(function () {
+                    const val = $(this).val();
+                    start_val = val;
+                    showCarSelectedInfo();
+                    checkCarDates();
+                });
+
+                $("[data-rental_end_date]").change(function () {
+                    const val = $(this).val();
+                    end_val = val;
+                    showCarSelectedInfo();
+                    checkCarDates();
+                });
+
+                $("[data-start_hour_select]").change(function () {
+                    const val = $(this).val();
+                    start_time_val = val;
+                    showCarSelectedInfo();
+                });
+
+                $("[data-start_min_select]").change(function () {
+                    const val = $(this).val();
+                    start_min_val = val;
+                    showCarSelectedInfo();
+                });
+
+                $("[data-end_hour_select]").change(function () {
+                    const val = $(this).val();
+                    end_time_val = val;
+                    showCarSelectedInfo();
+                });
+
+                $("[data-end_min_select]").change(function () {
+                    const val = $(this).val();
+                    end_min_val = val;
+                    showCarSelectedInfo();
+                });
+
+
+                $("[data-car_select]").change(function () {
+                    const val = $(this).val();
+                    const txt = $("option:checked", this).text();
+                    const cost = $("option:checked", this).data("cost");
+                    car_val = val;
+                    car_txt = txt;
+                    car_cost = cost;
+                    showCarSelectedInfo();
+                });
+
+                function updateCarTotalCost() {
+                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-car_total]").text(sum.toLocaleString());
+                }
+
+                function showCarSelectedInfo() {
+                    if (car_val !== "" && start_val !== "" && end_val !== "" && start_time_val !== "" && start_min_val !== "" && end_time_val !== "" && end_min_val !== "") {
+                        $(".car").show();
+                        const start_hour = start_time_val < 10 ? '0' + start_time_val.toString() : start_time_val.toString();
+                        const start_min = start_min_val < 10 ? '0' + start_min_val.toString() : start_min_val.toString();
+                        const end_hour = end_time_val < 10 ? '0' + end_time_val.toString() : end_time_val.toString();
+                        const end_min = end_min_val < 10 ? '0' + end_min_val.toString() : end_min_val.toString();
+
+                        const start_date = new Date(start_val + " " + start_time_val + ":" + start_min_val);
+                        const end_date = new Date(end_val + " " + end_time_val + ":" + end_min_val);
+                        const diff = (end_date - start_date) / (1000 * 60 * 60 * 24);
+                        cal_date = Math.floor(diff > 1 ? diff + 1 : 1);
+
+                        car_list.push({
+                            "renterCarId": Number(car_val),
+                            "renterStartDate": start_val,
+                            "renterStartTime": start_hour + ":" + start_min + ":00",
+                            "renterEndDate": end_val,
+                            "renterEndTime": end_hour + ":" + end_min + ":00",
+                            "pickUpPlace": $('input[name="pickup"]:checked').val(),
+                            "returnPlace": $('input[name="back"]:checked').val()
+                        });
+
+                        total_cost.push({
+                            "hotelId": car_val,
+                            "cost": car_cost * cal_date,
+                            "date": cal_date
+                        });
+
+                        $("[data-show_row='car']").append("<div data-car_add_row='" + car_val + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + start_val + "~" + end_val + "] " + car_txt + "<span data-bar>ㅣ</span><span data-cost>" + (car_cost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + (index + car_list.length) + "' data-pick_jeju data-pick value='JEJU_AIRPORT'> 제주공항</label><label><input  type='radio' name='pickup" + (index + car_list.length) + "' value='LOTTE_HOTEL' data-pick_hotel data-pick>롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + (index + car_list.length) + "' value='JEJU_AIRPORT' data-back_jeju data-back> 제주공항</label><label><input  type='radio' name='back" + (index + car_list.length) + "' value='LOTTE_HOTEL' data-back_hotel data-back> 롯데호텔</label></div></div>");
+                        index++
+                        
+                        updateCarTotalCost();
+                        $('.reset').val("");
+                        start_val = "";
+                        end_val = "";
+                        start_time_val = "";
+                        start_min_val = "";
+                        end_time_val = "";
+                        end_min_val = "";
+                    }
+                };
+
+                // 삭제 버튼 클릭 시 해당 객실 삭제 후 리스트에서도 삭제
+                $(document).on("click", "[data-car_add_row] button", function () {
+                    const add_row = $(this).closest("[data-car_add_row]");
+                    const index = add_row.index();
+                    add_row.remove();
+                    if (car_list.length > index) {
+                        car_list.splice(index, 1);
+
+                    }
+                    if (car_list.length === 0) {
+                        $(".car").hide();
+                    }
+                    if (total_cost.length > index) {
+                        total_cost.splice(index, 1);
+                        updateCarTotalCost();
+                    }
+                });
+
+                // 수령장소 지정
+                $(document).on("click", "[data-pick]", function () {
+                    const index = $(this).closest("[data-car_add_row]").index();
+                    car_list[index].pickUpPlace = $(this).val();
+                });
+
+                // 반납장소 지정
+                $(document).on("click", "[data-back]", function () {
+                    const index = $(this).closest("[data-car_add_row]").index();
+                    car_list[index].returnPlace = $(this).val();
+                });
+
+                $(".car-save").click(function () {
+                    let hasUndefined = false;
+                    const data = {
+                        "attendId": id_num,
+                        "renterCars": car_list,
+                        "userMemo": $("#car_memo").val(),
+                    };
+
+                    $.each(car_list, function (index, item) {
+                        if (item.returnPlace === undefined || item.pickUpPlace === undefined) {
+                            alert("수령장소와 반납장소를 모두 체크하셨는지 확인해주세요.");
+                            hasUndefined = true;
+                            return false;
+                        }
+                    });
+
+                    if (!hasUndefined) {
+                        $.ajax({
+                            "type": "POST",
+                            "url": "https://" + base_url + "/api/v1/renter-car-orders",
+                            "data": JSON.stringify(data),
+                            "contentType": 'application/json',
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem('token')) {
+                                    xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                }
+                            },
+                            success: function (response) {
+                                alert("저장이 완료 되었습니다.")
+                            },
+                            error: function (xhr, status, error) {
+                                alert("저장에 실패 하였습니다.")
+                            }
+                        });
+                    }
                 });
 
             } else {
