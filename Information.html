@@ -319,18 +319,11 @@
                             <td><input type="text" placeholder="이메일을 입력해주세요." name="pc_cal_email" id="cal_email"></td>
                         </tr>
                         <tr>
-                            <th data-none_row><span>정산정보</span></th>
+                            <th data-none_row>세금계산서<br>청구일자</th>
                             <td>
                                 <div data-publish_row>
-                                    <label for="receipt">
-                                        <input type="radio" name="publish" value="receipt" id="receipt">영수발행
-                                    </label>
-                                    <label for="billing">
-                                        <input type="radio" name="publish" value="billing" id="billing">청구발행
-                                        <input type="date" placeholder="계산서 청구일자 선택" name="cal_date" id="cal_date">
-                                    </label>
+                                    <input type="date" id="billing">
                                 </div>
-                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
                             </td>
                             <th><span>사업자등록증</span></th>
                             <td>
@@ -585,18 +578,11 @@
                             <td><input type="text" placeholder="이메일을 입력해주세요." name="mobile_cal_email" id="cal_email_mobile"></td>
                         </tr>
                         <tr>
-                            <th data-none_row><span>정산정보</span></th>
+                            <th data-none_row>세금계산서<br>청구일자</th>
                             <td>
                                 <div data-publish_row>
-                                    <label for="receipt">
-                                        <input type="radio" name="publish_mobile" value="receipt" id="receipt_mobile">영수발행
-                                    </label>
-                                    <label for="billing">
-                                        <input type="radio" name="publish_mobile" value="billing" id="billing_mobile">청구발행
-                                        <input type="date" placeholder="계산서 청구일자 선택" name="cal_date" id="cal_date_mobile">
-                                    </label>
+                                    <input type="date" id="billing_mobile">
                                 </div>
-                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
                             </td>
                         </tr>
                         <tr>
@@ -670,6 +656,7 @@
         if (base_url === "ksa.onoffmix.xyz") {
             base_url = "api-" + base_url
         }
+        // let base_url = "api-ksa.onoffmix.xyz"
         //------------------------------------------PC 화면------------------------------------------------------
         if (window.innerWidth > 760) {
             let select_val = "";
@@ -734,11 +721,7 @@
                             $("#large_cate").val(response.company.companyIndustry),
                             $("#small_cate").val(response.company.companyCategory)
                             $("[data-name_row]").val(response.company.businessRegistrationName);
-                            $("#receipt").attr("checked", response.mainAttender.isReceiptIssue)
-                            $("#billing").attr("checked", response.mainAttender.isBillingIssue)
-                            if (response.mainAttender.isBillingIssue === true) {
-                                $("#cal_date").show();
-                            }
+                            $("#billing").val(response.mainAttender.billingDate)
                             const relation = {
                                 "PARENTS": "부모",
                                 "SPOUSE": "배우자",
@@ -778,6 +761,7 @@
                 }else{
                     $('#pass_word').val(sessionStorage.getItem('user_password'));
                     $('#bussiness_num').val(sessionStorage.getItem('bussiness_num'));
+                    $('#phone_num').val(sessionStorage.getItem('phone_num'));
 
                     const processBox = document.querySelector('[data-pc_process_box]');
                     const links = processBox.querySelectorAll('a');
@@ -1012,6 +996,8 @@
                 }
                 else if ((id_num === null && $("#file").val() === "") || (id_num !== null && $("[data-name_row]").val() === "")) {
                     alert("사업자등록증 첨부는 필수입니다.")
+                }else if(sessionStorage.getItem('phone_num') !== $("#phone_num").val()){
+                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.")
                 }
                 else {
                     let publish = $('input[name="publish"]:checked').val();
@@ -1051,7 +1037,7 @@
                             "calManagerMobilePhone": $("#cal_phone").val(),
                             "calManagerTeam": $("#cal_belong").val(),
                             "calManagerGrade": $("#cal_job_position").val(),
-                            "billingDate": publish_check,
+                            "billingDate": $("#billing").val(),
                             "isReceiptIssue": $("#receipt").is(":checked") === true ? true : false,
                             "isBillingIssue": $("#billing").is(":checked") === true ? true : false
                         },
@@ -1092,8 +1078,8 @@
                             window.location.href = "./Flight.html";
 
                         },
-                        error: function (xhr, status, error) {
-                            alert("저장에 실패 하였습니다.")
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message)
                         }
                     });
                 }
@@ -1162,10 +1148,7 @@
                             $("#small_cate_mobile").val(response.company.companyCategory);
                             $("[data-mobile_name_row]").val(response.company.businessRegistrationName);
                             $("#receipt_mobile").attr("checked", response.mainAttender.isReceiptIssue)
-                            $("#billing_mobile").attr("checked", response.mainAttender.isBillingIssue)
-                            if (response.mainAttender.isBillingIssue === true) {
-                                $("#cal_date_mobile").show();
-                            }
+                            $("#billing_mobile").val(response.mainAttender.billingDate)
                             const relation = {
                                 "PARENTS": "부모",
                                 "SPOUSE": "배우자",
@@ -1207,7 +1190,7 @@
                 else {
                     $('#pass_word_mobile').val(sessionStorage.getItem('user_password'));
                     $('#bussiness_num_mobile').val(sessionStorage.getItem('bussiness_num'));
-
+                    $('#phone_num_mobile').val(sessionStorage.getItem('phone_num'));
                     const processBox = document.querySelector('[data-mobile_process_box]');
                     const links = processBox.querySelectorAll('a');
                     links.forEach(link => {
@@ -1433,6 +1416,8 @@
                     alert("핸드폰번호를 확인해 주세요")
                 } else if (email_check === false) {
                     alert("이메일 주소를 다시 확인해주세요.")
+                } else if (sessionStorage.getItem('phone_num') !== $("#phone_num_mobile").val()) {
+                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.")
                 }
                 else {
                     let publish = $('input[name="publish_mobile"]:checked').val();
@@ -1472,7 +1457,7 @@
                             "calManagerMobilePhone": $("#cal_phone_mobile").val(),
                             "calManagerTeam": $("#cal_belong_mobile").val(),
                             "calManagerGrade": $("#cal_job_position_mobile").val(),
-                            "billingDate": publish_check,
+                            "billingDate": $("#billing_mobile").val(),
                             "isReceiptIssue": $("#receipt_mobile").is(":checked") === true ? true : false,
                             "isBillingIssue": $("#billing_mobile").is(":checked") === true ? true : false
                         },
@@ -1511,8 +1496,8 @@
                             }
                             window.location.href = "./Flight.html";
                         },
-                        error: function (xhr, status, error) {
-                            alert("저장에 실패 하였습니다.")
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message)
                         }
                     });
                 }

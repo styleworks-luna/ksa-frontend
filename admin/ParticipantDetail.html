@@ -421,23 +421,12 @@
                                                             class="form-control"></td>
                                                 </tr>
                                                 <tr class="text-center">
-                                                    <th width="10%" class="table-secondary align-middle">정산정보</th>
+                                                    <th width="10%" class="table-secondary align-middle">세금계산서<br>청구날짜</th>
                                                     <td colspan="3">
                                                         <div class="d-flex align-items-center">
                                                             <div data-publish_row
                                                                 class="d-flex justify-content-start flex-column align-items-start">
-                                                                <label for="receipt">
-                                                                    <input type="radio" name="publish" value="receipt"
-                                                                        id="receipt" class="mr-1">영수발행
-                                                                </label>
-                                                                <label for="billing">
-                                                                    <input type="radio" name="publish" value="billing"
-                                                                        id="billing" class="mr-1">청구발행
-                                                                    <input type="date" placeholder="계산서 청구일자 선택"
-                                                                        name="cal_date" id="cal_date" class="ml-2"
-                                                                        style="display: none;">
-                                                                </label>
-                                                                <p>※ 영수계산서는 입금 당일로 발행됩니다.</p>
+                                                                <input type="date" id="billing">
                                                             </div>
                                                             <span class="pl-5 pr-3">※ 사업자등록증</span>
                                                             <div class="custom-file" style="width: 40%;">
@@ -980,8 +969,8 @@
                                 success: function (response) {
                                     alert('저장 되었습니다.');
                                 },
-                                error: function (jqXHR, textStatus, errorThrown) {
-                                    alert('저장에 실패했습니다.');
+                                error: function (xhr) {
+                                    alert(xhr.responseJSON.message);
                                 }
                             });
                         });
@@ -1050,11 +1039,7 @@
                         $("#calManagerEmail").val(response.mainAttender.calManagerEmail);
                         $("#cal_date").val(response.mainAttender.billingDate);
                         $('.custom-file-label').text(response.company.businessRegistrationName);
-                        $("#receipt").attr("checked", response.mainAttender.isReceiptIssue);
-                        $("#billing").attr("checked", response.mainAttender.isBillingIssue);
-                        if (response.mainAttender.isBillingIssue === true) {
-                            $("#cal_date").show();
-                        };
+                        $("#billing").val(response.mainAttender.billingDate);
                         //-------------------------------동반인 추가 및 삭제-----------------------------
                         fam_list = response.familyAttenders;
 
@@ -1149,16 +1134,7 @@
                 $('.info-save').on("click", (event) => {
                     const cal_file = $(".custom-file-input").get(0).files[0];
                     const cal_file_val = cal_file === undefined ? "" : cal_file;
-
-                    let publish = $('input[name="publish"]:checked').val();
-                    let publish_check = ""
-                    if (publish === "billing") {
-                        publish_check = $("#cal_date").val();
-                    } else if (publish === "receipt") {
-                        publish_check = today_date;
-                    } else {
-                        publish_check = ""
-                    }
+                    
                     const data = {
                         "attendId": id_num,
                         "ksaCompanyType": $("input[name='friendly']:checked").val(),
@@ -1194,7 +1170,7 @@
                             "calManagerMobilePhone": $("#calManagerMobilePhone").val(),
                             "calManagerTeam": $("#calManagerTeam").val(),
                             "calManagerGrade": $("#calManagerGrade").val(),
-                            "billingDate": publish_check,
+                            "billingDate": $("#billing").val(),
                             "isReceiptIssue": $("#receipt").is(":checked") === true ? true : false,
                             "isBillingIssue": $("#billing").is(":checked") === true ? true : false
                         },
@@ -1221,12 +1197,12 @@
                             location.reload();
 
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             if (xhr.status === 401) {
                                 alert("로그인이 필요한 페이지입니다.")
                                 window.location.href = 'login.html';
                             } else {
-                                alert("저장에 실패 하였습니다.");
+                                alert(xhr.responseJSON.message);
                             }
                         }
                     });
@@ -1490,8 +1466,8 @@
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
                         },
-                        error: function (xhr, status, error) {
-                            alert("저장에 실패 하였습니다.")
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message);
                         }
                     });
                 });
@@ -1719,11 +1695,9 @@
                         },
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
-                            console.log(data)
                         },
-                        error: function (xhr, status, error) {
-                            console.log(data)
-                            alert("저장에 실패 하였습니다.")
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message);
                         }
                     });
                 });
@@ -2320,8 +2294,8 @@
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
                         },
-                        error: function (xhr, status, error) {
-                            alert("저장에 실패 하였습니다.")
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message);
                         }
                     });
                 });
@@ -2590,8 +2564,8 @@
                             success: function (response) {
                                 alert("저장이 완료 되었습니다.")
                             },
-                            error: function (xhr, status, error) {
-                                alert("저장에 실패 하였습니다.")
+                            error: function (xhr) {
+                                alert(xhr.responseJSON.message);
                             }
                         });
                     }
