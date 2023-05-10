@@ -148,19 +148,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
-                            <div class="card border-primary">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div
-                                                class="text-primary font-weight-bold text-uppercase mb-1 text-center text-nowrap">
-                                                강연·강좌<br> 다운로드</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div class="table-wrap container-fluid p-0"></div>
                 </div>
@@ -211,7 +198,7 @@
                 success: function (response) {
                     const friend_group = response.ksaCompanyTypeCount.ksaCompanyTypeCount
                     const template = `
-                            <div class="container-fluid p-0">
+                        <div class=" p-0">
                             <div class="row">
                                 <div class="col-xl-4 col-lg-5">
                                     <div class="card shadow mb-4 pb-5">
@@ -248,9 +235,429 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xl-8 col-lg-5">
+                                    <div class="card shadow mb-4 pb-5">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">회원별 신청내역 (신청완료 기준)</p>
+                                            <div class="chart-pie pt-4 pb-5">
+                                                <table class="table text-center font-weight-bold">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="table-dark">구분</th>
+                                                            <th>회원사</th>
+                                                            <th>비회원사</th>
+                                                            <th>최고위과정</th>
+                                                            <th>총계</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark" style="width: 150px">참가자</th>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.member.mainAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.notMember.mainAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.highestLevel.mainAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.mainAttenderTotalCount + "명"}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark" style="width: 150px">동반가족</th>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.member.familyAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.notMember.familyAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.ksaCompanyTypeCount.highestLevel.familyAttender + "명"}</td>
+                                                            <td>${response.ksaCompanyTypeCount.familyAttenderTotalCount + "명"}</td>
+                                                        </tr>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                           
+                           <div class="row">
+                                <div class="col-xl-4">
+                                    <div class="card shadow mb-4 pb-5">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">	입금 현황 (기본) ※ 신청완료 기준</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold">
+                                                    <thead>
+                                                        <td colspan="2" class="table-dark" width="30%">내용</td>
+                                                        <td class="table-dark">인원수</td>
+                                                        <td class="table-dark">금액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th rowspan="3" class="table-active text-dark align-middle">입금여부</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">완납</th>
+                                                            <td>${response.defaultCost.fullPay.peopleNumber}</td>
+                                                            <td>${response.defaultCost.fullPay.totalCost}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">미납</th>
+                                                            <td>${response.defaultCost.nonPay.peopleNumber}</td>
+                                                            <td>${response.defaultCost.nonPay.totalCost}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-3">
+                                    <div class="card shadow mb-4 pb-5">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">입금 현황 (관리자 설정) ※ 신청완료 기준</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold">
+                                                    <thead>
+                                                        <td colspan="2" class="table-dark" width="30%">내용</td>
+                                                        <td class="table-dark">인원수</td>
+                                                        <td class="table-dark">금액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th rowspan="3" class="table-active text-dark align-middle">입금여부</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">완납</th>
+                                                            <td>${response.adminSettingCost.fullPay.peopleNumber}명</td>
+                                                            <td>${response.adminSettingCost.fullPay.totalCost}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">미납</th>
+                                                            <td>${response.adminSettingCost.nonPay.peopleNumber}명</td>
+                                                            <td>${response.adminSettingCost.nonPay.totalCost}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-4 col-lg-3">
+                                    <div class="card shadow mb-4 pb-5">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">세금계산서 발행 현황 ※ 신청완료 기준</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold">
+                                                    <thead>
+                                                        <td colspan="2" class="table-dark" width="40%">내용</td>
+                                                        <td class="table-dark">개수</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th rowspan="3" class="table-active text-dark align-middle">세금계산서</th>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">발행</th>
+                                                            <td>${response.taxBillPublishStatusCount.published}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-active text-dark">미발행</th>
+                                                            <td>${response.taxBillPublishStatusCount.unPublished}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">렌터카 현황</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">고급</td>
+                                                        <td class="table-dark">중형</td>
+                                                        <td class="table-dark">suv</td>
+                                                        <td class="table-dark">카니발</td>
+                                                        <td class="table-dark">총계</td>
+                                                        <td class="table-dark">총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <td>${response.renterCarCount.luxuryCount}</td>
+                                                        <td>${response.renterCarCount.midSizeCount}</td>
+                                                        <td>${response.renterCarCount.suvCount}</td>
+                                                        <td>${response.renterCarCount.CarnivalCount}</td>
+                                                        <td>${response.renterCarCount.totalCount}</td>
+                                                        <td>${response.renterCarCount.totalCost}</td>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 27일)</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td>자연경관</td>
+                                                        <td>힐링투어</td>
+                                                        <td>문화체험</td>
+                                                        <td>문화탐방</td>
+                                                        <td>총계</td>
+                                                        <td>총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark">신청자수</th>
+                                                            <td>${response.tourCount.tourOnJuly27.naturalCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.healingTourCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.cultureExpCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.cultureTourCount}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 28일)</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td>자연경관</td>
+                                                        <td>힐링투어</td>
+                                                        <td>문화체험</td>
+                                                        <td>문화탐방</td>
+                                                        <td>총계</td>
+                                                        <td>총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark">신청자수</th>
+                                                            <td>${response.tourCount.tourOnJuly28.naturalCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.healingTourCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.cultureExpCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.cultureTourCount}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">골프 현황 (7월 28일)</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td>블랙스톤CC</td>
+                                                        <td>총계</td>
+                                                        <td>총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark">신청자수</th>
+                                                            <td>${response.golfCount.golfOnJuly27.blackStone}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class="card shadow mb-4">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">골프 현황 (7월 28일)</p>
+                                            <div class="">
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td>엘리시안CC</td>
+                                                        <td>총계</td>
+                                                        <td>총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark">신청자수</th>
+                                                            <td>${response.golfCount.golfOnJuly28.elysian}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class=" mb-4">
+                                        <div class="card shadow card-body">
+                                            <p class="text-primary" style="font-weight: bold;">항공 현황 (신청완료 기준)</p>
+                                            <div class="" >
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td>항공사</td>
+                                                        <td>좌석타입</td>
+                                                        <td>출발일정</td>
+                                                        <td>도착일정</td>
+                                                        <td>정원</td>
+                                                        <td>예약수</td>
+                                                        <td>총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                        ${generateTableRow(response.flightCount.kimpo)}
+                                                        </tr>
+                                                        <tr>
+                                                            ${generateTableRow(response.flightCount.gwangju)}
+                                                        </tr>
+                                                        <tr>
+                                                            ${generateTableRow(response.flightCount.daegu)}
+                                                        </tr>
+                                                        <tr>
+                                                            ${generateTableRow(response.flightCount.cheongju)}
+                                                        </tr>
+                                                        <tr>
+                                                            ${generateTableRow(response.flightCount.busan)}
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark"> 총계</th> 
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-12">
+                                    <div class=" mb-4">
+                                        <div class="card shadow card-body">
+                                            <p class="text-primary" style="font-weight: bold;">호텔 현황 (신청완료 기준)</p>
+                                            <div class="" >
+                                                <table class="table text-center font-weight-bold mb-4">
+                                                    <thead>
+                                                        <td class="table-dark align-middle">구분</td>
+                                                        <td class="align-middle">패밀리트윈</td>
+                                                        <td class="align-middle">트윈</td>
+                                                        <td class="align-middle">더블</td>
+                                                        <td class="align-middle">패밀리트윈<br>+보조침대</td>
+                                                        <td class="align-middle">트윈<br>+보조침대</td>
+                                                        <td class="align-middle">더블<br>+보조침대</td>
+                                                        <td class="align-middle">합계</td>
+                                                        <td class="align-middle">총액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark align-middle">디럭스 마운틴</th>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark align-middle">디럭스 가든룸</th>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark align-middle">프리미어 오션룸</th>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.twinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.twinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark align-middle">샤롯데 오션룸</th>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark align-middle">합산</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td class="font-weight-bold">${response.hotelCount.totalCost}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>`;
+                        function generateTableRow(flightCount) {
+                            let tableRow = '';
+                            const rowCount = flightCount.length;
+                            for (const flight of flightCount) {
+                                tableRow += `
+                                    <tr>
+                                        ${flightCount.indexOf(flight) === 0 ? `<th class="table-dark align-middle" rowspan="${rowCount}">${flight.startCity}-제주</td>` : ''}
+                                        <td>${flight.airline}</td>
+                                        <td>${flight.seatClass}</td>
+                                        <td>${flight.startTime}</td>
+                                        <td>${flight.landingTime}</td>
+                                        <td>${flight.seatQuantity}</td>
+                                        <td>${flight.orderedCount}</td>
+                                        <td>${flight.totalCost}</td>
+                                    </tr>
+                                `;
+                            }
+                             return tableRow;
+                        }
                     $(".table-wrap").html(template);
                 },
                 error: function (xhr, status, error) {
