@@ -128,12 +128,13 @@
                                             <table class="table text-center align-middle" style="color: #222;">
                                                 <tr class="table-secondary">
                                                     <th width="8%">구분</th>
-                                                    <th width="14%">참가비</th>
-                                                    <th width="14%">항공비</th>
-                                                    <th width="14%">호텔비</th>
-                                                    <th width="14%">골프비</th>
-                                                    <th width="14%">관광비</th>
-                                                    <th width="14%">총계</th>
+                                                    <th width="12%">참가비</th>
+                                                    <th width="12%">항공비</th>
+                                                    <th width="12%">호텔비</th>
+                                                    <th width="12%">골프비</th>
+                                                    <th width="12%">관광비</th>
+                                                    <th width="12%">렌터카</th>
+                                                    <th width="12%">총계</th>
                                                     <th>결제상태</th>
                                                 </tr>
                                                 <tr class="default-pay">
@@ -158,6 +159,10 @@
                                                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
                                                             placeholder="숫자만 입력 가능합니다"></td>
                                                     <td><input type="text" class="form-control" id="tourTotalCost"
+                                                            name="pay_mod"
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                                            placeholder="숫자만 입력 가능합니다"></td>
+                                                    <td><input type="text" class="form-control" id="renterCarTotalCost"
                                                             name="pay_mod"
                                                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
                                                             placeholder="숫자만 입력 가능합니다"></td>
@@ -886,17 +891,18 @@
                         $("#hotelTotalCost").val(response.finalCost.hotelTotalCost);
                         $("#golfCourseTotalCost").val(response.finalCost.golfCourseTotalCost)
                         $("#tourTotalCost").val(response.finalCost.tourTotalCost);
+                        $("#renterCarTotalCost").val(response.finalCost.renterCarTotalCost);
                         $("[data-admin_total]").text(response.finalCost.totalCost.toLocaleString());
                         const pay_staus = response.depositStatus === 'NON_PAY' ? '결제<br>확인' : '미납<br>변경'
                         const color = response.depositStatus === 'NON_PAY' ? 'success' : 'warning'
 
-                        $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="2" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
+                        $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.renterCarTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="2" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
 
                         $('.pay-btn').on("click", (event) => {
                             if (response.depositStatus === 'NON_PAY') {
                                 if (confirm("결제 상태를 완납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": "https://" + base_url + "/api/v1/final-cost/deposit-status/full?attendId=" + id_num,
+                                        "url": "https://" + base_url + "/api/v1/attends/"+ id_num +"/deposit-status/full",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -915,7 +921,7 @@
                             } else if (response.depositStatus === 'FULL_PAY') {
                                 if (confirm("결제 상태를 미납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": "https://" + base_url + "/api/v1/final-cost/deposit-status/non?attendId=" + id_num,
+                                        "url": "https://" + base_url + "/api/v1/attends/" + id_num +"/deposit-status/non",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -940,6 +946,7 @@
                             const hotel = $("#hotelTotalCost").val().replace(/,/g, "");
                             const golf = $("#golfCourseTotalCost").val().replace(/,/g, "");
                             const tour = $("#tourTotalCost").val().replace(/,/g, "");
+                            const rental = $("#renterCarTotalCost").val().replace(/,/g, "");
                             const data = {
                                 "attendId": id_num,
                                 "attendStatus": $("input[name='apply-status']:checked").val(),
@@ -949,6 +956,7 @@
                                 "hotelTotalCost": hotel !== "" ? hotel : response.hotelTotalCost,
                                 "golfCourseTotalCost": golf !== "" ? golf : response.golfCourseTotalCost,
                                 "tourTotalCost": tour !== "" ? tour : response.tourTotalCost,
+                                "renterCarTotalCost": rental !== "" ? rental : response.renterCarTotalCost,
                                 "adminMemo": {
                                     "isFullCost": $("#isFullCost").prop("checked"),
                                     "isPartCost": $("#isPartCost").prop("checked"),
@@ -1082,7 +1090,7 @@
 
 
                         $.each(fam_list, function (index, item) {
-                            $(".family_table").append('<tr class="font-weight-bold" style="color: #5a5c69;"><th class="border-0" width="10%"></th><td class="pr-3 text-center" width="15%">' + relation[item.relation] + '</td><td class="name_box text-center" width="15%">' + item.name + '</td><td class="text-center" width="15%">' + item.juminNumber + '</td><td class="text-center" width="15%">' + item.phone + '</td><td width="15%"><button type="button" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                            $(".family_table").append('<tr class="font-weight-bold" style="color: #5a5c69;"><th class="border-0" width="10%"></th><td class="pr-3 text-center" width="15%">' + relation[item.relation] + '</td><td class="name_box text-center" width="15%">' + item.name + '</td><td class="text-center" width="15%">' + item.juminNumber + '</td><td class="text-center" width="15%">' + item.mobilePhone + '</td><td width="15%"><button type="button" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
                         });
 
                         $(".family_table").on("click", ".delete-btn", function () {
@@ -1541,8 +1549,6 @@
                             $("[data-hotel_total]").text(response.totalCost.toLocaleString());
                         }
                         $("#hotel_memo").val(response.userMemo)
-                        // $("#hotel_memo").html(response.userMemo);
-                        // document.getElementById("hotel_memo").placeholder = response.userMemo;
                     },
                     error: function (error) {
                         alert("error")

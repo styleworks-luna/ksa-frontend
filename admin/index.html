@@ -292,12 +292,12 @@
                                                         <tr>
                                                             <th class="table-active text-dark">완납</th>
                                                             <td>${response.defaultCost.fullPay.peopleNumber}</td>
-                                                            <td>${response.defaultCost.fullPay.totalCost}</td>
+                                                            <td>${response.defaultCost.fullPay.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-active text-dark">미납</th>
                                                             <td>${response.defaultCost.nonPay.peopleNumber}</td>
-                                                            <td>${response.defaultCost.nonPay.totalCost}</td>
+                                                            <td>${response.defaultCost.nonPay.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -323,12 +323,12 @@
                                                         <tr>
                                                             <th class="table-active text-dark">완납</th>
                                                             <td>${response.adminSettingCost.fullPay.peopleNumber}명</td>
-                                                            <td>${response.adminSettingCost.fullPay.totalCost}</td>
+                                                            <td>${response.adminSettingCost.fullPay.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-active text-dark">미납</th>
                                                             <td>${response.adminSettingCost.nonPay.peopleNumber}명</td>
-                                                            <td>${response.adminSettingCost.nonPay.totalCost}</td>
+                                                            <td>${response.adminSettingCost.nonPay.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -386,7 +386,7 @@
                                                         <td>${response.renterCarCount.suvCount}</td>
                                                         <td>${response.renterCarCount.CarnivalCount}</td>
                                                         <td>${response.renterCarCount.totalCount}</td>
-                                                        <td>${response.renterCarCount.totalCost}</td>
+                                                        <td>${response.renterCarCount.totalCost.toLocaleString()}</td>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -417,8 +417,8 @@
                                                             <td>${response.tourCount.tourOnJuly27.healingTourCount}</td>
                                                             <td>${response.tourCount.tourOnJuly27.cultureExpCount}</td>
                                                             <td>${response.tourCount.tourOnJuly27.cultureTourCount}</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>${response.tourCount.tourOnJuly27.totalCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -450,8 +450,8 @@
                                                             <td>${response.tourCount.tourOnJuly28.healingTourCount}</td>
                                                             <td>${response.tourCount.tourOnJuly28.cultureExpCount}</td>
                                                             <td>${response.tourCount.tourOnJuly28.cultureTourCount}</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>${response.tourCount.tourOnJuly28.totalCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -477,8 +477,8 @@
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
                                                             <td>${response.golfCount.golfOnJuly27.blackStone}</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>${response.golfCount.golfOnJuly27.totalCount}</td>
+                                                            <td>${response.golfCount.golfOnJuly27.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -504,8 +504,8 @@
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
                                                             <td>${response.golfCount.golfOnJuly28.elysian}</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>${response.golfCount.golfOnJuly28.totalCount}</td>
+                                                            <td>${response.golfCount.golfOnJuly28.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -584,8 +584,8 @@
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle"></td>
-                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCount}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark align-middle">디럭스 가든룸</th>
@@ -595,8 +595,8 @@
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle"></td>
-                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCount}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark align-middle">프리미어 오션룸</th>
@@ -606,8 +606,8 @@
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle"></td>
-                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCount}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark align-middle">샤롯데 오션룸</th>
@@ -617,8 +617,8 @@
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle"></td>
-                                                            <td class="align-middle"></td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCount}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark align-middle">합산</th>
@@ -629,7 +629,7 @@
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
-                                                            <td class="font-weight-bold">${response.hotelCount.totalCost}</td>
+                                                            <td class="font-weight-bold">${response.hotelCount.totalCost.toLocaleString()}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -648,11 +648,11 @@
                                         ${flightCount.indexOf(flight) === 0 ? `<th class="table-dark align-middle" rowspan="${rowCount}">${flight.startCity}-제주</td>` : ''}
                                         <td>${flight.airline}</td>
                                         <td>${flight.seatClass}</td>
-                                        <td>${flight.startTime}</td>
-                                        <td>${flight.landingTime}</td>
+                                        <td>${flight.startFlight} / ${flight.startTime}</td>
+                                        <td>${flight.endFlight} / ${flight.landingTime}</td>
                                         <td>${flight.seatQuantity}</td>
                                         <td>${flight.orderedCount}</td>
-                                        <td>${flight.totalCost}</td>
+                                        <td>${flight.totalCost.toLocaleString()}</td>
                                     </tr>
                                 `;
                             }
