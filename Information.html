@@ -996,8 +996,8 @@
                 }
                 else if ((id_num === null && $("#file").val() === "") || (id_num !== null && $("[data-name_row]").val() === "")) {
                     alert("사업자등록증 첨부는 필수입니다.")
-                }else if(sessionStorage.getItem('phone_num') !== $("#phone_num").val()){
-                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.")
+                } else if (sessionStorage.getItem('phone_num') && sessionStorage.getItem('phone_num') !== $("#phone_num").val()) {
+                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.");
                 }
                 else {
                     let publish = $('input[name="publish"]:checked').val();
@@ -1417,8 +1417,8 @@
                     alert("핸드폰번호를 확인해 주세요")
                 } else if (email_check === false) {
                     alert("이메일 주소를 다시 확인해주세요.")
-                } else if (sessionStorage.getItem('phone_num') !== $("#phone_num_mobile").val()) {
-                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.")
+                } else if (sessionStorage.getItem('phone_num') && sessionStorage.getItem('phone_num') !== $("#phone_num_mobile").val()) {
+                    alert("참가 신청 시 입력한 휴대전화번호를 입력해주세요.");
                 }
                 else {
                     let publish = $('input[name="publish_mobile"]:checked').val();
