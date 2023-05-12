@@ -413,20 +413,18 @@
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
                                                         <td class="table-dark">구분</td>
-                                                        <td>자연경관</td>
-                                                        <td>힐링투어</td>
-                                                        <td>문화체험</td>
-                                                        <td>문화탐방</td>
+                                                        <td>${response.tourCount.tourOnJuly27.counts[0].description}</td>
+                                                        <td>${response.tourCount.tourOnJuly27.counts[1].description}</td>
+                                                        <td>${response.tourCount.tourOnJuly27.counts[2].description}</td>
                                                         <td>총계</td>
                                                         <td>총액</td>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
-                                                            <td>${response.tourCount.tourOnJuly27.naturalCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly27.healingTourCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly27.cultureExpCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly27.cultureTourCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.counts[0].count}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.counts[1].count}</td>
+                                                            <td>${response.tourCount.tourOnJuly27.counts[2].count}</td>
                                                             <td>${response.tourCount.tourOnJuly27.totalCount}</td>
                                                             <td>${response.tourCount.tourOnJuly27.totalCost.toLocaleString()}</td>
                                                         </tr>
@@ -446,20 +444,18 @@
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
                                                         <td class="table-dark">구분</td>
-                                                        <td>자연경관</td>
-                                                        <td>힐링투어</td>
-                                                        <td>문화체험</td>
-                                                        <td>문화탐방</td>
+                                                        <td>${response.tourCount.tourOnJuly28.counts[0].description}</td>
+                                                        <td>${response.tourCount.tourOnJuly28.counts[1].description}</td>
+                                                        <td>${response.tourCount.tourOnJuly28.counts[2].description}</td>
                                                         <td>총계</td>
                                                         <td>총액</td>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
-                                                            <td>${response.tourCount.tourOnJuly28.naturalCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly28.healingTourCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly28.cultureExpCount}</td>
-                                                            <td>${response.tourCount.tourOnJuly28.cultureTourCount}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.counts[0].count}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.counts[1].count}</td>
+                                                            <td>${response.tourCount.tourOnJuly28.counts[2].count}</td>
                                                             <td>${response.tourCount.tourOnJuly28.totalCount}</td>
                                                             <td>${response.tourCount.tourOnJuly28.totalCost.toLocaleString()}</td>
                                                         </tr>

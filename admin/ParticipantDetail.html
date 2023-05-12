@@ -85,7 +85,7 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                                <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                                     <div class="collapse navbar-collapse" id="navbarNav">
                                         <ul class="navbar-nav tab-nav font-weight-bold">
                                             <li class="nav-item tab-nav-item pr-4">
@@ -108,9 +108,9 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </nav>
+                                </nav> -->
                                 <div class="tab-content">
-                                    <div id="tab1" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <div class="mb-4 border-bottom">
                                             <p class="font-weight-bold" style="font-size: 25px;">신청 상태</p>
                                             <div class="form-check form-check-inline pb-3">
@@ -185,34 +185,24 @@
                                                 <tr>
                                                     <th class="align-middle text-center">관리자 확인</th>
                                                     <td>
-                                                        <div class="border p-3">
-                                                            <span class="pr-3">참가비)</span>
+                                                        <div class="border p-3 mt-2">
                                                             <div class="form-check form-check-inline pr-4">
-                                                                <input class="form-check-input" type="checkbox"
-                                                                    value="isFullCost" id="isFullCost" name="pay_admin">
-                                                                <label class="form-check-label"
-                                                                    for="isFullCost">전액</label>
-                                                                <input class="form-check-input ml-3" type="checkbox"
-                                                                    value="isPartCost" id="isPartCost" name="pay_admin">
-                                                                <label class="form-check-label" for="isPartCost">
-                                                                    일부 (<input type="text" class="border-0"
-                                                                        placeholder=" 숫자만 입력 가능합니다" id="partCostMemo"
-                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')">)
-                                                                </label>
-                                                                <input class="form-check-input ml-5" type="checkbox"
-                                                                    value="isFullRefund" id="isFullRefund"
-                                                                    name="pay_admin">
-                                                                <label class="form-check-label" for="isFullRefund">
-                                                                    전액환불
-                                                                </label>
-                                                                <input class="form-check-input ml-3" type="checkbox"
-                                                                    value="isPartRefund" id="isPartRefund"
-                                                                    name="pay_admin">
-                                                                <label class="form-check-label" for="isPartRefund">
-                                                                    부분환불 (<input type="text" placeholder=" 숫자만 입력 가능합니다"
-                                                                        class="border-0" id="partRefundMemo"
-                                                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')">)
-                                                                </label>
+                                                                <input class="form-check-input" type="checkbox" value="attendCost" id="attendCost" name="">
+                                                                <label class="form-check-label mr-2" for="attendCost">참가비</label>
+                                                                <input class="form-check-input" type="checkbox" value="hotelCost" id="hotelCost" name="">
+                                                                <label class="form-check-label mr-2" for="hotelCost">숙박비</label>
+                                                                <input class="form-check-input" type="checkbox" value="flightCost" id="flightCost" name="">
+                                                                <label class="form-check-label mr-2" for="flightCost">항공비</label>
+                                                                <input class="form-check-input" type="checkbox" value="renterCarCost" id="renterCarCost" name="">
+                                                                <label class="form-check-label mr-2" for="renterCarCost">렌트카</label>
+                                                                <input class="form-check-input" type="checkbox" value="golfCost" id="golfCost" name="">
+                                                                <label class="form-check-label mr-2" for="golfCost">골프비</label>
+                                                                <input class="form-check-input" type="checkbox" value="tourCost" id="tourCost" name="">
+                                                                <label class="form-check-label mr-2" for="tourCost">관광비</label>
+                                                                <input class="form-check-input" type="checkbox" value="sendCostEmail" id="sendCostEmail" name="">
+                                                                <label class="form-check-label mr-2" for="sendCostEmail">결제메일 발송</label>
+                                                                <input class="form-check-input" type="checkbox" value="sendAttendEmail" id="sendAttendEmail" name="">
+                                                                <label class="form-check-label mr-2" for="sendAttendEmail">등록안내 발송</label>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -237,9 +227,25 @@
                                             <p class="mt-3">※ 비밀번호 초기화 시 신청한 대표자/교육담당자/정산담당자 이메일로 임시 비밀번호가 발급됩니다.</p>
                                         </div>
                                     </div>
-                                    <div id="tab2" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">03. 참가자 정보</p>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th width="10%">KSA회원사 여부 선택</th>
+                                                    <td colspan="3">
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input" type="radio" name="friendly" id="MEMBER" value="MEMBER">
+                                                            <label class="form-check-label" for="MEMBER">회원사</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="radio" id="NOT_MEMBER" value="NOT_MEMBER">
+                                                            <label class="form-check-label" for="NOT_MEMBER">비회원사</label>
+                                                            <input class="form-check-input ml-3" name="friendly" type="radio" id="HIGHEST_LEVEL"
+                                                                value="HIGHEST_LEVEL">
+                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정 원우((AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                             <table class="table align-middle" style="color: #222;">
                                                 <tr class="border-0">
                                                     <th width="10%" class="border-0 p-0"></th>
@@ -301,7 +307,7 @@
                                                             style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
-                                                    <th rowspan="7">참가자정보</th>
+                                                    <th rowspan="9">참가자정보</th>
                                                     <th width="10%" class="table-secondary align-middle">이름 (한글)</th>
                                                     <td><input type="text" id="koreaName" class="form-control"
                                                             style="width: 50%"></td>
@@ -335,6 +341,14 @@
                                                     <th width="10%" class="table-secondary align-middle">이메일</th>
                                                     <td><input type="text" id="email" class="form-control"
                                                             style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">업체코드</th>
+                                                    <td><input type="text" id="code" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">지역본부</th>
+                                                    <td><input type="text" id="location" class="form-control" style="width: 50%"></td>
                                                 </tr>
                                             </table>
                                             <table class="table align-middle family_table"
@@ -459,31 +473,13 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <table class="table align-middle" style="color: #222;">
-                                                <tr>
-                                                    <th width="10%">KSA회원사 여부 선택</th>
-                                                    <td colspan="3">
-                                                        <div class="form-check form-check-inline pr-4">
-                                                            <input class="form-check-input" type="radio"
-                                                                name="friendly" id="MEMBER" value="MEMBER">
-                                                            <label class="form-check-label" for="MEMBER">회원사</label>
-                                                            <input class="form-check-input ml-3" name="friendly"
-                                                                type="radio" id="NOT_MEMBER" value="NOT_MEMBER">
-                                                            <label class="form-check-label" for="NOT_MEMBER">비회원사</label>
-                                                            <input class="form-check-input ml-3" name="friendly"
-                                                                type="radio" id="HIGHEST_LEVEL" value="HIGHEST_LEVEL">
-                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정 원우((AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </table>
                                         </form>
                                         <div class="row justify-content-center mt-5" style="width: 99%;">
                                             <button type="button" class="info-save btn btn-primary btn-m">입력사항
                                                 저장</button>
                                         </div>
                                     </div>
-                                    <div id="tab3" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">04.항공예약 정보</p>
                                             <table class="table align-middle" style="color: #222;">
@@ -573,7 +569,7 @@
                                                 저장</button>
                                         </div>
                                     </div>
-                                    <div id="tab4" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">05.호텔예약 정보</p>
                                             <table class="table align-middle" style="color: #222;">
@@ -639,7 +635,7 @@
                                             <button type="button" class="hotel-save btn btn-primary btn-m">입력사항 저장</button>
                                         </div>
                                     </div>
-                                    <div id="tab5" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px; margin-bottom: 30px;">
                                                 06. 골프 정보</p>
@@ -672,7 +668,7 @@
                                                 저장</button>
                                         </div>
                                     </div>
-                                    <div id="tab6" class="tab pt-5" style="width: 100%">
+                                    <div id="" class="tab pt-5" style="width: 100%">
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">06.렌터카예약 정보</p>
                                             <table class="table align-middle" style="color: #222;">
@@ -810,18 +806,18 @@
                 base_url = "api-" + base_url
             }
             // let base_url = "api-ksa.onoffmix.xyz";
-            $(".tab-nav li:first-child").addClass("active");
-            $("#tab1").show();
-            $("#tab1").siblings('.tab').hide();
-            $('.tab-nav-item a').click(function (event) {
-                event.preventDefault();
-                $(this).parent().addClass('active');
-                $(this).parent().siblings().removeClass('active');
+            // $(".tab-nav li:first-child").addClass("active");
+            // $("#tab1").show();
+            // $("#tab1").siblings('.tab').hide();
+            // $('.tab-nav-item a').click(function (event) {
+            //     event.preventDefault();
+            //     $(this).parent().addClass('active');
+            //     $(this).parent().siblings().removeClass('active');
 
-                var tab = $(this).attr('href');
-                $(tab).siblings('.tab').hide();
-                $(tab).show();
-            });
+            //     var tab = $(this).attr('href');
+            //     $(tab).siblings('.tab').hide();
+            //     $(tab).show();
+            // });
 
             function getParameterByName(name, url) {
                 if (!url) url = window.location.href;
@@ -877,20 +873,23 @@
                         let memo = response.adminMemo.memo
                         $("input[name='apply-status']:radio[value=" + response.attendStatus + "]").attr("checked", true);
                         $("input[name='publish-status']:radio[value=" + response.taxBillPublishStatus + "]").attr("checked", true);
-                        $("#isFullCost").attr("checked", response.adminMemo.isFullCost);
-                        $("#isPartCost").attr("checked", response.adminMemo.isPartCost);
-                        $("#isFullRefund").attr("checked", response.adminMemo.isFullRefund);
-                        $("#isPartRefund").attr("checked", response.adminMemo.isPartRefund);
-                        $("#partCostMemo").val(response.adminMemo.partCostMemo);
+                        $("#partCostMemo").val(response.adminMemo.memo);
                         $("#partRefundMemo").val(response.adminMemo.partRefundMemo);
                         $("#admin_memo").val(response.adminMemo.memo);
                         $("#attendTotalCost").val(response.finalCost.attendTotalCost);
                         $("#flightTotalCost").val(response.finalCost.flightTotalCost)
                         $("#hotelTotalCost").val(response.finalCost.hotelTotalCost);
                         $("#golfCourseTotalCost").val(response.finalCost.golfCourseTotalCost)
-                        $("#tourTotalCost").val(response.finalCost.tourTotalCost);
                         $("#renterCarTotalCost").val(response.finalCost.renterCarTotalCost);
                         $("[data-admin_total]").text(response.finalCost.totalCost.toLocaleString());
+                        $("#attendCost").attr("checked", response.adminMemo.attendCost);
+                        $("#hotelCost").attr("checked", response.adminMemo.hotelCost);
+                        $("#flightCost").attr("checked", response.adminMemo.flightCost);
+                        $("#renterCarCost").attr("checked", response.adminMemo.renterCarCost);
+                        $("#golfCost").attr("checked", response.adminMemo.golfCost);
+                        $("#tourCost").attr("checked", response.adminMemo.tourCost);
+                        $("#sendAttendEmail").attr("checked", response.adminMemo.sendAttendEmail);
+                        $("#sendCostEmail").attr("checked", response.adminMemo.sendCostEmail);
                         const pay_staus = response.depositStatus === 'NON_PAY' ? '결제<br>확인' : '미납<br>변경'
                         const color = response.depositStatus === 'NON_PAY' ? 'success' : 'warning'
 
@@ -949,19 +948,21 @@
                                 "attendId": id_num,
                                 "attendStatus": $("input[name='apply-status']:checked").val(),
                                 "taxBillPublishStatus": $("input[name='publish-status']:checked").val(),
-                                "attendTotalCost": attend !== "" ? attend : response.attendTotalCost,
-                                "flightTotalCost": flight !== "" ? flight : response.flightTotalCost,
-                                "hotelTotalCost": hotel !== "" ? hotel : response.hotelTotalCost,
-                                "golfCourseTotalCost": golf !== "" ? golf : response.golfCourseTotalCost,
-                                "tourTotalCost": tour !== "" ? tour : response.tourTotalCost,
-                                "renterCarTotalCost": rental !== "" ? rental : response.renterCarTotalCost,
+                                "attendTotalCost": attend !== "" ? attend : response.finalCost.attendTotalCost,
+                                "flightTotalCost": flight !== "" ? flight : response.finalCost.flightTotalCost,
+                                "hotelTotalCost": hotel !== "" ? hotel : response.finalCost.hotelTotalCost,
+                                "golfCourseTotalCost": golf !== "" ? golf : response.finalCost.golfCourseTotalCost,
+                                "tourTotalCost": tour !== "" ? tour : response.finalCost.tourTotalCost,
+                                "renterCarTotalCost": rental !== "" ? rental : response.finalCost.renterCarTotalCost,
                                 "adminMemo": {
-                                    "isFullCost": $("#isFullCost").prop("checked"),
-                                    "isPartCost": $("#isPartCost").prop("checked"),
-                                    "partCostMemo": $("#partCostMemo").val(),
-                                    "isFullRefund": $("#isFullRefund").prop("checked"),
-                                    "isPartRefund": $("#isPartRefund").prop("checked"),
-                                    "partRefundMemo": $("#partRefundMemo").val(),
+                                    "attendCost": $("#attendCost").is(":checked"),
+                                    "hotelCost": $("#hotelCost").is(":checked"),
+                                    "flightCost": $("#flightCost").is(":checked"),
+                                    "renterCarCost": $("#renterCarCost").is(":checked"),
+                                    "golfCost": $("#golfCost").is(":checked"),
+                                    "tourCost": $("#tourCost").is(":checked"),
+                                    "sendCostEmail": $("#sendCostEmail").is(":checked"),
+                                    "sendAttendEmail": $("#sendAttendEmail").is(":checked"),
                                     "memo": $("#admin_memo").val()
                                 }
                             }
@@ -979,6 +980,7 @@
                                     alert('저장 되었습니다.');
                                 },
                                 error: function (xhr) {
+                                    console.log(data)
                                     alert(xhr.responseJSON.message);
                                 }
                             });

@@ -21,7 +21,7 @@
         <ul>
             <li><a onclick="alert('준비중입니다.')">SPEAKERS</a></li>
             <li class=""><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+            <li class=""><a href="Gallery.html">갤러리</a></li>
             <li class=""><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
             <li class=""><a href="mailto:ceoforum@ksa.or.kr">1:1 문의</a></li>
             <li class="" data-more_box></li>
@@ -31,10 +31,10 @@
                 <button data-close_box></button>
             </div>
             <ul>
-                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="Notice.html">공지사항</a>></li>
                 <li><a href="" onclick="alert('준비중입니다.')">SPEAKERS</a></li>
                 <li><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
                 <li><a href="Application.html">참가신청 / 확인</a></li>
             </ul>
@@ -49,11 +49,11 @@
                 <button data-close_box></button>
             </div>
             <ul>
-                <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
+                <li><a href="Notice.html">공지사항</a>></li>
                 <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
                 <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
                 <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="Application.html">참가신청 / 확인</a></li>
             </ul>
         </div>
@@ -107,13 +107,17 @@
                 <div class="swiper-button-prev"></div>
             </div>
         </div>
-        <!-- <div data-gallery_box>
+        <div data-gallery_box>
+            <div data-gallery_btn>
+                <span>갤러리</span>
+                <a href="Gallery.html">더보기 ></a>
+            </div>
             <div class="swiper">
                 <div class="swiper-wrapper gallery-swiper"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-        </div> -->
+        </div>
         <div data-sponsore_box>
             <span>협찬</span>
             <div data-pc_img_box></div>
@@ -128,12 +132,18 @@
                     한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
                     하계CEO포럼 사무국 02-6240-4981, 4984 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                 </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
-                <!-- <p><a><span>개인정보처리방침</span></a> <a href="/admin/login.html" target="_blank">관리자 페이지</a></p> -->
+                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a><a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
             </div>
         </div>
     </footer>
     <script>
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
+
         function getDirection() {
             var windowWidth = window.innerWidth;
             var direction = windowWidth < 760 ? 'horizontal' : 'horizontal';
@@ -142,7 +152,7 @@
 
         var swiper = new Swiper('.swiper', {
             slidesPerView: 'auto',
-            spaceBetween: 32,
+            spaceBetween: 0,
             freeMode: true,
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -156,6 +166,19 @@
                     this.params.direction = getDirection();
                     this.update();
                 }
+            }
+        });
+
+        $.ajax({
+            type: "GET",
+            url: "https://" + base_url + "/api/v1/galleries/all",
+            success: function (response) {
+                $.each(response, function (response, item) {
+                    $(".gallery-swiper").append('<div class="swiper-slide"><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
+                });
+            },
+            error: function (xhr, status, error) {
+                alert("error");
             }
         });
 

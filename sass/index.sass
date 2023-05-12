@@ -134,44 +134,91 @@ main
         [data-mobile_h1]
             display: none
     [data-gallery_box]
+        background-color: #1d1643
+        height: 572px
+        width: 100%
         padding: 
-            top: 80px
+            top: 105px
             bottom: 109px
+        display: flex
+        flex-direction: column
+        align-items: center
+        [data-gallery_btn]
+            display: flex
+            width: 1280px
+            height: 30px
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 10px
+            span
+                font:
+                    size: 34px
+                    weight: bold
+                color: #fff
+            a
+                font:
+                    size: 16px
+                color: #fff
         .swiper
-            height: 210px
+            height: 300px !important
             width: 100%
             max-width: 1280px
             .swiper-wrapper
                 .swiper-slide
-                    background-color: #fff
-                    width: 280px !important
-                    // margin-left: 32px
+                    width: 400px !important
+                    height: 300px !important
+                    margin-right: 32px
+                    display: flex
+                    align-items: center
                     img
                         width: 100%
-                        height: 100%
                         object-fit: contain
+                    &:last-of-type
+                        margin-right: 0px
             .swiper-button-next
-                background-color: rgba(0, 0, 0, 0.6)
-                width: 60px
-                height: 120px
-                top: 55px
+                background-color: #fff
+                width: 40px
+                height: 40px
+                top: 130px
                 right: var(--swiper-navigation-sides-offset,0px)
                 &::after
-                    color: #fff
-                    width: 25px
+                    content: ""
+                    background:
+                        image: url(/images/right.png)
+                        position: center center
+                        repeat: no-repeat
+                        size: contain
+                    color: #000
+                    width: 6px
                     height: 50px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
                 position: absolute
+                border-radius: 50%
             .swiper-button-prev
-                background-color: rgba(0, 0, 0, 0.6)
-                width: 60px
-                height: 120px
-                top: 55px
+                background-color: #fff
+                width: 40px
+                height: 40px
+                top: 130px
                 left: var(--swiper-navigation-sides-offset,0px)
-                margin-bottom: 50px !important
                 &::after
-                    color: #fff
-                    width: 25px
+                    content: ""
+                    background:
+                        image: url(/images/left.png)
+                        position: center center
+                        repeat: no-repeat
+                        size: contain
+                    color: #000
+                    width: 6px
                     height: 50px
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+                position: absolute
+                border-radius: 50%
             .swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled
                 opacity: 100
                 cursor: auto
@@ -343,11 +390,32 @@ main
                 display: none
         [data-gallery_box]
             padding: 
-                top: 60px
-                bottom: 109px
+                top: 30px
+                bottom: 30px
                 left: 20px
                 right: 20px
             width: 100%
+            height: 273px
+            display: flex
+            flex-direction: column
+            align-items: center
+            [data-gallery_btn]
+                display: flex
+                width: 100%
+                height: 30px
+                justify-content: space-between
+                align-items: center
+                margin-bottom: 10px
+                margin-top: 10px
+                span
+                    font:
+                        size: 24px
+                        weight: bold
+                    color: #fff
+                a
+                    font:
+                        size: 14px
+                    color: #fff
             .swiper
                 height: 210px
                 width: 100%
@@ -356,8 +424,8 @@ main
                     right: 20px
                 .swiper-wrapper
                     .swiper-slide
-                        background-color: #fff
                         width: 280px !important
+                        height: 150px !important
                         img
                             width: 100%
                             height: 100%
@@ -374,6 +442,7 @@ main
                         height: 20px
                         font-size: 25px
                     position: absolute
+                    display: none
                 .swiper-button-prev
                     background-color: rgba(0, 0, 0, 0.6)
                     width: 45px
@@ -386,6 +455,7 @@ main
                         width: 10px
                         height: 20px
                         font-size: 25px
+                    display: none
                 .swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled
                     opacity: 100
                     cursor: auto
