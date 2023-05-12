@@ -1289,8 +1289,10 @@
                         }
                         if(response.isIndividualOrder === true){
                             $(".airport").show();
+                            $("[data-none_input]").attr("checked", true)
+                            $("[data-none_input]").val(response.individualOrderLandingDate);
                             $("[data-date_picker]").val(response.individualOrderLandingDate);
-                            $("[data-time_picker]").avl(response.individualOrderLandingTime);
+                            $("[data-time_picker]").val(response.individualOrderLandingTime);
                         }
                         $("#flight_memo").val(response.userMemo);
 
@@ -1446,13 +1448,11 @@
                 }
 
                 $(".flight-save").click(function () {
-                    const individual_date = $("input[type='date']").val();
-                    const time = $("input[type='time']").val();
                     const data = {
                         "attendId": id_num,
                         "isIndividualOrder": $("[data-none_input]").is(":checked") === true ? true : false,
-                        "individualOrderLandingDate": $("input[type='date']").val(),
-                        "individualOrderLandingTime": time,
+                        "individualOrderLandingDate": $("[data-date_picker]").val(),
+                        "individualOrderLandingTime": $("[data-time_picker]").val(),
                         "flightTickets": flight_passenger_list,
                         "userMemo": $("#flight_memo").val()
                     };
