@@ -130,7 +130,7 @@
                     <td>
                         <div class="display">
                             <div data-date_box>
-                                <input type="date" min="2023-07-24" max="2023-07-29">
+                                <input type="date" min="2023-07-24" max="2023-07-29" data-date_picker>
                                 <input type="time" data-time_picker>
                             </div>
                         </div>
@@ -311,6 +311,12 @@
                             });
                         }
                         $("textarea").val(response.userMemo);
+                        if (response.isIndividualOrder === true) {
+                            $(".display").show();
+                            $("[data-none_input]").attr("checked", true)
+                            $("[data-date_picker]").val(response.individualOrderLandingDate);
+                            $("[data-time_picker]").val(response.individualOrderLandingTime);
+                        }
                     },
                     error: function (error) {
                         alert("error")
@@ -486,8 +492,8 @@
                     const data = {
                         "attendId": attend_id,
                         "isIndividualOrder": $("[data-none_input]").is(":checked") === true ? true : false,
-                        "individualOrderLandingDate": $("input[type='date']").val(),
-                        "individualOrderLandingTime": time,
+                        "individualOrderLandingDate": $("[data-date_picker]").val(),
+                        "individualOrderLandingTime": $("[data-time_picker]").val(),
                         "flightTickets": passenger_list,
                         "userMemo": $("textarea").val()
                     };
