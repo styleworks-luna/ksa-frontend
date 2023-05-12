@@ -20,9 +20,11 @@
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
-            <li><a href="" onclick="alert('준비중입니다.')">공지사항</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
+            <li><a onclick="alert('준비중입니다.')">SPEAKERS</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">갤러리</a></li>
+            <li class=""><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+            <li class=""><a href="mailto:ceoforum@ksa.or.kr">1:1 문의</a></li>
             <li class="" data-more_box></li>
         </ul>
         <div data-menu_box>
@@ -487,8 +489,6 @@
                 }
 
                 $("button[type='submit']").click(function () {
-                    const individual_date = $("input[type='date']").val();
-                    const time = $("input[type='time']").val();
                     const data = {
                         "attendId": attend_id,
                         "isIndividualOrder": $("[data-none_input]").is(":checked") === true ? true : false,
