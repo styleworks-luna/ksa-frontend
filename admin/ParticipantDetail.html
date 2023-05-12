@@ -508,7 +508,7 @@
                                                     <td class="p-0">
                                                         <div class="form-check form-check-inline pr-4 airport pb-3 pt-3"
                                                             style="display: none;">
-                                                            <input class="mr-3 ml-3" type="date"  min="2023-07-24" max="2023-07-29">
+                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2023-07-24" max="2023-07-29">
                                                             <input type="time" data-time_picker>
                                                         </div>
                                                     </td>
@@ -1286,6 +1286,11 @@
                                     "cost": item.cost
                                 });
                             });
+                        }
+                        if(response.isIndividualOrder === true){
+                            $(".airport").show();
+                            $("[data-date_picker]").val(response.individualOrderLandingDate);
+                            $("[data-time_picker]").avl(response.individualOrderLandingTime);
                         }
                         $("#flight_memo").val(response.userMemo);
 
