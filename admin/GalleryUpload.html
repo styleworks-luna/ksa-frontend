@@ -39,19 +39,14 @@
                     <span>취소자 명단</span></a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="NoticeList.html">
                     <i class='fa fa-bell'></i>
                     <span>공지사항</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
@@ -135,6 +130,13 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script>
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
+
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -198,7 +200,7 @@
 
         if (id_num !== null) {
             $.ajax({
-                url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries/' + id_num,
+                url: "https://"+ base_url +"/api/v1/galleries/" + id_num,
                 type: 'GET',
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
@@ -225,7 +227,7 @@
                     };
                     formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
                     $.ajax({
-                        url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries/' + id_num,
+                        url: "https://"+ base_url +"/api/v1/galleries/" + id_num,
                         type: 'PATCH',
                         data: formData,
                         beforeSend: function (xhr) {
@@ -272,7 +274,7 @@
                     };
                     formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
                     $.ajax({
-                        url: 'https://api-koita2023.onoffmix.xyz/api/v1/galleries',
+                        url: "https://"+ base_url +"/api/v1/galleries",
                         type: 'POST',
                         data: formData,
                         beforeSend: function (xhr) {

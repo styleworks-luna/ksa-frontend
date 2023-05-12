@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>관리자 페이지 - KOITA</title>
+    <title>관리자 페이지 - KSA</title>
 
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
@@ -21,7 +21,7 @@
     <div id="wrapper">
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KOITA</div>
+                <div class="sidebar-brand-text mx-3">KSA</div>
             </a>
             <hr class="sidebar-divider my-0">
         
@@ -40,20 +40,15 @@
                     <i class="fas fa-fw fa-table"></i>
                     <span>취소자 명단</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
             <li class="nav-item active">
                 <a class="nav-link" href="NoticeList.html">
                     <i class='fa fa-bell'></i>
                     <span>공지사항</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="GalleryList.html">
+                    <i class='fas fa-image'></i>
+                    <span>갤러리</span></a>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
         </ul>
@@ -140,9 +135,15 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script>
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://api-koita2023.onoffmix.xyz/api/v1/notices/all",
+                "url": "https://"+ base_url +"/api/v1/notices/all",
                 "dataSrc": function (json) {
                     return json;
                 },
@@ -187,7 +188,7 @@
             if (confirm("해당 공지를 삭제하시겠습니까?")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://api-koita2023.onoffmix.xyz/api/v1/notices/" + num,
+                    url: "https://"+ base_url +"/api/v1/notices/" + num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
