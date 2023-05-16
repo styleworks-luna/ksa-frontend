@@ -1744,7 +1744,7 @@
                             });
                         });
                         $.each(family, function (index, item) {
-                            $("[data-family_thu_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>Family" + (index + 1) + "</td><td class='align-middle' style='width:40%'><div data-description_row><p class='mb-0'>" + item.title + "</p></div</td><td style='width:20%' data-amount_row data-adult=" + 0 + " data-child=" + 0 + " style='width:22%'>무료</td><td td class='align-middle'><select data-date='" + item.startDate + "' data-thu_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='family'></div></td></tr>");
+                            $("[data-family_thu_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>Family Session</td><td class='align-middle' style='width:40%'><div data-description_row><p class='mb-0'>" + item.title + "</p></div</td><td style='width:20%' data-amount_row data-adult=" + 0 + " data-child=" + 0 + " style='width:22%'>무료</td><td td class='align-middle'><select data-date='" + item.startDate + "' data-thu_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='family'></div></td></tr>");
                         });
                         //투어 정보 가져오기 (금)
                         $.ajax({
@@ -1772,7 +1772,7 @@
                                 });
 
                                 $.each(family, function (index, item) {
-                                    $("[data-family_fri_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>Family" + (index + 1) + "</td><td style='width:40%' class='align-middle'><div data-description_row><p class='mb-0'>" + item.title + "</p></div</td><td style='width:20%' class='align-middle' data-amount_row data-adult=" + 0 + " data-child=" + 0 + "'>무료</td><td><select data-date='" + item.startDate + "' data-fri_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box='family'></div></td></tr>");
+                                    $("[data-family_fri_table]").append("<tr><td class='table-secondary align-middle font-weight-bold' style='width:10%'>Family Session</td><td style='width:40%' class='align-middle'><div data-description_row><p class='mb-0'>" + item.title + "</p></div</td><td style='width:20%' class='align-middle' data-amount_row data-adult=" + 0 + " data-child=" + 0 + "'>무료</td><td><select data-date='" + item.startDate + "' data-fri_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td style='width:15%'><div data-show_box='family'></div></td></tr>");
                                 });
                                 // 이미 신청한 상황이라면 신청내역 보여주기
                                 $.ajax({
