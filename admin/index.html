@@ -191,12 +191,12 @@
     <script src="js/sb-admin-2.js"></script>
     <script>
         $(document).ready(function () {
-            let url = window.location.href;
-            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-            if (base_url === "ksa.onoffmix.xyz") {
-                base_url = "api-" + base_url
-            }
-            // let base_url = "api-ksa.onoffmix.xyz";
+            // let url = window.location.href;
+            // let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+            // if (base_url === "ksa.onoffmix.xyz") {
+            //     base_url = "api-" + base_url
+            // }
+            let base_url = "api-ksa.onoffmix.xyz";
             $.ajax({
                 type: "GET",
                 url: "https://" + base_url + "/api/v1/attends/counting",
@@ -221,6 +221,7 @@
                                                             <th class="table-dark">구분</th>
                                                             <th>신청중</th>
                                                             <th>신청완료</th>
+                                                            <th>총계</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -228,16 +229,19 @@
                                                             <th class="table-dark" style="width: 150px">참가자</th>
                                                             <td>${response.attenderTypeAndAttendStatusCount.applyingAttender.mainAttender + "명"}</td>
                                                             <td>${response.attenderTypeAndAttendStatusCount.doneAttender.mainAttender + "명"}</td>
+                                                            <td>${response.attenderTypeAndAttendStatusCount.totalCount.mainAttender + "명"}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark" style="width: 150px">동반가족</th>
                                                             <td>${response.attenderTypeAndAttendStatusCount.applyingAttender.familyAttender + "명"}</td>
                                                             <td>${response.attenderTypeAndAttendStatusCount.doneAttender.familyAttender + "명"}</td>
+                                                            <td>${response.attenderTypeAndAttendStatusCount.totalCount.familyAttender + "명"}</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark" style="width: 150px">총계</th>
                                                             <td>${response.applyingAttenderCount + "명"}</td>
                                                             <td>${response.doneAttenderCount + "명"}</td>
+                                                            <td>${response.attenderTotalCount + "명"}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -578,6 +582,7 @@
                                                         <td class="align-middle">패밀리트윈<br>+보조침대</td>
                                                         <td class="align-middle">트윈<br>+보조침대</td>
                                                         <td class="align-middle">더블<br>+보조침대</td>
+                                                        <td class="align-middle">정원</td>
                                                         <td class="align-middle">합계</td>
                                                         <td class="align-middle">총액</td>
                                                     </thead>
@@ -590,6 +595,7 @@
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalQuantity}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCount}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCost.toLocaleString() }</td>
                                                         </tr>
@@ -601,6 +607,7 @@
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalQuantity}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCount}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCost.toLocaleString() }</td>
                                                         </tr>
@@ -612,6 +619,7 @@
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalQuantity}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCount}</td>
                                                             <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCost.toLocaleString() }</td>
                                                         </tr>
@@ -623,6 +631,7 @@
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalQuantity}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCount}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCost.toLocaleString() }</td>
                                                         </tr>
@@ -634,11 +643,13 @@
                                                             <td class="align-middle">${response.hotelCount.lottePremierGarden.familyTwinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierGarden.twinAndSubBedRoom}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierGarden.doubleAndSubBedRoom}</td>
+                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.totalQuantity}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierGarden.totalCount}</td>
                                                             <td class="align-middle">${response.hotelCount.lottePremierGarden.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
                                                             <th class="table-dark align-middle">합산</th>
+                                                            <td></td>
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>

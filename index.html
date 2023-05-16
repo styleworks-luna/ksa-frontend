@@ -62,7 +62,7 @@
         <a data-brochure_link href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BROCHURE" download=""><img
                 src="./images/brochure.png" alt="brochure"></a>
         <div data-main_wrap>
-            <div data-notice_box><p>[공지] 제69회 KSA하계CEO포럼 신청 접수중입니다.</p></div>
+            <!-- <div data-notice_box><p>[공지] 제69회 KSA하계CEO포럼 신청 접수중입니다.</p></div> -->
             <div data-main_box>
                 <div data-title_box>
                     <div>
@@ -112,7 +112,7 @@
                 <span>갤러리</span>
                 <a href="Gallery.html">더보기 ></a>
             </div>
-            <div class="swiper">
+            <div class="swiper gallery-myswiper">
                 <div class="swiper-wrapper gallery-swiper"></div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -150,9 +150,18 @@
             return direction;
         };
 
-        var swiper = new Swiper('.swiper', {
+        var swiper = new Swiper('.gallery-myswiper', {
             slidesPerView: 'auto',
-            spaceBetween: 0,
+            autoplay: {
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
+            spaceBetween: 32,
+            speed: 6000,
+            slidesPerView: "auto",
+            loopedSlides: 1,
+            observer: true,
+            observeParents: true,
             freeMode: true,
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -161,13 +170,23 @@
             on: {
                 init: function () {
                     this.params.direction = getDirection();
+                    startAutoplay(this);
                 },
                 resize: function () {
                     this.params.direction = getDirection();
                     this.update();
-                }
-            }
+                },
+                slideChangeTransitionEnd: function () {
+                    startAutoplay(this);
+                },
+            },
         });
+
+        function startAutoplay(swiper) {
+            if (!swiper.autoplay.running) {
+                swiper.autoplay.start();
+            }
+        }
 
         $.ajax({
             type: "GET",

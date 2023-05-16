@@ -253,22 +253,17 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th rowspan="8">기업정보</th>
+                                                    <th rowspan="10">기업정보</th>
                                                     <th width="10%" class="table-secondary align-middle">회사명</th>
-                                                    <td><input type="text" id="companyName" class="form-control"
-                                                            style="width: 50%"></td>
+                                                    <td><input type="text" id="companyName" class="form-control" style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">대표자명</th>
-                                                    <td><input type="text" id="companyBoss" class="form-control"
-                                                            style="width: 50%"></td>
+                                                    <td><input type="text" id="companyBoss" class="form-control" style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">사업자번호</th>
-                                                    <td><input type="text" placeholder="‘-’없이 입력해주세요."
-                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
-                                                            maxlength="10" id="companyBusinessNumber"
-                                                            class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" id="companyBusinessNumber" class="form-control" style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" rowspan="3" class="table-secondary align-middle">
@@ -307,6 +302,14 @@
                                                             style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
+                                                    <th width="10%" class="table-secondary align-middle">업체코드</th>
+                                                    <td><input type="text" id="code" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th width="10%" class="table-secondary align-middle">지역본부</th>
+                                                    <td><input type="text" id="location" class="form-control" style="width: 50%"></td>
+                                                </tr>
+                                                <tr>
                                                     <th rowspan="9">참가자정보</th>
                                                     <th width="10%" class="table-secondary align-middle">이름 (한글)</th>
                                                     <td><input type="text" id="koreaName" class="form-control"
@@ -341,14 +344,6 @@
                                                     <th width="10%" class="table-secondary align-middle">이메일</th>
                                                     <td><input type="text" id="email" class="form-control"
                                                             style="width: 50%"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="10%" class="table-secondary align-middle">업체코드</th>
-                                                    <td><input type="text" id="code" class="form-control" style="width: 50%"></td>
-                                                </tr>
-                                                <tr>
-                                                    <th width="10%" class="table-secondary align-middle">지역본부</th>
-                                                    <td><input type="text" id="location" class="form-control" style="width: 50%"></td>
                                                 </tr>
                                             </table>
                                             <table class="table align-middle family_table"
@@ -445,14 +440,11 @@
                                                             class="form-control"></td>
                                                 </tr>
                                                 <tr class="text-center">
-                                                    <th width="10%" class="table-secondary align-middle">세금계산서<br>청구날짜</th>
+                                                    <th width="10%" class="table-secondary align-middle">사업자등록증</th>
                                                     <td colspan="3">
                                                         <div class="d-flex align-items-center">
-                                                            <div data-publish_row
-                                                                class="d-flex justify-content-start flex-column align-items-start">
-                                                                <input type="date" id="billing">
-                                                            </div>
-                                                            <span class="pl-5 pr-3">※ 사업자등록증</span>
+                                                            
+                                                            <span class="pr-3"></span>
                                                             <div class="custom-file" style="width: 40%;">
                                                                 <input type="file" class="custom-file-input"
                                                                     id="inputGroupFile02">
@@ -806,18 +798,6 @@
                 base_url = "api-" + base_url
             }
             // let base_url = "api-ksa.onoffmix.xyz";
-            // $(".tab-nav li:first-child").addClass("active");
-            // $("#tab1").show();
-            // $("#tab1").siblings('.tab').hide();
-            // $('.tab-nav-item a').click(function (event) {
-            //     event.preventDefault();
-            //     $(this).parent().addClass('active');
-            //     $(this).parent().siblings().removeClass('active');
-
-            //     var tab = $(this).attr('href');
-            //     $(tab).siblings('.tab').hide();
-            //     $(tab).show();
-            // });
 
             function getParameterByName(name, url) {
                 if (!url) url = window.location.href;
@@ -1021,6 +1001,8 @@
                     },
                     success: function (response) {
                         $("input[name='friendly']:radio[value=" + response.ksaCompanyType + "]").prop("checked", true);
+                        $("#code").val(response.company.companyCode);
+                        $("#location").val(response.company.regionalHead);
                         $("#companyName").val(response.company.companyName);
                         $("#companyBoss").val(response.company.companyBoss);
                         $("#companyBusinessNumber").val(response.company.companyBusinessNumber);
@@ -1150,6 +1132,8 @@
                         "attendId": id_num,
                         "ksaCompanyType": $("input[name='friendly']:checked").val(),
                         "company": {
+                            "companyCode":  $("#code").val(),
+                            "regionalHead": $("#location").val(),
                             "companyAddress": $("#sample6_address").val(),
                             "companyDetailAddress": $("#sample6_detailAddress").val(),
                             "companyZipcode": $("#sample6_postcode").val(),

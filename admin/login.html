@@ -55,12 +55,12 @@
         </div>
     </div>
     <script>
-        // let url = window.location.href;
-        // let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        // if (base_url === "ksa.onoffmix.xyz") {
-        //     base_url = "api-" + base_url
-        // }
-        let base_url = "api-ksa.onoffmix.xyz";
+        let url = window.location.href;
+        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        if (base_url === "ksa.onoffmix.xyz") {
+            base_url = "api-" + base_url
+        }
+        // let base_url = "api-ksa.onoffmix.xyz";
         $(".login").on("click", (event) => {
             const id_val = $("#id").val();
             const pw_val = $("#pw").val();

@@ -167,7 +167,7 @@ main [data-gallery_box] [data-gallery_btn] {
   height: 30px;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: 26px;
 }
 main [data-gallery_box] [data-gallery_btn] span {
   font-size: 34px;
@@ -184,9 +184,9 @@ main [data-gallery_box] .swiper {
   max-width: 1280px;
 }
 main [data-gallery_box] .swiper .swiper-wrapper .swiper-slide {
-  width: 400px !important;
+  width: 420px !important;
   height: 300px !important;
-  margin-right: 32px;
+  margin-right: 0;
   display: flex;
   align-items: center;
 }
@@ -468,12 +468,12 @@ main [data-sponsore_box] [data-moblie_img_box] {
   main [data-gallery_box] .swiper {
     height: 210px;
     width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   main [data-gallery_box] .swiper .swiper-wrapper .swiper-slide {
-    width: 280px !important;
-    height: 150px !important;
+    width: 156px !important;
+    height: 120px !important;
   }
   main [data-gallery_box] .swiper .swiper-wrapper .swiper-slide img {
     width: 100%;

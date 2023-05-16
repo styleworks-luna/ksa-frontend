@@ -321,12 +321,6 @@
                             <td><input type="text" placeholder="이메일을 입력해주세요." name="pc_cal_email" id="cal_email"></td>
                         </tr>
                         <tr>
-                            <th data-none_row>세금계산서<br>청구일자</th>
-                            <td>
-                                <div data-publish_row>
-                                    <input type="date" id="billing">
-                                </div>
-                            </td>
                             <th><span>사업자등록증</span></th>
                             <td>
                                 <div data-file_row>
@@ -579,14 +573,14 @@
                             <th data-none_row><span>E-mail</span></th>
                             <td><input type="text" placeholder="이메일을 입력해주세요." name="mobile_cal_email" id="cal_email_mobile"></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th data-none_row>세금계산서<br>청구일자</th>
                             <td>
                                 <div data-publish_row>
                                     <input type="date" id="billing_mobile">
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                         <tr>
                             <th><span>사업자등록증</span></th>
                             <td>
@@ -1039,11 +1033,13 @@
                             "calManagerMobilePhone": $("#cal_phone").val(),
                             "calManagerTeam": $("#cal_belong").val(),
                             "calManagerGrade": $("#cal_job_position").val(),
-                            "billingDate": $("#billing").val(),
+                            "billingDate": "2023-07-17",
                             "isReceiptIssue": $("#receipt").is(":checked") === true ? true : false,
                             "isBillingIssue": $("#billing").is(":checked") === true ? true : false
                         },
                         "company": {
+                            "companyCode": "",
+                            "regionalHead": "",
                             "companyAddress": $("input[name='main_add']").val(),
                             "companyDetailAddress": $("input[name='sub_add']").val(),
                             "companyZipcode": $("input[name='add_post_num']").val(),
@@ -1460,11 +1456,13 @@
                             "calManagerMobilePhone": $("#cal_phone_mobile").val(),
                             "calManagerTeam": $("#cal_belong_mobile").val(),
                             "calManagerGrade": $("#cal_job_position_mobile").val(),
-                            "billingDate": $("#billing_mobile").val(),
+                            "billingDate": "2023-07-17",
                             "isReceiptIssue": $("#receipt_mobile").is(":checked") === true ? true : false,
                             "isBillingIssue": $("#billing_mobile").is(":checked") === true ? true : false
                         },
                         "company": {
+                            "companyCode": "",
+                            "regionalHead": "",
                             "companyAddress": $("input[name='main_add_mobile']").val(),
                             "companyDetailAddress": $("input[name='sub_add_mobile']").val(),
                             "companyZipcode": $("input[name='add_post_num_mobile']").val(),
