@@ -325,7 +325,7 @@
             if (base_url === "ksa.onoffmix.xyz") {
                 base_url = "api-" + base_url
             }
-
+            // let base_url = "api-ksa.onoffmix.xyz"
             if(attend_id !== null){
                 $.ajax({
                     "type": "GET",
@@ -379,6 +379,10 @@
 
                             $.each(response.tour.tourAttenders, function (index, item) {
                                 $("[data-program_data]").append("<tr><td>"+ item.tourStartDate + "</td><td>"+ tour_type[item.tourType] + "</td><td>" + item.description + "</td><td>" + item.attenderName +"</td></tr>");
+                            });
+
+                            $.each(response.familySession.familySessionAttenders, function (index, item) {
+                                $("[data-program_data]").append("<tr><td>"+ item.familySession.startDate + "</td><td>Family</td><td>" + item.familySession.title + "</td><td>" + item.attenderName +"</td></tr>");
                             });
 
                             if (response.attendStatus === "DONE") {

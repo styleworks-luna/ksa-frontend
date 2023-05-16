@@ -383,7 +383,7 @@
                                 <div class="col-xl-4">
                                     <div class="card shadow mb-4 pb-3">
                                         <div class="card-body">
-                                            <p class="text-primary" style="font-weight: bold;">	참가비 현황</p>
+                                            <p class="text-primary" style="font-weight: bold;">	등록비 현황</p>
                                             <div class="chart-pie pt-4 pb-3">
                                                 <table class="table text-center font-weight-bold">
                                                     <thead>
@@ -586,7 +586,24 @@
                                                             ${generateTableRow(response.flightCount.busan)}
                                                         </tr>
                                                         <tr>
+                                                            <th class="table-dark">항공개별예약</th>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>${response.flightCount.isIndividualOrderCount}</td>
+                                                        </tr>
+                                                        <tr>
                                                             <th class="table-dark"> 총계</th> 
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>${response.flightCount.totalOrderedCount}</td>
+                                                            <td>${response.flightCount.totalCost}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>

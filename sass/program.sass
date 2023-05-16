@@ -156,6 +156,30 @@ main
                 [data-full_row]
                     td
                         color: #c2c2c2
+            [data-family_thu_table],[data-family_fri_table]
+                margin-top: 0
+                td
+                    height: 70px
+                    border:
+                        right: 1px solid #dedede
+                    vertical-align: middle
+                    font-weight: 500
+                    &:first-of-type
+                        width: 149px
+                    &:nth-of-type(2)
+                        width: 441px
+                    &:nth-of-type(3)
+                        width: 169px
+                    &:nth-of-type(4)
+                        width: 221px
+                    [data-show_box]
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+                        div
+                            width: 100%
+                            display: flex
+                            justify-content: center
             [data-notice_row]
                 font-size: 18px
                 padding: 
@@ -375,6 +399,7 @@ main
                                         left: 5px
                 [data-content="tour_thu"], [data-content="tour_fri"]
                     border-bottom: none
+                    padding-bottom: 0
                     [data-text_box]
                         display: flex
                         flex-direction: column
@@ -395,6 +420,17 @@ main
                                     font-weight: bold
                                     color: #413684
                                     padding-right: 10px 
+                [data-content="family_thu"], [data-content="family_fri"]
+                    padding-bottom: 36px
+                    border-bottom: 0
+                    [data-show_box]
+                        display: flex
+                        flex-direction: row
+                        align-items: center
+                        flex-wrap: wrap
+                        div
+                            display: flex
+                            align-items: center
                 &:nth-of-type(3)
                     margin-top: 26px
             [data-total_table]
