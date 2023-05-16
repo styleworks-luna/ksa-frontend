@@ -53,10 +53,10 @@
             </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a>></li>
-                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">SPEAKERS</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
                 <li><a href="Application.html">참가신청 / 확인</a></li>
             </ul>
         </div>
@@ -131,12 +131,7 @@
                 <tr>
                     <th>체크인 예정</th>
                     <td>
-                        <div data-check_in_box>
-                            <select data-hour_select>
-                            </select><span>시</span>
-                            <select data-min_select>
-                            </select><span>분</span>
-                        </div>
+                        15시 00분
                     </td>
                 </tr>
                 <tr data-text_row>
@@ -155,6 +150,27 @@
                     </td>
                 </tr>
             </table>
+            <div data-card_info_wrap>
+                <div data-card_info_box>
+                    <p>카드 정보 입력</p>
+                    <label for="cardType">
+                        카드종류
+                        <input type="text" id="cardType">
+                    </label>
+                    <label for="cardHolderName">
+                        소유자명
+                        <input type="text" id="cardHolderName">
+                    </label>
+                    <label for="cardNumber">
+                        카드번호
+                        <input type="text" id="cardNumber" placeholder="카드번호 16자리" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{4})(\d{4})(\d{4})(\d{4})$/, `$1-$2-$3-$4`)" maxlength="16">
+                    </label>
+                    <label for="cardExpiryDate">
+                        유효기간
+                        <input type="text" id="cardExpiryDate" placeholder="ex) 2023년 01월">
+                    </label>
+                </div>
+            </div>
             <div data-notice_box>
                 <p>· 보조침대나 침구 추가 시, 1박에 48,400원의 추가 비용이 발생합니다. (3박 시 145,200원)</p>
                 <p>· 포럼일정 기간동안 KSA 하계 CEO포럼 참가자들은 단체 특별 할인 금액이 적용됩니다.</p>
@@ -217,36 +233,8 @@
             if (base_url === "ksa.onoffmix.xyz") {
                 base_url = "api-" + base_url
             }
-
-            if (window.innerWidth > 760){
-                // 시간 드롭다운 목록 생성
-                for (let i = 0; i <= 23; i++) {
-                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
-                    if (i === 15) {
-                        hour_option.attr('selected', true);
-                    }
-                    $("[data-hour_select]").append(hour_option);
-                }
-                // 분 드롭다운 목록 생성
-                for (let i = 0; i <= 59; i++) {
-                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0'));
-                    $("[data-min_select]").append(min_option);
-                }
-
-            }else{
-                for (let i = 0; i <= 23; i++) {
-                    let hour_option = $('<option>').val(i).text(String(i).padStart(2, '0') + "시");
-                    if (i === 15) {
-                        hour_option.attr('selected', true);
-                    }
-                    $("[data-hour_select]").append(hour_option);
-                }
-                for (let i = 0; i <= 59; i++) {
-                    let min_option = $('<option>').val(i).text(String(i).padStart(2, '0') + "분");
-                    $("[data-min_select]").append(min_option);
-                }
-            }
-
+            // let base_url = "api-ksa.onoffmix.xyz"
+            
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             if(attend_id !== null){
 
@@ -301,9 +289,16 @@
                                     $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " / " + item.hotel.roomType + "<span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check><label><input type='checkbox' value='48400' "+ (item.isSubBedPresent === true ? "checked" : "") + " data-bed_check> 보조침대 신청</label></div></div>");
                                 });
                             }
-                            $("textarea").val(response.userMemo);
-                            $("[data-total]").text(response.totalCost.toLocaleString());
-                            $("input[name='pay']").prop("checked", response.isIndividualPay);
+                        }
+                        $("textarea").val(response.userMemo);
+                        $("[data-total]").text(response.totalCost.toLocaleString());
+                        $("input[name='pay']").prop("checked", response.isIndividualPay);
+                        if(response.isIndividualPay === true){
+                            $("[data-card_info_wrap]").show();
+                            $("#cardType").val(response.cardType);
+                            $("#cardHolderName").val(response.cardHolderName);
+                            $("#cardNumber").val(response.cardNumber);
+                            $("#cardExpiryDate").val(response.cardExpiryDate);
                         }
                     },
                     error: function (error) {
@@ -441,16 +436,24 @@
                     console.log(room_list)
                 });
 
+                $("input[name='pay'").click(function () {
+                    if ($(this).is(":checked")){
+                        $("[data-card_info_wrap]").show();
+                    }else{
+                        $("[data-card_info_wrap]").hide();
+                    }
+                })
+
                 $("button[type='submit']").click(function () {
-                    const hour_ = $("[data-hour_select] option:selected").val();
-                    const min_ = $("[data-min_select] option:selected").val();
-                    const hour =  hour_ < 10 ? '0' + hour_.toString() : hour_.toString();
-                    const min =  min_ < 10 ? '0' + min_.toString() : min_.toString();
                     const data = {
                         "attendId": attend_id,
                         "hotelOrders": room_list,
-                        "estimatedCheckInTime": hour + ":" + min + ":" + "00",
+                        "estimatedCheckInTime": "15:00:00",
                         "userMemo": $("textarea").val(),
+                        "cardType": $("#cardType").val(),
+                        "cardHolderName": $("#cardHolderName").val(),
+                        "cardNumber": $("#cardNumber").val(),
+                        "cardExpiryDate": $("#cardExpiryDate").val(),
                         "isIndividualPay": $("input[name='pay']").is(":checked") === true ? true : false
                     };
                     $.ajax({

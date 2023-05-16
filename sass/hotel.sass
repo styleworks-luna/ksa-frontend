@@ -77,7 +77,7 @@ main
                         span
                             font-size: 24px
                             span
-                                color: #7e499f
+                                color: #413684
                                 font-weight: bold
                         label
                             display: flex
@@ -150,6 +150,43 @@ main
                                     padding:
                                         left: 10px
                                         right: 10px
+        [data-card_info_wrap]
+            display: none
+            [data-card_info_box]
+                width: 500px
+                padding:
+                    top: 30px
+                    bottom: 30px
+                    left: 30px
+                    right: 30px
+                display: flex
+                flex-direction: column
+                border: 2px solid #413684
+                margin:
+                    top: 20px
+                p
+                    text-align: center
+                    font:
+                        size: 20px
+                        weight: bold
+                    padding-bottom: 30px
+                label
+                    font-size: 20px
+                    padding-bottom: 20px
+                    input
+                        padding: 0 20px
+                        box-sizing: border-box
+                        outline: none
+                        height: 69px
+                        width: 325px
+                        border: 1px solid #dedede
+                        font-size: 20px
+                        color: #222
+                        position: relative
+                        margin-left: 10px
+                        &::placeholder
+                            font-size: 20px
+                            color: #aeaeae
 @media (max-width: 760px)
     main
         [data-content_box]
@@ -209,7 +246,7 @@ main
                             span
                                 font-size: 16px
                                 span
-                                    color: #7e499f
+                                    color: #413684
                                     font-weight: bold
                             label
                                 display: flex
@@ -250,7 +287,7 @@ main
                                             display: block
                                             font-weight: bold
                                             font-size: 16px
-                                            color: #7e499f
+                                            color: #413684
                                             padding-top: 10px
                                     button
                                         width: 20px
@@ -286,3 +323,41 @@ main
                                         padding:
                                             left: 5px
                                             right: 5px
+            [data-card_info_wrap]
+                display: none
+                [data-card_info_box]
+                    width: 100%
+                    padding:
+                        top: 30px
+                        bottom: 30px
+                        left: 16px
+                        right: 16px
+                    display: flex
+                    flex-direction: column
+                    border: 2px solid #413684
+                    margin:
+                        top: 20px
+                    p
+                        text-align: center
+                        font:
+                            size: 18px
+                            weight: bold
+                        padding-bottom: 30px
+                    label
+                        font-size: 14px
+                        padding-bottom: 20px
+                        input
+                            font-size: 14px
+                            padding: 0 20px
+                            box-sizing: border-box
+                            outline: none
+                            height: 52px
+                            width: 100%
+                            border: 1px solid #dedede
+                            color: #222
+                            position: relative
+                            margin-left: 0px
+                            margin-top: 10px
+                            &::placeholder
+                                font-size: 14px
+                                color: #aeaeae
