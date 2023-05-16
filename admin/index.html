@@ -191,12 +191,12 @@
     <script src="js/sb-admin-2.js"></script>
     <script>
         $(document).ready(function () {
-            // let url = window.location.href;
-            // let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-            // if (base_url === "ksa.onoffmix.xyz") {
-            //     base_url = "api-" + base_url
-            // }
-            let base_url = "api-ksa.onoffmix.xyz";
+            let url = window.location.href;
+            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+            if (base_url === "ksa.onoffmix.xyz") {
+                base_url = "api-" + base_url
+            }
+            // let base_url = "api-ksa.onoffmix.xyz";
             $.ajax({
                 type: "GET",
                 url: "https://" + base_url + "/api/v1/attends/counting",
@@ -380,11 +380,39 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xl-12">
+                                <div class="col-xl-4">
+                                    <div class="card shadow mb-4 pb-3">
+                                        <div class="card-body">
+                                            <p class="text-primary" style="font-weight: bold;">	참가비 현황</p>
+                                            <div class="chart-pie pt-4 pb-3">
+                                                <table class="table text-center font-weight-bold">
+                                                    <thead>
+                                                        <td class="table-dark">구분</td>
+                                                        <td class="table-dark">참가 기업 수</td>
+                                                        <td class="table-dark">금액</td>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <th class="table-dark" style="width: 150px">신청중</th>
+                                                            <td>${response.companyCount.applying.totalCount}</td>
+                                                            <td>${response.companyCount.applying.totalCost.toLocaleString()}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th class="table-dark" style="width: 150px">신청완료</th>
+                                                            <td>${response.companyCount.done.totalCount}</td>
+                                                            <td>${response.companyCount.done.totalCost.toLocaleString()}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-8">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
                                             <p class="text-primary" style="font-weight: bold;">렌터카 현황</p>
-                                            <div class="">
+                                            <div class="chart-pie pt-4 pb-3">
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
                                                         <td class="table-dark">고급</td>
