@@ -150,7 +150,7 @@
                     </td>
                 </tr>
             </table>
-            <div data-card_info_wrap>
+            <!-- <div data-card_info_wrap>
                 <div data-card_info_box>
                     <p>카드 정보 입력</p>
                     <label for="cardType">
@@ -170,7 +170,7 @@
                         <input type="text" id="cardExpiryDate" placeholder="ex) 2023년 01월">
                     </label>
                 </div>
-            </div>
+            </div> -->
             <div data-notice_box>
                 <p>· 보조침대나 침구 추가 시, 1박에 48,400원의 추가 비용이 발생합니다. (3박 시 145,200원)</p>
                 <p>· 포럼일정 기간동안 KSA 하계 CEO포럼 참가자들은 단체 특별 할인 금액이 적용됩니다.</p>
@@ -436,7 +436,7 @@
                     console.log(room_list)
                 });
 
-                $("input[name='pay'").click(function () {
+                $("input[name='pay']").click(function () {
                     if ($(this).is(":checked")){
                         $("[data-card_info_wrap]").show();
                     }else{
