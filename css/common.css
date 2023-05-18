@@ -46,6 +46,21 @@ body [data-pc_header] ul li:nth-of-type(3) {
 body [data-pc_header] ul li a {
   color: #222;
 }
+body [data-pc_header] ul .kakao a {
+  display: flex;
+  align-items: center;
+}
+body [data-pc_header] ul .kakao a::before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  background-image: url(/images/kakao.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 body [data-pc_header] ul [data-more_box] {
   width: 80px;
   height: 80px;

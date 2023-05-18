@@ -165,16 +165,16 @@
                                                             <div class="form-check form-check-inline pr-4">
                                                                 <input class="form-check-input" type="checkbox" value="attendCost" id="attendCost" name="">
                                                                 <label class="form-check-label mr-2" for="attendCost">참가비</label>
-                                                                <input class="form-check-input" type="checkbox" value="hotelCost" id="hotelCost" name="">
-                                                                <label class="form-check-label mr-2" for="hotelCost">숙박비</label>
                                                                 <input class="form-check-input" type="checkbox" value="flightCost" id="flightCost" name="">
                                                                 <label class="form-check-label mr-2" for="flightCost">항공비</label>
-                                                                <input class="form-check-input" type="checkbox" value="renterCarCost" id="renterCarCost" name="">
-                                                                <label class="form-check-label mr-2" for="renterCarCost">렌트카</label>
+                                                                <input class="form-check-input" type="checkbox" value="hotelCost" id="hotelCost" name="">
+                                                                <label class="form-check-label mr-2" for="hotelCost">호텔비</label>
                                                                 <input class="form-check-input" type="checkbox" value="golfCost" id="golfCost" name="">
                                                                 <label class="form-check-label mr-2" for="golfCost">골프비</label>
                                                                 <input class="form-check-input" type="checkbox" value="tourCost" id="tourCost" name="">
                                                                 <label class="form-check-label mr-2" for="tourCost">관광비</label>
+                                                                <input class="form-check-input" type="checkbox" value="renterCarCost" id="renterCarCost" name="">
+                                                                <label class="form-check-label mr-2" for="renterCarCost">렌트카</label>
                                                                 <input class="form-check-input" type="checkbox" value="sendCostEmail" id="sendCostEmail" name="">
                                                                 <label class="form-check-label mr-2" for="sendCostEmail">결제메일 발송</label>
                                                                 <input class="form-check-input" type="checkbox" value="sendAttendEmail" id="sendAttendEmail" name="">
@@ -217,7 +217,7 @@
                                                             <label class="form-check-label" for="NOT_MEMBER">비회원사</label>
                                                             <input class="form-check-input ml-3" name="friendly" type="radio" id="HIGHEST_LEVEL"
                                                                 value="HIGHEST_LEVEL">
-                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정 원우((AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
+                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정 원우(AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -545,10 +545,10 @@
                                                     <th class="table-secondary align-middle" style="width: 10%;">투숙기간</th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2023-07-05"
+                                                            <input data-start_date type="date" min="2023-07-26"
                                                                 max="2023-07-08" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2023-07-05"
+                                                            <input data-end_date type="date" min="2023-07-30"
                                                                 max="2023-07-08" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
@@ -564,9 +564,7 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary align-middle p-0"><span
-                                                            class="room pb-3 pt-3 pl-3" style="display: none;">객실
-                                                            현황</span></th>
+                                                    <th class="table-secondary align-middle p-0"><span class="room pb-3 pt-3 pl-3" style="display: none;">객실 현황</span></th>
                                                     <td class="p-0">
                                                         <div data-show_row="hotel" class="room pb-3 pt-3 pl-3"
                                                             style="display: none;">
@@ -624,7 +622,15 @@
                                                 06. 골프 정보</p>
                                             <table data-golf_thu_table style="width: 100%;">
                                             </table>
-                                            <table data-golf_fri_table style="width: 100%; margin-bottom: 30px;">
+                                            <table data-golf_fri_table style="width: 100%; margin-bottom: 0px;">
+                                            </table>
+                                            <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="table-secondary align-middle" style="width: 222px">금액합계</th>
+                                                    <td>
+                                                        <p><span data-golf_total class="font-weight-bold text-primary">0</span>원</p>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </form>
 
@@ -637,7 +643,7 @@
                                             <p class="font-weight-bold text-primary">7월 28일 (금)</p>
                                             <table data-tour_fri_table class="table align-middle mb-0" style="color: #222;">
                                             </table>
-                                            <table data-family_fri_table class="table align-middle" style="color: #222;"></table>
+                                            <table data-family_fri_table class="table align-middle mb-0" style="color: #222;"></table>
                                             <table class="table align-middle" style="color: #222;">
                                                 <tr>
                                                     <th class="table-secondary align-middle" style="width: 222px">금액합계</th>
@@ -1704,6 +1710,7 @@
                 let fri_tour_list = [];
                 let fri_golf_list = [];
                 let fri_family_list = [];
+                let total_golf_cost = [];
                 let total_program_cost = [];
                 let thu_list = [];
                 let fri_list = [];
@@ -1860,7 +1867,7 @@
                                                     "attenderId": item.attenderId,
                                                     "golfCourseId": item.golfCourseId,
                                                 });
-                                                total_program_cost.push({
+                                                total_golf_cost.push({
                                                     "attenderId": item.attenderId,
                                                     "Id": item.golfCourseId,
                                                     "cost": item.cost,
@@ -1886,6 +1893,7 @@
                                             });
 
                                             totalProgramCost();
+                                            totalGolfCost();
 
                                             $.each(golf_data, function (index, item) {
                                                 let full = item.capacity === item.currentAttenderNumber;
@@ -2020,6 +2028,10 @@
                     const sum = total_program_cost.reduce((acc, obj) => acc + obj.cost, 0);
                     $("[data-program_total]").text(sum.toLocaleString());
                 };
+                function totalGolfCost() {
+                    const sum = total_golf_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                    $("[data-golf_total]").text(sum.toLocaleString());
+                };
 
                 //골프 참여자 선택시 리스트에 추가
                 $(document).on("change", "[data-golf]", function () {
@@ -2088,13 +2100,13 @@
                         "attenderId": val,
                         "golfCourseId": id
                     });
-                    total_program_cost.push({
+                    total_golf_cost.push({
                         "attenderId": val,
                         "Id": id,
                         "cost": cost,
                     });
                     console.log(golf_list)
-                    totalProgramCost();
+                    totalGolfCost();
                     $("[data-golf]").val("");
                 });
 
@@ -2107,7 +2119,7 @@
                     golf_list = golf_list.filter(function (item) {
                         return !(item.attenderId == val && item.golfCourseId == id);
                     });
-                    total_program_cost = total_program_cost.filter(function (item) {
+                    total_golf_cost = total_golf_cost.filter(function (item) {
                         return !(item.attenderId == val && item.Id == id && item.cost == cost);
                     });
                     $(this).closest("[data-golf_row]").remove();
@@ -2156,7 +2168,7 @@
                             }
                         });
                     }
-                    totalProgramCost();
+                    totalGolfCost();
                 });
 
                 // 골프 핸디값 입력시
