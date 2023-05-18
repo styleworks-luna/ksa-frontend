@@ -106,7 +106,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-flight_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -153,6 +153,19 @@
                                             <div
                                                 class="text-primary font-weight-bold text-uppercase mb-1 text-center text-nowrap">
                                                 골프예약<br> 다운로드</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1 col-md-1 mb-4">
+                            <div class="card border-primary">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div
+                                                class="text-primary font-weight-bold text-uppercase mb-1 text-center text-nowrap">
+                                                렌터카예약<br> 다운로드</div>
                                         </div>
                                     </div>
                                 </div>
@@ -747,6 +760,33 @@
                     }
                 }
             });
+
+            $("[data-flight_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/flights",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '항공 정보.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr, status, error) {
+                        alert(error);
+                    }
+                });
+            })
         });
     </script>
 </body>
