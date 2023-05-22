@@ -193,11 +193,12 @@ body footer [data-footer_wrap] [data-text_box] p {
   color: #ffffff;
 }
 body footer [data-footer_wrap] [data-text_box] p a {
+  font-size: 17px;
   color: #fff;
   padding-left: 15px;
 }
 body footer [data-footer_wrap] [data-text_box] p a span {
-  color: rgba(255, 255, 255, 0.6);
+  color: #fff000;
 }
 body footer [data-footer_wrap] [data-text_box] p:first-of-type {
   padding-left: 15px;

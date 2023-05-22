@@ -544,10 +544,10 @@
                                                     <th class="table-secondary align-middle" style="width: 10%;">투숙기간</th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2023-07-26"
+                                                            <input data-start_date type="date" min="2023-07-24"
                                                                 max="2023-07-30" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2023-07-26"
+                                                            <input data-end_date type="date" min="2023-07-24"
                                                                 max="2023-07-30" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
@@ -2533,7 +2533,7 @@
                             });
 
                             $.each(response.renterCarOrders, function (index, item) {
-                                $("[data-show_row='car']").append("<div data-car_add_row='" + item.renterCarId + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + item.renterStartDate + "~" + item.renterEndDate + "] " + item.renterCar.name + "<span data-bar>ㅣ</span><span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div>");
+                                $("[data-show_row='car']").append("<div data-car_add_row='" + item.renterCarId + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + item.renterStartDate + " " + item.renterStartTime.slice(0, -3) + " ~ " + item.renterEndDate + "  " + item.renterEndTime.slice(0, -3) + "] " + item.renterCar.name + "<span data-bar>ㅣ</span><span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div>");
                             });
 
                             $("#car_memo").val(response.userMemo);
