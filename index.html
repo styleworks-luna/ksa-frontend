@@ -13,30 +13,31 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/common.js"></script>
-    <!-- <script src="/js/index.js"></script> -->
 </head>
 <body>
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
-            <li><a onclick="alert('준비중입니다.')">SPEAKERS</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
-            <li class=""><a href="Gallery.html">갤러리</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+            <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Speaker.html">연사소개</a></li>
+            <li><a href="Performance.html">공연</a></li>
+            <li><a href="Gallery.html">갤러리</a></li>
+            <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
             <li class="kakao"><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
-            <li class="" data-more_box></li>
+            <li data-more_box></li>
         </ul>
         <div data-menu_box>
             <div>
                 <button data-close_box></button>
             </div>
             <ul>
-                <li><a href="Notice.html">공지사항</a>></li>
-                <li><a href="" onclick="alert('준비중입니다.')">SPEAKERS</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
                 <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
             </ul>
     </header>
     <header data-mobile_header>
@@ -49,12 +50,13 @@
                 <button data-close_box></button>
             </div>
             <ul>
-                <li><a href="Notice.html">공지사항</a>></li>
-                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
                 <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
             </ul>
         </div>
     </header>
@@ -71,36 +73,114 @@
                 </div>
             </div>
         </div>
-        <div data-speaker_box="absolute">
-            <h1 data-pc_h1>연사 정보는 추후 업데이트 됩니다.</h1>
-            <h1 data-mobile_h1>연사 정보는 추후<br> 업데이트 됩니다.</h1>
-        </div>
         <div data-speaker_box>
+            <div data-speaker_btn>
+                <span>연사</span>
+                <a href="Speaker.html">더보기 ></a>
+            </div>
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper speaker">
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/KimHwangsik.png" alt="KimHwangsik">
+                        </div>
+                        <span>[기조강연]</span>
+                        <p>대전환의 시대,<br>
+                            대한민국의 과제</p>
+                        <p data-pc><span>김황식</span> | 삼성문화재단 이사장</p>
+                        <p data-mobile><span>김황식</span><br>삼성문화재단 이사장</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/LeeMido.png" alt="LeeMido">
+                        </div>
+                        <span>[렉처콘서트]</span>
+                        <p>리더가 영화에서<br>
+                            훔쳐야 할 것들</p>
+                        <p data-pc><span>이미도</span> | 작가</p>
+                        <p data-mobile><span>이미도</span><br>작가</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/KimKwangdoo.png" alt="KimKwangdoo">
+                        </div>
+                        <span>[ECONOMY]</span>
+                        <p>전환기, K인더스트리의<br>
+                            길을 모색하다</p>
+                        <p data-pc><span>김광두</span> | 국가미래연구원 원장</p>
+                        <p data-mobile><span>김광두</span><br>국가미래연구원 원장</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/SonJueun.png" alt="SonJueun">
+                        </div>
+                        <span>[CEO]</span>
+                        <p>메가스터디의<br>
+                            위기극복과 성공신화</p>
+                        <p data-pc><span>손주은</span> | 메가스터디 대표이사 회장</p>
+                        <p data-mobile><span>손주은</span><br>메가스터디 대표이사 회장</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/BaeSangmin.png" alt="BaeSangmin">
+                        </div>
+                        <span>[INNOVATION]</span>
+                        <p>디자인,<br>
+                            세상을 바꾸다</p>
+                        <p data-pc><span>배상민</span> | 카이스트 교수</p>
+                        <p data-mobile><span>배상민</span><br>카이스트 교수</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/GongKyungchul.png" alt="GongKyungchul">
+                        </div>
+                        <span>[ROBOTICS]</span>
+                        <p>로보틱스<br>
+                            혁신이 바꿀 미래</p>
+                        <p data-pc><span>공경철</span> | 엔젤로보틱스 대표이사</p>
+                        <p data-mobile><span>공경철</span><br>엔젤로보틱스 대표이사</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/LeeKyungjeon.png" alt="LeeKyungjeon">
+                        </div>
+                        <span>[A.I]</span>
+                        <p>인공지능 시대,<br>
+                            우리의 대응</p>
+                        <p data-pc><span>이경전</span> | 경희대학교 교수</p>
+                        <p data-mobile><span>이경전</span><br>경희대학교 교수</p>
                     </div>
                     <div class="swiper-slide">
-                        <img src="/images/speaker.png">
+                        <div data-img>
+                            <img src="/images/SongKiwon.png" alt="SongKiwon">
+                        </div>
+                        <span>[BIOTECH]</span>
+                        <p>유전자 가위기술을<br>
+                            포함한 생명과학<br>
+                            기술의 현재와 미래</p>
+                        <p data-pc><span>이경전</span> | 경희대학교 교수</p>
+                        <p data-mobile><span>이경전</span><br>경희대학교 교수</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img>
+                            <img src="/images/ChoiInchul.png" alt="ChoiInchul">
+                        </div>
+                        <span>[HUMANITIES]</span>
+                        <p>아주<br>
+                            보통의 행복</p>
+                        <p data-pc><span>최인철</span> | 서울대학교 교수</p>
+                        <p data-mobile><span>최인철</span><br>서울대학교 교수</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img>
+                            <img src="/images/ShinByungju.png" alt="ShinByungju">
+                        </div>
+                        <span>[CLOSING LECTURE]</span>
+                        <p>위기에서 빛났던<br>
+                            조선 왕의 리더십
+                        </p>
+                        <p data-pc><span>신병주</span> | 건국대학교 교수</p>
+                        <p data-mobile><span>신병주</span><br>건국대학교 교수</p>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -137,18 +217,43 @@
         </div>
     </footer>
     <script>
-        let url = window.location.href;
-        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        if (base_url === "ksa.onoffmix.xyz") {
-            base_url = "api-" + base_url
-        }
-        // let base_url = "api-ksa.onoffmix.xyz";
+        // let url = window.location.href;
+        // let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        // if (base_url === "ksa.onoffmix.xyz") {
+        //     base_url = "api-" + base_url
+        // }
+        let base_url = "api-ksa.onoffmix.xyz";
 
         function getDirection() {
             var windowWidth = window.innerWidth;
             var direction = windowWidth < 760 ? 'horizontal' : 'horizontal';
             return direction;
         };
+        
+        function getSpeakerDirection() {
+            var windowWidth = window.innerWidth;
+            var direction = windowWidth < 760 ? 'horizontal' : 'horizontal';
+            return direction;
+        };
+        
+        var speaker_swiper = new Swiper('.mySwiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 0,
+            freeMode: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            on: {
+                init: function () {
+                    this.params.direction = getDirection();
+                },
+                resize: function () {
+                    this.params.direction = getDirection();
+                    this.update();
+                }
+            }
+        });
 
         var swiper = new Swiper('.gallery-myswiper', {
             slidesPerView: 'auto',
@@ -196,8 +301,8 @@
                     $(".gallery-swiper").append('<div class="swiper-slide"><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
                 });
             },
-            error: function (xhr, status, error) {
-                alert("error");
+            error: function (xhr) {
+                alert(xhr.responseJSON.message);
             }
         });
 

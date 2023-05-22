@@ -20,12 +20,13 @@
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
-            <li><a onclick="alert('준비중입니다.')">SPEAKERS</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">PERFORMANCE</a></li>
-            <li class=""><a href="Gallery.html">갤러리</a></li>
-            <li class=""><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+            <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Speaker.html">연사소개</a></li>
+            <li><a href="Performance.html">공연</a></li>
+            <li><a href="Gallery.html">갤러리</a></li>
+            <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
             <li class="kakao"><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
-            <li class="" data-more_box></li>
+            <li data-more_box></li>
         </ul>
         <div data-menu_box>
             <div>
@@ -33,11 +34,12 @@
             </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="Application.html">참가신청</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
             </ul>
         </div>
     </header>
@@ -53,16 +55,20 @@
             </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">행사일정</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">프로그램</a></li>
-                <li><a href="" onclick="alert('준비중입니다.')">강연・강좌</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="Application.html">참가신청</a></li>
+                <li><a href="" onclick="alert('준비중입니다.')">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
             </ul>
         </div>
     </header>
     <main>
         <div data-header_box>
+            <div>
+                <a href="Application.html">참가신청</a>
+            </div>
         </div>
         <div data-pc_content_wrap>
             <div data-title_box>공지사항</div>
@@ -144,14 +150,14 @@
                                         type: "PATCH",
                                         url: "https://"+ base_url +"/api/v1/notices/"+ id_num +"/view",
                                         success: function (response) {},
-                                        error: function (xhr, status, error) {}
+                                        error: function (xhr) {}
                                     });
                                 });
                             }
                         })
                     },
-                    error: function (xhr, status, error) {
-                        alert(error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
                     }
                 });
             }else{
@@ -179,14 +185,14 @@
                                         type: "PATCH",
                                         url: "https://"+ base_url +"/api/v1/notices/" + id_num + "/view",
                                         success: function (response) { },
-                                        error: function (xhr, status, error) { }
+                                        error: function (xhr) { }
                                     });
                                 });
                             }
                         })
                     },
-                    error: function (xhr, status, error) {
-                        alert(error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
                     }
                 });
             }

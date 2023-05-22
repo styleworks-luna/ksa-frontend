@@ -750,7 +750,7 @@
                         }
                     $(".table-wrap").html(template);
                 },
-                error: function (xhr, status, error) {
+                error: function (xhr) {
                     if (xhr.status === 401) {
 
                         alert("로그인이 필요한 페이지입니다.")
@@ -782,8 +782,8 @@
                         aTag.click();
                         window.URL.revokeObjectURL(url);
                     },
-                    error: function (xhr, status, error) {
-                        alert(error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
                     }
                 });
             })

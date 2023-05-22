@@ -1005,7 +1005,7 @@
                             alert("저장이 완료 되었습니다.")
                             localStorage.setItem('attend_id', response.attendId);
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             alert("저장에 실패 하였습니다.")
                         }
                     });
@@ -1167,7 +1167,7 @@
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             console.log(data)
                             alert("저장에 실패 하였습니다.")
                         }
@@ -1402,7 +1402,7 @@
                             alert("저장이 완료 되었습니다.")
                             console.log(data)
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             console.log(data)
                             alert("저장에 실패 하였습니다.")
                         }
@@ -1677,7 +1677,7 @@
                         success: function (response) {
                             alert("저장이 완료 되었습니다.")
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             alert("저장에 실패 하였습니다.")
                         }
                     });
@@ -1833,7 +1833,7 @@
                             localStorage.removeItem('attend_id');
                             window.location.href = "/admin/ParticipantList.html";
                         },
-                        error: function (xhr, status, error) {
+                        error: function (xhr) {
                             alert("저장에 실패 하였습니다.")
                         }
                     });

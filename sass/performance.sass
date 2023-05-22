@@ -1,0 +1,171 @@
+main
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    [data-header_box]
+        width: 100%
+        height: 260px
+        background:
+            image: url(/images/sub.png)
+            position: center
+            repeat: no-repeat
+            size: cover
+        div
+            width: 100%
+            height: 260px
+            display: flex
+            align-items: flex-end
+            justify-content: center
+            flex-direction: row
+            padding-bottom: 40px
+            & > a
+                width: 180px
+                height: 52px
+                border-radius: 37px
+                background-color: #7e69ff
+                display: flex
+                align-items: center
+                justify-content: center
+                color: #fff
+                font-size: 24px
+                font-weight: bold
+    [data-content_box]
+        width: 100%
+        max-width: 1280px
+        [data-title_box]
+            width: 100%
+            max-width: 1280px
+            padding: 
+                top: 83px
+                bottom: 0px
+            font-size: 32px
+            font-weight: bold
+            display: flex
+            justify-content: space-between
+            align-items: center
+            [data-select_box]
+                font-weight: 500
+                font-size: 14px
+                select
+                    margin-left: 13px
+                    background: inherit
+                    border: none
+                    box-shadow: none
+                    border-radius: 0
+                    padding: 0
+                    overflow: visible
+                    cursor: pointer
+                    width: 98px
+                    height: 40px
+                    border-radius: 5px
+                    padding-left: 15px
+                    box-sizing: border-box
+                    border: 1px solid #dedede
+                    outline: 0 none
+                    color: #222
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    appearance: none
+                    background:
+                        image: url(/images/icon-up-small_black.svg)
+                        position: center right 10px
+                        repeat: no-repeat
+                        color: #fff
+                    &:focus
+                        border-color: #aaa
+        [data-image_wrap]
+            margin:
+                top: 42px
+                bottom: 109px
+            width: 100%
+            height: 450px
+            background:
+                image: url(/images/kimbumsu-pc.png)
+                position: center
+                repeat: no-repeat
+                color: #fff
+                size: contain
+@media (max-width: 760px)
+    [data-mobile_header]
+        [data-top_header]
+            width: 100%
+            display: flex
+            justify-content: space-between
+            padding:
+                left: 9px
+                right: 9px
+            [data-back_btn]
+                width: 30px
+                height: 30px
+                border: none
+                background:
+                    image: url(/images/menu-back.svg)
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                    color: #fff
+            span
+                font-size: 18px
+                font-weight: bold
+            [data-more_box]
+                width: 30px
+                height: 30px
+                position: relative
+                right: 0
+                border: none
+                background:
+                    image: url(/images/mobile-menu.svg)
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                    color: #fff
+    main
+        [data-header_box]
+            width: 100%
+            height: 208px
+            background:
+                image: url(/images/sub-m.png)
+                position: center
+                repeat: no-repeat
+                size: cover
+            div
+                width: 100%
+                height: 100%
+                display: flex
+                align-items: flex-end
+                justify-content: center
+                flex-direction: row
+                padding-bottom: 29px
+                & > a
+                    width: 148px
+                    height: 48px
+                    border-radius: 37px
+                    background-color: #7e69ff
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    color: #fff
+                    font-size: 16px
+                    font-weight: bold
+                    &:first-of-type
+                        margin-right: 10px
+        [data-content_box]
+            padding: 
+                left: 16px
+                right: 16px
+                bottom: 60px
+            [data-title_box]
+                display: none
+            [data-image_wrap]
+                margin:
+                    top: 37px
+                    bottom: 0px
+                width: 100%
+                height: 111.115vw
+                background:
+                    image: url(/images/kimbumsu-m.png)
+                    position: center
+                    repeat: no-repeat
+                    color: #fff

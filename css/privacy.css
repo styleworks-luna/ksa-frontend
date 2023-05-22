@@ -104,8 +104,8 @@ main [data-content_wrap] [data-text_box] ul li table tr td:last-child {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 9px;
+    padding-right: 9px;
   }
   [data-mobile_header] [data-top_header] [data-back_btn] {
     width: 30px;

@@ -248,8 +248,8 @@
                         alert("삭제 되었습니다.")
                         location.reload()
                     },
-                    error: function (xhr, status, error) {
-                        alert(error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
                     }
                 });
             }
@@ -271,8 +271,8 @@
                         alert("복구 되었습니다.")
                         location.reload()
                     },
-                    error: function (xhr, status, error) {
-                        alert(error);
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
                     }
                 });
             }

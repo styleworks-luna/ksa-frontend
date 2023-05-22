@@ -1,0 +1,279 @@
+main
+    width: 100%
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    [data-header_box]
+        width: 100%
+        height: 260px
+        background:
+            image: url(/images/sub.png)
+            position: center
+            repeat: no-repeat
+            size: cover
+        div
+            width: 100%
+            height: 260px
+            display: flex
+            align-items: flex-end
+            justify-content: center
+            flex-direction: row
+            padding-bottom: 40px
+            & > a
+                width: 180px
+                height: 52px
+                border-radius: 37px
+                background-color: #7e69ff
+                display: flex
+                align-items: center
+                justify-content: center
+                color: #fff
+                font-size: 24px
+                font-weight: bold
+    [data-content_box]
+        width: 100%
+        max-width: 1280px
+        [data-title_box]
+            width: 100%
+            max-width: 1280px
+            padding: 
+                top: 85px
+                bottom: 0px
+            font-size: 32px
+            font-weight: bold
+            display: flex
+            justify-content: space-between
+            align-items: center
+            [data-select_box]
+                font-weight: 500
+                font-size: 14px
+                select
+                    margin-left: 13px
+                    background: inherit
+                    border: none
+                    box-shadow: none
+                    border-radius: 0
+                    padding: 0
+                    overflow: visible
+                    cursor: pointer
+                    width: 98px
+                    height: 40px
+                    border-radius: 5px
+                    padding-left: 15px
+                    box-sizing: border-box
+                    border: 1px solid #dedede
+                    outline: 0 none
+                    color: #222
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    appearance: none
+                    background:
+                        image: url(/images/icon-up-small_black.svg)
+                        position: center right 10px
+                        repeat: no-repeat
+                        color: #fff
+                    &:focus
+                        border-color: #aaa
+        [data-image_wrap]
+            padding:
+                top: 45px
+                bottom: 95px
+            display: flex
+            flex-wrap: wrap
+            [data-image_box]
+                width: 275px
+                height: auto
+                display: flex
+                flex-direction: column
+                align-items: center
+                margin-right: 60px
+                margin-bottom: 55px
+                [data-img]
+                    padding:
+                        left: 16px
+                        right: 16px
+                        bottom: 3px
+                    width: 100%
+                    height: 275px
+                    img
+                        width: 100%
+                        height: 100%
+                span
+                    font-size: 14px
+                    font-weight: bold
+                    display: block
+                    padding-top: 16px
+                p
+                    &:first-of-type
+                        padding-top: 12px
+                        line-height: 30px
+                        text-align: center
+                        font:
+                            size: 28px
+                            weight: bold
+                        color: #008ecf
+                    &:last-of-type
+                        font:
+                            size: 16px
+                        line-height: 22px
+                        padding-top: 11px
+                        span
+                            font:
+                                size: 16px
+                            font-weight: bold
+                            display: inline
+                            padding-right: 5px 
+                [data-pc]
+                    display: block
+                    span
+                        font:
+                            size: 16px
+                        font-weight: bold
+                        display: inline-block
+                        padding-right: 5px 
+                [data-mobile]
+                    display: none
+                &:nth-of-type(4n)
+                    margin-right: 0
+                &:nth-of-type(n+5)
+                    margin-bottom: 23px
+            [data-image_box="blue"]
+                p
+                    &:first-of-type
+                        color: #413583
+@media (max-width: 760px)
+    [data-mobile_header]
+        [data-top_header]
+            width: 100%
+            display: flex
+            justify-content: space-between
+            padding:
+                left: 16px
+                right: 16px
+            [data-back_btn]
+                width: 30px
+                height: 30px
+                border: none
+                background:
+                    image: url(/images/menu-back.svg)
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                    color: #fff
+            span
+                font-size: 18px
+                font-weight: bold
+            [data-more_box]
+                width: 30px
+                height: 30px
+                position: relative
+                right: 0
+                border: none
+                background:
+                    image: url(/images/mobile-menu.svg)
+                    position: center
+                    repeat: no-repeat
+                    size: contain
+                    color: #fff
+    main
+        [data-header_box]
+            width: 100%
+            height: 208px
+            background:
+                image: url(/images/sub-m.png)
+                position: center
+                repeat: no-repeat
+                size: cover
+            div
+                width: 100%
+                height: 100%
+                display: flex
+                align-items: flex-end
+                justify-content: center
+                flex-direction: row
+                padding-bottom: 29px
+                & > a
+                    width: 148px
+                    height: 48px
+                    border-radius: 37px
+                    background-color: #7e69ff
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    color: #fff
+                    font-size: 16px
+                    font-weight: bold
+                    &:first-of-type
+                        margin-right: 10px
+        [data-content_box]
+            padding: 
+                left: 16px
+                right: 16px
+                bottom: 50px
+            [data-title_box]
+                display: none
+            [data-image_wrap]
+                padding-top: 37px
+                padding-bottom: 0px
+                display: flex
+                justify-content: space-between
+                flex-wrap: wrap
+                align-content: center
+                [data-image_box]
+                    width: 48%
+                    height: auto
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    margin-right: 0px
+                    margin-bottom: 29px
+                    [data-img]
+                        padding:
+                            left: 10px
+                            right: 10px
+                            bottom: 0px
+                        width: 100%
+                        height: 43.9vw
+                        img
+                            width: 100%
+                            height: 100%
+                    span
+                        font-size: 14px
+                        font-weight: bold
+                        display: block
+                        padding-top: 15px
+                    p
+                        &:first-of-type
+                            padding-top: 6px
+                            line-height: 20px
+                            text-align: center
+                            font:
+                                size: 19px
+                                weight: bold
+                            color: #008ecf
+                        &:last-of-type
+                            text-align: center
+                            font:
+                                size: 14px
+                            line-height: 20px
+                            padding-top: 0px
+                            span
+                                font:
+                                    size: 14px
+                                font-weight: bold
+                                display: inline-block
+                                padding-right: 0px
+                                padding-top: 10px
+                    [data-pc]
+                        display: none
+                    [data-mobile]
+                        display: block
+                    &:nth-of-type(4n)
+                        margin-right: 0
+                    &:nth-of-type(n+5)
+                        margin-bottom: 23px
+                [data-image_box="blue"]
+                    p
+                        &:first-of-type
+                            color: #413583
