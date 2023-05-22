@@ -242,7 +242,6 @@
                                     <option value="SPOUSE">배우자</option>
                                     <option value="CHILD">자녀</option>
                                     <option value="RELATIVE">친척</option>
-                                    <option value="STAFF">직원</option>
                                     <option value="GRAND_CHILD">손자녀</option>
                                     <option value="ETC">기타</option>
                                 </select>
@@ -473,7 +472,6 @@
                                     <option value="SPOUSE">배우자</option>
                                     <option value="CHILD">자녀</option>
                                     <option value="RELATIVE">친척</option>
-                                    <option value="STAFF">직원</option>
                                     <option value="GRAND_CHILD">손자녀</option>
                                     <option value="ETC">기타</option>
                                 </select>
@@ -1079,7 +1077,11 @@
 
                         },
                         error: function (xhr) {
-                            alert(xhr.responseJSON.message)
+                            if (xhr.responseJSON && xhr.responseJSON.message) {
+                                alert(xhr.responseJSON.message);
+                            } else {
+                                alert("저장에 실패했습니다.");
+                            }
                         }
                     });
                 }
@@ -1500,7 +1502,11 @@
                             window.location.href = "./Flight.html";
                         },
                         error: function (xhr) {
-                            alert(xhr.responseJSON.message)
+                            if (xhr.responseJSON && xhr.responseJSON.message) {
+                                alert(xhr.responseJSON.message);
+                            } else {
+                                alert("저장에 실패했습니다.");
+                            }
                         }
                     });
                 }
