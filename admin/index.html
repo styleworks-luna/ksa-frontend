@@ -80,7 +80,7 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-2 col-md-1 mb-4">
+                        <div class="col-2 col-md-1 mb-4" data-cost_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-attender_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -119,7 +119,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-hotel_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -132,7 +132,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-tour_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -145,7 +145,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-golf_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -779,6 +779,141 @@
                         const url = window.URL.createObjectURL(response);
                         aTag.href = url;
                         aTag.download = '항공 정보.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+
+            $("[data-hotel_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/hotels",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '호텔 정보.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+
+            $("[data-cost_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/attends-cost",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '참가자 금액.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+
+            $("[data-attender_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/attends",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '참가자 명단.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+
+            $("[data-tour_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/programs",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '투어 명단.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+
+            $("[data-golf_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/golfs",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '골프 명단.xlsx';
                         aTag.click();
                         window.URL.revokeObjectURL(url);
                     },
