@@ -158,7 +158,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-1 col-md-1 mb-4">
+                        <div class="col-1 col-md-1 mb-4" data-renter_download style="cursor: pointer;">
                             <div class="card border-primary">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -928,6 +928,33 @@
                         const url = window.URL.createObjectURL(response);
                         aTag.href = url;
                         aTag.download = '골프 명단.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
+            })
+            
+            $("[data-renter_download]").click(function () {
+                $.ajax({
+                    "url": "https://" + base_url + "/api/v1/excel/renter-cars",
+                    "method": "GET",
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob'
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '렌터카 명단.xlsx';
                         aTag.click();
                         window.URL.revokeObjectURL(url);
                     },
