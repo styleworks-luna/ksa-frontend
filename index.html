@@ -19,7 +19,7 @@
         <a href="Index.html" data-logo_box></a>
         <ul>
             <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사소개</a></li>
+            <li><a href="Speaker.html">연사</a></li>
             <li><a href="Performance.html">공연</a></li>
             <li><a href="Gallery.html">갤러리</a></li>
             <!-- <li><a href="FourmInfo.html">포럼안내</a></li> -->
@@ -238,7 +238,16 @@
         
         var speaker_swiper = new Swiper('.mySwiper', {
             slidesPerView: 'auto',
+            autoplay: {
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
             spaceBetween: 0,
+            speed: 7000,
+            slidesPerView: "auto",
+            loopedSlides: 1,
+            observer: true,
+            observeParents: true,
             freeMode: true,
             navigation: {
                 nextEl: '.swiper-button-next',
@@ -246,13 +255,17 @@
             },
             on: {
                 init: function () {
-                    this.params.direction = getDirection();
+                    this.params.direction = getSpeakerDirection();
+                    startAutoplay(this);
                 },
                 resize: function () {
-                    this.params.direction = getDirection();
+                    this.params.direction = getSpeakerDirection();
                     this.update();
-                }
-            }
+                },
+                slideChangeTransitionEnd: function () {
+                    startAutoplay(this);
+                },
+            },
         });
 
         var swiper = new Swiper('.gallery-myswiper', {
