@@ -315,7 +315,7 @@
                     "url": "https://"+ base_url +"/api/v1/hotels?year=2023&isRoomRemaining=true",
                     success: function (response) {
                         $.each(response, function (index, item) {
-                            $("[data-room_select]").append('<option data-cost="'+ item.cost +'" value="' + item.hotelId + '">' + item.hotelName + " " + item.roomType + " / " + item.bedType + " / " + item.cost.toLocaleString() +"원</option>");
+                            $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + item.hotelName + " " + (item.type === "INDIVIDUAL" ? "개별예약" : item.roomType + " / " + item.bedType) + " / " + item.cost.toLocaleString() + "원" + '</option>');
                         });
                     },
                     error: function (error) {
