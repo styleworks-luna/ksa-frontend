@@ -1519,7 +1519,11 @@
                                 let bed = item.isSubBedPresent === true ? 48400 : 0
                                 let family = item.isBedFamilyTwin === true ? 36300 : 0
 
-                                $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + item.cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? 'checked' : '') + "> 보조침대 신청</label></div></div>");
+                                if (item.hotel.type === "INDIVIDUAL") {
+                                    $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + "</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
+                                }else{
+                                    $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + item.cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? 'checked' : '') + "> 보조침대 신청</label></div></div>");
+                                }
                             });
                         }
                         $("[data-hotel_total]").text(response.totalCost.toLocaleString());
@@ -1544,7 +1548,7 @@
                     "url": "https://" + base_url + "/api/v1/hotels",
                     success: function (response) {
                         $.each(response, function (index, item) {
-                            $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + item.hotelName + " " + (item.type === "INDIVIDUAL" ? "개별예약" : item.roomType + " / " + item.bedType) + " / " + item.cost.toLocaleString() + "원" + '</option>');
+                            $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
                         });
                     },
                     error: function (error) {
@@ -1581,9 +1585,11 @@
                 function showSelectedInfo() {
                     if (hotel_val !== "" && start_val !== "" && end_val !== "") {
                         $(".room").show();
-
-                        $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
-
+                        if (hotel_cost === 0) {
+                            $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
+                        }else{
+                            $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
+                        }
                         room_list.push({
                             "hotelId": Number(hotel_val),
                             "stayStartDate": start_val,

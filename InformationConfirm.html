@@ -369,7 +369,12 @@
                             });
                             
                             $.each(response.hotel.hotelOrders, function (index, item) {
-                                $("[data-hotel_data]").append("<tr><td>"+ item.stayStartDate + " ~ "+ item.stayEndDate +"</td><td>" + item.hotel.roomType + "</td><td>" + (item.isSubBedPresent === true ? "보조 침대" : "") + "</td><td>"+ response.hotel.estimatedCheckInTime.slice(0, -3) +"</td><td>" + response.hotel.userMemo +"</td></tr>");
+                                if (item.hotel.type === "INDIVIDUAL") {
+                                    $("[data-hotel_data]").append("<tr><td>" + item.stayStartDate + " ~ " + item.stayEndDate + "</td><td>" + item.hotel.bedType + "</td><td></td><td></td><td>" + response.hotel.userMemo + "</td></tr>");
+                                }
+                                else{
+                                    $("[data-hotel_data]").append("<tr><td>" + item.stayStartDate + " ~ " + item.stayEndDate + "</td><td>" + item.hotel.roomType + "</td><td>" + (item.isSubBedPresent === true ? "보조 침대" : "") + "</td><td>" + response.hotel.estimatedCheckInTime.slice(0, -3) + "</td><td>" + response.hotel.userMemo + "</td></tr>");
+                                }
                             });
                             
                             $.each(response.renterCar.renterCarOrders, function (index, item) {
@@ -408,7 +413,11 @@
                             });
 
                             $.each(response.hotel.hotelOrders, function (index, item) {
-                                $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + " | " + response.hotel.estimatedCheckInTime.slice(0, -3) + " (체크인)</p><p>" + item.hotel.hotelName + " " + item.hotel.roomType + " | " + (item.isSubBedPresent === true ? "보조 침대" : "") + "</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
+                                if(item.hotel.type === "INDIVIDUAL"){
+                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + "</p><p>" + item.hotel.bedType +"</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
+                                }else{
+                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + " | " + response.hotel.estimatedCheckInTime.slice(0, -3) + " (체크인)</p><p>" + item.hotel.hotelName + " " + item.hotel.roomType + " | " + (item.isSubBedPresent === true ? "보조 침대" : "") + "</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
+                                }
                             });
                             
                             $.each(response.renterCar.renterCarOrders, function (index, item) {
