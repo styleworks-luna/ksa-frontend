@@ -1520,7 +1520,7 @@
                                 let family = item.isBedFamilyTwin === true ? 36300 : 0
 
                                 if (item.hotel.type === "INDIVIDUAL") {
-                                    $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + "</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
+                                    $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + " (롯데호텔 外)</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
                                 }else{
                                     $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + item.cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? 'checked' : '') + "> 보조침대 신청</label></div></div>");
                                 }

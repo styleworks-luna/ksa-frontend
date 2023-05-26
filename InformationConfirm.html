@@ -414,7 +414,7 @@
 
                             $.each(response.hotel.hotelOrders, function (index, item) {
                                 if(item.hotel.type === "INDIVIDUAL"){
-                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + "</p><p>" + item.hotel.bedType +"</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
+                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + "</p><p>" + item.hotel.bedType +" (롯데호텔 外)</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
                                 }else{
                                     $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + " | " + response.hotel.estimatedCheckInTime.slice(0, -3) + " (체크인)</p><p>" + item.hotel.hotelName + " " + item.hotel.roomType + " | " + (item.isSubBedPresent === true ? "보조 침대" : "") + "</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
                                 }
