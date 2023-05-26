@@ -268,7 +268,8 @@
                                                 <option value="LUXURY">고급</option>
                                                 <option value="MID_SIZE">중형</option>
                                                 <option value="SUV">SUV</option>
-                                                <option value="CARNIVAL">CARNIVAL</option>
+                                                <option value="CARNIVAL">카니발급</option>
+                                                <option value="ELECTRIC">전기차</option>
                                             </select>
                                         </td>
                                         <td>
@@ -320,12 +321,12 @@
 <script src="js/sb-admin-2.js"></script>
 <script>
     $(document).ready(function () {
-        let url = window.location.href;
-        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        if (base_url === "ksa.onoffmix.xyz") {
-            base_url = "api-" + base_url
-        }
-        // let base_url = "api-ksa.onoffmix.xyz";
+        // let url = window.location.href;
+        // let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
+        // if (base_url === "ksa.onoffmix.xyz") {
+        //     base_url = "api-" + base_url
+        // }
+        let base_url = "api-ksa.onoffmix.xyz";
         
         let flight_list = [];
         let add_flight_list = [];
