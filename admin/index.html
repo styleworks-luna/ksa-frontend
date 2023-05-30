@@ -217,7 +217,7 @@
             // let base_url = "api-ksa.onoffmix.xyz";
             $.ajax({
                 type: "GET",
-                url: "https://" + base_url + "/api/v1/attends/counting",
+                url: "https://" + base_url + "/api/v2/attends/counting",
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -639,106 +639,142 @@
                                     <div class=" mb-4">
                                         <div class="card shadow card-body">
                                             <p class="text-primary" style="font-weight: bold;">호텔 현황</p>
-                                            <div class="" >
+                                            <div class="">
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
-                                                        <td class="table-dark align-middle">구분</td>
-                                                        <td class="align-middle">패밀리트윈</td>
-                                                        <td class="align-middle">패밀리더블</td>
-                                                        <td class="align-middle">트윈</td>
-                                                        <td class="align-middle">더블</td>
-                                                        <td class="align-middle">패밀리트윈<br>+보조침대</td>
-                                                        <td class="align-middle">패밀리더블<br>+보조침대</td>
-                                                        <td class="align-middle">트윈<br>+보조침대</td>
-                                                        <td class="align-middle">더블<br>+보조침대</td>
-                                                        <td class="align-middle">총 객실수</td>
-                                                        <td class="align-middle">합계</td>
-                                                        <td class="align-middle">총액</td>
+                                                        <td colspan="2" class="table-dark align-middle">구분</td>
+                                                        <td class="table-dark align-middle">예약가능 총 객실</td>
+                                                        <td class="table-dark align-middle">예약완료 객실</td>
+                                                        <td class="table-dark align-middle">예약가능 잔여 객실</td>
+                                                        <td class="table-dark align-middle">보조침대 추가 현황</td>
+                                                        <td class="table-dark align-middle">총액</td>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <th class="table-dark align-middle">디럭스 마운틴</th>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.familyTwinAndSubBedRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.twinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalQuantity}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCount}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeMountain.totalCost.toLocaleString() }</td>
+                                                            <th rowspan="3" class="table-dark align-middle">디럭스 마운틴</td>
+                                                            <td class="table-active">패밀리트윈</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
-                                                            <th class="table-dark align-middle">디럭스 가든룸</th>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.familyTwinAndSubBedRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.twinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalQuantity}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCount}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteDeluxeGarden.totalCost.toLocaleString() }</td>
+                                                            <td class="table-active">트윈</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
-                                                            <th class="table-dark align-middle">샤롯데 오션룸</th>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.familyTwinAndSubBedRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.twinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalQuantity}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCount}</td>
-                                                            <td class="align-middle">${response.hotelCount.lotteCharlotteOcean.totalCost.toLocaleString() }</td>
+                                                            <td class="table-active">더블</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
-                                                            <th class="table-dark align-middle">프리미어 오션룸</th>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.twinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.familyTwinAndSubBedRoom}</td>
-                                                            <td class="align-middle">0</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.twinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalQuantity}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCount}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierOcean.totalCost.toLocaleString() }</td>
+                                                            <th rowspan="2" class="table-dark align-middle">디럭스 가든</td>
+                                                            <td class="table-active">패밀리트윈</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
-                                                            <th class="table-dark align-middle">프리미어 가든</th>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.familyTwinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.familyDoubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.twinRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.doubleRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.familyTwinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.familyDoubleRoomAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.twinAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.doubleAndSubBedRoom}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.totalQuantity}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.totalCount}</td>
-                                                            <td class="align-middle">${response.hotelCount.lottePremierGarden.totalCost.toLocaleString() }</td>
+                                                            <td class="table-active">더블</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                         <tr>
-                                                            <th class="table-dark align-middle">합산</th>
+                                                            <th rowspan="2" class="table-dark align-middle">샤롯데 오션</td>
+                                                            <td class="table-active">패밀리트윈</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-active">더블</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th rowspan="2" class="table-dark align-middle">프리미어 오션</td>
+                                                            <td class="table-active">패밀리트윈</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-active">더블</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.doubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.doubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.doubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.doubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lottePremierOcean.doubleRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th rowspan="2" class="table-dark align-middle">프리미어 가든</td>
+                                                            <td class="table-active">패밀리트윈</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-active">패밀리더블</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th rowspan="2" class="table-dark align-middle">온돌</td>
+                                                            <td class="table-active">더블</td>
+                                                            <td>${response.hotelCount.lotteOnDol.doubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.doubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.doubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.doubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.doubleRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="table-active">패밀리</td>
+                                                            <td>${response.hotelCount.lotteOnDol.familyDoubleRoom.availableOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.familyDoubleRoom.finishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.familyDoubleRoom.restRooms}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.familyDoubleRoom.subBedRoom}</td>
+                                                            <td>${response.hotelCount.lotteOnDol.familyDoubleRoom.totalCost.toLocaleString() }</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th colspan="2" class="table-dark align-middle">숙소 개별 예약</td>
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td class="font-weight-bold">${response.hotelCount.totalCost.toLocaleString()}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th colspan="2" class="table-dark align-middle">합계</td>
+                                                            <td>${response.hotelCount.totalRestRooms}</td>
+                                                            <td>${response.hotelCount.totalFinishedOrderRooms}</td>
+                                                            <td>${response.hotelCount.totalAvailableOrderRooms}</td>
+                                                            <td>${response.hotelCount.totalSubBedRoom}</td>
+                                                            <td>${response.hotelCount.totalCost.toLocaleString() }</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
