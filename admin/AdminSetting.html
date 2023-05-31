@@ -556,17 +556,19 @@
                     "디럭스 가든" : "LOTTE_DELUXE_GARDEN",
                     "프리미어 가든" : "LOTTE_PREMIER_GARDEN",
                     "샤롯데 오션" : "LOTTE_CHARLOTTE_OCEAN",
-                    "프리미어 오션" : "LOTTE_PREMIER_OCEAN"
+                    "프리미어 오션" : "LOTTE_PREMIER_OCEAN",
+                    "온돌" : "LOTTE_ON_DOL"
                 };
                 const bedType = {
                     "트윈" : "TWIN",
                     "더블" : "DOUBLE",
+                    "패밀리" : "FAMILY",
                     "패밀리트윈" : "FAMILY_TWIN",
                     "패밀리더블" : "FAMILY_DOUBLE",
                 };
                 $.each(response, function (index, item) {
                     if (item.type === "NORMAL") {
-                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (item.roomType === "온돌" ? "selected" : "") + '>온돌</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY" ' + (item.bedType === "패밀리" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                         hotel_list.push({
                             "hotelId": item.hotelId,
