@@ -16,6 +16,19 @@
         rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <style>
+        #content-wrapper {
+            width: 100%;
+            min-width: 1980px;
+            overflow-x: scroll
+        }
+
+        @media (max-width: 1280px) {
+            body {
+                overflow-x: auto !important;
+            }
+        }
+    </style>
 </head>
 
 <body id="page-top">
@@ -90,25 +103,25 @@
                             <button type="button" class="mod-btn btn btn-primary btn-m ml-3 pl-3 pr-3">정보 수정</button>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4" style="width: 100%">
                         <div class="card-body">
-                            <table class="table text-center font-weight-bold">
+                            <table class="table text-center font-weight-bold" style="width: 100%">
                                 <thead>
                                     <tr>
                                         <th class="table-dark">구간</th>
                                         <th class="table-dark">항공사</th>
                                         <th class="table-dark">좌석</th>
-                                        <th class="table-dark">출발편명</th>
-                                        <th class="table-dark">출발일자</th>
-                                        <th class="table-dark">출발시간</th>
-                                        <th class="table-dark">도착편명</th>
-                                        <th class="table-dark">도착일자</th>
-                                        <th class="table-dark">도착시간</th>
-                                        <th class="table-dark">노인 운임료</th>
-                                        <th class="table-dark">성인 운임료</th>
-                                        <th class="table-dark">소인 운임료</th>
+                                        <th class="table-dark">출발<br>편명</th>
+                                        <th class="table-dark">출발<br>일자</th>
+                                        <th class="table-dark">출발<br>시간</th>
+                                        <th class="table-dark">도착<br>편명</th>
+                                        <th class="table-dark">도착<br>일자</th>
+                                        <th class="table-dark">도착<br>시간</th>
+                                        <th class="table-dark">노인운임</th>
+                                        <th class="table-dark">성인운임</th>
+                                        <th class="table-dark">소인운임</th>
                                         <th class="table-dark">좌석수</th>
-                                        <th class="table-dark">신청수</th>
+                                        <th class="table-dark">신청</th>
                                         <th class="table-dark"></th>
                                     </tr>
                                 </thead>
@@ -160,16 +173,16 @@
                                             <input class="reset" id="add_landingTime" type="time">
                                         </td>
                                         <td>
-                                            <input class="reset" id="add_seniorCost" type="text" style="width: 80px">원
+                                            <input class="reset" id="add_seniorCost" type="text" style="width: 80px">
                                         </td>
                                         <td>
-                                            <input class="reset" id="add_adultCost" type="text" style="width: 80px">원
+                                            <input class="reset" id="add_adultCost" type="text" style="width: 80px">
                                         </td>
                                         <td>
-                                            <input class="reset" id="add_childCost" type="text" style="width: 80px">원
+                                            <input class="reset" id="add_childCost" type="text" style="width: 80px">
                                         </td>
                                         <td>
-                                            <input class="reset" id="add_seatQuantity" type="text" style="width: 50px">석
+                                            <input class="reset" id="add_seatQuantity" type="text" style="width: 50px">
                                         </td>
                                         <td colspan="2">
                                             <button type="button" class="add-btn btn btn-success btn-m pl-4 pr-4">추가</button>
@@ -189,7 +202,7 @@
                             <button type="button" class="hotel-mod-btn btn btn-primary btn-m ml-3 pl-3 pr-3">정보 수정</button>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4" style="width: 80%">
                         <div class="card-body">
                             <table class="table text-center font-weight-bold">
                                 <thead>
@@ -220,7 +233,9 @@
                                             <select id="add_bedType" class="reset">
                                                 <option value="" disabled selected>선택</option>
                                                 <option value="TWIN">트윈</option>
+                                                <option value="FAMILY_TWIN">패밀리트윈</option>
                                                 <option value="DOUBLE">더블</option>
+                                                <option value="FAMILY_DOUBLE">패밀리더블</option>
                                             </select>
                                         </td>
                                         <td><input type="text" id="add_hotel_cost" class="reset"></td>
@@ -245,7 +260,7 @@
                             <button type="button" class="rental-mod-btn btn btn-primary btn-m ml-3 pl-3 pr-3">정보 수정</button>
                         </div>
                     </div>
-                    <div class="card shadow mb-4">
+                    <div class="card shadow mb-4" style="width: 80%">
                         <div class="card-body">
                             <table class="table text-center font-weight-bold">
                                 <thead>

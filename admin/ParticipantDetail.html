@@ -1239,7 +1239,7 @@
                     let value = $(this).val();
                     $.ajax({
                         "type": "GET",
-                        "url": "https://" + base_url + "/api/v1/flights?startCity=" + value,
+                        "url": "https://" + base_url + "/api/v1/flights?startCity=" + value + "&hideFullFlight=false",
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1456,7 +1456,7 @@
 
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/flight-orders",
+                        "url": "https://" + base_url + "/api/v1/flight-orders/all",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -1545,7 +1545,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/hotels",
+                    "url": "https://" + base_url + "/api/v1/hotels?year=2023&isRoomRemaining=false",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
@@ -1693,7 +1693,7 @@
 
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/hotel-orders",
+                        "url": "https://" + base_url + "/api/v1/hotel-orders/all",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -2559,7 +2559,7 @@
                 // 렌터카 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/renter-cars?year=2023",
+                    "url": "https://" + base_url + "/api/v1/renter-cars?year=2023&hideFullRenterCar=false",
                     success: function (response) {
                         console.log(response)
                         $.each(response, function (index, item) {
@@ -2735,7 +2735,7 @@
                     if (!hasUndefined) {
                         $.ajax({
                             "type": "POST",
-                            "url": "https://" + base_url + "/api/v1/renter-car-orders",
+                            "url": "https://" + base_url + "/api/v1/renter-car-orders/all",
                             "data": JSON.stringify(data),
                             "contentType": 'application/json',
                             beforeSend: function (xhr) {
