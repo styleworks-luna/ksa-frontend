@@ -349,7 +349,7 @@
         let add_rental_list = [];
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/flights?year=2023",
+            "url": "https://" + base_url + "/api/v1/flights?year=2023&hideFullFlight=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -544,7 +544,7 @@
         //----------------------------------호텔 정보----------------------------------------
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/hotels?year=2023",
+            "url": "https://" + base_url + "/api/v1/hotels?year=2023&isRoomRemaining=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -746,7 +746,7 @@
         //----------------------------------렌터카 정보----------------------------------------
         $.ajax({
             "type": "GET",
-             "url": "https://" + base_url + "/api/v1/renter-cars?year=2023",
+             "url": "https://" + base_url + "/api/v1/renter-cars?year=2023&hideFullRenterCar=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
