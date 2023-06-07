@@ -437,8 +437,7 @@
                                                             </div>
                                                             <a id="ksa_business_registration"
                                                                 class="down-btn input-group-text bg-success text-white"
-                                                                href="https://api-ksa.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}"
-                                                                download>
+                                                                href="" download>
                                                                 파일 다운로드
                                                             </a>
                                                         </div>
@@ -810,7 +809,7 @@
                 return decodeURIComponent(results[2].replace(/\+/g, ' '));
             }
             const id_num = getParameterByName('id');
-            const downloadLink = `https://api-ksa.onoffmix.xyz/api/v1/company/businessRegistration?attendId=${id_num}`;
+            const downloadLink = `https://${base_url}/api/v1/companies/businessRegistration?attendId=${id_num}`;
             let today_date = moment().format("YYYY-MM-DD");
             $('#ksa_business_registration').attr('href', downloadLink);
 
