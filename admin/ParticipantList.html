@@ -151,6 +151,10 @@
                                         </thead>
                                     </table>
                                 </div>
+                                <div>
+                                    <input type="text" class="another-search-input">
+                                    <button class="btn btn-info another-search">검색</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -309,28 +313,29 @@
         let apply_status = "";
         let deposit_status = "";
         let taxbill_publish_status = "";
+        let keyword = "";
 
         $('#friendlyGroupFilter').on('change', function () {
             friendly_group = $('#friendlyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#ApplyGroupFilter').on('change', function () {
             apply_status = $('#ApplyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#depositStatusFilter').on('change', function () {
             deposit_status = $('#depositStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#taxbillPublishStatusFilter').on('change', function () {
             taxbill_publish_status = $('#taxbillPublishStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
@@ -362,6 +367,13 @@
             var id = $(this).attr('href');
             const num = $.trim(id.replace(/[^0-9]/g, ''));
             window.location.href = '/admin/ParticipantDetail.html?id=' + num;
+        });
+
+        $(".another-search").click(function () {
+            keyword = $(".another-search-input").val();
+
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            $('#dataTable').DataTable().ajax.url(url).load();
         });
     </script>
 </body>
