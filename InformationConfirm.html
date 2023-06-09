@@ -147,6 +147,7 @@
                             <th>출 도착 도시</th>
                             <th>이름</th>
                             <th>항공 일정</th>
+                            <th>요청사항</th>
                         </tr>
                     </table>
                 </div>
@@ -328,7 +329,6 @@
             if (base_url === "ksa.onoffmix.xyz") {
                 base_url = "api-" + base_url
             }
-            // let base_url = "api-ksa.onoffmix.xyz"
             if(attend_id !== null){
                 $.ajax({
                     "type": "GET",
@@ -363,10 +363,14 @@
                             $.each(response.familyAttenders, function (index, item) {
                                 $("[data-family_data]").append("<tr><td>" + relation[item.relation] + "</td><td>" + item.name + "</td><td>" + (item.juminNumber.substring(8, item.juminNumber - 6) + "******") + "</td><td>" + item.mobilePhone + "</td></tr>");
                             });
-    
-                            $.each(response.flight.flightTickets, function (index, item) {
-                                $("[data-flight_data]").append("<tr><td>" + item.flight.startCity + " - " + item.flight.landingCity +"</td><td>"+ item.attenderName +"</td><td>[" + item.flight.startCity +"발] "+ item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + " " + item.flight.startTime.slice(0, -3) +" / " + item.flight.startFlight +" - " + "[" + item.flight.landingCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingDate + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight +"</td></tr>");
-                            });
+                            
+                            if (response.flight.isIndividualOrder === true) {
+                                $("[data-flight_data]").append("<tr><td></td><td></td><td>개별 예약</td><td style='width: 15%'>" + response.flight.userMemo + "</td></tr>");
+                            }else{
+                                $.each(response.flight.flightTickets, function (index, item) {               
+                                    $("[data-flight_data]").append("<tr><td>" + item.flight.startCity + " - " + item.flight.landingCity +"</td><td>"+ item.attenderName +"</td><td>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + " " + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + " - " + "[" + item.flight.landingCity + "발]" + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingDate + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight + "</td><td style='width: 15%'>"+  response.flight.userMemo +"</td></tr>");
+                                });
+                            }
                             
                             $.each(response.hotel.hotelOrders, function (index, item) {
                                 if (item.hotel.type === "INDIVIDUAL") {
@@ -408,9 +412,13 @@
                                 $("[data-family_data]").append("<tr><td>" + relation[item.relation] + "</td><td>" + item.name + "</td><td>" + (item.juminNumber.substring(8, item.juminNumber - 6) + "******") + "</td><td>" + item.mobilePhone + "</td></tr>");
                             });
 
-                            $.each(response.flight.flightTickets, function (index, item) {
-                                $("[data-table_box='flight']").append("<div data-flight_data='mobile'><p>" + item.flight.startCity + " - " + item.flight.landingCity + " | <span>" + item.attenderName + "</span></p><p>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + "</p><p>["+ item.flight.landingCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight + "</p></div>");
-                            });
+                            if (response.flight.isIndividualOrder === true) {
+                                $("[data-table_box='flight']").append("<div data-flight_data='mobile'><p></p><p>개별예약</p><div data-request_box><span>요청사항</span><p>" + response.flight.userMemo + "</p></div></div>");
+                            } else {
+                                $.each(response.flight.flightTickets, function (index, item) {
+                                    $("[data-table_box='flight']").append("<div data-flight_data='mobile'><p>" + item.flight.startCity + " - " + item.flight.landingCity + " | <span>" + item.attenderName + "</span></p><p>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + "</p><p>["+ item.flight.landingCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight + "</p><div data-request_box><span>요청사항</span><p>" + response.flight.userMemo + "</p></div></div>");
+                                });
+                            }
 
                             $.each(response.hotel.hotelOrders, function (index, item) {
                                 if(item.hotel.type === "INDIVIDUAL"){
