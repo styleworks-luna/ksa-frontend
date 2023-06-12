@@ -296,8 +296,8 @@
                                 <input type="checkbox" name="info_edu_same" value="" class="info_edu_same" id="pc_info_edu_same">교육담당자와 동일
                             </label>
                             <div>
-                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
-                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                                <a data-bussiness_download href="" download>* KSA 사업자등록증</a>
+                                <a data-bank_download href="" download>* KSA 통장사본</a>
                             </div>
                         </div>
                     </div>
@@ -544,8 +544,8 @@
                         <tr data-down_row>
                             <th data-none_row><span></span></th>
                             <td>
-                                <a href="https:///"+ base_url +"/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION" download>* KSA 사업자등록증</a>
-                                <a href="https://"+ base_url +"/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK" download>* KSA 통장사본</a>
+                                <a data-bussiness_download href="" download>* KSA 사업자등록증</a>
+                                <a data-bank_download href="" download>* KSA 통장사본</a>
                             </td>
                         </tr>
                         <tr>
@@ -652,6 +652,12 @@
             base_url = "api-" + base_url
         }
         // let base_url = "api-ksa.onoffmix.xyz"
+
+        const bank = `https://${base_url}/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK`;
+        const bussiness = `https://${base_url}/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION`;
+
+        $("[data-bank_download]").attr("href", bank);
+        $("[data-bussiness_download]").attr("href", bussiness);
         //------------------------------------------PC 화면------------------------------------------------------
         if (window.innerWidth > 760) {
             let select_val = "";
