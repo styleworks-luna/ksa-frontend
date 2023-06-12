@@ -315,6 +315,16 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     font-size: 14px;
     padding-bottom: 5px;
   }
+  main [data-mobile_content_box] [data-table_box] [data-flight_data=mobile] [data-request_box] {
+    padding-top: 12px;
+  }
+  main [data-mobile_content_box] [data-table_box] [data-flight_data=mobile] [data-request_box] span {
+    font-size: 12px;
+    padding-bottom: 8px;
+  }
+  main [data-mobile_content_box] [data-table_box] [data-flight_data=mobile] [data-request_box] p {
+    line-height: 20px;
+  }
   main [data-mobile_content_box] [data-table_box] [data-hotel_data=mobile] [data-request_box] {
     padding-top: 12px;
   }
