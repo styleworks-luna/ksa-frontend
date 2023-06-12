@@ -61,8 +61,7 @@
         </div>
     </header>
     <main>
-        <a data-brochure_link href="https://api-ksa.onoffmix.xyz/api/v1/ksa/files?ksaFileType=BROCHURE" download=""><img
-                src="./images/brochure.png" alt="brochure"></a>
+        <a data-brochure_link href="" download=""><img src="./images/brochure.png" alt="brochure"></a>
         <div data-main_wrap>
             <!-- <div data-notice_box><p>[공지] 제69회 KSA하계CEO포럼 신청 접수중입니다.</p></div> -->
             <div data-main_box>
@@ -244,7 +243,8 @@
             base_url = "api-" + base_url
         }
         // let base_url = "api-ksa.onoffmix.xyz";
-
+        const downloadLink = `https://${base_url}/api/v1/ksa/files?ksaFileType=BROCHURE`;
+        $("[data-brochure_link]").attr("href", downloadLink);
         function getDirection() {
             var windowWidth = window.innerWidth;
             var direction = windowWidth < 760 ? 'horizontal' : 'horizontal';
