@@ -735,7 +735,7 @@
                             fam_list = response.familyAttenders
 
                             $.each(fam_list, function (index, item) {
-                                $(".default").append('<tr data-show_row><td><div>' + relation[item.relation] + '</div></td><td><div data-name_box>' + item.name + '</div></td><td><div>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</div></td><td><div>' + item.phone + '</div></td><td><input data-delete_btn type="button" value="삭제"></td>');
+                                $(".default").append('<tr data-show_row><td><div>' + relation[item.relation] + '</div></td><td><div data-name_box>' + item.name + '</div></td><td><div>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</div></td><td><div>' + item.mobilePhone + '</div></td><td><input data-delete_btn type="button" value="삭제"></td>');
                             });
 
                             $("[data-delete_btn]").click(function () {
@@ -1170,7 +1170,7 @@
                             fam_list = response.familyAttenders
                             console.log(fam_list)
                             $.each(fam_list, function (index, item) {
-                                $("[data-info_wrap='family']").append('<div data-show_wrap><div data-show_box><div><p>관계<br><span>' + relation[item.relation] + '</span></p><p>주민등록번호<br><span>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</span></p></div><div><p>성명<br><span data-mobile_name_box>' + item.name + '</span></p><p>휴대전화<br><span>' + item.phone + '</span></p></div></div><button data-delete_mobile_btn>삭제</button></div>');
+                                $("[data-info_wrap='family']").append('<div data-show_wrap><div data-show_box><div><p>관계<br><span>' + relation[item.relation] + '</span></p><p>주민등록번호<br><span>' + (item.juminNumber.substring(0, item.juminNumber.length - 6) + "******") + '</span></p></div><div><p>성명<br><span data-mobile_name_box>' + item.name + '</span></p><p>휴대전화<br><span>' + item.mobilePhone + '</span></p></div></div><button data-delete_mobile_btn>삭제</button></div>');
                             });
 
                             $("[data-delete_mobile_btn]").click(function () {
