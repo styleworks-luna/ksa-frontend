@@ -1734,7 +1734,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/programs?date=2023-07-27",
+                    "url": "https://" + base_url + "/api/v1/programs?date=2023-07-27&hideFullProgram=false",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -1755,7 +1755,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/programs?date=2023-07-28",
+                            "url": "https://" + base_url + "/api/v1/programs?date=2023-07-28&hideFullProgram=false",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
