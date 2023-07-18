@@ -25,14 +25,16 @@ $(function () {
 if (
 	window.location.href === "https://ceoforum.ksa.or.kr/" ||
 	window.location.href === "https://ksa.onoffmix.xyz/" ||
-	window.location.href.indexOf("Index") === -1 &&
-	window.location.href.indexOf("Gallery") === -1 &&
-	window.location.href.indexOf("Speaker") === -1 &&
-	window.location.href.indexOf("Privacy") === -1 &&
-	window.location.href.indexOf("FourmInfo") === -1 &&
-	window.location.href.indexOf("Performance") === -1 &&
-	window.location.href.indexOf("Notice") === -1
+	(
+      	window.location.href.indexOf("Index") === -1 &&
+        window.location.href.indexOf("Gallery") === -1 &&
+        window.location.href.indexOf("Speaker") === -1 &&
+        window.location.href.indexOf("Privacy") === -1 &&
+        window.location.href.indexOf("FourmInfo") === -1 &&
+        window.location.href.indexOf("Performance") === -1 &&
+        window.location.href.indexOf("Notice") === -1
+    )
 ) {
-	alert("참가등록이 마감되었습니다. 성원에 감사드립니다.");
-	window.location = "Index.html";
+  alert("참가등록이 마감되었습니다. 성원에 감사드립니다.");
+  window.location.href = "Index.html";
 }
