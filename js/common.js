@@ -23,8 +23,8 @@ $(function () {
     }
 });
 if (
-	window.location.href === "https://ceoforum.ksa.or.kr/" &&
-	window.location.href === "https://ksa.onoffmix.xyz/" &&
+	window.location.href === "https://ceoforum.ksa.or.kr/" ||
+	window.location.href === "https://ksa.onoffmix.xyz/" ||
 	window.location.href.indexOf("Index") === -1 &&
 	window.location.href.indexOf("Gallery") === -1 &&
 	window.location.href.indexOf("Speaker") === -1 &&
