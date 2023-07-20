@@ -345,8 +345,8 @@ main [data-sponsore_box] span {
 main [data-sponsore_box] [data-pc_img_box] {
   width: 100%;
   max-width: 1280px;
-  height: 150px;
-  background-image: url(/images/sponsor.png);
+  height: 236px;
+  background-image: url(/images/sponsor_v2.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -650,6 +650,8 @@ main [data-sponsore_box] [data-moblie_img_box] {
     flex-direction: column;
     padding-bottom: 100px;
     padding-top: 100px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   main [data-sponsore_box] span {
     font-size: 32px;
@@ -663,8 +665,8 @@ main [data-sponsore_box] [data-moblie_img_box] {
   main [data-sponsore_box] [data-mobile_img_box] {
     display: block;
     width: 100%;
-    height: 80vw;
-    background-image: url(/images/sponsor_mobile.png);
+    height: 62.485vw;
+    background-image: url(/images/sponsor_mobile_v2.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: contain;
