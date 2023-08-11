@@ -334,15 +334,9 @@
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="js/sb-admin-2.js"></script>
+<script src="/js/common.js"></script>
 <script>
     $(document).ready(function () {
-        let url = window.location.href;
-        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        if (base_url === "ksa.onoffmix.xyz") {
-            base_url = "api-" + base_url
-        }
-        // let base_url = "api-ksa.onoffmix.xyz";
-        
         let flight_list = [];
         let add_flight_list = [];
         let hotel_list = [];

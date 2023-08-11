@@ -134,14 +134,8 @@
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
+    <script src="/js/common.js"></script>
     <script>
-        let url = window.location.href;
-        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        if (base_url === "ksa.onoffmix.xyz") {
-            base_url = "api-" + base_url
-        }
-        // let base_url = "api-ksa.onoffmix.xyz";
-
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');

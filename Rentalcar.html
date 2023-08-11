@@ -222,12 +222,6 @@
             let cal_date;
             let index = 0;
 
-            let url = window.location.href;
-            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-            if (base_url === "ksa.onoffmix.xyz") {
-                base_url = "api-" + base_url
-            }
-
             if (window.innerWidth > 760){
                 // 시간 드롭다운 목록 생성
                 for (let i = 0; i <= 23; i++) {

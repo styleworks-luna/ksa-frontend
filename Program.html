@@ -266,13 +266,7 @@
                 "CULTURE_EXP" : "문화체험",
                 "HEALING_TOUR" : "힐링투어",
             }
-
-            let url = window.location.href;
-            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-            if (base_url === "ksa.onoffmix.xyz") {
-                base_url = "api-" + base_url
-            }
-            // let base_url = "api-ksa.onoffmix.xyz"
+            
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             if(attend_id !== null){
                 $.ajax({

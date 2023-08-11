@@ -234,12 +234,6 @@
             let child_cost = ""
             let adult_cost = ""
             let type_cost = ""
-            
-            let url = window.location.href;
-            let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-            if (base_url === "ksa.onoffmix.xyz") {
-                base_url = "api-" + base_url
-            }
 
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             if(attend_id !== null){

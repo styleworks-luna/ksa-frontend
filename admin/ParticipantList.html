@@ -200,13 +200,8 @@
     <script src="https://cdn.datatables.net/buttons/2.0.0/js/buttons.colVis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
+    <script src="/js/common.js"></script>
     <script>
-        let url = window.location.href;
-        let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split('/')[0];
-        if (base_url === "ksa.onoffmix.xyz") {
-            base_url = "api-" + base_url
-        }
-        // let base_url = "api-ksa.onoffmix.xyz";
         const data = [
             {
                 render: function (data, type, row, meta) {
