@@ -22,9 +22,9 @@ $(function () {
         $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>")
     }
 });
-let url = window.location.href;
-let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
-if (base_url === "ksa.onoffmix.xyz") {
-    base_url = "api-" + base_url;
-}
-// let base_url = "api-ksa.onoffmix.xyz"
+// let url = window.location.href;
+// let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
+// if (base_url === "ksa.onoffmix.xyz") {
+//     base_url = "api-" + base_url;
+// }
+let base_url = "api-ksa.onoffmix.xyz"
