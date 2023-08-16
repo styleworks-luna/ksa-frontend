@@ -76,6 +76,7 @@
                 <div data-select_box>
                     연도별 갤러리 
                     <select>
+                        <option value>전체</option>
                         <option value="2023">2023년</option>
                         <option value="2022">2022년</option>
                     </select>
@@ -118,6 +119,36 @@
                 alert(xhr.responseJSON.message);
             }
         });
+
+        $("select").change(function() {
+            let url;
+            if($("select").val()){
+                url = "https://" + base_url +"/api/v1/galleries/all?year=" + $("select").val()
+            } else {
+                url = "https://" + base_url +"/api/v1/galleries/all"
+            }
+            $.ajax({
+                type: "GET",
+                url: url,
+                success: function (response) {
+                    $("[data-image_wrap]").empty();
+                    $.each(response, function (response, item) {
+                        $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
+                    });
+    
+                    $("[data-image_wrap]").on("click", "[data-image_box]", function () {
+                        $(this).children("[data-modal_box]").show();
+                    });
+    
+                    $(document).on("click", "[data-img_close]", function () {
+                        $(this).closest("[data-modal_box]").hide();
+                    });
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON.message);
+                }
+            });
+        })
     </script>
 </body>
 </html>
