@@ -176,6 +176,9 @@ main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_
   padding-left: 10px;
   padding-right: 10px;
 }
+main [data-content_box] table [data-list_row] td .room [data-add_row] [data-add_check=none] {
+  display: none;
+}
 main [data-content_box] [data-card_info_wrap] {
   display: none;
 }
