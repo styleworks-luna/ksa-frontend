@@ -155,7 +155,7 @@ main form [data-error_row] {
 main form [data-submit_button] {
   width: 200px;
   height: 54px;
-  background-color: #004446;
+  background-color: #0C3994;
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -172,7 +172,7 @@ main form [data-reset_button] {
 main [data-popup_box] {
   width: 600px;
   height: 500px;
-  border: 2px solid #004446;
+  border: 2px solid #0C3994;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -220,7 +220,7 @@ main [data-popup_box] div button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-popup_box] div button:nth-of-type(2) {
-  background-color: #004446;
+  background-color: #0C3994;
 }
 main [data-popup_box] div button:nth-of-type(2):disabled {
   background-color: #a3a3a3;
@@ -264,7 +264,7 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
   main [data-header_box] {
     width: 100%;
     height: 150px;
-    background-image: url(/images/mobile-back.png);
+    background-image: url(/images/2024-mobile-back.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -448,7 +448,7 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #a3a3a3;
   }
   main [data-popup_box] form div button:nth-of-type(2) {
-    background-color: #004446;
+    background-color: #0C3994;
   }
 }
 

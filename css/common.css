@@ -77,7 +77,7 @@ body [data-pc_header] [data-menu_box] {
   right: 0;
   width: 320px;
   height: 613px;
-  background-color: #413684;
+  background-color: #0C3994;
   z-index: 999;
 }
 body [data-pc_header] [data-menu_box] div {
@@ -86,12 +86,12 @@ body [data-pc_header] [data-menu_box] div {
   justify-content: flex-end;
 }
 body [data-pc_header] [data-menu_box] div button {
-  background-color: none;
+  background-color: #0C3994;
   border: none;
   cursor: pointer;
   width: 80px;
   height: 80px;
-  background-image: url(/images/close.png);
+  background-image: url(/images/2024_close.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -140,7 +140,7 @@ body main {
 body main [data-pc_process_box] {
   width: 100%;
   height: 86px;
-  background-color: #004446;
+  background-color: #0C3994;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,7 +156,7 @@ body main [data-pc_process_box] ul li a {
 }
 body main [data-pc_process_box] ul li button {
   border: none;
-  background-color: #004446;
+  background-color: #0C3994;
   color: #fff;
   font-size: 16px;
 }
@@ -312,7 +312,7 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
     display: block;
     width: 100%;
     height: 46px;
-    background-color: #004446;
+    background-color: #0C3994;
   }
   body main [data-mobile_process_box] .swiper {
     padding-left: 19.5px;
@@ -332,7 +332,7 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
   }
   body main [data-mobile_process_box] .swiper .swiper-wrapper .swiper-slide button {
     border: none;
-    background-color: #004446;
+    background-color: #0C3994;
     color: #fff;
     margin-left: 10px;
   }

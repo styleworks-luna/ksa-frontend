@@ -8,7 +8,7 @@ main
         width: 100%
         height: 260px
         background:
-            image: url(/images/sub.png)
+            image: url(/images/2024_pc_back.png)
             position: center
             repeat: no-repeat
             size: cover
@@ -24,7 +24,7 @@ main
                 width: 180px
                 height: 52px
                 border-radius: 37px
-                background-color: #7e69ff
+                background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%)
                 display: flex
                 align-items: center
                 justify-content: center
@@ -75,71 +75,102 @@ main
                         color: #fff
                     &:focus
                         border-color: #aaa
-        [data-image_wrap]
-            padding:
-                top: 45px
-                bottom: 95px
-            display: flex
-            flex-wrap: wrap
-            [data-image_box]
-                width: 275px
-                height: auto
+        [data-image_container]
+            display: none
+            [data-image_wrap]
+                padding:
+                    top: 45px
+                    bottom: 95px
                 display: flex
-                flex-direction: column
-                align-items: center
-                margin-right: 60px
-                margin-bottom: 55px
-                [data-img]
-                    padding:
-                        left: 16px
-                        right: 16px
-                        bottom: 3px
-                    width: 100%
-                    height: 275px
-                    img
+                flex-wrap: wrap
+                [data-image_box]
+                    width: 275px
+                    height: auto
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    margin-right: 60px
+                    margin-bottom: 55px
+                    [data-img]
+                        padding:
+                            left: 16px
+                            right: 16px
+                            bottom: 3px
                         width: 100%
-                        height: 100%
-                span
-                    font-size: 14px
-                    font-weight: bold
-                    display: block
-                    padding-top: 16px
-                p
-                    &:first-of-type
-                        padding-top: 12px
-                        line-height: 30px
-                        text-align: center
-                        font:
-                            size: 28px
-                            weight: bold
-                        color: #008ecf
-                    &:last-of-type
-                        font:
-                            size: 16px
-                        line-height: 22px
-                        padding-top: 11px
+                        height: 275px
+                        img
+                            width: 100%
+                            height: 100%
+                    span
+                        font-size: 14px
+                        font-weight: bold
+                        display: block
+                        padding-top: 16px
+                    p
+                        &:first-of-type
+                            padding-top: 12px
+                            line-height: 30px
+                            text-align: center
+                            font:
+                                size: 28px
+                                weight: bold
+                            color: #008ecf
+                        &:last-of-type
+                            font:
+                                size: 16px
+                            line-height: 22px
+                            padding-top: 11px
+                            span
+                                font:
+                                    size: 16px
+                                font-weight: bold
+                                display: inline
+                                padding-right: 5px 
+                    [data-pc]
+                        display: block
                         span
                             font:
                                 size: 16px
                             font-weight: bold
-                            display: inline
+                            display: inline-block
                             padding-right: 5px 
-                [data-pc]
-                    display: block
-                    span
-                        font:
-                            size: 16px
-                        font-weight: bold
-                        display: inline-block
-                        padding-right: 5px 
-                [data-mobile]
-                    display: none
-                &:nth-of-type(4n)
-                    margin-right: 0
-            [data-image_box="blue"]
-                p
-                    &:first-of-type
-                        color: #413583
+                    [data-mobile]
+                        display: none
+                    &:nth-of-type(4n)
+                        margin-right: 0
+                [data-image_box="blue"]
+                    p
+                        &:first-of-type
+                            color: #413583
+        [data-image_container="2024"]
+            display: block
+            [data-image_wrap]
+                [data-image_box]
+                    width: 302px
+                    margin-right: 20px
+                    margin-bottom: 55px
+                    [data-img]
+                        padding:
+                            left: 0
+                            right: 0
+                            bottom: 3px
+                        width: 100%
+                        img
+                            width: 100%
+                            height: 100%
+                    p
+                        &:first-of-type
+                            padding-top: 12px
+                            line-height: 30px
+                            text-align: center
+                            font:
+                                size: 28px
+                                weight: bold
+                    [data-pink]
+                        background-image: linear-gradient(to right, #f1acc1, #efa2ba 8%, #e98aa7 32%, #e881a1 47%, #e07da1 61%, #cb75a1 82%, #b46ba2)
+                        background-clip: text
+                        -webkit-background-clip: text
+                        -webkit-text-fill-color: transparent
 @media (max-width: 760px)
     [data-mobile_header]
         [data-top_header]
@@ -179,7 +210,7 @@ main
             width: 100%
             height: 208px
             background:
-                image: url(/images/sub-m.png)
+                image: url(/images/2024-sub-m.png)
                 position: center
                 repeat: no-repeat
                 size: cover
@@ -195,7 +226,7 @@ main
                     width: 148px
                     height: 48px
                     border-radius: 37px
-                    background-color: #7e69ff
+                    background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%)
                     display: flex
                     align-items: center
                     justify-content: center
@@ -211,65 +242,62 @@ main
                 bottom: 50px
             [data-title_box]
                 display: none
-            [data-image_wrap]
-                padding-top: 37px
-                padding-bottom: 0px
-                display: flex
-                justify-content: space-between
-                flex-wrap: wrap
-                align-content: center
-                [data-image_box]
-                    width: 48%
-                    height: auto
+            [data-image_container]
+                [data-image_wrap]
+                    padding-top: 37px
+                    padding-bottom: 0px
                     display: flex
-                    flex-direction: column
-                    align-items: center
-                    margin-right: 0px
-                    margin-bottom: 29px
-                    [data-img]
-                        padding:
-                            left: 10px
-                            right: 10px
-                            bottom: 0px
-                        width: 100%
-                        height: 43.9vw
-                        img
+                    justify-content: space-between
+                    flex-wrap: wrap
+                    align-content: center
+                    [data-image_box]
+                        width: 48%
+                        height: auto
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+                        margin-right: 0px
+                        margin-bottom: 29px
+                        [data-img]
+                            padding:
+                                left: 10px
+                                right: 10px
+                                bottom: 0px
                             width: 100%
-                            height: 100%
-                    span
-                        font-size: 14px
-                        font-weight: bold
-                        display: block
-                        padding-top: 15px
-                    p
-                        &:first-of-type
-                            padding-top: 6px
-                            line-height: 20px
-                            text-align: center
-                            font:
-                                size: 19px
-                                weight: bold
-                            color: #008ecf
-                        &:last-of-type
-                            text-align: center
-                            font:
-                                size: 14px
-                            line-height: 20px
-                            padding-top: 0px
-                            span
+                            height: 43.9vw
+                            img
+                                width: 100%
+                                height: 100%
+                        span
+                            font-size: 14px
+                            font-weight: bold
+                            display: block
+                            padding-top: 15px
+                        p
+                            &:first-of-type
+                                padding-top: 6px
+                                line-height: 20px
+                                text-align: center
+                                font:
+                                    size: 19px
+                                    weight: bold
+                                color: #008ecf
+                            &:last-of-type
+                                text-align: center
                                 font:
                                     size: 14px
-                                font-weight: bold
-                                display: inline-block
-                                padding-right: 0px
-                                padding-top: 10px
-                    [data-pc]
-                        display: none
-                    [data-mobile]
-                        display: block
-                    &:nth-of-type(4n)
-                        margin-right: 0
-                [data-image_box="blue"]
-                    p
-                        &:first-of-type
-                            color: #413583
+                                line-height: 20px
+                                padding-top: 0px
+                                span
+                                    font:
+                                        size: 14px
+                                    font-weight: bold
+                                    display: inline-block
+                                    padding-right: 0px
+                                    padding-top: 10px
+                        [data-pc]
+                            display: none
+                        [data-mobile]
+                            display: block
+                        &:nth-of-type(4n)
+                            margin-right: 0

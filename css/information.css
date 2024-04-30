@@ -388,7 +388,7 @@ main [data-pc_content_box] [data-btn_box] {
 main [data-pc_content_box] [data-btn_box] button {
   width: 200px;
   height: 54px;
-  background-color: #004446;
+  background-color: #0C3994;
   border-radius: 5px;
   color: #fff;
   font-size: 20px;
@@ -759,7 +759,7 @@ main [data-mobile_content_box] {
   main [data-mobile_content_box] [data-btn_box] button {
     width: 100%;
     height: 50px;
-    background-color: #004446;
+    background-color: #0C3994;
     border-radius: 5px;
     color: #fff;
     font-size: 16px;
