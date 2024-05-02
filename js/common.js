@@ -23,8 +23,8 @@ $(function () {
     }
 });
 let url = window.location.href;
-// let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
-// if (base_url === "ksa.onoffmix.xyz") {
-//     base_url = "api-" + base_url;
-// }
-let base_url = "api-ksa.onoffmix.xyz"
+let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
+if (base_url === "ksa.onoffmix.xyz") {
+    base_url = "api-" + base_url;
+}
+// let base_url = "api-ksa.onoffmix.xyz"
