@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSA 하계포럼</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/notice.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+    <script src="/js/common.js"></script>
+</head>
+
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Speaker.html">연사</a></li>
+            <li><a href="Performance.html">공연</a></li>
+            <li><a href="Gallery.html">갤러리</a></li>
+            <li><a href="FourmInfo.html">포럼안내</a></li>
+            <li class="kakao"><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
+            <li data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FourmInfo.html">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div data-top_header>
+            <button type="button" onclick="history.back()" data-back_btn></button>
+            <span>연도별 브로셔</span>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FourmInfo.html">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+        <div data-header_box>
+            <div>
+                <a href="" onclick="alert('참가등록이 마감되었습니다. 성원에 감사드립니다.')">참가신청</a>
+            </div>
+        </div>
+        <div data-pc_content_wrap>
+            <div data-title_box>연도별 브로셔</div>
+            <div data-brochure_wrap>
+                <div data-th_row>
+                    <div>번호</div>
+                    <div>제목</div>
+                    <div>등록일</div>
+                </div>
+                <ul id="data-container">
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div data-index_row>1</div>
+                            <div>제70회 KSA 하계CEO포럼 브로셔</div>
+                            <div>2024-05-08</div>
+                        </div>
+                        <div data-content_box>
+                            <a data-brochure_link="2023" href="" download="">제70회 KSA 하계CEO포럼 브로셔.pdf</a>
+                        </div>
+                    </li>
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div data-index_row>2</div>
+                            <div>제69회 KSA 하계CEO포럼 브로셔</div>
+                            <div>2023-05-08</div>
+                        </div>
+                        <div data-content_box>
+                            <a data-brochure_link="2023" href="" download="">제69회 KSA 하계CEO포럼 브로셔.pdf</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-pagination_box></div>
+        </div>
+        <div data-mobile_content_wrap>
+            <div data-notice_wrap>
+                <ul id="data-container-mobile">
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div>
+                                <p></p>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div data-content_box>
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div data-mobile_pagination_box></div>
+        </div>
+    </main>
+    <footer>
+        <div data-footer_wrap>
+            <div data-logo_box></div>
+            <div data-text_box>
+                <p>
+                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
+                    하계CEO포럼 사무국 02-6240-4981, 4984 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                </p>
+                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const downloadLink = `https://${base_url}/api/v1/ksa/files?ksaFileType=BROCHURE`;
+        $("[data-brochure_link='2023']").attr("href", downloadLink);
+        $(function () {
+            if( window.innerWidth > 760 ){
+                $("[data-title_row]").click(function () {
+                    $(this).siblings("[data-content_box]").toggle("active");
+                    var id_num = $(this).children("[data-index_row]").data('index_row');
+                });
+            }else{
+                $("[data-title_row]").click(function () {
+                    $(this).siblings("[data-content_box]").toggle("active");
+                    var id_num = $(this).attr("data-title_row");
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

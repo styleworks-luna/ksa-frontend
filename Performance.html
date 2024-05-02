@@ -97,5 +97,17 @@
             </div>
         </div>
     </footer>
+    <script>
+        document.querySelector("[data-select_box] select").addEventListener("change", (event) => {
+            const select_year = event.target.value;
+            document.querySelectorAll("[data-image_wrap]").forEach(container => {
+                if (container.dataset.image_wrap === select_year) {
+                    container.style.display = "block";
+                } else {
+                    container.style.display = "none";
+                }
+            });
+        })
+    </script>
 </body>
 </html>
