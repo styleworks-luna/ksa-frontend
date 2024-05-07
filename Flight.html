@@ -135,7 +135,7 @@
                     <td>
                         <div class="display">
                             <div data-date_box>
-                                <input type="date" min="2023-07-24" max="2023-07-29" data-date_picker>
+                                <input type="date" min="2024-07-24" max="2024-07-27" data-date_picker>
                                 <input type="time" data-time_picker>
                             </div>
                         </div>
@@ -327,7 +327,7 @@
                     let value = $(this).val();
                     $.ajax({
                        "type": "GET",
-                       "url": "https://"+ base_url +"/api/v1/flights?year=2023&startCity=" + value,
+                       "url": "https://"+ base_url +"/api/v1/flights?year=2024&startCity=" + value,
                        beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));

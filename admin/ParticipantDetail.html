@@ -485,7 +485,7 @@
                                                     <td class="p-0">
                                                         <div class="form-check form-check-inline pr-4 airport pb-3 pt-3"
                                                             style="display: none;">
-                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2023-07-24" max="2023-07-29">
+                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2024-07-24" max="2024-07-27">
                                                             <input type="time" data-time_picker>
                                                         </div>
                                                     </td>
@@ -548,11 +548,9 @@
                                                     <th class="table-secondary align-middle" style="width: 10%;">투숙기간</th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2023-07-24"
-                                                                max="2023-07-30" data-placeholder="시작일 선택">
+                                                            <input data-start_date type="date" min="2024-07-24" max="2024-07-27" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2023-07-24"
-                                                                max="2023-07-30" data-placeholder="종료일 선택">
+                                                            <input data-end_date type="date" min="2024-07-24" max="2024-07-27" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
                                                     </td>
@@ -608,7 +606,7 @@
                                                             </label>
                                                             <label for="cardExpiryDate">
                                                                 유효기간
-                                                                <input type="text" id="cardExpiryDate" placeholder="ex) 2023년 01월">
+                                                                <input type="text" id="cardExpiryDate" placeholder="ex) 2035년 01월">
                                                             </label>
                                                         </div>
                                                     </td>
@@ -678,7 +676,7 @@
                                                         <div data-date_box>
                                                             <div data-time_box class="d-flex">
                                                                 <span class="font-weight-bold pr-3">시작일 선택</span>
-                                                                <input data-rental_start_date type="date" min="2023-07-24" max="2023-07-30" class="reset mr-2">
+                                                                <input data-rental_start_date type="date" min="2024-07-24" max="2024-07-27" class="reset mr-2">
                                                                 <div data-check_in_box >
                                                                     <select data-start_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
@@ -690,7 +688,7 @@
                                                             </div>
                                                             <div data-time_box class="d-flex pt-3">
                                                                 <span class="font-weight-bold pr-3">반납일 선택</span>
-                                                                <input data-rental_end_date type="date" min="2023-07-24" max="2023-07-30" class="reset mr-2">
+                                                                <input data-rental_end_date type="date" min="2024-07-24" max="2024-07-27" class="reset mr-2">
                                                                 <div data-check_in_box>
                                                                     <select data-end_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
@@ -1538,7 +1536,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/hotels?year=2023&isRoomRemaining=false",
+                    "url": "https://" + base_url + "/api/v1/hotels?year=2024&isRoomRemaining=false",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
@@ -1728,7 +1726,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/programs?date=2023-07-27&hideFullProgram=false",
+                    "url": "https://" + base_url + "/api/v1/programs?date=2024-07-25&hideFullProgram=false",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -1749,7 +1747,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/programs?date=2023-07-28&hideFullProgram=false",
+                            "url": "https://" + base_url + "/api/v1/programs?date=2024-07-26&hideFullProgram=false",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -1810,8 +1808,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_tour_list = toursOnSameDate(tour_data, '2023-07-27');
-                                                fri_tour_list = toursOnSameDate(tour_data, '2023-07-28');
+                                                thu_tour_list = toursOnSameDate(tour_data, '2024-07-25');
+                                                fri_tour_list = toursOnSameDate(tour_data, '2024-07-26');
                                             }
 
                                             if (family_data !== null) {
@@ -1833,8 +1831,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_family_list = familyOnSameDate(family_data, '2023-07-27');
-                                                fri_family_list = familyOnSameDate(family_data, '2023-07-28');
+                                                thu_family_list = familyOnSameDate(family_data, '2024-07-25');
+                                                fri_family_list = familyOnSameDate(family_data, '2024-07-26');
                                             }
 
                                             if (golf_data !== null) {
@@ -1856,8 +1854,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_golf_list = golfOnSameDate(golf_data, '2023-07-27');
-                                                fri_golf_list = golfOnSameDate(golf_data, '2023-07-28');
+                                                thu_golf_list = golfOnSameDate(golf_data, '2024-07-25');
+                                                fri_golf_list = golfOnSameDate(golf_data, '2024-07-26');
                                             }
 
                                             thu_list = thu_tour_list.concat(thu_golf_list, thu_family_list)
@@ -2046,7 +2044,7 @@
 
                     $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "' data-date='" + date + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input class='ml-3'><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2072,7 +2070,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2127,7 +2125,7 @@
                     $(this).closest("[data-golf_row]").remove();
 
                     console.log(date)
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2148,7 +2146,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2213,7 +2211,7 @@
                     $("[data-tour]").val("");
                     totalProgramCost();
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2236,7 +2234,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2277,7 +2275,7 @@
                     $(this).closest("[data-tour_row]").remove();
                     totalProgramCost();
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2298,7 +2296,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2342,7 +2340,7 @@
                     $("[data-family]").val("");
 
                     console.log(date)
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2365,7 +2363,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -2400,7 +2398,7 @@
                         return !(item.attenderId == val && item.familySessionId == id);
                     });
                     $(this).closest("[data-family_row]").remove();
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2421,7 +2419,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -2552,7 +2550,7 @@
                 // 렌터카 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/renter-cars?year=2023&hideFullRenterCar=false",
+                    "url": "https://" + base_url + "/api/v1/renter-cars?year=2024&hideFullRenterCar=false",
                     success: function (response) {
                         console.log(response)
                         $.each(response, function (index, item) {

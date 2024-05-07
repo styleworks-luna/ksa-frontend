@@ -266,7 +266,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/search?year=2023",
+                "url": "https://" + base_url + "/api/v1/attends/search?year=2024",
                 "data": {
                     "ksaCompanyType": "",
                     "attendStatus": "",
@@ -317,25 +317,25 @@
 
         $('#friendlyGroupFilter').on('change', function () {
             friendly_group = $('#friendlyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#ApplyGroupFilter').on('change', function () {
             apply_status = $('#ApplyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#depositStatusFilter').on('change', function () {
             deposit_status = $('#depositStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#taxbillPublishStatusFilter').on('change', function () {
             taxbill_publish_status = $('#taxbillPublishStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
@@ -372,7 +372,7 @@
         $(".another-search").click(function () {
             keyword = $(".another-search-input").val();
 
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2023&keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
     </script>

@@ -291,7 +291,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/programs?date=2023-07-27",
+                    "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-25",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -304,7 +304,7 @@
                             });
                             $.each(tour, function (index, array) {
                                 $.each(array, function (index, item) {
-                                    $("[data-tour_thu_table]").append("<tr><td rowspan='"+ array.length +"'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType +"' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='tour'></div></td></tr>");
+                                    $("[data-tour_thu_table]").append("<tr data-index='" + index + "'><td rowspan='"+ array.length +"'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType +"' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='tour'></div></td></tr>");
                                 });
                             });
                             $.each(family, function (index, item) {
@@ -327,7 +327,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/programs?date=2023-07-28",
+                            "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-26",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -403,8 +403,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_tour_list = toursOnSameDate(tour_data, '2023-07-27');
-                                                fri_tour_list = toursOnSameDate(tour_data, '2023-07-28');
+                                                thu_tour_list = toursOnSameDate(tour_data, '2024-07-25');
+                                                fri_tour_list = toursOnSameDate(tour_data, '2024-07-26');
                                             }
 
                                             if(family_data !== null){
@@ -426,8 +426,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_family_list = familyOnSameDate(family_data, '2023-07-27');
-                                                fri_family_list = familyOnSameDate(family_data, '2023-07-28');
+                                                thu_family_list = familyOnSameDate(family_data, '2024-07-25');
+                                                fri_family_list = familyOnSameDate(family_data, '2024-07-26');
                                             }
 
                                             if (golf_data !== null) {
@@ -449,8 +449,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_golf_list = golfOnSameDate(golf_data, '2023-07-27');
-                                                fri_golf_list = golfOnSameDate(golf_data, '2023-07-28');
+                                                thu_golf_list = golfOnSameDate(golf_data, '2024-07-25');
+                                                fri_golf_list = golfOnSameDate(golf_data, '2024-07-26');
                                             }
                                             thu_list = thu_tour_list.concat(thu_golf_list, thu_family_list)
                                             fri_list = fri_tour_list.concat(fri_golf_list, fri_family_list);
@@ -652,7 +652,7 @@
                         $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
                     }
 
-                    if(date == '2023-07-27') {
+                    if(date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -677,7 +677,7 @@
                                 alert("error")
                             }
                         });
-                    }else if( date == '2023-07-28' ){
+                    }else if( date == '2024-07-26' ){
                         fri_list.push({
                            "attenderId": val,
                             "Id": text,
@@ -731,7 +731,7 @@
                     $(this).closest("[data-golf_row]").remove();
                     totalCost();
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -753,7 +753,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
@@ -827,7 +827,7 @@
                     $("[data-tour]").val("");
                     totalCost();
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -850,7 +850,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -890,7 +890,7 @@
                     $(this).closest("[data-tour_row]").remove();
                     totalCost();
                     
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -911,7 +911,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -960,7 +960,7 @@
                     $("[data-family]").val("");
 
 
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -983,7 +983,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -1018,7 +1018,7 @@
                         return !(item.attenderId == val && item.familySessionId == id);
                     });
                     $(this).closest("[data-family_row]").remove();
-                    if (date == '2023-07-27') {
+                    if (date == '2024-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -1039,7 +1039,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2023-07-28') {
+                    } else if (date == '2024-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });

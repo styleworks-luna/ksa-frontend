@@ -171,6 +171,9 @@ main [data-content_box] [data-table_box] table tr [data-amount_row] p {
 main [data-content_box] [data-table_box] table [data-full_row] td {
   color: #c2c2c2;
 }
+main [data-content_box] [data-table_box] [data-tour_thu_table] tr[data-index="1"] td:first-of-type {
+  display: none;
+}
 main [data-content_box] [data-table_box] [data-family_thu_table], main [data-content_box] [data-table_box] [data-family_fri_table] {
   margin-top: 0;
 }
