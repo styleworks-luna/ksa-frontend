@@ -677,12 +677,9 @@
                     "isSubBed": isSubBed,
                     "currentRoomGuestNumber": 0
                 });
-                console.log(roomType)
-                console.log(bedType)
                 $("[data-hotel_foot]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_DELUXE_MOUNTAIN" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (roomType === "LOTTE_DELUXE_GARDEN" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (roomType === "LOTTE_CHARLOTTE_OCEAN" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (roomType === "LOTTE_PREMIER_OCEAN" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (roomType === "LOTTE_ON_DOL" ? "selected" : "") + '>온돌</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="트윈" ' + (bedType === "TWIN" ? "selected" : "") + '>트윈</option><option value="더블" ' + (bedType === "DOUBLE" ? "selected" : "") + '>더블</option><option value="패밀리 더블" ' + (bedType === "FAMILY_DOUBLE" ? "selected" : "") + '>패밀리 더블</option><option value="패밀리 트윈" ' + (bedType === "FAMILY_TWIN" ? "selected" : "") + '>패밀리 트윈</option><option value="패밀리" ' + (bedType === "FAMILY" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="subBedCost" value="' + subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + hotelKeepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (isSubBed ? 'checked' : '') + '></td><td colspan="3"><button type="button" class="hotel-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                 $('.reset').val("");
-                console.log(add_hotel_list)
             }
         });
 
@@ -716,9 +713,10 @@
             const data = {
                 "hotels": hotel_list,
             };
+            console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
+                "url": "https://" + base_url + "/api/v1/hotels",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -728,7 +726,7 @@
                 },
                 success: function (response) {
                     alert("호텔 정보가 수정 되었습니다.")
-                    location.reload();
+                    // location.reload();
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message)
