@@ -802,14 +802,14 @@
                         const adult = $(this).closest("tr").find("[data-amount_row]").data("adult");
                         const child = $(this).closest("tr").find("[data-amount_row]").data("child");
                         const $showBox = $("[data-show_box='tour']", $(this).closest("tr"));
-                        cost = age === "ADULT" ? adult : child;
+                        cost = age === "child" ? child : adult;
 
                         $showBox.append("<div data-tour_row data-date='" + date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
                     }else {
                         const adult = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("adult");
                         const child = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("child");
                         const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='tour']");
-                        cost = age === "ADULT" ? adult : child;
+                        cost = age === "child" ? child : adult;
 
                         $showBox.append("<div data-tour_row data-date='"+ date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
                     }
