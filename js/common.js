@@ -7,14 +7,14 @@ $(function () {
         $('[data-menu_box]').hide();
     });
     
-    $('[data-logout_btn]').on("click", function() {
-        if(confirm("로그아웃 하시겠습니까?")){
-            localStorage.removeItem('token');
-            sessionStorage.removeItem('token');
-            sessionStorage.removeItem('attend_id');
-            alert("로그아웃 되었습니다.")
-            window.location = "Index.html";
-        }
+    $("document").on("click", "[data-logout_btn]", function () {
+      if (confirm("로그아웃 하시겠습니까?")) {
+        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
+        sessionStorage.removeItem("attend_id");
+        alert("로그아웃 되었습니다.");
+        window.location = "Index.html";
+      }
     });
 
     const attend_id = sessionStorage.getItem('attend_id');
