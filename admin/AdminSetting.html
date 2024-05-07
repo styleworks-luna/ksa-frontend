@@ -716,7 +716,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/hotels",
+                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -726,7 +726,7 @@
                 },
                 success: function (response) {
                     alert("호텔 정보가 수정 되었습니다.")
-                    // location.reload();
+                    location.reload();
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message)
