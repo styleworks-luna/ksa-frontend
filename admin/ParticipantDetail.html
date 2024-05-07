@@ -1230,7 +1230,7 @@
                     let value = $(this).val();
                     $.ajax({
                         "type": "GET",
-                        "url": "https://" + base_url + "/api/v1/flights?startCity=" + value + "&hideFullFlight=false",
+                        "url": "https://" + base_url + "/api/v1/flights?year=2024&startCity=" + value + "&hideFullFlight=false",
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
