@@ -126,7 +126,7 @@ body [data-pc_header] [data-menu_box] ul [data-logout_row] {
 }
 body [data-pc_header] [data-menu_box] ul [data-logout_row] button {
   border: none;
-  background-color: #413684;
+  background-color: #0C3994;
   font-size: 20px;
   color: #fff;
   cursor: pointer;
@@ -249,7 +249,7 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
     right: 0;
     width: 100%;
     height: 540px;
-    background-color: #413684;
+    background-color: #0C3994;
     z-index: 999999999;
   }
   body [data-mobile_header] [data-menu_box] div {
@@ -268,7 +268,7 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: #413684;
+    background-color: #0C3994;
   }
   body [data-mobile_header] [data-menu_box] ul {
     display: flex;
@@ -300,7 +300,7 @@ body footer [data-footer_wrap] [data-text_box] p:first-of-type {
   }
   body [data-mobile_header] [data-menu_box] ul [data-logout_row] button {
     border: none;
-    background-color: #413684;
+    background-color: #0C3994;
     font-size: 16px;
     color: #fff;
     cursor: pointer;

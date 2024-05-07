@@ -249,7 +249,7 @@ main [data-content_box] [data-table_box] [data-total_table] tr td p {
   padding-top: 41px;
 }
 main [data-content_box] [data-table_box] [data-total_table] tr td p span {
-  color: #413684;
+  color: #0C3994;
   font-weight: bold;
 }
 main [data-content_box] [data-notice_box] {
@@ -379,7 +379,7 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
   }
   main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] span:last-of-type span {
     font-weight: bold;
-    color: #413684;
+    color: #0C3994;
   }
   main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-select_box] {
     padding-bottom: 7px;
@@ -462,7 +462,7 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
   }
   main [data-content_box=mobile] [data-table_box] [data-content=tour_thu] [data-text_box] span:last-of-type span, main [data-content_box=mobile] [data-table_box] [data-content=tour_fri] [data-text_box] span:last-of-type span {
     font-weight: bold;
-    color: #413684;
+    color: #0C3994;
     padding-right: 10px;
   }
   main [data-content_box=mobile] [data-table_box] [data-content=family_thu], main [data-content_box=mobile] [data-table_box] [data-content=family_fri] {
@@ -523,7 +523,7 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     padding-top: 29px;
   }
   main [data-content_box=mobile] [data-total_table] tr td p span {
-    color: #413684;
+    color: #0C3994;
     font-weight: bold;
   }
   main [data-content_box=mobile] [data-notice_box] {

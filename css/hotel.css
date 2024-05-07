@@ -90,7 +90,7 @@ main [data-content_box] table tr td [data-total_box] span {
   font-size: 24px;
 }
 main [data-content_box] table tr td [data-total_box] span span {
-  color: #413684;
+  color: #0C3994;
   font-weight: bold;
 }
 main [data-content_box] table tr td [data-total_box] label {
@@ -190,7 +190,7 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] {
   padding-right: 30px;
   display: flex;
   flex-direction: column;
-  border: 2px solid #413684;
+  border: 2px solid #0C3994;
   margin-top: 20px;
 }
 main [data-content_box] [data-card_info_wrap] [data-card_info_box] p {
@@ -292,7 +292,7 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] label input::
     font-size: 16px;
   }
   main [data-content_box] table tr td [data-total_box] span span {
-    color: #413684;
+    color: #0C3994;
     font-weight: bold;
   }
   main [data-content_box] table tr td [data-total_box] label {
@@ -340,7 +340,7 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] label input::
     display: block;
     font-weight: bold;
     font-size: 16px;
-    color: #413684;
+    color: #0C3994;
     padding-top: 10px;
   }
   main [data-content_box] table [data-list_row] td .room [data-add_row] div button {
@@ -392,7 +392,7 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] label input::
     padding-right: 16px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #413684;
+    border: 2px solid #0C3994;
     margin-top: 20px;
   }
   main [data-content_box] [data-card_info_wrap] [data-card_info_box] p {

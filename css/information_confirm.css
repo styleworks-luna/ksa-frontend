@@ -58,7 +58,7 @@ main [data-pc_content_box] [data-table_box] [data-total_data] tr th {
 }
 main [data-pc_content_box] [data-table_box] [data-total_data] tr td:last-of-type {
   font-weight: bold;
-  color: #413684;
+  color: #0C3994;
 }
 main [data-pc_content_box] [data-table_box] [data-attend_data] {
   margin-bottom: 20px;
