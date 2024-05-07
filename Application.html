@@ -188,11 +188,11 @@
                         "businessNumber": $("input[name='business_num']").val(),
                         "mobilePhone": $("input[name='phone']").val(),
                         "password": $("input[name='pass_word']").val(),
-                        "year": "2023",
+                        "year": "2024",
                     }
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/attender/login",
+                        "url": "https://" + base_url + "/api/v1/attender/login?year=2024",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         success: function (response) {

@@ -212,7 +212,7 @@
         $(document).ready(function () {
             $.ajax({
                 type: "GET",
-                url: "https://" + base_url + "/api/v2/attends/counting",
+                url: "https://" + base_url + "/api/v2/attends/counting?year=2024",
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -453,7 +453,7 @@
                                 <div class="col-xl-12">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
-                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 27일)</p>
+                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 25일)</p>
                                             <div class="">
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
@@ -468,10 +468,10 @@
                                                     <tbody>
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[0].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[1].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[2].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[3].count}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[0]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[1]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[2]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly27.counts[3]}</td>
                                                             <td class="border-right">${response.tourCount.tourOnJuly27.totalCount}</td>
                                                             <td>${response.tourCount.tourOnJuly27.totalCost.toLocaleString()}</td>
                                                         </tr>
@@ -486,7 +486,7 @@
                                 <div class="col-xl-12">
                                     <div class="card shadow mb-4">
                                         <div class="card-body">
-                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 28일)</p>
+                                            <p class="text-primary" style="font-weight: bold;">관광 현황 (7월 26일)</p>
                                             <div class="">
                                                 <table class="table text-center font-weight-bold mb-4">
                                                     <thead>
@@ -501,10 +501,10 @@
                                                     <tbody>
                                                         <tr>
                                                             <th class="table-dark">신청자수</th>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[0].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[1].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[2].count}</td>
-                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[3].count}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[0]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[1]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[2]}</td>
+                                                            <td class="border-right">${response.tourCount.tourOnJuly28.counts[3]}</td>
                                                             <td class="border-right">${response.tourCount.tourOnJuly28.totalCount}</td>
                                                             <td>${response.tourCount.tourOnJuly28.totalCost.toLocaleString()}</td>
                                                         </tr>
