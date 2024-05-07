@@ -184,7 +184,7 @@
                                             <input class="reset" id="add_seatQuantity" type="text" style="width: 50px">석
                                         </td>
                                         <td>
-                                            <input class="reset" id="add_keepQuantity" type="text" style="width: 30px">석
+                                            <input class="reset" id="add_flightKeepQuantity type="text" style="width: 30px">석
                                         </td>
                                         <td colspan="2">
                                             <button type="button" class="add-btn btn btn-success btn-m pl-4 pr-4">추가</button>
@@ -247,7 +247,7 @@
                                         <td><input type="text" id="add_hotel_cost" class="reset"></td>
                                         <td><input type="text" id="add_subBedCost" class="reset"></td>
                                         <td><input type="text" id="add_roomQuantity" class="reset"></td>
-                                        <td><input type="text" id="add_keepQuantity" class="reset"></td>
+                                        <td><input type="text" id="add_hotelKeepQuantity" class="reset"></td>
                                         <td><input type="checkbox" id="add_isSubBed" class="reset"></td>
                                         <td colspan="2"><button type="button" class="hotel-add-btn btn btn-success btn-m pl-4 pr-4">추가</button></td>
                                     </tr>
@@ -301,6 +301,7 @@
                                         </td>
                                         <td><input type="text" id="add_cost" class="reset"></td>
                                         <td><input type="text" id="add_quantity" class="reset"></td>
+                                        <td><input type="text" id="add_renterCarKeepQuantity" class="reset"></td>
                                         <td colspan="2"><button type="button" class="rental-add-btn btn btn-success btn-m pl-4 pr-4">추가</button></td>
                                     </tr>
                                 </tfoot>
@@ -354,7 +355,7 @@
         let add_rental_list = [];
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/flights?year=2023&hideFullFlight=false",
+            "url": "https://" + base_url + "/api/v1/flights?year=2024&hideFullFlight=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -363,7 +364,7 @@
             success: function (response) {
                 flight_list = response
                 $.each(response, function (index, item) {
-                    $("[data-flight_body]").append('<tr><td><select id="startCity"><option value="" disabled selected>선택</option><option value="김포" ' + (item.startCity === "김포" ? "selected" : "") + '>김포</option><option value="부산" ' + (item.startCity === "부산" ? "selected" : "") + '>부산</option><option value="광주" ' + (item.startCity === "광주" ? "selected" : "") + '>광주</option><option value="청주" ' + (item.startCity === "청주" ? "selected" : "") + '>청주</option><option value="대구" ' + (item.startCity === "대구" ? "selected" : "") + '>대구</option></select> - 제주</td><td><select id="airline"><option value="" disabled selected>선택</option><option value="대한항공" ' + (item.airline === "대한항공" ? "selected" : "") + '>대한항공</option><option value="아시아나" ' + (item.airline === "아시아나" ? "selected" : "") + '>아시아나</option></select></td><td><select id="seatClass"><option value="" disabled selected>선택</option><option value="일반" ' + (item.seatClass === "일반" ? "selected" : "") + '>일반</option><option value="비즈니스" ' + (item.seatClass === "비즈니스" ? "selected" : "") + '>비즈니스</option></select></td><td><input id="startFlight" type="text" placeholder="ex) KE1227" value="' + item.startFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="startDate" type="date" value="' + item.startDate + '"><input id="startTime" type="time" value="' + item.startTime + '"></div></td><td><input id="endFlight" type="text" placeholder="ex) KE1227" value="' + item.endFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="landingDate" type="date" value="' + item.landingDate + '"><input id="landingTime" type="time" value="' + item.landingTime + '"></div></td><td><input id="seniorCost" type="text" value="' + item.seniorCost + '" style="width: 80px">원</td><td><input id="adultCost" type="text" value="' + item.adultCost + '" style="width: 80px">원</td><td><input id="childCost" type="text" value="' + item.childCost + '" style="width: 80px">원</td><td><input id="seatQuantity" type="text" value="' + item.seatQuantity + '" style="width: 50px">석</td><td><input id="keepQuantity" type="text" value="' + item.keepQuantity + '" style="width: 30px">석</td><td class="flight-num">' + item.currentPassengerNumber + '</td><td><button type="button" data-id="' + item.flightId +'" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                    $("[data-flight_body]").append('<tr><td><select id="startCity"><option value="" disabled selected>선택</option><option value="김포" ' + (item.startCity === "김포" ? "selected" : "") + '>김포</option><option value="부산" ' + (item.startCity === "부산" ? "selected" : "") + '>부산</option><option value="광주" ' + (item.startCity === "광주" ? "selected" : "") + '>광주</option><option value="청주" ' + (item.startCity === "청주" ? "selected" : "") + '>청주</option><option value="대구" ' + (item.startCity === "대구" ? "selected" : "") + '>대구</option></select> - 제주</td><td><select id="airline"><option value="" disabled selected>선택</option><option value="대한항공" ' + (item.airline === "대한항공" ? "selected" : "") + '>대한항공</option><option value="아시아나" ' + (item.airline === "아시아나" ? "selected" : "") + '>아시아나</option></select></td><td><select id="seatClass"><option value="" disabled selected>선택</option><option value="일반" ' + (item.seatClass === "일반" ? "selected" : "") + '>일반</option><option value="비즈니스" ' + (item.seatClass === "비즈니스" ? "selected" : "") + '>비즈니스</option></select></td><td><input id="startFlight" type="text" placeholder="ex) KE1227" value="' + item.startFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="startDate" type="date" value="' + item.startDate + '"><input id="startTime" type="time" value="' + item.startTime + '"></div></td><td><input id="endFlight" type="text" placeholder="ex) KE1227" value="' + item.endFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="landingDate" type="date" value="' + item.landingDate + '"><input id="landingTime" type="time" value="' + item.landingTime + '"></div></td><td><input id="seniorCost" type="text" value="' + item.seniorCost + '" style="width: 80px">원</td><td><input id="adultCost" type="text" value="' + item.adultCost + '" style="width: 80px">원</td><td><input id="childCost" type="text" value="' + item.childCost + '" style="width: 80px">원</td><td><input id="seatQuantity" type="text" value="' + item.seatQuantity + '" style="width: 50px">석</td><td><input id="flightKeepQuantity" type="text" value="' + item.flightKeepQuantity + '" style="width: 30px">석</td><td class="flight-num">' + item.currentPassengerNumber + '</td><td><button type="button" data-id="' + item.flightId +'" class="delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
                 });
                 $("[data-flight_body] select, [data-flight_body] input, [data-flight_body] button").prop("disabled", true);
             },
@@ -381,7 +382,7 @@
             };
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/flights",
+                "url": "https://" + base_url + "/api/v1/flights?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -405,7 +406,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/flights",
+                "url": "https://" + base_url + "/api/v1/flights?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -438,7 +439,7 @@
             var adultCost = $("#add_adultCost").val();
             var childCost = $("#add_childCost").val();
             var seatQuantity = $("#add_seatQuantity").val();
-            var keepQuantity = $("#add_keepQuantity").val();
+            var flightKeepQuantity = $("#add_flightKeepQuantity").val();
             if (
                 startCity === null ||
                 airline === null ||
@@ -453,7 +454,7 @@
                 adultCost === "" ||
                 childCost === "" ||
                 seatQuantity === "" ||
-                keepQuantity === ""
+                flightKeepQuantity === ""
             ) {
                 alert("모든 필드를 입력해주세요.");
             }else{
@@ -461,7 +462,7 @@
                     "airline": airline,
                     "seatClass": seatClass,
                     "seatQuantity": seatQuantity,
-                    "keepQuantity": keepQuantity,
+                    "flightKeepQuantity": flightKeepQuantity,
                     "startFlight": startFlight,
                     "startCity": startCity,
                     "startDate": startDate,
@@ -475,7 +476,7 @@
                     "childCost": childCost,
                     "currentPassengerNumber": 0
                 });
-                $("[data-flight_foot]").append('<tr data-add_row><td><select id="startCity"><option value="" disabled selected>선택</option><option value="김포" ' + (startCity === "김포" ? "selected" : "") + '>김포</option><option value="부산" ' + (startCity === "부산" ? "selected" : "") + '>부산</option><option value="광주" ' + (startCity === "광주" ? "selected" : "") + '>광주</option><option value="청주" ' + (startCity === "청주" ? "selected" : "") + '>청주</option><option value="대구" ' + (startCity === "대구" ? "selected" : "") + '>대구</option></select> - 제주</td><td><select id="airline"><option value="" disabled selected>선택</option><option value="대한항공" ' + (airline === "대한항공" ? "selected" : "") + '>대한항공</option><option value="아시아나" ' + (airline === "아시아나" ? "selected" : "") + '>아시아나</option></select></td><td><select id="seatClass"><option value="" disabled selected>선택</option><option value="이코노미" ' + (seatClass === "일반" ? "selected" : "") + '>일반</option><option value="비즈니스" ' + (seatClass === "비즈니스" ? "selected" : "") + '>비즈니스</option></select><td><input id="startFlight" type="text" placeholder="ex) KE1227" value="' + startFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="startDate" type="date" value="' + startDate + '"><input id="startTime" type="time" value="' + startTime + '"></div></td><td><input id="endFlight" type="text" placeholder="ex) KE1227" value="' + endFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="landingDate" type="date" value="' + landingDate + '"><input id="landingTime" type="time" value="' + landingTime + '"></div></td><td><input id="seniorCost" type="text" value="' + seniorCost + '" style="width: 80px">원</td><td><input id="adultCost" type="text" value="' + adultCost + '" style="width: 80px">원</td><td><input id="childCost" type="text" value="' + childCost + '" style="width: 80px">원</td><td><input id="seatQuantity" type="text" value="' + seatQuantity + '" style="width: 50px">석</td><td><input id="keepQuantity" type="text" value="' + keepQuantity + '" style="width: 50px">석</td><td colspan="2"><button type="button" class="flight-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                $("[data-flight_foot]").append('<tr data-add_row><td><select id="startCity"><option value="" disabled selected>선택</option><option value="김포" ' + (startCity === "김포" ? "selected" : "") + '>김포</option><option value="부산" ' + (startCity === "부산" ? "selected" : "") + '>부산</option><option value="광주" ' + (startCity === "광주" ? "selected" : "") + '>광주</option><option value="청주" ' + (startCity === "청주" ? "selected" : "") + '>청주</option><option value="대구" ' + (startCity === "대구" ? "selected" : "") + '>대구</option></select> - 제주</td><td><select id="airline"><option value="" disabled selected>선택</option><option value="대한항공" ' + (airline === "대한항공" ? "selected" : "") + '>대한항공</option><option value="아시아나" ' + (airline === "아시아나" ? "selected" : "") + '>아시아나</option></select></td><td><select id="seatClass"><option value="" disabled selected>선택</option><option value="이코노미" ' + (seatClass === "일반" ? "selected" : "") + '>일반</option><option value="비즈니스" ' + (seatClass === "비즈니스" ? "selected" : "") + '>비즈니스</option></select><td><input id="startFlight" type="text" placeholder="ex) KE1227" value="' + startFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="startDate" type="date" value="' + startDate + '"><input id="startTime" type="time" value="' + startTime + '"></div></td><td><input id="endFlight" type="text" placeholder="ex) KE1227" value="' + endFlight + '" style="width: 100px"></td><td><div class="d-flex flex-column"><input id="landingDate" type="date" value="' + landingDate + '"><input id="landingTime" type="time" value="' + landingTime + '"></div></td><td><input id="seniorCost" type="text" value="' + seniorCost + '" style="width: 80px">원</td><td><input id="adultCost" type="text" value="' + adultCost + '" style="width: 80px">원</td><td><input id="childCost" type="text" value="' + childCost + '" style="width: 80px">원</td><td><input id="seatQuantity" type="text" value="' + seatQuantity + '" style="width: 50px">석</td><td><input id="flightKeepQuantity" type="text" value="' + flightKeepQuantity + '" style="width: 50px">석</td><td colspan="2"><button type="button" class="flight-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                 $('.reset').val("");
             }
@@ -540,11 +541,11 @@
             add_flight_list[trIndex - 1] = flightItem;
         }
 
-        $(document).on('change', '[data-flight_body] #startCity, [data-flight_body] #airline, [data-flight_body] #seatClass, [data-flight_body] #startFlight, [data-flight_body] #startDate, [data-flight_body] #startTime, [data-flight_body] #endFlight, [data-flight_body] #landingTime, [data-flight_body] #seniorCost, [data-flight_body] #adultCost, [data-flight_body] #childCost, [data-flight_body] #seatQuantity, [data-flight_body] #keepQuantity', function () {
+        $(document).on('change', '[data-flight_body] #startCity, [data-flight_body] #airline, [data-flight_body] #seatClass, [data-flight_body] #startFlight, [data-flight_body] #startDate, [data-flight_body] #startTime, [data-flight_body] #endFlight, [data-flight_body] #landingTime, [data-flight_body] #seniorCost, [data-flight_body] #adultCost, [data-flight_body] #childCost, [data-flight_body] #seatQuantity, [data-flight_body] #flightKeepQuantity', function () {
             handleInputChange(this);
         });
         
-        $(document).on('change', '[data-flight_foot] #startCity, [data-flight_foot] #airline, [data-flight_foot] #seatClass, [data-flight_foot] #startFlight, [data-flight_foot] #startDate, [data-flight_foot] #startTime, [data-flight_foot] #endFlight, [data-flight_foot] #landingTime, [data-flight_foot] #seniorCost, [data-flight_foot] #adultCost, [data-flight_foot] #childCost, [data-flight_foot] #seatQuantity [data-flight_foot] #keepQuantity', function () {
+        $(document).on('change', '[data-flight_foot] #startCity, [data-flight_foot] #airline, [data-flight_foot] #seatClass, [data-flight_foot] #startFlight, [data-flight_foot] #startDate, [data-flight_foot] #startTime, [data-flight_foot] #endFlight, [data-flight_foot] #landingTime, [data-flight_foot] #seniorCost, [data-flight_foot] #adultCost, [data-flight_foot] #childCost, [data-flight_foot] #seatQuantity [data-flight_foot] #flightKeepQuantity', function () {
             addHandleInputChange(this);
         });
 
@@ -552,7 +553,7 @@
         //----------------------------------호텔 정보----------------------------------------
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/hotels?year=2023&isRoomRemaining=false",
+            "url": "https://" + base_url + "/api/v1/hotels?year=2024&isRoomRemaining=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -576,7 +577,7 @@
                 };
                 $.each(response, function (index, item) {
                     if (item.type === "NORMAL") {
-                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (item.roomType === "온돌" ? "selected" : "") + '>온돌</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY" ' + (item.bedType === "패밀리" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td><input type="text" id="keepQuantity" value="' + item.keepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (item.isSubBed ? 'checked' : '') + '></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (item.roomType === "온돌" ? "selected" : "") + '>온돌</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY" ' + (item.bedType === "패밀리" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + item.hotelKeepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (item.isSubBed ? 'checked' : '') + '></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                         hotel_list.push({
                             "hotelId": item.hotelId,
@@ -587,7 +588,7 @@
                             "subBedCost": item.subBedCost,
                             "familyTwinBedCost": item.familyTwinBedCost,
                             "roomQuantity": item.roomQuantity,
-                            "keepQuantity": item.keepQuantity,
+                            "hotelKeepQuantity": item.hotelKeepQuantity,
                             "isSubBed": item.isSubBed,
                             "currentRoomGuestNumber": item.currentRoomGuestNumber
                         });   
@@ -653,7 +654,7 @@
             var subBedCost = $("#add_subBedCost").val();
             var familyTwinBedCost = $("#add_familyTwinBedCost").val();
             var roomQuantity = $("#add_roomQuantity").val();
-            var keepQuantity = $("#add_keepQuantity").val();
+            var hotelKeepQuantity = $("#add_hotelKeepQuantity").val();
             var isSubBed = $("#add_isSubBed").is(":checked");
             if (
                 roomType === null ||
@@ -662,7 +663,7 @@
                 subBedCost === "" ||
                 familyTwinBedCost === "" ||
                 roomQuantity === "" ||
-                keepQuantity === ""
+                hotelKeepQuantity === ""
             ) { alert("모든 필드를 입력해주세요."); } 
             else {
                 add_hotel_list.push({
@@ -672,11 +673,13 @@
                     "cost": cost,
                     "subBedCost": subBedCost,
                     "roomQuantity": roomQuantity,
-                    "keepQuantity": keepQuantity,
+                    "hotelKeepQuantity": hotelKeepQuantity,
                     "isSubBed": isSubBed,
                     "currentRoomGuestNumber": 0
                 });
-                $("[data-hotel_foot]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_DELUXE_MOUNTAIN" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (roomType === "LOTTE_DELUXE_GARDEN" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (roomType === "LOTTE_CHARLOTTE_OCEAN" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (roomType === "LOTTE_PREMIER_OCEAN" ? "selected" : "") + '>프리미어 오션</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="트윈" ' + (bedType === "TWIN" ? "selected" : "") + '>트윈</option><option value="더블" ' + (bedType === "DOUBLE" ? "selected" : "") + '>더블</option></select></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="subBedCost" value="' + subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + roomQuantity + '"></td>td><input type="text" id="keepQuantity" value="' + keepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (isSubBed ? 'checked' : '') + '></td><td colspan="3"><button type="button" class="hotel-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                console.log(roomType)
+                console.log(bedType)
+                $("[data-hotel_foot]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_DELUXE_MOUNTAIN" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (roomType === "LOTTE_DELUXE_GARDEN" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (roomType === "LOTTE_CHARLOTTE_OCEAN" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (roomType === "LOTTE_PREMIER_OCEAN" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (roomType === "LOTTE_ON_DOL" ? "selected" : "") + '>온돌</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="트윈" ' + (bedType === "TWIN" ? "selected" : "") + '>트윈</option><option value="더블" ' + (bedType === "DOUBLE" ? "selected" : "") + '>더블</option><option value="패밀리 더블" ' + (bedType === "FAMILY_DOUBLE" ? "selected" : "") + '>패밀리 더블</option><option value="패밀리 트윈" ' + (bedType === "FAMILY_TWIN" ? "selected" : "") + '>패밀리 트윈</option><option value="패밀리" ' + (bedType === "FAMILY" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="subBedCost" value="' + subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + hotelKeepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (isSubBed ? 'checked' : '') + '></td><td colspan="3"><button type="button" class="hotel-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                 $('.reset').val("");
                 console.log(add_hotel_list)
@@ -684,17 +687,16 @@
         });
 
         function handleInputChangeHotel(element) {
-            var newValue = element.value;
+            var newValue = element.id === "isSubBed" ? element.checked : element.value;
             var trIndex = $(element).closest('tr').index();
             var hotelItem = hotel_list[trIndex];
             var attributeName = element.id;
             hotelItem[attributeName] = newValue;
             hotel_list[trIndex] = hotelItem;
-            console.log(hotel_list)
         }
         
         function addHandleInputChangeHotel(element) {
-            var newValue = element.value;
+            var newValue = element.id === "isSubBed" ? element.checked : element.value;
             var trIndex = $(element).closest('tr').index();
             var hotelItem = add_hotel_list[trIndex - 1];
             var attributeName = element.id;
@@ -702,11 +704,11 @@
             add_hotel_list[trIndex - 1] = hotelItem;
         }
 
-        $(document).on('change', '[data-hotel_body] #roomType, [data-hotel_body] #bedType, [data-hotel_body] #cost, [data-hotel_body] #subBedCost, [data-hotel_body] #familyTwinBedCost, [data-hotel_body] #roomQuantity, [data-hotel_body] #keepQuantity, [data-hotel_body] #isSubBed', function () {
+        $(document).on('change', '[data-hotel_body] #roomType, [data-hotel_body] #bedType, [data-hotel_body] #cost, [data-hotel_body] #subBedCost, [data-hotel_body] #familyTwinBedCost, [data-hotel_body] #roomQuantity, [data-hotel_body] #hotelKeepQuantity, [data-hotel_body] #isSubBed', function () {
             handleInputChangeHotel(this);
         });
         
-        $(document).on('change', '[data-hotel_foot] #roomType, [data-hotel_foot] #bedType, [data-hotel_foot] #cost, [data-hotel_foot] #subBedCost, [data-hotel_foot] #familyTwinBedCost, [data-hotel_foot] #roomQuantity, [data-hotel_foot] #keepQuantity, [data-hotel_foot] #isSubBed', function () {
+        $(document).on('change', '[data-hotel_foot] #roomType, [data-hotel_foot] #bedType, [data-hotel_foot] #cost, [data-hotel_foot] #subBedCost, [data-hotel_foot] #familyTwinBedCost, [data-hotel_foot] #roomQuantity, [data-hotel_foot] #hotelKeepQuantity, [data-hotel_foot] #isSubBed', function () {
             addHandleInputChangeHotel(this);
         });
 
@@ -716,7 +718,7 @@
             };
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/hotels",
+                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -740,7 +742,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/hotels",
+                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -761,7 +763,7 @@
         //----------------------------------렌터카 정보----------------------------------------
         $.ajax({
             "type": "GET",
-             "url": "https://" + base_url + "/api/v1/renter-cars?year=2023&hideFullRenterCar=false",
+             "url": "https://" + base_url + "/api/v1/renter-cars?year=2024&hideFullRenterCar=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -777,7 +779,7 @@
                 };
 
                 $.each(response, function (index, item) {
-                    $("[data-rental_body]").append('<tr><td><select id="type"><option value="" disabled selected>선택</option><option value="LUXURY" ' + (item.type === "LUXURY" ? "selected" : "") + '>고급</option><option value="MID_SIZE" ' + (item.type === "MID_SIZE" ? "selected" : "") + '>중형</option><option value="SUV" ' + (item.type === "SUV" ? "selected" : "") + '>SUV</option><option value="CARNIVAL" ' + (item.type === "CARNIVAL" ? "selected" : "") + '>카니발급</option><option value="ELECTRIC" ' + (item.type === "ELECTRIC" ? "selected" : "") + '>전기차</option></select></td><td><input type="text" id="name" value="' + item.onlyName + '"></td></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="quantity" value="' + item.quantity + '"></td><td class="rental-num">' + item.currentOrderNumbers + '</td><td><button type="button" data-id="' + item.renterCarId + '" class="rental-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                    $("[data-rental_body]").append('<tr><td><select id="type"><option value="" disabled selected>선택</option><option value="LUXURY" ' + (item.type === "LUXURY" ? "selected" : "") + '>고급</option><option value="MID_SIZE" ' + (item.type === "MID_SIZE" ? "selected" : "") + '>중형</option><option value="SUV" ' + (item.type === "SUV" ? "selected" : "") + '>SUV</option><option value="CARNIVAL" ' + (item.type === "CARNIVAL" ? "selected" : "") + '>카니발급</option><option value="ELECTRIC" ' + (item.type === "ELECTRIC" ? "selected" : "") + '>전기차</option></select></td><td><input type="text" id="name" value="' + item.onlyName + '"></td></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="quantity" value="' + item.quantity + '"></td><td><input type="text" id="renterCarKeepQuantity" value="' + item.renterCarKeepQuantity + '"></td><td class="rental-num">' + item.currentOrderNumbers + '</td><td><button type="button" data-id="' + item.renterCarId + '" class="rental-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                     rental_list.push({
                         "renterCarId": item.renterCarId,
@@ -785,7 +787,8 @@
                         "name": item.onlyName,
                         "cost": item.cost,
                         "quantity": item.quantity,
-                        "currentOrderNumbers": item.currentOrderNumbers
+                        "currentOrderNumbers": item.currentOrderNumbers,
+                        "renterCarKeepQuantity": item.renterCarKeepQuantity
                     });
                 });
 
@@ -847,11 +850,13 @@
             var name = $("#add_name").val();
             var cost = $("#add_cost").val();
             var quantity = $("#add_quantity").val();
+            var renterCarKeepQuantity = $("#add_renterCarKeepQuantity").val();
             if (
                 type === null ||
                 name === "" ||
                 cost === "" ||
-                quantity === ""
+                quantity === "" ||
+                renterCarKeepQuantity === ""
             ) { alert("모든 필드를 입력해주세요."); }
             else {
                 add_rental_list.push({
@@ -859,9 +864,11 @@
                     "name": name,
                     "cost": cost,
                     "quantity": quantity,
-                    "currentOrderNumbers": 0
+                    "currentOrderNumbers": 0,
+                    "renterCarKeepQuantity": renterCarKeepQuantity
                 });
-                $("[data-rental_foot]").append('<tr><td><select id="type"><option value="" disabled selected>선택</option><option value="LUXURY" ' + (type === "고급" ? "selected" : "") + '>고급</option><option value="MID_SIZE" ' + (type === "중형" ? "selected" : "") + '>중형</option><option value="SUV" ' + (type === "SUV" ? "selected" : "") + '>SUV</option><option value="CARNIVAL" ' + (type === "카니발급" ? "selected" : "") + '>카니발급</option><option value="ELECTRIC" ' + (type === "전기차" ? "selected" : "") + '>전기차</option></select></td><td><input type="text" id="name" value="' + name + '"></td></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="quantity" value="' + quantity + '"></td><td colspan="2"><button type="button" class="rental-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                console.log(type)
+                $("[data-rental_foot]").append('<tr><td><select id="type"><option value="" disabled selected>선택</option><option value="LUXURY" ' + (type === "LUXURY" ? "selected" : "") + '>고급</option><option value="MID_SIZE" ' + (type === "MID_SIZE" ? "selected" : "") + '>중형</option><option value="SUV" ' + (type === "SUV" ? "selected" : "") + '>SUV</option><option value="CARNIVAL" ' + (type === "CARNIVAL" ? "selected" : "") + '>카니발급</option><option value="ELECTRIC" ' + (type === "전기차" ? "selected" : "") + '>전기차</option></select></td><td><input type="text" id="name" value="' + name + '"></td></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="quantity" value="' + quantity + '"></td><td><input type="text" id="renterCarKeepQuantity" value="' + renterCarKeepQuantity + '"></td><td colspan="2"><button type="button" class="rental-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                 $('.reset').val("");
             }
@@ -874,7 +881,6 @@
             var attributeName = element.id;
             rentalItem[attributeName] = newValue;
             rental_list[trIndex] = rentalItem;
-            console.log(hotel_list)
         }
 
         function addHandleInputChangeRental(element) {
@@ -901,7 +907,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/renter-cars",
+                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -926,7 +932,7 @@
             console.log(data)
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/renter-cars",
+                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
