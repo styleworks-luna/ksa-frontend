@@ -86,7 +86,7 @@
                             <div>2024-05-08</div>
                         </div>
                         <div data-content_box>
-                            <a data-brochure_link="2023" href="" download="">제70회 KSA 하계CEO포럼 브로셔.pdf</a>
+                            <a data-brochure_link="2024" href="" download="">제70회 KSA 하계CEO포럼 브로셔.pdf</a>
                         </div>
                     </li>
                     <li data-td_row>
@@ -104,17 +104,28 @@
             <div data-pagination_box></div>
         </div>
         <div data-mobile_content_wrap>
-            <div data-notice_wrap>
+            <div data-brochure_wrap>
                 <ul id="data-container-mobile">
                     <li data-td_row>
                         <div data-title_row>
                             <div>
-                                <p></p>
-                                <span></span>
+                                <p>제70회 KSA 하계CEO포럼 브로셔</p>
+                                <span>2024-05-08</span>
                             </div>
                         </div>
                         <div data-content_box>
-
+                            <a data-brochure_link="2024" href="" download="">제70회 KSA 하계CEO포럼 브로셔.pdf</a>
+                        </div>
+                    </li>
+                    <li data-td_row>
+                        <div data-title_row>
+                            <div>
+                                <p>제69회 KSA 하계CEO포럼 브로셔</p>
+                                <span>2023-05-08</span>
+                            </div>
+                        </div>
+                        <div data-content_box>
+                            <a data-brochure_link="2023" href="" download="">제69회 KSA 하계CEO포럼 브로셔.pdf</a>
                         </div>
                     </li>
                 </ul>
@@ -135,8 +146,12 @@
         </div>
     </footer>
     <script>
-        const downloadLink = `https://${base_url}/api/v1/ksa/files?ksaFileType=BROCHURE`;
-        $("[data-brochure_link='2023']").attr("href", downloadLink);
+        // const downloadLink = "https://${base_url}/api/v1/ksa/files?ksaFileType=BROCHURE";
+        $("[data-brochure_link]").click(function(){
+            const year = $(this).data("brochure_link");
+            const downloadLink = `https://${base_url}/api/v1/ksa/files?year=`+ year +`&ksaFileType=BROCHURE`;
+            $(this).attr("href", downloadLink);
+        })
         $(function () {
             if( window.innerWidth > 760 ){
                 $("[data-title_row]").click(function () {
