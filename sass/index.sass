@@ -149,7 +149,21 @@ main
                             font:
                                 size: 28px
                                 weight: bold
-                            color: #008ecf
+                            &[data-pink]
+                                background-image: linear-gradient(to right, #f1acc1, #efa2ba 8%, #e98aa7 32%, #e881a1 47%, #e07da1 61%, #cb75a1 82%, #b46ba2)
+                                background-clip: text
+                                -webkit-background-clip: text
+                                -webkit-text-fill-color: transparent
+                            &[data-sky]
+                                background-image: linear-gradient(to right, #7ea6d4, #7bc1ce)
+                                background-clip: text
+                                -webkit-background-clip: text
+                                -webkit-text-fill-color: transparent
+                            &[data-green]
+                                background-image: linear-gradient(to right, #35b5aa 13%, #a5c658 54%, #d2db86)
+                                background-clip: text
+                                -webkit-background-clip: text
+                                -webkit-text-fill-color: transparent
                         &:last-of-type
                             font:
                                 size: 16px
