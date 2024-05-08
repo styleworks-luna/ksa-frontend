@@ -435,6 +435,10 @@
                                 $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.tourStartDate + " | " + tour_type[item.tourType] + " | <span>" + item.attenderName + "</span></p><p>" + item.description + "</p></div>");
                             });
 
+                            $.each(response.familySession.familySessionAttenders, function (index, item) {
+                                $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.familySession.startDate + " | " + item.familySession.title + " | <span>" + item.attenderName + "</span></p></div>");
+                            });
+                            
                             if(response.attendStatus === "DONE"){
                                 $("[data-mobile_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
                             }else{
