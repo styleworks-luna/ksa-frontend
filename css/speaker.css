@@ -156,6 +156,9 @@ main [data-content_box] [data-image_container] [data-image_wrap] [data-image_box
 main [data-content_box] [data-image_container="2024"] {
   display: block;
 }
+main [data-content_box] [data-image_container="2024"] [data-image_wrap] {
+  padding-bottom: 20px;
+}
 main [data-content_box] [data-image_container="2024"] [data-image_wrap] [data-image_box] {
   width: 302px;
   margin-right: 20px;
@@ -195,6 +198,14 @@ main [data-content_box] [data-image_container="2024"] [data-image_wrap] [data-im
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+main [data-content_box] [data-image_container="2024"] [data-image_wrap] [data-image_box] [data-black] {
+  color: #222 !important;
+}
+main [data-content_box] [data-image_container="2024"] [data-check_txt] {
+  color: #0c3994;
+  font-weight: bold;
+  margin-bottom: 95px;
 }
 
 @media (max-width: 760px) {

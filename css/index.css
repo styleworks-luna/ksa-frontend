@@ -180,6 +180,9 @@ main [data-speaker_box] .swiper .speaker .swiper-slide p:first-of-type[data-gree
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+main [data-speaker_box] .swiper .speaker .swiper-slide p:first-of-type[data-black] {
+  color: #222 !important;
+}
 main [data-speaker_box] .swiper .speaker .swiper-slide p:last-of-type {
   font-size: 16px;
   line-height: 22px;
