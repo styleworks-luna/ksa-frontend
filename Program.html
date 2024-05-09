@@ -703,7 +703,6 @@
                                     if (!thu_list.some(p => p.attenderId == item.attenderId)) {
                                         $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                         $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                        $("[data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -726,7 +725,7 @@
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour], [data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -776,10 +775,10 @@
                             "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
+                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf], [data-thu_tour], [data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_golf], [data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -798,10 +797,10 @@
                             "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
+                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour], [data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -937,7 +936,7 @@
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf], [data-thu_tour], [data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-thu_golf], [data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
@@ -958,7 +957,7 @@
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
                                 $.each(passenger, function (index, item) {
                                     if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour], [data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
                                     }
                                 });
                             },
