@@ -381,6 +381,7 @@
 
                 function showSelectedInfo() {
                     if (hotel_val !== "" && start_val !== "" && end_val !== "") {
+                        cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
                         $(".room").show();
                         // PC 화면 일때
                         if (window.innerWidth > 760) {
