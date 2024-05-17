@@ -282,7 +282,7 @@
             });
 
             $(".cancle-btn").on("click", (event) => {
-                let content = quill.getContent();
+                let content = quill.getSemanticHTML();
                 let title = $("input[ type='text']").val();
 
                 if (title === "" && content === ""){
