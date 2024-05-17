@@ -12,7 +12,8 @@
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <script src="https://cdn.tiny.cloud/1/ziwrhe6wei3zbf8h5j6jhv6xahgz5o451oco5xpqbvemxhtz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.2/dist/quill.snow.css" rel="stylesheet" />
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 </head>
 
@@ -87,7 +88,52 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <input type="text" class="form-control p-3 mb-3" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="제목을 입력 해주세요.">
-                            <textarea id="myTextarea" placeholder="내용을 입력 해주세요."></textarea>
+                            <div id="toolbar-container">
+                                <span class="ql-formats">
+                                    <select class="ql-font"></select>
+                                    <select class="ql-size"></select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-bold"></button>
+                                    <button class="ql-italic"></button>
+                                    <button class="ql-underline"></button>
+                                    <button class="ql-strike"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <select class="ql-color"></select>
+                                    <select class="ql-background"></select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-script" value="sub"></button>
+                                    <button class="ql-script" value="super"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-header" value="1"></button>
+                                    <button class="ql-header" value="2"></button>
+                                    <button class="ql-blockquote"></button>
+                                    <button class="ql-code-block"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-list" value="ordered"></button>
+                                    <button class="ql-list" value="bullet"></button>
+                                    <button class="ql-indent" value="-1"></button>
+                                    <button class="ql-indent" value="+1"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-direction" value="rtl"></button>
+                                    <select class="ql-align"></select>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-link"></button>
+                                    <button class="ql-image"></button>
+                                    <button class="ql-video"></button>
+                                    <button class="ql-formula"></button>
+                                </span>
+                                <span class="ql-formats">
+                                    <button class="ql-clean"></button>
+                                </span>
+                            </div>
+                            <div id="editor" style="height: 400px"></div>
                             <div class="row justify-content-center">
                                 <button type="button" class="btn cancle-btn btn-secondary align-self-center mt-4 pr-4 pl-4 mr-3 font-weight-bold">취소</button>
                                 <button type="submit" class="btn btn-primary align-self-center mt-4 pr-4 pl-4 font-weight-bold">등록</button>
@@ -128,23 +174,14 @@
     <script src="js/demo/datatables-demo.js"></script>
     <script src="/js/common.js"></script>
     <script>
-        tinymce.init({
-            selector: 'textarea',
-            setup: function (editor) {
-                editor.on('init', function () {});
+       const quill = new Quill('#editor', {
+            modules: {
+                toolbar: '#toolbar-container',
             },
-            images_upload_url: 'postAcceptor.php',
-            automatic_uploads: false,
-            plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss',
-            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
-            tinycomments_mode: 'embedded',
-            tinycomments_author: 'Author name',
-            mergetags_list: [
-                { value: 'First.Name', title: 'First Name' },
-                { value: 'Email', title: 'Email' },
-            ]
+            placeholder: '공지사항을 입력해주세요',
+            theme: 'snow'
         });
-        
+
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
             name = name.replace(/[\[\]]/g, '\\$&');
@@ -154,7 +191,6 @@
             if (!results[2]) return '';
             return decodeURIComponent(results[2].replace(/\+/g, ' '));
         }
-
         const id_num = getParameterByName('id');
         if( id_num !== null ){
             $.ajax({
@@ -166,7 +202,7 @@
                     }
                 },
                 success: function (response) {
-                    tinymce.activeEditor.getContent(response.content);
+                    quill.clipboard.dangerouslyPasteHTML(response.content)
                     $("input[ type='text']").val(response.title);
                     $("#myTextarea").val(response.content);
                 },
@@ -176,7 +212,7 @@
             });
             
             $("button[type='submit']").on("click", (event) => {
-                let content = tinymce.activeEditor.getContent();
+                let content = quill.getSemanticHTML();
                 let title = $("input[ type='text']").val();
                 const data = {
                     "title": title,
@@ -214,7 +250,7 @@
             
         }else{
             $("button[type='submit']").on("click", (event) => {
-                let content = tinymce.activeEditor.getContent();
+                let content = quill.getSemanticHTML();
                 let title = $("input[ type='text']").val();
                 
                 const data = {
@@ -246,7 +282,7 @@
             });
 
             $(".cancle-btn").on("click", (event) => {
-                let content = tinymce.activeEditor.getContent();
+                let content = quill.getContent();
                 let title = $("input[ type='text']").val();
 
                 if (title === "" && content === ""){

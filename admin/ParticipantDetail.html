@@ -1575,6 +1575,7 @@
 
                 function showSelectedInfo() {
                     if (hotel_val !== "" && start_val !== "" && end_val !== "") {
+                        cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
                         $(".room").show();
                         if (hotel_cost === 0) {
                             $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
