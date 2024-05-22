@@ -210,6 +210,15 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
   background-color: #a3a3a3;
   pointer-events: none;
 }
+main [data-popup_box] div [data-notice_close_btn] {
+  background-color: #0C3994 !important;
+}
+main [data-popup_box] form {
+  display: none;
+}
+main [data-popup_box] [data-done_txt] {
+  display: none;
+}
 
 @media (max-width: 760px) {
   main {

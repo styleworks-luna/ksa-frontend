@@ -630,6 +630,10 @@
         const id_num = sessionStorage.getItem('attend_id');
         function validateJuminNum(juminNum) {
             var jumin_pattern = /^(\d{6})(\d{7})$/;
+            var year = parseInt(juminNum.substring(0, 4));
+            if (year >= 2010) {
+                return true;
+            }
             if (!jumin_pattern.test(juminNum)) {
                 return false;
             }

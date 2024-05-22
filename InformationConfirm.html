@@ -270,6 +270,19 @@
             </div>
         </div>
         <div data-popup_box>
+            <div data-done_txt>
+                <p>최종제출 되었습니다. 최종제출 시 항공권은 순차 발권되며,<br> 담당자 메일로 전달됩니다.<br> 발권 후 취소 시 수수료 발생합니다</p>
+                <div>
+                    <button data-notice_close_btn="done" type="button">닫기</button>
+                </div>
+            </div>
+            <div data-notice_txt>
+                <p>임시 저장되었습니다.<br>
+                    임시 저장 후 로그인 하시면 수정가능합니다.</p>
+                <div>
+                    <button data-notice_close_btn="notice" type="button">닫기</button>
+                </div>
+            </div>
             <form>
                 <p>작성된 내용으로 제출하시겠습니까?<br>
                 제출 이후에는 수정이 불가합니다.</p>
@@ -395,6 +408,7 @@
                             if (response.attendStatus === "DONE") {
                                 $("[data-pc_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
                             } else {
+                                $("[data-popup_box]").show();
                                 $("[data-pc_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>제출</button>");
                             }
                         }
@@ -442,6 +456,7 @@
                             if(response.attendStatus === "DONE"){
                                 $("[data-mobile_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
                             }else{
+                                $("[data-popup_box]").show();
                                 $("[data-mobile_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>제출</button>");
                             }
                         }
@@ -462,9 +477,19 @@
                         alert("error")
                     }
                 });
-
-                $(document).on("click", "[data-submit_btn]", function () { $('[data-popup_box]').show(); })
-                $('[data-close_btn]').on("click", function () { $('[data-popup_box]').hide() });
+                $(document).on("click", "[data-submit_btn]", function () { 
+                    $("[data-popup_box]").show();
+                    $("[data-popup_box] form").show();
+                    $("[data-notice_txt]").hide();
+                })
+                $("[data-close_btn], [data-notice_close_btn]").on("click", function () { 
+                    if($(this).data("notice_close_btn") === "done"){
+                        $("[data-popup_box]").hide();
+                        window.location.reload();
+                    }else{
+                        $("[data-popup_box]").hide()
+                    }
+                });
                 $("[data-done_btn]").on("click", function () {
                     $("[data-done_btn]").prop("disabled", true);
                     $.ajax({
@@ -477,9 +502,8 @@
                             }
                         },
                         success: function (response) {
-                            alert("저장이 완료 되었습니다.");
-                            $('[data-popup_box]').hide();
-                            window.location.reload();
+                            $("[data-popup_box] form").hide();
+                            $("[data-done_txt]").show();
                         },
                         error: function (xhr) {
                             $("[data-done_btn]").prop("disabled", false);
