@@ -383,7 +383,7 @@
         $(".another-search").click(function () {
             keyword = $(".another-search-input").val();
 
-            var url = "https://" + base_url + "/api/v1/attends/search?year=2024&keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status;
+            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
     </script>
