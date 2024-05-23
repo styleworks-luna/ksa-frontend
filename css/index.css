@@ -23,7 +23,7 @@ main [data-main_wrap] {
   background-image: url(/images/2024_pc_top.png);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   display: flex;
   align-items: flex-start;
   justify-content: center;
