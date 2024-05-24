@@ -319,7 +319,7 @@
         let deposit_status = "";
         let taxbill_publish_status = "";
         let keyword = "";
-        let year = "";
+        let year = $('#year option:selected').val();
 
         $('#friendlyGroupFilter').on('change', function () {
             friendly_group = $('#friendlyGroupFilter option:selected').val();
