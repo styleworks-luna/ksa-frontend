@@ -102,8 +102,9 @@
             </div>
         </div>
         <div data-pc_content_box>
+            <h1>신청내역 확인</h1>
             <div data-print_wrap>
-                <h1>신청내역 확인</h1>
+                <div data-add_text_box="1"></div>
                 <div data-table_box>
                     <span>총 결제 금액</span>
                     <table data-total_data>
@@ -199,6 +200,7 @@
                     
                     </table>
                 </div>
+                <div data-add_text_box="2"></div>
             </div>
             <div data-notice_box>
                 <p>· 최종 제출 전에는 수정사항 발생 시 본 등록 페이지에 로그인 하시어 수정하실 수 있으며 취소시에는 반드시 사무국으로 연락 부탁드립니다.</p>
@@ -221,6 +223,7 @@
         </div>
         <div data-mobile_content_box>
             <h1>신청내역 확인</h1>
+            <div data-add_text_box="1"></div>
             <div data-table_box>
                 <span>총 결제 금액</span>
                 <table data-total_data="mobile"></table>
@@ -250,6 +253,7 @@
             <div data-table_box="program">
                 <span data-title_span>프로그램 신청 내역</span>
             </div>
+            <div data-add_text_box="2"></div>
             <div data-notice_box>
                 <p>· 최종 제출 전에는 수정사항 발생 시 본 등록 페이지에 로그인 하시어 수정하실 수 있으며 취소시에는 반드시 사무국으로 연락 부탁드립니다.</p>
                 <p>· 또한, 최종 안내 메일을 받으신 후에는 임의로 수정 불가하오니 사무국으로 수정 문의 부탁드립니다.</p>
@@ -336,6 +340,7 @@
                 "CULTURE_EXP": "문화체험",
                 "HEALING_TOUR": "힐링투어",
             }
+            let today_date = moment().format("YYYY년 MM월 DD일");
 
             if(attend_id !== null){
                 $.ajax({
@@ -407,6 +412,11 @@
 
                             if (response.attendStatus === "DONE") {
                                 $("[data-pc_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
+                                
+                                $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
+                                
+                                $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
+
                             } else {
                                 $("[data-popup_box]").show();
                                 $("[data-pc_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>제출</button>");
@@ -455,6 +465,10 @@
                             
                             if(response.attendStatus === "DONE"){
                                 $("[data-mobile_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
+
+                                $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
+
+                                $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
                             }else{
                                 $("[data-popup_box]").show();
                                 $("[data-mobile_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>제출</button>");
@@ -463,13 +477,13 @@
 
                         const element = $("[data-print_wrap]");
                         $(document).on("click", "[data-print_btn]", function () {
-                            html2canvas(element[0]).then(canvas => {
+                            html2canvas(element[0], { scale: 4 }).then(canvas => {
                                 const doc = new jsPDF('p', 'pt', 'a4', true);
-                                const margin = 30; // 여백 값
+                                const margin = 20; // 여백 값
                                 const width = doc.internal.pageSize.getWidth() - margin * 2; // 페이지 너비에서 여백을 뺀 값
                                 const height = doc.internal.pageSize.getHeight() - margin * 2; // 페이지 높이에서 여백을 뺀 값
                                 doc.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', margin, margin, width, height);
-                                doc.save('element.pdf');
+                                doc.save('견적서.pdf');
                             });
                         });
                     },
