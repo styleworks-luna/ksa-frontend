@@ -340,7 +340,6 @@
                 "CULTURE_EXP": "문화체험",
                 "HEALING_TOUR": "힐링투어",
             }
-            let today_date = moment().format("YYYY년 MM월 DD일");
 
             if(attend_id !== null){
                 $.ajax({
@@ -367,6 +366,8 @@
                             "JEJU_AIRPORT" : "제주공항",
                             "LOTTE_HOTEL" : "롯데호텔",
                         }
+                        const today_date = moment(response.updatedAt).format("YYYY년 MM월 DD일");
+
                         if (window.innerWidth > 760) {
 
                             $("[data-total_data]").append("<tr><td>"+ cost.attendTotalCost.toLocaleString() +"원</td><td>" + cost.flightTotalCost.toLocaleString() +"원</td><td>" + cost.hotelTotalCost.toLocaleString() +"원</td><td>" + cost.renterCarTotalCost.toLocaleString() +"원</td><td>" + cost.golfCourseTotalCost.toLocaleString() +"원</td><td>"+ cost.tourTotalCost.toLocaleString() +"원</td><td>" + cost.totalCost.toLocaleString() +"원</td></tr>");
@@ -478,8 +479,8 @@
                         const element = $("[data-print_wrap]");
                         $(document).on("click", "[data-print_btn]", function () {
                             html2canvas(element[0], { scale: 4 }).then(canvas => {
-                                const doc = new jsPDF('p', 'pt', 'a4', true);
-                                const margin = 20; // 여백 값
+                                const doc = new jsPDF('p', 'mm', 'a4');
+                                const margin = 15; // 여백 값
                                 const width = doc.internal.pageSize.getWidth() - margin * 2; // 페이지 너비에서 여백을 뺀 값
                                 const height = doc.internal.pageSize.getHeight() - margin * 2; // 페이지 높이에서 여백을 뺀 값
                                 doc.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', margin, margin, width, height);
