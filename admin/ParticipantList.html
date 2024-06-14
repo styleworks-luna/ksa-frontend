@@ -378,7 +378,7 @@
             e.preventDefault();
             var id = $(this).attr('href');
             const num = $.trim(id.replace(/[^0-9]/g, ''));
-            window.location.href = '/admin/ParticipantDetail.html?id=' + num;
+            window.location.href = '/admin/ParticipantDetail.html?id=' + num + '&year='+ year
         });
 
         $(".another-search").click(function () {
