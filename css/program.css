@@ -5,6 +5,11 @@ main {
   justify-content: center;
   flex-direction: column;
 }
+main .error-txt {
+  color: #ff2200;
+  font-size: 14px;
+  padding-bottom: 12px;
+}
 main [data-content_box=mobile] {
   display: none;
 }
