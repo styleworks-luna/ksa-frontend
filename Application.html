@@ -233,7 +233,7 @@
                 $("[data-post_btn]").prop("disabled", true);
                 $.ajax({
                     "type": "POST",
-                    "url": "https://" + base_url + "/api/v1/attenders/reset-password?mobilePhone=" + phone + "&businessNumber=" + num,
+                    "url": "https://" + base_url + "/api/v1/attenders/reset-password?year=2024&mobilePhone=" + phone + "&businessNumber=" + num,
                     "contentType": 'application/json',
                     success: function (response) {
                         alert("정상적으로 이메일이 발송되었습니다.");
