@@ -99,7 +99,8 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <select id="year" class="form-control font-weight-bold mb-3" style="width: 300px">
-                                    <option selected value="2024">2024년</option>
+                                    <option selected value="2025">2025년</option>
+                                    <option value="2024">2024년</option>
                                     <option value="2023">2023년</option>
                                 </select>
                                 <div class="row pl-3 mb-3 justify-content-between" style="width: 100%">
@@ -271,7 +272,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/search?year=2024",
+                "url": "https://" + base_url + "/api/v1/attends/search?year=" + current_year,
                 "data": {
                     "ksaCompanyType": "",
                     "attendStatus": "",

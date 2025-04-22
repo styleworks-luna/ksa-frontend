@@ -485,7 +485,7 @@
                                                     <td class="p-0">
                                                         <div class="form-check form-check-inline pr-4 airport pb-3 pt-3"
                                                             style="display: none;">
-                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2024-07-24" max="2024-07-27">
+                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2025-07-24" max="2025-07-27">
                                                             <input type="time" data-time_picker>
                                                         </div>
                                                     </td>
@@ -548,9 +548,9 @@
                                                     <th class="table-secondary align-middle" style="width: 10%;">투숙기간</th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2024-07-22" max="2024-07-31" data-placeholder="시작일 선택">
+                                                            <input data-start_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2024-07-22" max="2024-07-31" data-placeholder="종료일 선택">
+                                                            <input data-end_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
                                                     </td>
@@ -676,7 +676,7 @@
                                                         <div data-date_box>
                                                             <div data-time_box class="d-flex">
                                                                 <span class="font-weight-bold pr-3">시작일 선택</span>
-                                                                <input data-rental_start_date type="date" min="2024-07-22" max="2024-07-31" class="reset mr-2">
+                                                                <input data-rental_start_date type="date" min="2025-07-22" max="2025-07-31" class="reset mr-2">
                                                                 <div data-check_in_box >
                                                                     <select data-start_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
@@ -688,7 +688,7 @@
                                                             </div>
                                                             <div data-time_box class="d-flex pt-3">
                                                                 <span class="font-weight-bold pr-3">반납일 선택</span>
-                                                                <input data-rental_end_date type="date" min="2024-07-22" max="2024-07-31" class="reset mr-2">
+                                                                <input data-rental_end_date type="date" min="2025-07-22" max="2025-07-31" class="reset mr-2">
                                                                 <div data-check_in_box>
                                                                     <select data-end_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
@@ -802,8 +802,8 @@
             }
             const id_num = getParameterByName('id');
             const year_num = getParameterByName('year');
-            const thu_tour = Number(year_num) === 2024 ? "2024-07-25" : "2023-07-27"
-            const fri_tour = Number(year_num) === 2024 ? "2024-07-26" : "2023-07-28"
+            const thu_tour = Number(year_num) === 2025 ? "2025-07-25" : "2023-07-27"
+            const fri_tour = Number(year_num) === 2025 ? "2025-07-26" : "2023-07-28"
 
             const downloadLink = `https://${base_url}/api/v1/companies/businessRegistration?attendId=${id_num}`;
             let today_date = moment().format("YYYY-MM-DD");
@@ -1234,7 +1234,7 @@
                     let value = $(this).val();
                     $.ajax({
                         "type": "GET",
-                        "url": "https://" + base_url + "/api/v1/flights?year=2024&startCity=" + value + "&hideFullFlight=false",
+                        "url": "https://" + base_url + "/api/v1/flights?year="+current_year+"&startCity=" + value + "&hideFullFlight=false",
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1540,7 +1540,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/hotels?year=2024&isRoomRemaining=false",
+                    "url": "https://" + base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');

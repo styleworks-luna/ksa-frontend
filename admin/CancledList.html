@@ -92,7 +92,8 @@
                     </div>
                     <div>
                         <select id="year" class="form-control font-weight-bold mb-3" style="width: 300px">
-                            <option selected value="2024">2024년</option>
+                            <option selected value="2025">2025년</option>
+                            <option value="2024">2024년</option>
                             <option value="2023">2023년</option>
                         </select>
                     </div>
@@ -213,7 +214,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/canceled?year=2024",
+                "url": "https://" + base_url + "/api/v1/attends/canceled?year=" + current_year,
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
