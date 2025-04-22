@@ -358,7 +358,7 @@
         let add_rental_list = [];
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/flights?year=2024&hideFullFlight=false",
+            "url": "https://" + base_url + "/api/v1/flights?year="+current_year+"&hideFullFlight=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -385,7 +385,7 @@
             };
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/flights?year=2024",
+                "url": "https://" + base_url + "/api/v1/flights?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -409,7 +409,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/flights?year=2024",
+                "url": "https://" + base_url + "/api/v1/flights?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -556,7 +556,7 @@
         //----------------------------------호텔 정보----------------------------------------
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/hotels?year=2024&isRoomRemaining=false",
+            "url": "https://" + base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -722,7 +722,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
+                "url": "https://" + base_url + "/api/v1/hotels?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -746,7 +746,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
+                "url": "https://" + base_url + "/api/v1/hotels?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -767,7 +767,7 @@
         //----------------------------------렌터카 정보----------------------------------------
         $.ajax({
             "type": "GET",
-             "url": "https://" + base_url + "/api/v1/renter-cars?year=2024&hideFullRenterCar=false",
+             "url": "https://" + base_url + "/api/v1/renter-cars?year="+current_year+"&hideFullRenterCar=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -911,7 +911,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
+                "url": "https://" + base_url + "/api/v1/renter-cars?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -936,7 +936,7 @@
             console.log(data)
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
+                "url": "https://" + base_url + "/api/v1/renter-cars?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {

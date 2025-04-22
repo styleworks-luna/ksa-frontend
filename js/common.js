@@ -41,3 +41,4 @@ if (base_url === "ksa.onoffmix.xyz") {
     base_url = "api-" + base_url;
 }
 // let base_url = "api-ksa.onoffmix.xyz"
+const current_year = 2025;
