@@ -105,7 +105,7 @@
             url: base_url +"/api/v1/galleries/all",
             success: function (response) {
                 $.each(response, function (response, item) {
-                    $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
+                    $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
                 });
 
                 $("[data-image_wrap]").on("click", "[data-image_box]", function () {
@@ -134,7 +134,7 @@
                 success: function (response) {
                     $("[data-image_wrap]").empty();
                     $.each(response, function (response, item) {
-                        $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
+                        $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
                     });
     
                     $("[data-image_wrap]").on("click", "[data-image_box]", function () {
