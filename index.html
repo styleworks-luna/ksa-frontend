@@ -220,7 +220,7 @@
         </div>
     </footer>
     <script>
-        const downloadLink = `https://${base_url}/api/v1/ksa/files?year=2024&ksaFileType=BROCHURE`;
+        const downloadLink = `https://${base_url}/api/v1/ksa/files?year=`+current_year+`&ksaFileType=BROCHURE`;
         $("[data-brochure_link]").attr("href", downloadLink);
         function getDirection() {
             var windowWidth = window.innerWidth;
@@ -306,7 +306,7 @@
 
         $.ajax({
             type: "GET",
-            url: "https://" + base_url + "/api/v1/galleries/all",
+            url: base_url + "/api/v1/galleries/all",
             success: function (response) {
                 $.each(response, function (response, item) {
                     $(".gallery-swiper").append('<div class="swiper-slide"><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');

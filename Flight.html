@@ -135,7 +135,7 @@
                     <td>
                         <div class="display">
                             <div data-date_box>
-                                <input type="date" min="2024-07-24" max="2024-07-27" data-date_picker>
+                                <input type="date" min="2025-07-24" max="2025-07-27" data-date_picker>
                                 <input type="time" data-time_picker>
                             </div>
                         </div>
@@ -243,7 +243,7 @@
                 // 이미 신청한 상황이라면 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/flight-orders?attendId=" + attend_id,
+                    "url": base_url +"/api/v1/flight-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -281,7 +281,7 @@
                             // API 호출하여 동행인 목록 가져오기
                             $.ajax({
                                 "type": "GET",
-                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
                                     $("[data-passenger_select] option:not(:first-child)").remove();
@@ -299,7 +299,7 @@
                         else{
                             $.ajax({
                                 "type": "GET",
-                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
                                     $("[data-passenger_select] option:not(:first-child)").remove();
@@ -330,7 +330,7 @@
                     let value = $(this).val();
                     $.ajax({
                        "type": "GET",
-                       "url": "https://"+ base_url +"/api/v1/flights?year=2024&startCity=" + value,
+                       "url": base_url +"/api/v1/flights?year="+current_year+"&startCity=" + value,
                        beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -417,7 +417,7 @@
                         // 동행인 리스트 업데이트
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-passenger_select] option:not(:first-child)").remove();
@@ -458,7 +458,7 @@
 
                     $.ajax({
                         "type": "GET",
-                        "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                        "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                         success: function (response) {
                             passenger = response;
                             $("[data-passenger_select] option:not(:first-child)").remove();
@@ -499,7 +499,7 @@
                     };
                     $.ajax({
                         "type": "POST",
-                        "url": "https://"+ base_url +"/api/v1/flight-orders",
+                        "url": base_url +"/api/v1/flight-orders",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {

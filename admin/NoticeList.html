@@ -143,7 +143,7 @@
     <script>
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://"+ base_url +"/api/v1/notices/all",
+                "url": base_url +"/api/v1/notices/all",
                 "dataSrc": function (json) {
                     return json;
                 },
@@ -188,7 +188,7 @@
             if (confirm("해당 공지를 삭제하시겠습니까?")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://"+ base_url +"/api/v1/notices/" + num,
+                    url: base_url +"/api/v1/notices/" + num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));

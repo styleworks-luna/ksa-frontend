@@ -812,7 +812,7 @@
             $('.password-reset').on("click", (event) => {
                 if (confirm("비밀번호를 초기화 하시겠습니까?")) {
                     $.ajax({
-                        "url": "https://" + base_url + "/api/v1/attenders/by-attend-id/reset-password?attendId=" + id_num,
+                        "url": base_url + "/api/v1/attenders/by-attend-id/reset-password?attendId=" + id_num,
                         "method": "POST",
                         beforeSend: function (xhr) {
                             if (localStorage.getItem('token')) {
@@ -838,7 +838,7 @@
             });
             if (id_num !== null) {
                 $.ajax({
-                    url: "https://" + base_url + "/api/v1/attends/" + id_num + "/summary",
+                    url: base_url + "/api/v1/attends/" + id_num + "/summary",
                     "method": "GET",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
@@ -876,7 +876,7 @@
                             if (response.depositStatus === 'NON_PAY') {
                                 if (confirm("결제 상태를 완납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": "https://" + base_url + "/api/v1/attends/"+ id_num +"/deposit-status/full",
+                                        "url": base_url + "/api/v1/attends/"+ id_num +"/deposit-status/full",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -895,7 +895,7 @@
                             } else if (response.depositStatus === 'FULL_PAY') {
                                 if (confirm("결제 상태를 미납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": "https://" + base_url + "/api/v1/attends/" + id_num +"/deposit-status/non",
+                                        "url": base_url + "/api/v1/attends/" + id_num +"/deposit-status/non",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -944,7 +944,7 @@
                                 }
                             }
                             $.ajax({
-                                "url": "https://" + base_url + "/api/v1/attends/summary",
+                                "url": base_url + "/api/v1/attends/summary",
                                 "method": "PATCH",
                                 beforeSend: function (xhr) {
                                     if (localStorage.getItem('token')) {
@@ -989,7 +989,7 @@
 
                 let fam_list = [];
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/attends/" + id_num,
+                    "url": base_url + "/api/v1/attends/" + id_num,
                     "method": "GET",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
@@ -1173,7 +1173,7 @@
                     formData.append('businessRegistration', cal_file_val);
                     $.ajax({
                         "type": "PATCH",
-                        "url": "https://" + base_url + "/api/v1/attends",
+                        "url": base_url + "/api/v1/attends",
                         "data": formData,
                         "processData": false,
                         "contentType": false,
@@ -1217,7 +1217,7 @@
                 let type_cost = ""
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                    "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                     success: function (response) {
                         flight_passenger = response;
                         $.each(flight_passenger, function (index, item) {
@@ -1234,7 +1234,7 @@
                     let value = $(this).val();
                     $.ajax({
                         "type": "GET",
-                        "url": "https://" + base_url + "/api/v1/flights?year="+current_year+"&startCity=" + value + "&hideFullFlight=false",
+                        "url": base_url + "/api/v1/flights?year="+current_year+"&startCity=" + value + "&hideFullFlight=false",
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1255,7 +1255,7 @@
                 // 공항 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/flight-orders?attendId=" + id_num,
+                    "url": base_url + "/api/v1/flight-orders?attendId=" + id_num,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1291,7 +1291,7 @@
                         // API 호출하여 동행인 목록 가져오기
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 flight_passenger = response;
                                 $("#flight_passenger option:not(:first-child)").remove();
@@ -1335,7 +1335,7 @@
                     // API 호출하여 동행인 목록 가져오기
                     $.ajax({
                         "type": "GET",
-                        "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                        "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                         success: function (response) {
                             flight_passenger = response;
                             $("#flight_passenger option:not(:first-child)").remove();
@@ -1411,7 +1411,7 @@
                         // API 호출하여 동행인 목록 가져오기
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 flight_passenger = response;
                                 console.log(flight_passenger)
@@ -1451,7 +1451,7 @@
 
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/flight-orders/all",
+                        "url": base_url + "/api/v1/flight-orders/all",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -1480,7 +1480,7 @@
                 // 호텔 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/hotel-orders?attendId=" + id_num,
+                    "url": base_url + "/api/v1/hotel-orders?attendId=" + id_num,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1540,7 +1540,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
+                    "url": base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
@@ -1689,7 +1689,7 @@
 
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/hotel-orders/all",
+                        "url": base_url + "/api/v1/hotel-orders/all",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -1731,7 +1731,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/programs?date="+ thu_tour +"&hideFullProgram=false",
+                    "url": base_url + "/api/v1/programs?date="+ thu_tour +"&hideFullProgram=false",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -1752,7 +1752,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/programs?date="+ fri_tour +"&hideFullProgram=false",
+                            "url": base_url + "/api/v1/programs?date="+ fri_tour +"&hideFullProgram=false",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -1780,7 +1780,7 @@
                                 // 이미 신청한 상황이라면 신청내역 보여주기
                                 $.ajax({
                                     "type": "GET",
-                                    "url": "https://" + base_url + "/api/v1/program-orders?attendId=" + id_num,
+                                    "url": base_url + "/api/v1/program-orders?attendId=" + id_num,
                                     beforeSend: function (xhr) {
                                         if (sessionStorage.getItem('token')) {
                                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1924,7 +1924,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (목 골프)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                                                "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                                                 success: function (response) {
                                                     program_passenger = response;
                                                     console.log(program_passenger)
@@ -1943,7 +1943,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (목 투어, 목 패밀리)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                                                "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
@@ -1961,7 +1961,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (금 골프)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                                                "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                                                 success: function (response) {
                                                     program_passenger = response;
                                                     $("[data-fri_golf] option:not(:first-child)").remove();
@@ -1979,7 +1979,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (금 투어, 금 패밀리)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                                                "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -1997,7 +1997,7 @@
                                             // 동행인 리스트 가져오기
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                                                "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                                                 success: function (response) {
                                                     program_passenger = response;
                                                     $("[data-golf], [data-tour], [data-family]").each(function () {
@@ -2059,7 +2059,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목 골프)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -2084,7 +2084,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금 골프)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2137,7 +2137,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -2158,7 +2158,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2225,7 +2225,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
@@ -2247,7 +2247,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2287,7 +2287,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
@@ -2308,7 +2308,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 program_passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2354,7 +2354,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
@@ -2376,7 +2376,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2410,7 +2410,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child), [data-thu_family] option:not(:first-child)").remove();
@@ -2431,7 +2431,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + id_num,
+                            "url": base_url + "/api/v1/attenders?attendId=" + id_num,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child), [data-fri_family] option:not(:first-child)").remove();
@@ -2461,7 +2461,7 @@
 
                     $.ajax({
                         "type": "POST",
-                        "url": "https://" + base_url + "/api/v1/program-orders",
+                        "url": base_url + "/api/v1/program-orders",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -2506,7 +2506,7 @@
 
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/renter-car-orders?attendId=" + id_num,
+                    "url": base_url + "/api/v1/renter-car-orders?attendId=" + id_num,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -2555,7 +2555,7 @@
                 // 렌터카 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://" + base_url + "/api/v1/renter-cars?year="+ year_num +"&hideFullRenterCar=false",
+                    "url": base_url + "/api/v1/renter-cars?year="+ year_num +"&hideFullRenterCar=false",
                     success: function (response) {
                         console.log(response)
                         $.each(response, function (index, item) {
@@ -2731,7 +2731,7 @@
                     if (!hasUndefined) {
                         $.ajax({
                             "type": "POST",
-                            "url": "https://" + base_url + "/api/v1/renter-car-orders/all",
+                            "url": base_url + "/api/v1/renter-car-orders/all",
                             "data": JSON.stringify(data),
                             "contentType": 'application/json',
                             beforeSend: function (xhr) {

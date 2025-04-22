@@ -272,7 +272,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/search?year=" + current_year,
+                "url": base_url + "/api/v1/attends/search?year=" + current_year,
                 "data": {
                     "ksaCompanyType": "",
                     "attendStatus": "",
@@ -324,31 +324,31 @@
 
         $('#friendlyGroupFilter').on('change', function () {
             friendly_group = $('#friendlyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#ApplyGroupFilter').on('change', function () {
             apply_status = $('#ApplyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#depositStatusFilter').on('change', function () {
             deposit_status = $('#depositStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#taxbillPublishStatusFilter').on('change', function () {
             taxbill_publish_status = $('#taxbillPublishStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#year').on('change', function () {
             year = $('#year option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
@@ -357,7 +357,7 @@
             if (confirm("신청을 취소 하시겠습니까?")) {
                 $.ajax({
                     type: "PATCH",
-                    url: "https://" + base_url + "/api/v1/attends/" + id_num + "/cancel",
+                    url: base_url + "/api/v1/attends/" + id_num + "/cancel",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -385,7 +385,7 @@
         $(".another-search").click(function () {
             keyword = $(".another-search-input").val();
 
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
     </script>

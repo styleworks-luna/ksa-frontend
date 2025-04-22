@@ -123,7 +123,7 @@
     <script>
         const id = getParameterByName('id');
         $.ajax({
-            url: "https://"+ base_url +"/api/v1/notices/" + id,
+            url: base_url +"/api/v1/notices/" + id,
             beforeSend: function (xhr) {
                 if (localStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));

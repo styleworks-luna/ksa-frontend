@@ -143,7 +143,7 @@
     <script>
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://"+ base_url +"/api/v1/galleries/all",
+                "url": base_url +"/api/v1/galleries/all",
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -187,7 +187,7 @@
             if (confirm("해당 게시물을 삭제하시겠습니까?")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://"+ base_url +"/api/v1/galleries/" + id_num,
+                    url: base_url +"/api/v1/galleries/" + id_num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));

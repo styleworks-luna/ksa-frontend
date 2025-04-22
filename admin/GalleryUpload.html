@@ -207,7 +207,7 @@
 
         if (id_num !== null) {
             $.ajax({
-                url: "https://"+ base_url +"/api/v1/galleries/" + id_num,
+                url: base_url +"/api/v1/galleries/" + id_num,
                 type: 'GET',
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
@@ -239,7 +239,7 @@
                     };
                     formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
                     $.ajax({
-                        url: "https://"+ base_url +"/api/v1/galleries/" + id_num,
+                        url: base_url +"/api/v1/galleries/" + id_num,
                         type: 'PATCH',
                         data: formData,
                         beforeSend: function (xhr) {
@@ -288,7 +288,7 @@
                     };
                     formData.append('request', new Blob([JSON.stringify(data)], { type: "application/json" }));
                     $.ajax({
-                        url: "https://"+ base_url +"/api/v1/galleries",
+                        url: base_url +"/api/v1/galleries",
                         type: 'POST',
                         data: formData,
                         beforeSend: function (xhr) {

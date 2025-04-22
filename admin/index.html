@@ -227,7 +227,7 @@
             function getCountingData(year) {
                 $.ajax({
                     type: "GET",
-                    url: "https://" + base_url + "/api/v2/attends/counting?year="+ year +"",
+                    url: base_url + "/api/v2/attends/counting?year="+ year +"",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -829,7 +829,7 @@
             $("[data-flight_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/flights?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/flights?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -857,7 +857,7 @@
             $("[data-hotel_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/hotels?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/hotels?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -885,7 +885,7 @@
             $("[data-cost_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/attends-cost?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/attends-cost?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -913,7 +913,7 @@
             $("[data-attender_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/attends?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/attends?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -941,7 +941,7 @@
             $("[data-tour_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/programs?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/programs?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -969,7 +969,7 @@
             $("[data-golf_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/golfs?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/golfs?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {
@@ -997,7 +997,7 @@
             $("[data-renter_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
-                    "url": "https://" + base_url + "/api/v1/excel/renter-cars?year=" + select_year + "",
+                    "url": base_url + "/api/v1/excel/renter-cars?year=" + select_year + "",
                     "method": "GET",
                     "Content-Type": "application/json",
                     xhrFields: {

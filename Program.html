@@ -269,7 +269,7 @@
             if(attend_id !== null){
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/program-orders?attendId=" + attend_id,
+                    "url": base_url +"/api/v1/program-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -289,7 +289,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-25",
+                    "url": base_url +"/api/v1/programs?date=2025-07-25",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -327,7 +327,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-26",
+                            "url": base_url +"/api/v1/programs?date=2025-07-26",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -371,7 +371,7 @@
                                 // 이미 신청한 상황이라면 신청내역 보여주기
                                 $.ajax({
                                     "type": "GET",
-                                    "url": "https://"+ base_url +"/api/v1/program-orders?attendId=" + attend_id,
+                                    "url": base_url +"/api/v1/program-orders?attendId=" + attend_id,
                                     beforeSend: function (xhr) {
                                         if (sessionStorage.getItem('token')) {
                                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -405,8 +405,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_tour_list = toursOnSameDate(tour_data, '2024-07-25');
-                                                fri_tour_list = toursOnSameDate(tour_data, '2024-07-26');
+                                                thu_tour_list = toursOnSameDate(tour_data, '2025-07-25');
+                                                fri_tour_list = toursOnSameDate(tour_data, '2025-07-26');
                                             }
 
                                             if(family_data !== null){
@@ -428,8 +428,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_family_list = familyOnSameDate(family_data, '2024-07-25');
-                                                fri_family_list = familyOnSameDate(family_data, '2024-07-26');
+                                                thu_family_list = familyOnSameDate(family_data, '2025-07-25');
+                                                fri_family_list = familyOnSameDate(family_data, '2025-07-26');
                                             }
 
                                             if (golf_data !== null) {
@@ -451,8 +451,8 @@
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_golf_list = golfOnSameDate(golf_data, '2024-07-25');
-                                                fri_golf_list = golfOnSameDate(golf_data, '2024-07-26');
+                                                thu_golf_list = golfOnSameDate(golf_data, '2025-07-25');
+                                                fri_golf_list = golfOnSameDate(golf_data, '2025-07-26');
                                             }
                                             thu_list = thu_tour_list.concat(thu_golf_list)
                                             fri_list = fri_tour_list.concat(fri_golf_list);
@@ -530,7 +530,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (목 골프)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-thu_golf] option:not(:first-child)").remove();
@@ -548,7 +548,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (목 투어)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-thu_tour] option:not(:first-child)").remove();
@@ -566,7 +566,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (목 패밀리)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-thu_family] option:not(:first-child)").remove();
@@ -584,7 +584,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (금 골프)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-fri_golf] option:not(:first-child)").remove();
@@ -602,7 +602,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (금 투어)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-fri_tour] option:not(:first-child)").remove();
@@ -620,7 +620,7 @@
                                             // API 호출하여 동행인 목록 가져오기 (금 패밀리)
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("[data-fri_family] option:not(:first-child)").remove();
@@ -637,7 +637,7 @@
                                         }else{
                                             $.ajax({
                                                 "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
                                                     $("select").each(function () {
@@ -690,7 +690,7 @@
                         $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
                     }
 
-                    if(date == '2024-07-25') {
+                    if(date == '2025-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -699,7 +699,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목 골프)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -714,7 +714,7 @@
                                 alert("error")
                             }
                         });
-                    }else if( date == '2024-07-26' ){
+                    }else if( date == '2025-07-26' ){
                         fri_list.push({
                            "attenderId": val,
                             "Id": text,
@@ -723,7 +723,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금 골프)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
@@ -768,7 +768,7 @@
                     $(this).closest("[data-golf_row]").remove();
                     totalCost();
 
-                    if (date == '2024-07-25') {
+                    if (date == '2025-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -776,7 +776,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -790,7 +790,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == '2025-07-26') {
                         
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
@@ -798,7 +798,7 @@
                        // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
@@ -864,7 +864,7 @@
                     $("[data-tour]").val("");
                     totalCost();
 
-                    if (date == '2024-07-25') {
+                    if (date == '2025-07-25') {
                         thu_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -873,7 +873,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -887,7 +887,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == '2025-07-26') {
                         fri_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -895,7 +895,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
@@ -927,14 +927,14 @@
                     $(this).closest("[data-tour_row]").remove();
                     totalCost();
                     
-                    if (date == '2024-07-25') {
+                    if (date == '2025-07-25') {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
@@ -948,14 +948,14 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == '2025-07-26') {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
@@ -997,7 +997,7 @@
                     $("[data-family]").val("");
 
 
-                    if (date == '2024-07-25') {
+                    if (date == '2025-07-25') {
                         thu_family_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -1006,7 +1006,7 @@
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_family] option:not(:first-child)").remove();
@@ -1020,7 +1020,7 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == '2025-07-26') {
                         fri_family_list.push({
                             "attenderId": val,
                             "Id": text,
@@ -1028,7 +1028,7 @@
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_family] option:not(:first-child)").remove();
@@ -1055,14 +1055,14 @@
                         return !(item.attenderId == val && item.familySessionId == id);
                     });
                     $(this).closest("[data-family_row]").remove();
-                    if (date == '2024-07-25') {
+                    if (date == '2025-07-25') {
                         thu_family_list = thu_family_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-thu_family] option:not(:first-child)").remove();
@@ -1076,14 +1076,14 @@
                                 alert("error")
                             }
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == '2025-07-26') {
                         fri_family_list = fri_family_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            "url": base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-fri_family] option:not(:first-child)").remove();
@@ -1117,7 +1117,7 @@
                     };
                     $.ajax({
                         "type": "POST",
-                        "url": "https://"+ base_url +"/api/v1/program-orders",
+                        "url": base_url +"/api/v1/program-orders",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {

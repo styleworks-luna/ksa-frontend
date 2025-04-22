@@ -110,9 +110,9 @@
                     <th>투숙기간</th>
                     <td>
                         <div data-date_box>
-                            <input data-start_date type="date" min="2024-07-22" max="2024-07-31" data-placeholder="시작일 선택" onclick="(this.type='date')">
+                            <input data-start_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="시작일 선택" onclick="(this.type='date')">
                             <span data-tilde>~</span>
-                            <input data-end_date type="date" min="2024-07-22" max="2024-07-31" data-placeholder="종료일 선택">
+                            <input data-end_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="종료일 선택">
                             <span data-cal_row></span>
                         </div>
                     </td>
@@ -235,7 +235,7 @@
                 // 이미 신청한 상황이라면 신청내역 보여주기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/hotel-orders?attendId=" + attend_id,
+                    "url": base_url +"/api/v1/hotel-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -311,7 +311,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/hotels?year=2024&isRoomRemaining=true",
+                    "url": base_url +"/api/v1/hotels?year="+current_year+"&isRoomRemaining=true",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-sub_bed="'+ item.isSubBed +'" data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
@@ -473,7 +473,7 @@
                     };
                     $.ajax({
                         "type": "POST",
-                        "url": "https://"+ base_url +"/api/v1/hotel-orders",
+                        "url": base_url +"/api/v1/hotel-orders",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {

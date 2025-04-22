@@ -122,7 +122,7 @@
             if( window.innerWidth > 760 ){
                 $.ajax({
                     type: "GET",
-                    url: "https://"+ base_url +"/api/v1/notices/all",
+                    url: base_url +"/api/v1/notices/all",
                     success: function (response) {
                         let container = $('[data-pagination_box]');
                         container.pagination({
@@ -143,7 +143,7 @@
                                     console.log(id_num)
                                     $.ajax({
                                         type: "PATCH",
-                                        url: "https://"+ base_url +"/api/v1/notices/"+ id_num +"/view",
+                                        url: base_url +"/api/v1/notices/"+ id_num +"/view",
                                         success: function (response) {},
                                         error: function (xhr) {}
                                     });
@@ -158,7 +158,7 @@
             }else{
                  $.ajax({
                     type: "GET",
-                    url: "https://"+ base_url +"/api/v1/notices/all",
+                    url: base_url +"/api/v1/notices/all",
                     success: function (response) {
                         let container = $('[data-mobile_pagination_box]');
                         container.pagination({
@@ -178,7 +178,7 @@
                                     var id_num = $(this).attr("data-title_row");
                                     $.ajax({
                                         type: "PATCH",
-                                        url: "https://"+ base_url +"/api/v1/notices/" + id_num + "/view",
+                                        url: base_url +"/api/v1/notices/" + id_num + "/view",
                                         success: function (response) { },
                                         error: function (xhr) { }
                                     });

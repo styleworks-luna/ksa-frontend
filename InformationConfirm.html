@@ -344,7 +344,7 @@
             if(attend_id !== null){
                 $.ajax({
                     "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/attends/all-data?attendId=" + attend_id,
+                    "url": base_url +"/api/v1/attends/all-data?attendId=" + attend_id,
                     beforeSend: function (xhr) {
                         if (sessionStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -509,7 +509,7 @@
                     $("[data-done_btn]").prop("disabled", true);
                     $.ajax({
                         "type": "PATCH",
-                        "url": "https://"+ base_url +"/api/v1/attends/"+ attend_id +"/done",
+                        "url": base_url +"/api/v1/attends/"+ attend_id +"/done",
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {

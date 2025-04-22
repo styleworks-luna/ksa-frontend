@@ -102,7 +102,7 @@
     <script>
         $.ajax({
             type: "GET",
-            url: "https://" + base_url +"/api/v1/galleries/all",
+            url: base_url +"/api/v1/galleries/all",
             success: function (response) {
                 $.each(response, function (response, item) {
                     $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
@@ -124,9 +124,9 @@
         $("select").change(function() {
             let url;
             if($("select").val()){
-                url = "https://" + base_url +"/api/v1/galleries/all?year=" + $("select").val()
+                url = base_url +"/api/v1/galleries/all?year=" + $("select").val()
             } else {
-                url = "https://" + base_url +"/api/v1/galleries/all"
+                url = base_url +"/api/v1/galleries/all"
             }
             $.ajax({
                 type: "GET",

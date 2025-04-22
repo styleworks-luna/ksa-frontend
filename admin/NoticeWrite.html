@@ -194,7 +194,7 @@
         const id_num = getParameterByName('id');
         if( id_num !== null ){
             $.ajax({
-                "url": "https://"+ base_url +"/api/v1/notices/" + id_num,
+                "url": base_url +"/api/v1/notices/" + id_num,
                 "method": 'GET',
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
@@ -222,7 +222,7 @@
                     alert("제목과 내용을 모두 입력해주세요.")
                 } else {
                     $.ajax({
-                        "url": "https://"+ base_url +"/api/v1/notices/" + id_num,
+                        "url": base_url +"/api/v1/notices/" + id_num,
                         "method": 'PATCH',
                         beforeSend: function (xhr) {
                             if (localStorage.getItem('token')) {
@@ -261,7 +261,7 @@
                     alert("제목과 내용을 모두 입력해주세요.")
                 } else {
                     $.ajax({
-                        "url": "https://"+ base_url +"/api/v1/notices",
+                        "url": base_url +"/api/v1/notices",
                         "method": 'POST',
                         beforeSend: function (xhr) {
                             if (localStorage.getItem('token')) {

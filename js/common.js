@@ -37,8 +37,11 @@ $(function () {
 });
 let url = window.location.href;
 let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
-if (base_url === "ksa.onoffmix.xyz") {
-    base_url = "api-" + base_url;
+if(base_url && typeof base_url === 'string' && ( base_url.toLowerCase().includes("127.0.0.1") || base_url.toLowerCase().includes("localhost") ) ){  
+    //base_url = "https://api-ksa.styleworks.kr";
+    base_url = "http://127.0.0.1:8888";
+}else {
+    base_url = "https://api-" + base_url;
 }
 // let base_url = "api-ksa.onoffmix.xyz"
 const current_year = 2025;
