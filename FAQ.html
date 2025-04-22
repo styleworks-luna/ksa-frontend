@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSA 하계포럼</title>
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/flight.css">
+    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/information.js"></script>
+</head>
+<body>
+    <header data-pc_header>
+        <a href="Index.html" data-logo_box></a>
+        <ul>
+            <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Speaker.html">연사</a></li>
+            <li><a href="Performance.html">공연</a></li>
+            <li><a href="Gallery.html">갤러리</a></li>
+            <li><a href="FourmInfo.html">포럼안내</a></li>
+            <li><a href="Brochure.html">연도별 브로셔</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+            <li data-more_box></li>
+        </ul>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FourmInfo.html">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+    <header data-mobile_header>
+        <div>
+            <a href="Index.html" data-logo_box></a>
+            <button type="button" data-more_box></button>
+        </div>
+        <div data-menu_box>
+            <div>
+                <button data-close_box></button>
+            </div>
+            <ul>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FourmInfo.html">포럼안내</a></li>
+                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+        <main>
+            <div data-header_box>
+                <div>
+                    <a href="Application.html">참가신청</a>
+                </div>
+            </div>
+            <div data-pc_content_wrap>
+                <div data-title_box>FAQ</div>
+                <div data-notice_wrap>
+                    <div data-th_row="faq">
+                        <div>번호</div>
+                        <div>제목</div>
+                    </div>
+                    <ul id="data-container">
+                        <li data-td_row="faq"></li>
+                    </ul>
+                </div>
+                <div data-pagination_box></div>
+            </div>
+            <div data-mobile_content_wrap>
+                <div data-notice_wrap>
+                    <ul id="data-container-mobile">
+                        <li data-td_row="faq">
+                            <div data-title_row>
+                                <div>
+                                    <p></p>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div data-content_box></div>
+                        </li>
+                    </ul>
+                </div>
+                <div data-mobile_pagination_box></div>
+            </div>
+        </main>
+        <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <p>
+                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
+                        하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $(function () {
+                if (window.innerWidth > 760) {
+                    $.ajax({
+                        type: "GET",
+                        url: base_url + "/api/v1/faq",
+                        success: function (response) {
+                            let container = $("[data-pagination_box]");
+                            container.pagination({
+                                dataSource: response.faqs,
+                                callback: function (data, pagination) {
+                                    var dataHtml = '<ul id="data-container">';
+                                    $.each(data, function (index, item) {
+                                        dataHtml +=
+                                            '<li data-td_row="faq"><div data-title_row ><div data-index_row="' +
+                                            item.id +
+                                            '">' +
+                                            (index + 1) +
+                                            "</div><div>" +
+                                            item.title +
+                                            "</div></div><div data-content_box>" +
+                                            item.content +
+                                            "</div></li>";
+                                    });
+
+                                    dataHtml += "</ul>";
+
+                                    $("#data-container").html(dataHtml);
+
+                                    $("[data-title_row]").click(function () {
+                                        $(this).siblings("[data-content_box]").toggle("active");
+                                        var id_num = $(this).children("[data-index_row]").data("index_row");
+                                    });
+                                },
+                            });
+                        },
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message);
+                        },
+                    });
+                } else {
+                    $.ajax({
+                        type: "GET",
+                        url: base_url + "/api/v1/faq",
+                        success: function (response) {
+                            let container = $("[data-mobile_pagination_box]");
+                            container.pagination({
+                                dataSource: response.faqs,
+                                callback: function (data, pagination) {
+                                    var dataHtml = '<ul id="data-container-mobile">';
+                                    $.each(data, function (index, item) {
+                                        dataHtml +=
+                                            '<li data-td_row="faq"><div data-title_row="' +
+                                            item.id +
+                                            '"><div><p>' +
+                                            item.title +
+                                            "</p></div></div><div data-content_box>" +
+                                            item.content +
+                                            "</div></li>";
+                                    });
+
+                                    dataHtml += "</ul>";
+                                    $("#data-container-mobile").html(dataHtml);
+
+                                    $("[data-title_row]").click(function () {
+                                        $(this).siblings("[data-content_box]").toggle("active");
+                                    });
+                                },
+                            });
+                        },
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message);
+                        },
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>
