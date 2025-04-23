@@ -648,11 +648,11 @@
 
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">07. 관광 정보</p>
-                                            <p class="font-weight-bold text-primary">7월 25일 (목)</p>
+                                            <p class="font-weight-bold text-primary">7월 24일 (목)</p>
                                             <table data-tour_thu_table class="table align-middle mb-0" style="color: #222;"></table>
                                             <table data-family_thu_table class="table align-middle" style="color: #222;"></table>
 
-                                            <p class="font-weight-bold text-primary">7월 26일 (금)</p>
+                                            <p class="font-weight-bold text-primary">7월 25일 (금)</p>
                                             <table data-tour_fri_table class="table align-middle mb-0" style="color: #222;">
                                             </table>
                                             <table data-family_fri_table class="table align-middle mb-0" style="color: #222;"></table>
@@ -813,8 +813,8 @@
             }
             const id_num = getParameterByName('id');
             const year_num = getParameterByName('year');
-            const thu_tour = Number(year_num) === 2025 ? "2025-07-25" : "2023-07-27"
-            const fri_tour = Number(year_num) === 2025 ? "2025-07-26" : "2023-07-28"
+            const thu_tour = Number(year_num) === 2025 ? "2025-07-24" : "2023-07-27"
+            const fri_tour = Number(year_num) === 2025 ? "2025-07-25" : "2023-07-28"
 
             const downloadLink = `https://${base_url}/api/v1/companies/businessRegistration?attendId=${id_num}`;
             let today_date = moment().format("YYYY-MM-DD");
