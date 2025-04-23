@@ -1,9 +1,18 @@
 main {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-content_box] {
   padding-top: 85px;
@@ -27,16 +36,24 @@ main [data-content_box] table tr td input {
   height: 68px;
 }
 main [data-content_box] table tr td [data-date_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-content_box] table tr td [data-time_box] {
   margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 main [data-content_box] table tr td [data-time_box] input {
   padding: 0 20px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   outline: none;
   height: 69px;
   width: 325px;
@@ -44,6 +61,22 @@ main [data-content_box] table tr td [data-time_box] input {
   font-size: 20px;
   color: #222;
   position: relative;
+}
+main [data-content_box] table tr td [data-time_box] input::-webkit-input-placeholder {
+  font-size: 20px;
+  color: #222;
+}
+main [data-content_box] table tr td [data-time_box] input::-moz-placeholder {
+  font-size: 20px;
+  color: #222;
+}
+main [data-content_box] table tr td [data-time_box] input:-ms-input-placeholder {
+  font-size: 20px;
+  color: #222;
+}
+main [data-content_box] table tr td [data-time_box] input::-ms-input-placeholder {
+  font-size: 20px;
+  color: #222;
 }
 main [data-content_box] table tr td [data-time_box] input::placeholder {
   font-size: 20px;
@@ -89,8 +122,12 @@ main [data-content_box] table tr td textarea {
   margin-bottom: 8px;
 }
 main [data-content_box] table tr td [data-total_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 21px;
 }
 main [data-content_box] table tr td [data-total_box] span {
@@ -101,8 +138,12 @@ main [data-content_box] table tr td [data-total_box] span span {
   font-weight: bold;
 }
 main [data-content_box] table tr td [data-total_box] label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 20px;
   padding-left: 12px;
 }
@@ -124,14 +165,25 @@ main [data-content_box] table [data-list_row] td .car {
 main [data-content_box] table [data-list_row] td .car [data-add_row] {
   height: auto;
   margin-bottom: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] p {
   width: 674px;
@@ -151,9 +203,15 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] button {
   width: 26px;
   height: 26px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
   background-color: #aeaeae;
   color: #fff;
@@ -163,8 +221,12 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_
   cursor: pointer;
 }
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check], main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 16px;
   height: 42px;
   padding-left: 10px;
@@ -176,8 +238,12 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
 }
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check] label, main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] label {
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check] label input, main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] label input {
   height: auto;
@@ -215,12 +281,20 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
     height: 50px;
   }
   main [data-content_box] table tr td [data-date_box] {
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding-bottom: 5px;
   }
   main [data-content_box] table tr td [data-date_box] [data-time_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   main [data-content_box] table tr td [data-date_box] [data-time_box] input {
     height: 50px;
@@ -229,6 +303,18 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
   }
   main [data-content_box] table tr td [data-date_box] [data-time_box] input:first-of-type {
     margin-bottom: 6px;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-time_box] input::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-time_box] input::-moz-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-time_box] input:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td [data-date_box] [data-time_box] input::-ms-input-placeholder {
+    font-size: 14px;
   }
   main [data-content_box] table tr td [data-date_box] [data-time_box] input::placeholder {
     font-size: 14px;
@@ -254,8 +340,12 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
     margin-bottom: 8px;
   }
   main [data-content_box] table tr td [data-total_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-left: 0px;
   }
   main [data-content_box] table tr td [data-total_box] span {
@@ -266,8 +356,12 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
     font-weight: bold;
   }
   main [data-content_box] table tr td [data-total_box] label {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     font-size: 12px;
     padding-left: 12px;
   }
@@ -292,13 +386,21 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
   main [data-content_box] table [data-list_row] td .car [data-add_row] {
     height: auto;
     margin-bottom: 8px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     margin-bottom: 6px;
   }
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] p {
@@ -316,9 +418,15 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-info_box] button {
     width: 20px;
     height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border: none;
     background-color: #aeaeae;
     color: #fff;
@@ -328,17 +436,27 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
     cursor: pointer;
   }
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check], main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     font-size: 12px;
     height: 35px;
     padding-left: 0px;
   }
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check] label, main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] label {
     height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-right: 10px;
   }
   main [data-content_box] table [data-list_row] td .car [data-add_row] [data-pickup_check] label input, main [data-content_box] table [data-list_row] td .car [data-add_row] [data-back_check] label input {
@@ -353,5 +471,3 @@ main [data-content_box] table [data-list_row] td .car [data-add_row] [data-picku
     padding-right: 5px;
   }
 }
-
-/*# sourceMappingURL=lentalcar.css.map */
