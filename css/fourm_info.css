@@ -121,6 +121,9 @@ main [data-content_box] [data-text_box] [data-content] {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 main [data-content_box] [data-text_box] [data-content] b, main [data-content_box] [data-text_box] [data-content] span {
   font-weight: bold;
@@ -130,6 +133,40 @@ main [data-content_box] [data-text_box] [data-content] p span {
 }
 main [data-content_box] [data-text_box] [data-content] [data-tell] {
   margin-bottom: 15px;
+}
+main [data-content_box] [data-text_box] [data-content] table {
+  margin-top: 10px;
+  width: 100%;
+  border-top: 1px solid #222;
+  border-collapse: collapse;
+}
+main [data-content_box] [data-text_box] [data-content] table tr {
+  text-align: center;
+  border-bottom: 1px solid #dedede;
+}
+main [data-content_box] [data-text_box] [data-content] table tr th {
+  width: 25%;
+  background-color: #f7f7f7;
+  height: 51px;
+  vertical-align: middle;
+  border-left: 1px solid #dedede;
+}
+main [data-content_box] [data-text_box] [data-content] table tr th:first-child {
+  border-left: none;
+}
+main [data-content_box] [data-text_box] [data-content] table tr th.line-use {
+  border-left: 1px solid #dedede;
+}
+main [data-content_box] [data-text_box] [data-content] table tr td {
+  height: 71px;
+  vertical-align: middle;
+  border-left: 1px solid #dedede;
+}
+main [data-content_box] [data-text_box] [data-content] table tr td:first-child {
+  border-left: none;
+}
+main [data-content_box] [data-text_box] [data-content] table tr td.line-use {
+  border-left: 1px solid #dedede;
 }
 
 @media (max-width: 760px) {

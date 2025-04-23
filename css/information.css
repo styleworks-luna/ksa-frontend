@@ -45,6 +45,27 @@ main [data-pc_content_box] [data-check_wrap] span {
   font-size: 24px;
   font-weight: bold;
 }
+main [data-pc_content_box] [data-check_wrap] .btn-chk {
+  margin: 10px 0 0;
+  background: #fff;
+  width: 150px;
+  height: 44px;
+  font-weight: bold;
+  font-size: 20px;
+  border: 1px solid #808080;
+  border-radius: 8px;
+  padding: 0;
+  color: #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 main [data-pc_content_box] [data-check_wrap] [data_check-box] {
   width: calc(100% - 220px);
   background-color: #f7f7f7;
@@ -526,6 +547,27 @@ main [data-mobile_content_box] {
   main [data-mobile_content_box] [data-check_wrap] span {
     font-size: 16px;
     font-weight: 500;
+  }
+  main [data-mobile_content_box] [data-check_wrap] .btn-chk {
+    margin: 10px 0 0;
+    background: #fff;
+    width: 150px;
+    height: 38px;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #808080;
+    border-radius: 8px;
+    padding: 0;
+    color: #000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   main [data-mobile_content_box] [data-check_wrap] [data_check-box] {
     width: 100%;
