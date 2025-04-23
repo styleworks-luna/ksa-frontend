@@ -514,7 +514,7 @@
                                                             <td class="border-right">${response.tourCount.tourCountResponses[0].counts[0].description}</td>
                                                             <td class="border-right">${response.tourCount.tourCountResponses[0].counts[1].description}</td>
                                                             <td class="border-right">${response.tourCount.tourCountResponses[0].counts[2].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[0].counts[3].description}</td>
+                                                            <td class="border-right">${response?.tourCount?.tourCountResponses?.[0]?.counts?.[3]?.description ?? '-'}</td>
                                                             <td class="border-right">총계</td>
                                                             <td>총액</td>
                                                         </thead>
@@ -524,7 +524,7 @@
                                                                 <td class="border-right">${response.tourCount.tourCountResponses[0].counts[0].count}</td>
                                                                 <td class="border-right">${response.tourCount.tourCountResponses[0].counts[1].count}</td>
                                                                 <td class="border-right">${response.tourCount.tourCountResponses[0].counts[2].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[0].counts[3].count}</td>
+                                                                <td class="border-right">${response?.tourCount?.tourCountResponses?.[0]?.counts?.[3]?.count ?? '-'}</td>
                                                                 <td class="border-right">${response.tourCount.tourCountResponses[0].totalCount}</td>
                                                                 <td>${response.tourCount.tourCountResponses[0].totalCost.toLocaleString()}</td>
                                                             </tr>

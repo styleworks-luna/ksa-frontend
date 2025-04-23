@@ -637,6 +637,12 @@
                                                         <p><span data-golf_total class="font-weight-bold text-primary">0</span>원</p>
                                                     </td>
                                                 </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle" style="width: 222px">요청사항</th>
+                                                    <td>
+                                                        <textarea class="form-control" rows="4" id="golf_memo" placeholder="골프 주문 관련 메모를 입력해주세요."></textarea>
+                                                    </td>
+                                                </tr>
                                             </table>
                                         </form>
 
@@ -2461,7 +2467,7 @@
                         "golfCourseOrders": golf_list,
                         "tourOrders": tour_list,
                         "familySessionOrders": family_list,
-                        "userMemo": $("textarea").val()
+                        "userMemo": $("#golf_memo").val()
                     };
 
                     $.ajax({
