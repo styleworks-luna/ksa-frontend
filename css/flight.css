@@ -1,9 +1,18 @@
 main {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-content_box] {
   width: 100%;
@@ -41,7 +50,8 @@ main [data-content_box] table tr td select {
   font-size: 20px;
   background: inherit;
   border: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
   border-radius: 0;
   padding: 0;
   overflow: visible;
@@ -53,7 +63,8 @@ main [data-content_box] table tr td select {
   text-overflow: ellipsis;
   padding-left: 20px;
   padding-right: 20px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 1px solid #dedede;
   outline: 0 none;
   color: #222;
@@ -81,6 +92,22 @@ main [data-content_box] table tr td textarea {
   padding-bottom: 24px;
   padding-left: 20px;
 }
+main [data-content_box] table tr td textarea::-webkit-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main [data-content_box] table tr td textarea::-moz-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main [data-content_box] table tr td textarea:-ms-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main [data-content_box] table tr td textarea::-ms-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
 main [data-content_box] table tr td textarea::placeholder {
   color: #c2c2c2;
   font-size: 20px;
@@ -95,8 +122,12 @@ main [data-content_box] table tr td [data-select_box] label input {
   margin-right: 14px;
 }
 main [data-content_box] table tr td [data-total_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-left: 21px;
 }
 main [data-content_box] table tr td [data-total_box] span {
@@ -110,18 +141,37 @@ main [data-content_box] table [data-none_row] {
   height: auto;
 }
 main [data-content_box] table [data-none_row] [data-date_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   height: 92px;
 }
 main [data-content_box] table [data-none_row] [data-date_box] input {
   padding: 0 20px;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   outline: none;
   height: 70px;
   width: 334px;
   border: 1px solid #dedede;
   font-size: 20px;
   margin-right: 12px;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input::-webkit-input-placeholder {
+  font-size: 20px;
+  color: #c2c2c2;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input::-moz-placeholder {
+  font-size: 20px;
+  color: #c2c2c2;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input:-ms-input-placeholder {
+  font-size: 20px;
+  color: #c2c2c2;
+}
+main [data-content_box] table [data-none_row] [data-date_box] input::-ms-input-placeholder {
+  font-size: 20px;
+  color: #c2c2c2;
 }
 main [data-content_box] table [data-none_row] [data-date_box] input::placeholder {
   font-size: 20px;
@@ -148,8 +198,12 @@ main [data-content_box] table [data-list_row] td .passenger {
 main [data-content_box] table [data-list_row] td .passenger [data-add_row] {
   height: 45px;
   margin-bottom: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 main [data-content_box] table [data-list_row] td .passenger [data-add_row] p {
   font-size: 16px;
@@ -157,9 +211,15 @@ main [data-content_box] table [data-list_row] td .passenger [data-add_row] p {
 main [data-content_box] table [data-list_row] td .passenger [data-add_row] button {
   width: 20px;
   height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: none;
   background-color: #aeaeae;
   color: #fff;
@@ -184,9 +244,15 @@ main [data-content_box] [data-notice_box] [data-red_text] {
   color: #f10000;
 }
 main [data-content_box] [data-button_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-top: 80px;
   padding-bottom: 130px;
 }
@@ -255,6 +321,22 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     border-color: #dedede;
     padding: 15px 20px;
   }
+  main [data-content_box] table tr td textarea::-webkit-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td textarea::-moz-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td textarea:-ms-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main [data-content_box] table tr td textarea::-ms-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
   main [data-content_box] table tr td textarea::placeholder {
     color: #c2c2c2;
     font-size: 14px;
@@ -262,13 +344,22 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
   main [data-content_box] table tr td [data-select_box] {
     padding-top: 15px;
     padding-left: 4px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
   main [data-content_box] table tr td [data-select_box] label {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-right: 13px;
     padding-bottom: 23px;
   }
@@ -276,8 +367,12 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     margin-right: 10px;
   }
   main [data-content_box] table tr td [data-total_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding-left: 0px;
   }
   main [data-content_box] table tr td [data-total_box] span {
@@ -303,8 +398,13 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     line-height: 18px;
   }
   main [data-content_box] table [data-none_row] td [data-date_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: auto;
   }
   main [data-content_box] table [data-none_row] td [data-date_box] input {
@@ -313,6 +413,18 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     width: 100%;
     font-size: 14px;
     margin-right: 12px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input::-webkit-input-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input::-moz-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input:-ms-input-placeholder {
+    font-size: 14px;
+  }
+  main [data-content_box] table [data-none_row] td [data-date_box] input::-ms-input-placeholder {
+    font-size: 14px;
   }
   main [data-content_box] table [data-none_row] td [data-date_box] input::placeholder {
     font-size: 14px;
@@ -341,9 +453,15 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     border-bottom: #222 !important;
   }
   main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] span {
     font-weight: bold;
@@ -352,9 +470,15 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
   main [data-content_box] table [data-list_row] td .passenger [data-add_row] [data-name_box] button {
     width: 20px;
     height: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     border: none;
     background-color: #aeaeae;
     color: #fff;
@@ -392,5 +516,3 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     background-color: #a3a3a3;
   }
 }
-
-/*# sourceMappingURL=flight.css.map */

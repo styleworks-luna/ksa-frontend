@@ -1,9 +1,18 @@
 main {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-header_box] {
   width: 100%;
@@ -16,19 +25,34 @@ main [data-header_box] {
 main [data-header_box] div {
   width: 100%;
   height: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 main [data-header_box] div > a {
   width: 210px;
   height: 68px;
   border-radius: 37px;
   background-color: #ff8f11;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
@@ -102,8 +126,12 @@ main [data-content_wrap] [data-text_box] ul li table tr td:last-child {
 @media (max-width: 760px) {
   [data-mobile_header] [data-top_header] {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-left: 9px;
     padding-right: 9px;
   }
@@ -144,19 +172,34 @@ main [data-content_wrap] [data-text_box] ul li table tr td:last-child {
   main [data-header_box] div {
     width: 100%;
     height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   main [data-header_box] div > a {
     width: 148px;
     height: 48px;
     border-radius: 37px;
     background-color: #ff8f11;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -196,5 +239,3 @@ main [data-content_wrap] [data-text_box] ul li table tr td:last-child {
     padding-bottom: 16px;
   }
 }
-
-/*# sourceMappingURL=privacy.css.map */

@@ -1,9 +1,18 @@
 main {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-header_box] {
   width: 100%;
@@ -16,19 +25,34 @@ main [data-header_box] {
 main [data-header_box] div {
   width: 100%;
   height: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 main [data-header_box] div > a {
   width: 210px;
   height: 68px;
   border-radius: 37px;
   background-color: #ff8f11;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   color: #fff;
   font-size: 24px;
   font-weight: bold;
@@ -94,8 +118,12 @@ main [data-content_box] [data_check_wrap] div [data-notice_box] li:last-of-type 
   padding-bottom: 0px;
 }
 main [data-content_box] [data_check_wrap] div label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 14px;
   font-weight: normal;
 }
@@ -103,14 +131,22 @@ main [data-content_box] [data_check_wrap] div label input[type=checkbox] {
   margin-right: 10px;
 }
 main [data-content_box] [data_check_wrap] [data-all_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-bottom: 70px;
   padding-top: 10px;
 }
 main [data-content_box] [data_check_wrap] [data-all_box] label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 20px;
   font-weight: 500;
 }
@@ -118,13 +154,23 @@ main [data-content_box] [data_check_wrap] [data-all_box] label input[type=checkb
   margin-right: 10px;
 }
 main form {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   max-width: 1280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 80px;
   margin-bottom: 120px;
 }
@@ -136,6 +182,22 @@ main form input {
   padding: 20px;
   outline: none;
   margin-bottom: 10px;
+}
+main form input::-webkit-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main form input::-moz-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main form input:-ms-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
+}
+main form input::-ms-input-placeholder {
+  color: #c2c2c2;
+  font-size: 20px;
 }
 main form input::placeholder {
   color: #c2c2c2;
@@ -173,9 +235,16 @@ main [data-popup_box] {
   width: 600px;
   height: 500px;
   border: 2px solid #0C3994;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-top: 30px;
   padding-left: 60px;
   padding-right: 60px;
@@ -184,7 +253,8 @@ main [data-popup_box] {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: none;
   text-align: center;
 }
@@ -230,8 +300,12 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
 @media (max-width: 760px) {
   [data-mobile_header] [data-top_header] {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     padding-left: 9px;
     padding-right: 9px;
   }
@@ -272,19 +346,34 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
   main [data-header_box] div {
     width: 100%;
     height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
   main [data-header_box] div > a {
     width: 148px;
     height: 48px;
     border-radius: 37px;
     background-color: #ff8f11;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     color: #fff;
     font-size: 16px;
     font-weight: bold;
@@ -360,8 +449,12 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     width: 100%;
     max-width: 800px;
     border-bottom: 1px solid #222;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding-top: 0px;
     padding-bottom: 12px;
     margin-bottom: 20px;
@@ -378,6 +471,22 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     margin-bottom: 10px;
     padding: 20px;
     outline: none;
+  }
+  main form input::-webkit-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main form input::-moz-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main form input:-ms-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
+  }
+  main form input::-ms-input-placeholder {
+    color: #c2c2c2;
+    font-size: 14px;
   }
   main form input::placeholder {
     color: #c2c2c2;
@@ -408,16 +517,24 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     background-color: #fff;
   }
   main [data-popup_box] h1 {
     font-size: 20px;
   }
   main [data-popup_box] form {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     text-align: center;
   }
   main [data-popup_box] form p {
@@ -432,7 +549,10 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     padding-top: 0px;
   }
   main [data-popup_box] form div {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     border: none;
   }
   main [data-popup_box] form div button {
@@ -451,5 +571,3 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #0C3994;
   }
 }
-
-/*# sourceMappingURL=application.css.map */
