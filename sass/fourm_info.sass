@@ -60,7 +60,7 @@ main
                 background-color: #DEE8F3
                 border-radius: 5px
                 width: 127px
-                padding: 20px 0
+                padding: 20px 0                
                 font:
                     size: 20px
                     weight: bold
@@ -72,6 +72,7 @@ main
                 display: flex
                 justify-content: center
                 flex-direction: column
+                flex: 1
                 b, span
                     font-weight: bold
                 p
@@ -79,6 +80,34 @@ main
                         display: block
                 [data-tell]
                     margin-bottom: 15px
+                table
+                    margin-top: 10px
+                    width: 100%
+                    border-top: 1px solid #222
+                    border-collapse: collapse
+                    tr 
+                        text-align: center
+                        border-bottom: 1px solid #dedede
+                        th 
+                            width: 25%
+                            background-color: #f7f7f7
+                            height: 51px
+                            vertical-align: middle
+                            border-left: 1px solid #dedede
+                            &:first-child 
+                                border-left: none
+                            &.line-use 
+                                border-left: 1px solid #dedede
+                        td 
+                            height: 71px
+                            vertical-align: middle
+                            border-left: 1px solid #dedede
+                            &:first-child 
+                                border-left: none
+                            &.line-use 
+                                border-left: 1px solid #dedede
+
+
 @media (max-width: 760px)
     [data-mobile_header]
         [data-top_header]
