@@ -106,6 +106,21 @@
             <div data-title_box>항공예약</div>
             <table>
                 <tr>
+                    <th>탑승자 선택</th>
+                    <td>
+                        <select data-passenger_select class="reset">
+                            <option selected disabled value="">선택</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr data-list_row>
+                    <th><span class="passenger">탑승자 명단</span></th>
+                    <td>
+                        <div data-show_row class="passenger">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
                     <th>출/도착 도시</th>
                     <td>
                         <div data-select_box>
@@ -147,23 +162,8 @@
                         <select data-time_select class="reset">
                             <option selected disabled value="">선택</option>
                         </select>
-                        <p style="color: #FF2200; font-size: 16px; padding-top: 5px;">항공사로부터 받은 항공 블록이 마감되어 선택하신 항공예약이 어려우실 수 있습니다.<br>
-                        요청사항에 원하시는 출발&복귀 항공편을 기재해서 제출부탁드립니다.</p>
-                    </td>
-                </tr>
-                <tr>
-                    <th>탑승자 선택</th>
-                    <td>
-                        <select data-passenger_select class="reset">
-                            <option selected disabled value="">선택</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr data-list_row>
-                    <th><span class="passenger">탑승자 명단</span></th>
-                    <td>
-                        <div data-show_row class="passenger">
-                        </div>
+                        <p style="color: #FF2200; font-size: 16px; padding-top: 5px;">항공사로부터 확보한 좌석이 한정되어, 선택하신 항공편 예약이 제한될 수 있습니다.
+                            희망하시는 출발·복귀 항공편 일정을 ‘요청사항’란에 작성해주시면 개별 안내드리겠습니다.</p>
                     </td>
                 </tr>
                 <tr data-text_row>
@@ -182,14 +182,17 @@
                 </tr>
             </table>
             <div data-notice_box>
-                <p style="color: #FF2200">“제출”을 완료하시면 순차적으로 항공권이 발권되며, 발권 후 취소 시 취소수수료 발생합니다.</p>
-                <p>· 상기 항공요금은 5월 기준 유류할증료 적용 금액으로 항공료 변동이 있을 수 있습니다.</p>
-                <p>· 상기 금액에 발권 수수료(10,000원)가 포함되어 있으며 발권 후 취소 시 수수료는 환불 불가합니다.</p>
-                <p>· 소인은 만 24개월 이상 13세 미만, 경로는 만 65세 이상 적용되며, 발권 후 취소 시 수수료와 더불어 항공사 패널티가 부과됩니다.</p>
+                <p>※ 제출 전 반드시 확인해 주세요.</p>
+                <p>• 신청서 제출이 완료되면 항공권이 순차적으로 발권됩니다.</p>
+                <p>• 발권 후 취소 시 수수료 및 항공사 패널티가 부과되며, 발권 수수료(10,000원/왕복)는 환불되지 않습니다.</p>
+                <p>• 항공 요금에는 공항세, 유류할증료 및 발권 수수료(10,000원/왕복)가 포함되어 있으며, 요금은 항공사의 운임 정책 및 유류할증료 등에 따라 변동될 수 있습니다.</p>
+                <p>• 탑승자 선택 시 성인/경로/소아 요금이 자동 적용됩니다.</p>
+                <p>• (소아: 만 24개월 이상 만 13세 미만, 경로: 만 65세 이상)</p>
+                <p>• 최종 예약 번호가 포함된 e티켓은 포럼 시작 1주 전, 참가자 본인 및 신청 담당자에게 이메일과 문자 메시지로 개별 안내드립니다.</p>
             </div>
             <div data-button_box>
                 <button data-pre_btn type="button" onclick="history.back()">이전</button>
-                <button type="submit">항공정보 저장</button>
+                <button type="submit">항공정보 임시저장</button>
             </div>
         </div>
     </main>
