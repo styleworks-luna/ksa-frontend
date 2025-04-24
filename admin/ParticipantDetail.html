@@ -194,12 +194,29 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
+                                                    <th class="align-middle text-center">비용구분</th>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-2">
+                                                                <label>회사 부담</label>
+                                                                <input type="text" class="form-control" id="company_cost" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                                                placeholder="숫자만 입력 가능합니다" >
+                                                            </div>
+                                                            <div class="col-2">
+                                                                <label>개인 부담</label>
+                                                                <input type="text" class="form-control" id="personal_cost" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                                                placeholder="숫자만 입력 가능합니다" >
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
                                                     <th class="align-middle text-center">관리자 메모</th>
                                                     <td>
                                                         <textarea class="form-control" rows="4"
                                                             id="admin_memo"></textarea>
                                                     </td>
-                                                </tr>
+                                                </tr>                                                
                                             </table>
                                         </div>
                                         <div class="row justify-content-center" style="width: 99%;">
@@ -775,6 +792,10 @@
     <script src="/js/common.js"></script>
     <script>
 
+        let for_check_total_cost = 0;
+        let for_check_total_cost2 = 0;
+        let sum_check_total_cost = 0;
+
         function sample6_execDaumPostcode() {
             new daum.Postcode({
                 oncomplete: function (data) {
@@ -863,6 +884,8 @@
                         $("#partCostMemo").val(response.adminMemo.memo);
                         $("#partRefundMemo").val(response.adminMemo.partRefundMemo);
                         $("#admin_memo").val(response.adminMemo.memo);
+                        $("#company_cost").val(response.adminMemo.totalCompanyCost);
+                        $("#personal_cost").val(response.adminMemo.totalPersonalCost);
                         $("#attendTotalCost").val(response.finalCost.attendTotalCost);
                         $("#flightTotalCost").val(response.finalCost.flightTotalCost)
                         $("#hotelTotalCost").val(response.finalCost.hotelTotalCost);
@@ -880,6 +903,9 @@
                         $("#sendCostEmail").attr("checked", response.adminMemo.sendCostEmail);
                         const pay_staus = response.depositStatus === 'NON_PAY' ? '결제<br>확인' : '미납<br>변경'
                         const color = response.depositStatus === 'NON_PAY' ? 'success' : 'warning'
+
+                        for_check_total_cost = response.defaultCost.totalCost;
+                        for_check_total_cost2 = response.finalCost.totalCost;
 
                         $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.renterCarTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="2" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
 
@@ -951,9 +977,40 @@
                                     "tourCost": $("#tourCost").is(":checked"),
                                     "sendCostEmail": $("#sendCostEmail").is(":checked"),
                                     "sendAttendEmail": $("#sendAttendEmail").is(":checked"),
-                                    "memo": $("#admin_memo").val()
+                                    "memo": $("#admin_memo").val(),
+                                    "totalCompanyCost": $("#company_cost").val().replace(/,/g, ""),
+                                    "totalPersonalCost": $("#personal_cost").val().replace(/,/g, "")
                                 }
                             }
+
+                            sum_check_total_cost = for_check_total_cost + parseInt($("[data-admin_total]").text().replace(/,/g, ""));
+                            let send_total_cost = parseInt(data.adminMemo.totalCompanyCost) + parseInt(data.adminMemo.totalPersonalCost);
+                            let print_sum_check_total_cost = sum_check_total_cost.toLocaleString();
+
+                            if(send_total_cost !== sum_check_total_cost) {
+                                if(confirm("회사비용 + 개인비용 총합이 총계(" + print_sum_check_total_cost + ")와 일치하지 않습니다.\n그래도 저장 하시겠습니까?")) {
+                                    $.ajax({
+                                        "url": base_url + "/api/v1/attends/summary",
+                                        "method": "PATCH",
+                                        beforeSend: function (xhr) {
+                                            if (localStorage.getItem('token')) {
+                                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                                            }
+                                        },
+                                        "data": JSON.stringify(data),
+                                        "contentType": 'application/json',
+                                        success: function (response) {
+                                            alert('저장 되었습니다.');
+                                            location.reload();
+                                        },
+                                        error: function (xhr) {
+                                            alert(xhr.responseJSON.message);
+                                        }
+                                    });
+                                }
+                                return false;
+                            }
+
                             $.ajax({
                                 "url": base_url + "/api/v1/attends/summary",
                                 "method": "PATCH",
