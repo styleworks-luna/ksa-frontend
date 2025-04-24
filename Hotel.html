@@ -1,515 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/flight.css">
-    <link rel="stylesheet" href="/css/hotel.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/information.js"></script>
-</head>
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/flight.css" />
+        <link rel="stylesheet" href="/css/hotel.css" />
+        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="/js/common.js"></script>
+        <script src="/js/information.js"></script>
+    </head>
+    <body>
+        <header data-pc_header>
             <a href="Index.html" data-logo_box></a>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <main>
-        <div data-pc_process_box>
-            <ul>
-                <li><a href="./Information.html">참가자정보입력</a></li>
-                <li><a href="./Flight.html">항공예약</a></li>
-                <li class="present"><a href="./Hotel.html">호텔예약</a></li>
-                <li><a href="./Rentalcar.html">렌터카예약</a></li>
-                <li><a href="./Program.html">프로그램</a></li>
-                <li><a href="./InformationConfirm.html">신청확인</a></li>
-                <li><button type="button" data-logout_btn>로그아웃</button></li>
-            </ul>
-        </div>
-        <div data-mobile_process_box>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="./Information.html">참가자정보입력</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Flight.html">항공예약</a>
-                    </div>
-                    <div class="swiper-slide present">
-                        <a href="./Hotel.html">호텔예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Rentalcar.html">렌터카예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Program.html">프로그램</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./InformationConfirm.html">신청확인</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <button type="button" data-logout_btn>로그아웃</button>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div>
+                <a href="Index.html" data-logo_box></a>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-pc_process_box>
+                <ul>
+                    <li><a href="./Information.html">참가자정보입력</a></li>
+                    <li><a href="./Flight.html">항공예약</a></li>
+                    <li class="present"><a href="./Hotel.html">호텔예약</a></li>
+                    <li><a href="./Rentalcar.html">렌터카예약</a></li>
+                    <li><a href="./Program.html">프로그램</a></li>
+                    <li><a href="./InformationConfirm.html">신청확인</a></li>
+                    <li><button type="button" data-logout_btn>로그아웃</button></li>
+                </ul>
+            </div>
+            <div data-mobile_process_box>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="./Information.html">참가자정보입력</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Flight.html">항공예약</a>
+                        </div>
+                        <div class="swiper-slide present">
+                            <a href="./Hotel.html">호텔예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Rentalcar.html">렌터카예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Program.html">프로그램</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./InformationConfirm.html">신청확인</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <button type="button" data-logout_btn>로그아웃</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div data-content_box>
-            <div data-title_box>호텔예약</div>
-            <table>
-                <tr data-date_row>
-                    <th>투숙기간</th>
-                    <td>
-                        <div data-date_box>
-                            <input data-start_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="시작일 선택" onclick="(this.type='date')">
-                            <span data-tilde>~</span>
-                            <input data-end_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="종료일 선택">
-                            <span data-cal_row></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>객실선택</th>
-                    <td>
-                        <select data-room_select class="reset">
-                            <option selected disabled value="">선택</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr data-list_row>
-                    <th><span class="room">객실현황</span></th>
-                    <td>
-                        <div data-show_row class="room"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>체크인 예정</th>
-                    <td>
-                        15시 00분
-                    </td>
-                </tr>
-                <tr data-text_row>
-                    <th>요청 사항</th>
-                    <td>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <th>금액합계</th>
-                    <td>
-                        <div data-total_box>
-                            <span><span data-total>0</span>원</span>
-                            <label>(<input type="checkbox" name="pay">호텔비 별도 결제 )</label>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div data-card_info_wrap>
-                <div data-card_info_box>
-                    <p>카드 정보 입력</p>
-                    <label for="cardType">
-                        카드종류
-                        <input type="text" id="cardType">
-                    </label>
-                    <label for="cardHolderName">
-                        소유자명
-                        <input type="text" id="cardHolderName">
-                    </label>
-                    <label for="cardNumber">
-                        카드번호
-                        <input type="text" id="cardNumber" placeholder="카드번호 16자리" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{4})(\d{4})(\d{4})(\d{4})$/, `$1-$2-$3-$4`)" maxlength="16">
-                    </label>
-                    <label for="cardExpiryDate">
-                        유효기간
-                        <input type="text" id="cardExpiryDate" placeholder="ex) 2035년 01월">
-                    </label>
+            <div data-content_box>
+                <div data-title_box>호텔예약</div>
+                <table>
+                    <tr data-date_row>
+                        <th>투숙기간</th>
+                        <td>
+                            <div data-date_box>
+                                <input data-start_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="시작일 선택" onclick="(this.type='date')" />
+                                <span data-tilde>~</span>
+                                <input data-end_date type="date" min="2025-07-22" max="2025-07-31" data-placeholder="종료일 선택" />
+                                <span data-cal_row></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>객실선택</th>
+                        <td>
+                            <select data-room_select class="reset">
+                                <option selected disabled value="">선택</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr data-list_row>
+                        <th><span class="room">객실현황</span></th>
+                        <td>
+                            <div data-show_row class="room"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>체크인 예정</th>
+                        <td>15시 00분</td>
+                    </tr>
+                    <tr data-text_row>
+                        <th>요청 사항</th>
+                        <td>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>금액합계</th>
+                        <td>
+                            <div data-total_box>
+                                <span><span data-total>0</span>원</span>
+                                <label>(<input type="checkbox" name="pay" />호텔비 별도 결제 )</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div data-card_info_wrap>
+                    <div data-card_info_box>
+                        <p>카드 정보 입력</p>
+                        <label for="cardType">
+                            카드종류
+                            <input type="text" id="cardType" />
+                        </label>
+                        <label for="cardHolderName">
+                            소유자명
+                            <input type="text" id="cardHolderName" />
+                        </label>
+                        <label for="cardNumber">
+                            카드번호
+                            <input
+                                type="text"
+                                id="cardNumber"
+                                placeholder="카드번호 16자리"
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{4})(\d{4})(\d{4})(\d{4})$/, `$1-$2-$3-$4`)"
+                                maxlength="16"
+                            />
+                        </label>
+                        <label for="cardExpiryDate">
+                            유효기간
+                            <input type="text" id="cardExpiryDate" placeholder="ex) 2035년 01월" />
+                        </label>
+                    </div>
+                </div>
+                <div data-notice_box>
+                    <p>※ 제출 전 반드시 확인해 주세요.</p>
+                    <p>• 참가자 전용 특별 할인 혜택이 반영된 금액입니다.</p>
+                    <p>• 포럼 앞/뒤 기간 연박 시에도 동일한 혜택을 적용 받을 수 있습니다.</p>
+                    <p>• 일부 객실 타입은 선착순 조기 마감될 수 있으며, 객실 층은 임의 배정됩니다.</p>
+                    <p>• 결제는 참가비와 함께 일괄 계산서 처리 또는 체크아웃 시 개별 결제 모두 가능합니다.</p>
+                    <p>• 개별 결제를 원하시는 경우, 결제를 위한 카드 정보를 입력해주시기 바랍니다.</p>
+                    <p>• 보조 침대 추가 시 1박 48,400원(3박 145,200원) 비용이 발생됩니다.</p>
+                    <p>• 보조 침대 불가 객실 타입: 샤롯데 룸 또는 패밀리 더블(더블+더블)</p>
+                    <p>• 온돌 객실에는 보조 침대로 이불이 제공되며, 최대 1채까지만 추가 가능합니다.</p>
+                </div>
+                <div data-button_box>
+                    <button data-pre_btn type="button">이전</button>
+                    <button type="submit">호텔정보 저장</button>
                 </div>
             </div>
-            <div data-notice_box>
-                <p>※ 제출 전 반드시 확인해 주세요.</p>
-                <p>• 참가자 전용 특별 할인 혜택이 반영된 금액입니다.</p>
-                <p>• 포럼 앞/뒤 기간 연박 시에도 동일한 혜택을 적용 받을 수 있습니다.</p>
-                <p>• 일부 객실 타입은 선착순 조기 마감될 수 있으며, 객실 층은 임의 배정됩니다.</p>
-                <p>• 결제는 참가비와 함께 일괄 계산서 처리 또는 체크아웃 시 개별 결제 모두 가능합니다.</p>
-                <p>• 개별 결제를 원하시는 경우, 결제를 위한 카드 정보를 입력해주시기 바랍니다.</p>
-                <p>• 보조 침대 추가 시 1박 48,400원(3박 145,200원) 비용이 발생됩니다.</p>
-                <p>• 보조 침대 불가 객실 타입: 샤롯데 룸 또는 패밀리 더블(더블+더블)</p>
-                <p>• 온돌 객실에는 보조 침대로 이불이 제공되며, 최대 1채까지만 추가 가능합니다.</p>
+        </main>
+        <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a href="" class="btn">통장사본</a>
+                        <a href="" class="btn">사업자등록증</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
             </div>
-            <div data-button_box>
-                <button data-pre_btn type="button">이전</button>
-                <button type="submit">호텔정보 저장</button>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script>
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, '\\$&');
-            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            const results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-        const id_num = getParameterByName('id');
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 'auto',
-            spaceBetween: 23.5,
-            freeMode: true,
-        });
-        $(document).ready(function () {
-            const attend_id = sessionStorage.getItem('attend_id');
-            let room_list = [];
-            let total_cost = [];
-            let hotel_val = ""
-            let hotel_txt = ""
-            let hotel_cost = 0
-            let hotel_sub_bed = ""
-            let start_val = ""
-            let end_val = ""
-            let check_hour = ""
-            let check_min = ""
-            let cal_date
-            
-            // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
-            if(attend_id !== null){
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script>
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                const results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return "";
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+            const id_num = getParameterByName("id");
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 23.5,
+                freeMode: true,
+            });
+            $(document).ready(function () {
+                const attend_id = sessionStorage.getItem("attend_id");
+                let room_list = [];
+                let total_cost = [];
+                let hotel_val = "";
+                let hotel_txt = "";
+                let hotel_cost = 0;
+                let hotel_sub_bed = "";
+                let start_val = "";
+                let end_val = "";
+                let check_hour = "";
+                let check_min = "";
+                let cal_date;
 
-                // 이미 신청한 상황이라면 신청내역 보여주기
-                $.ajax({
-                    "type": "GET",
-                    "url": base_url +"/api/v1/hotel-orders?attendId=" + attend_id,
-                    beforeSend: function (xhr) {
-                        if (sessionStorage.getItem('token')) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-                        }
-                    },
-                    success: function (response) {
-                        if (response.attendStatus === "DONE") {
-                            alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
-                            window.location.href = "./InformationConfirm.html";
-                        }
-                        if (response.hotelOrders !== null) {
-                            $(".room").show();
-                            console.log(response)
-                            $.each(response.hotelOrders, function (index, item) {
-                                cal_date = (new Date(item.stayStartDate) - new Date(item.stayEndDate)) / (1000 * 60 * 60 * 24);
-                                cal_date = Math.abs(cal_date);
-
-                                if (cal_date < 0) {
-                                    cal_date = 1;
-                                } 
-                                room_list.push({
-                                    "hotelId": Number(item.hotel.hotelId),
-                                    "stayStartDate": item.stayStartDate,
-                                    "stayEndDate": item.stayEndDate,
-                                    "isSubBedPresent": item.isSubBedPresent
-                                });
-                                total_cost.push({
-                                    "hotelId": item.hotel.hotelId,
-                                    "cost": ((item.hotel.cost + (item.isSubBedPresent === true ? 48400 : 0)) * cal_date),
-                                    "date":  cal_date
-                                });
-                                console.log()
-                            });
-                            if (window.innerWidth > 760) {
-                                $.each(response.hotelOrders, function (index, item) {
-                                    let bed = item.isSubBedPresent === true ? 48400 : 0
-                                    let family = item.isBedFamilyTwin === true ? 36600 : 0
-
-                                    if(item.hotel.type === "INDIVIDUAL"){
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + " (롯데호텔 外)</span></p><button type='button'>X</button></div > </div>");
-                                    }else{
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청(48,400원/1박)</label></div></div>");
-                                    }
-                                });
-                            } else {
-                                $.each(response.hotelOrders, function (index, item) {
-                                    let bed = item.isSubBedPresent === true ? 48400 : 0
-                                    let family = item.isBedFamilyTwin === true ? 36600 : 0
-                                    if (item.hotel.type === "INDIVIDUAL") {
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " +  item.hotel.bedType + " (롯데호텔 外)</p><button type='button'>X</button></div></div>");
-                                    } else {
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청(48,400원/1박)</label></div></div>");
-                                    }
-                                });
-                            }
-                        }
-                        $("textarea").val(response.userMemo);
-                        $("[data-total]").text(response.totalCost.toLocaleString());
-                        $("input[name='pay']").prop("checked", response.isIndividualPay);
-                        if(response.isIndividualPay === true){
-                            $("[data-card_info_wrap]").show();
-                            $("#cardType").val(response.cardType);
-                            $("#cardHolderName").val(response.cardHolderName);
-                            $("#cardNumber").val(response.cardNumber);
-                            $("#cardExpiryDate").val(response.cardExpiryDate);
-                        }
-                    },
-                    error: function (error) {
-                        alert("error")
-                    }
-                });
-
-                // 호텔 데이터 불러오기
-                $.ajax({
-                    "type": "GET",
-                    "url": base_url +"/api/v1/hotels?year="+current_year+"&isRoomRemaining=true",
-                    success: function (response) {
-                        $.each(response, function (index, item) {
-                            $("[data-room_select]").append('<option data-sub_bed="'+ item.isSubBed +'" data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
-                        });
-                    },
-                    
-                    error: function (error) {
-                        alert("error")
-                    }
-                });
-
-                // 체크아웃 날짜보다 체크인 날짜가 뒤면 얼럿창 제공
-                function checkDates() {
-                    if (new Date(start_val) > new Date(end_val)) {
-                        alert("종료일이 시작일보다 먼저일수는 없습니다.");
-                        $("[data-end_date]").val("")
-                    }else if(start_val === end_val){
-                        alert("시작일과 종료일이 같을수는 없습니다.");
-                        $("[data-end_date]").val("")
-                    }
-                    //N박 텍스트 표기
-                    cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
-                    if(cal_date > 0){
-                        $("[data-cal_row]").text(cal_date +"박")
-                    }else{
-                        $("[data-cal_row]").text("")
-                        cal_date = 1;
-                    }
-                }
-
-                // 투숙 기간과 객실 선택 후 리스트에 추가
-                $("[data-start_date]").change(function () {
-                    const val = $(this).val();
-                    start_val = val;
-                    showSelectedInfo();
-                    checkDates();
-                });
-
-                $("[data-end_date]").change(function () {
-                    const val = $(this).val();
-                    end_val = val;
-                    showSelectedInfo();
-                    checkDates();
-                });
-                
-                
-                $("[data-room_select]").change(function () {
-                    const val = $(this).val();
-                    const txt = $("option:checked", this).text();
-                    const cost = $("option:checked", this).data("cost");
-                    const sub_bed = $("option:checked", this).data("sub_bed");
-                    hotel_val = val;
-                    hotel_txt = txt;
-                    hotel_cost = cost;
-                    hotel_sub_bed = sub_bed;
-                    showSelectedInfo();
-                });
-
-                $("input[data-placeholder]").on("change", (event) => {
-                    const target = $(event.target);
-                    if (target.val() !== "") {
-                        target.addClass("empty");
-                    } else {
-                        target.removeClass("empty");
-                    }
-                });
-
-                function showSelectedInfo() {
-                    if (hotel_val !== "" && start_val !== "" && end_val !== "") {
-                        cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
-                        $(".room").show();
-                        // PC 화면 일때
-                        if (window.innerWidth > 760) {
-                            if (hotel_cost === 0) {
-                                $("[data-show_row]").append("<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div ></div>");
-                            }else{
-                                $("[data-show_row]").append("<div data-add_row='"+ hotel_val +"'><div><p>["+ start_val +"~"+ end_val +"] "+ hotel_txt +"<span data-bar>ㅣ</span><span data-cost>" + (hotel_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div > <div data-add_check="+ (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>");
-                            }
-                        // Mobile 화면 일때
-                        } else {
-                            if (hotel_cost === 0) {
-                                $("[data-show_row]").append("<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div></div>");
-                            }
-                            else{
-                                $("[data-show_row]").append("<div data-add_row='" + hotel_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + hotel_txt +"<span data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check=" + (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>");
-                            }
-
-                        }
-                        room_list.push({
-                            "hotelId": Number(hotel_val),
-                            "stayStartDate": start_val,
-                            "stayEndDate": end_val,
-                            "isSubBedPresent": $("[data-bed_check]").is(":checked") === true ? true : false
-                        });
-
-                        total_cost.push({
-                            "hotelId": hotel_val,
-                            "cost": hotel_cost * cal_date,
-                            "date": cal_date
-                        });
-                        updateTotalCost();
-
-                        $('.reset').val("");
-                    }
-                }
-                
-                // 삭제 버튼 클릭 시 해당 객실 삭제 후 리스트에서도 삭제
-                $(document).on("click", "[data-add_row] button", function () {
-                    const add_row = $(this).closest("[data-add_row]");
-                    const index = add_row.index();
-                    add_row.remove();
-                    if (room_list.length > index) {
-                        room_list.splice(index, 1);
-
-                    }
-                    if (room_list.length === 0) {
-                        $(".room").hide();
-                    }
-                    if (total_cost.length > index) {
-                        total_cost.splice(index, 1);
-                        updateTotalCost();
-                    }
-                });
-
-                // 보조침대 체크 여부
-                $(document).on("change", "[data-bed_check]", function () {
-                    var index = $("[data-bed_check]").index($(this));
-                    room_list[index].isSubBedPresent = $(this).is(":checked") === true ? true : false;
-                    // 체크박스 상태에 따라 total_cost 업데이트
-                    if ($(this).is(":checked")) {
-                        total_cost[index].cost += (48400 * total_cost[index].date);
-                        updateTotalCost();
-                    } else {
-                        total_cost[index].cost -= (48400 * total_cost[index].date);
-                        updateTotalCost();
-                    }
-                    console.log(room_list)
-                });
-
-                $("input[name='pay']").click(function () {
-                    if ($(this).is(":checked")){
-                        $("[data-card_info_wrap]").show();
-                    }else{
-                        $("[data-card_info_wrap]").hide();
-                    }
-                })
-
-                $("button[type='submit']").click(function () {
-                    const data = {
-                        "attendId": attend_id,
-                        "hotelOrders": room_list,
-                        "estimatedCheckInTime": "15:00:00",
-                        "userMemo": $("textarea").val(),
-                        "cardType": $("#cardType").val(),
-                        "cardHolderName": $("#cardHolderName").val(),
-                        "cardNumber": $("#cardNumber").val(),
-                        "cardExpiryDate": $("#cardExpiryDate").val(),
-                        "isIndividualPay": $("input[name='pay']").is(":checked") === true ? true : false
-                    };
+                // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
+                if (attend_id !== null) {
+                    // 이미 신청한 상황이라면 신청내역 보여주기
                     $.ajax({
-                        "type": "POST",
-                        "url": base_url +"/api/v1/hotel-orders",
-                        "data": JSON.stringify(data),
-                        "contentType": 'application/json',
+                        type: "GET",
+                        url: base_url + "/api/v1/hotel-orders?attendId=" + attend_id,
                         beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            if (sessionStorage.getItem("token")) {
+                                xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
                             }
                         },
                         success: function (response) {
-                            console.log(data)
-                            alert("저장이 완료 되었습니다.")
-                            window.location.href = "./Rentalcar.html";
+                            if (response.attendStatus === "DONE") {
+                                alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
+                                window.location.href = "./InformationConfirm.html";
+                            }
+                            if (response.hotelOrders !== null) {
+                                $(".room").show();
+                                console.log(response);
+                                $.each(response.hotelOrders, function (index, item) {
+                                    cal_date = (new Date(item.stayStartDate) - new Date(item.stayEndDate)) / (1000 * 60 * 60 * 24);
+                                    cal_date = Math.abs(cal_date);
+
+                                    if (cal_date < 0) {
+                                        cal_date = 1;
+                                    }
+                                    room_list.push({
+                                        hotelId: Number(item.hotel.hotelId),
+                                        stayStartDate: item.stayStartDate,
+                                        stayEndDate: item.stayEndDate,
+                                        isSubBedPresent: item.isSubBedPresent,
+                                    });
+                                    total_cost.push({
+                                        hotelId: item.hotel.hotelId,
+                                        cost: (item.hotel.cost + (item.isSubBedPresent === true ? 48400 : 0)) * cal_date,
+                                        date: cal_date,
+                                    });
+                                    console.log();
+                                });
+                                if (window.innerWidth > 760) {
+                                    $.each(response.hotelOrders, function (index, item) {
+                                        let bed = item.isSubBedPresent === true ? 48400 : 0;
+                                        let family = item.isBedFamilyTwin === true ? 36600 : 0;
+
+                                        if (item.hotel.type === "INDIVIDUAL") {
+                                            $("[data-show_row]").append(
+                                                "<div data-add_row='" +
+                                                    item.hotel.hotelId +
+                                                    "'><div><p>[" +
+                                                    item.stayStartDate +
+                                                    "~" +
+                                                    item.stayEndDate +
+                                                    "] " +
+                                                    item.hotel.bedType +
+                                                    " (롯데호텔 外)</span></p><button type='button'>X</button></div > </div>"
+                                            );
+                                        } else {
+                                            $("[data-show_row]").append(
+                                                "<div data-add_row='" +
+                                                    item.hotel.hotelId +
+                                                    "'><div><p>[" +
+                                                    item.stayStartDate +
+                                                    "~" +
+                                                    item.stayEndDate +
+                                                    "] " +
+                                                    item.hotel.hotelName +
+                                                    " " +
+                                                    item.hotel.roomType +
+                                                    "/" +
+                                                    item.hotel.bedType +
+                                                    "<span data-bar>ㅣ</span><span data-cost>" +
+                                                    total_cost[index].cost.toLocaleString() +
+                                                    "원</span></p><button type='button'>X</button></div > <div data-add_check=" +
+                                                    (!item.hotel.isSubBed ? "none" : "") +
+                                                    "><label><input type='checkbox' value='48400' data-bed_check " +
+                                                    (item.isSubBedPresent === true ? "checked" : "") +
+                                                    "> 보조침대 신청(48,400원/1박)</label></div></div>"
+                                            );
+                                        }
+                                    });
+                                } else {
+                                    $.each(response.hotelOrders, function (index, item) {
+                                        let bed = item.isSubBedPresent === true ? 48400 : 0;
+                                        let family = item.isBedFamilyTwin === true ? 36600 : 0;
+                                        if (item.hotel.type === "INDIVIDUAL") {
+                                            $("[data-show_row]").append(
+                                                "<div data-add_row='" +
+                                                    item.hotel.hotelId +
+                                                    "'><div><p>[" +
+                                                    item.stayStartDate +
+                                                    "~" +
+                                                    item.stayEndDate +
+                                                    "] " +
+                                                    item.hotel.bedType +
+                                                    " (롯데호텔 外)</p><button type='button'>X</button></div></div>"
+                                            );
+                                        } else {
+                                            $("[data-show_row]").append(
+                                                "<div data-add_row='" +
+                                                    item.hotel.hotelId +
+                                                    "'><div><p>[" +
+                                                    item.stayStartDate +
+                                                    "~" +
+                                                    item.stayEndDate +
+                                                    "] " +
+                                                    item.hotel.hotelName +
+                                                    " " +
+                                                    item.hotel.roomType +
+                                                    "/" +
+                                                    item.hotel.bedType +
+                                                    "<span data-bar>ㅣ</span><span data-cost>" +
+                                                    total_cost[index].cost.toLocaleString() +
+                                                    "원</span></p><button type='button'>X</button></div > <div data-add_check=" +
+                                                    (!item.hotel.isSubBed ? "none" : "") +
+                                                    "><label><input type='checkbox' value='48400' data-bed_check " +
+                                                    (item.isSubBedPresent === true ? "checked" : "") +
+                                                    "> 보조침대 신청(48,400원/1박)</label></div></div>"
+                                            );
+                                        }
+                                    });
+                                }
+                            }
+                            $("textarea").val(response.userMemo);
+                            $("[data-total]").text(response.totalCost.toLocaleString());
+                            $("input[name='pay']").prop("checked", response.isIndividualPay);
+                            if (response.isIndividualPay === true) {
+                                $("[data-card_info_wrap]").show();
+                                $("#cardType").val(response.cardType);
+                                $("#cardHolderName").val(response.cardHolderName);
+                                $("#cardNumber").val(response.cardNumber);
+                                $("#cardExpiryDate").val(response.cardExpiryDate);
+                            }
                         },
-                        error: function (xhr) {
-                            alert(xhr.responseJSON.message);
+                        error: function (error) {
+                            alert("error");
+                        },
+                    });
+
+                    // 호텔 데이터 불러오기
+                    $.ajax({
+                        type: "GET",
+                        url: base_url + "/api/v1/hotels?year=" + current_year + "&isRoomRemaining=true",
+                        success: function (response) {
+                            $.each(response, function (index, item) {
+                                $("[data-room_select]").append(
+                                    '<option data-sub_bed="' +
+                                        item.isSubBed +
+                                        '" data-cost="' +
+                                        item.cost +
+                                        '" value="' +
+                                        item.hotelId +
+                                        '">' +
+                                        (item.type === "INDIVIDUAL" ? "" : item.hotelName) +
+                                        " " +
+                                        (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) +
+                                        (item.type === "INDIVIDUAL" ? "" : " / " + item.cost.toLocaleString() + "원") +
+                                        "</option>"
+                                );
+                            });
+                        },
+
+                        error: function (error) {
+                            alert("error");
+                        },
+                    });
+
+                    // 체크아웃 날짜보다 체크인 날짜가 뒤면 얼럿창 제공
+                    function checkDates() {
+                        if (new Date(start_val) > new Date(end_val)) {
+                            alert("종료일이 시작일보다 먼저일수는 없습니다.");
+                            $("[data-end_date]").val("");
+                        } else if (start_val === end_val) {
+                            alert("시작일과 종료일이 같을수는 없습니다.");
+                            $("[data-end_date]").val("");
+                        }
+                        //N박 텍스트 표기
+                        cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
+                        if (cal_date > 0) {
+                            $("[data-cal_row]").text(cal_date + "박");
+                        } else {
+                            $("[data-cal_row]").text("");
+                            cal_date = 1;
+                        }
+                    }
+
+                    // 투숙 기간과 객실 선택 후 리스트에 추가
+                    $("[data-start_date]").change(function () {
+                        const val = $(this).val();
+                        start_val = val;
+                        showSelectedInfo();
+                        checkDates();
+                    });
+
+                    $("[data-end_date]").change(function () {
+                        const val = $(this).val();
+                        end_val = val;
+                        showSelectedInfo();
+                        checkDates();
+                    });
+
+                    $("[data-room_select]").change(function () {
+                        const val = $(this).val();
+                        const txt = $("option:checked", this).text();
+                        const cost = $("option:checked", this).data("cost");
+                        const sub_bed = $("option:checked", this).data("sub_bed");
+                        hotel_val = val;
+                        hotel_txt = txt;
+                        hotel_cost = cost;
+                        hotel_sub_bed = sub_bed;
+                        showSelectedInfo();
+                    });
+
+                    $("input[data-placeholder]").on("change", (event) => {
+                        const target = $(event.target);
+                        if (target.val() !== "") {
+                            target.addClass("empty");
+                        } else {
+                            target.removeClass("empty");
                         }
                     });
-                });
-                function updateTotalCost() {
-                    const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
-                    $("[data-total]").text(sum.toLocaleString());
 
-                    room_list.forEach((room, index) => {
-                        const cost = total_cost[index].cost;
-                        $(`[data-add_row]:eq(${index}) [data-cost]`).text(cost.toLocaleString() + "원");
+                    function showSelectedInfo() {
+                        if (hotel_val !== "" && start_val !== "" && end_val !== "") {
+                            cal_date = (new Date(end_val) - new Date(start_val)) / (1000 * 60 * 60 * 24);
+                            $(".room").show();
+                            // PC 화면 일때
+                            if (window.innerWidth > 760) {
+                                if (hotel_cost === 0) {
+                                    $("[data-show_row]").append(
+                                        "<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div ></div>"
+                                    );
+                                } else {
+                                    $("[data-show_row]").append(
+                                        "<div data-add_row='" +
+                                            hotel_val +
+                                            "'><div><p>[" +
+                                            start_val +
+                                            "~" +
+                                            end_val +
+                                            "] " +
+                                            hotel_txt +
+                                            "<span data-bar>ㅣ</span><span data-cost>" +
+                                            (hotel_cost * cal_date).toLocaleString() +
+                                            "원</span></p><button type='button'>X</button></div > <div data-add_check=" +
+                                            (!hotel_sub_bed ? "none" : "") +
+                                            "><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>"
+                                    );
+                                }
+                                // Mobile 화면 일때
+                            } else {
+                                if (hotel_cost === 0) {
+                                    $("[data-show_row]").append(
+                                        "<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div></div>"
+                                    );
+                                } else {
+                                    $("[data-show_row]").append(
+                                        "<div data-add_row='" +
+                                            hotel_val +
+                                            "'><div><p>[" +
+                                            start_val +
+                                            "~" +
+                                            end_val +
+                                            "] " +
+                                            hotel_txt +
+                                            "<span data-cost>" +
+                                            (hotel_cost * cal_date).toLocaleString() +
+                                            "원</span></p><button type='button'>X</button></div><div data-add_check=" +
+                                            (!hotel_sub_bed ? "none" : "") +
+                                            "><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>"
+                                    );
+                                }
+                            }
+                            room_list.push({
+                                hotelId: Number(hotel_val),
+                                stayStartDate: start_val,
+                                stayEndDate: end_val,
+                                isSubBedPresent: $("[data-bed_check]").is(":checked") === true ? true : false,
+                            });
+
+                            total_cost.push({
+                                hotelId: hotel_val,
+                                cost: hotel_cost * cal_date,
+                                date: cal_date,
+                            });
+                            updateTotalCost();
+
+                            $(".reset").val("");
+                        }
+                    }
+
+                    // 삭제 버튼 클릭 시 해당 객실 삭제 후 리스트에서도 삭제
+                    $(document).on("click", "[data-add_row] button", function () {
+                        const add_row = $(this).closest("[data-add_row]");
+                        const index = add_row.index();
+                        add_row.remove();
+                        if (room_list.length > index) {
+                            room_list.splice(index, 1);
+                        }
+                        if (room_list.length === 0) {
+                            $(".room").hide();
+                        }
+                        if (total_cost.length > index) {
+                            total_cost.splice(index, 1);
+                            updateTotalCost();
+                        }
                     });
+
+                    // 보조침대 체크 여부
+                    $(document).on("change", "[data-bed_check]", function () {
+                        var index = $("[data-bed_check]").index($(this));
+                        room_list[index].isSubBedPresent = $(this).is(":checked") === true ? true : false;
+                        // 체크박스 상태에 따라 total_cost 업데이트
+                        if ($(this).is(":checked")) {
+                            total_cost[index].cost += 48400 * total_cost[index].date;
+                            updateTotalCost();
+                        } else {
+                            total_cost[index].cost -= 48400 * total_cost[index].date;
+                            updateTotalCost();
+                        }
+                        console.log(room_list);
+                    });
+
+                    $("input[name='pay']").click(function () {
+                        if ($(this).is(":checked")) {
+                            $("[data-card_info_wrap]").show();
+                        } else {
+                            $("[data-card_info_wrap]").hide();
+                        }
+                    });
+
+                    $("button[type='submit']").click(function () {
+                        const data = {
+                            attendId: attend_id,
+                            hotelOrders: room_list,
+                            estimatedCheckInTime: "15:00:00",
+                            userMemo: $("textarea").val(),
+                            cardType: $("#cardType").val(),
+                            cardHolderName: $("#cardHolderName").val(),
+                            cardNumber: $("#cardNumber").val(),
+                            cardExpiryDate: $("#cardExpiryDate").val(),
+                            isIndividualPay: $("input[name='pay']").is(":checked") === true ? true : false,
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: base_url + "/api/v1/hotel-orders",
+                            data: JSON.stringify(data),
+                            contentType: "application/json",
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem("token")) {
+                                    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+                                }
+                            },
+                            success: function (response) {
+                                console.log(data);
+                                alert("저장이 완료 되었습니다.");
+                                window.location.href = "./Rentalcar.html";
+                            },
+                            error: function (xhr) {
+                                alert(xhr.responseJSON.message);
+                            },
+                        });
+                    });
+                    function updateTotalCost() {
+                        const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
+                        $("[data-total]").text(sum.toLocaleString());
+
+                        room_list.forEach((room, index) => {
+                            const cost = total_cost[index].cost;
+                            $(`[data-add_row]:eq(${index}) [data-cost]`).text(cost.toLocaleString() + "원");
+                        });
+                    }
+                } else {
+                    alert("잘못된 요청입니다.");
+                    window.location.href = "./Application.html";
                 }
-            }else{
-                alert("잘못된 요청입니다.");
-                window.location.href = "./Application.html";
-            }
-        });
-    </script>
-</body>
+            });
+        </script>
+    </body>
 </html>
