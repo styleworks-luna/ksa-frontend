@@ -306,6 +306,17 @@
                         <button data-done_btn type="button">확인</button>
                     </div>
                 </form>
+                <div data-apply-end>
+                    <p>
+                        “별도 요청 없을 시, <br />신청마감일(7월9일) 이후 <br />7월0일 계산서 발행예정입니다.” <br />
+                        법인, 개인 대상 세금계산서 분리발행 가능하며, <br />
+                        법인은 세금계산서 담당자앞으로, <br />
+                        개인은 참가자 휴대폰번호로 계산서발행됩니다.
+                    </p>
+                    <div>
+                        <button data-apply_close_btn="apply" type="button">닫기</button>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
@@ -769,7 +780,7 @@
                         $("[data-popup_box] form").show();
                         $("[data-notice_txt]").hide();
                     });
-                    $("[data-close_btn], [data-notice_close_btn]").on("click", function () {
+                    $("[data-close_btn], [data-notice_close_btn], [data-apply_close_btn]").on("click", function () {
                         if ($(this).data("notice_close_btn") === "done") {
                             $("[data-popup_box]").hide();
                             window.location.reload();
@@ -802,6 +813,11 @@
                     alert("잘못된 요청입니다.");
                     window.location.href = "./Application.html";
                 }
+
+                //250424 확인용 스크립트
+                $("[data-popup_box]").show();
+                $("[data-popup_box] [data-apply-end]").show();
+                $("[data-notice_txt]").hide();
             });
         </script>
     </body>

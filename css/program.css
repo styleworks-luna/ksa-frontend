@@ -617,7 +617,7 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
   main [data-content_box=mobile] [data-total_table] {
     margin-top: 0px;
     margin-bottom: 19px;
-    width: 100;
+    width: 100%;
   }
   main [data-content_box=mobile] [data-total_table] tr th {
     width: 107px !important;
@@ -655,6 +655,50 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
     padding-top: 29px;
   }
   main [data-content_box=mobile] [data-total_table] tr td p span {
+    color: #0C3994;
+    font-weight: bold;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] {
+    margin-top: 10px;
+    margin-bottom: 19px;
+    width: 100%;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr th {
+    width: 107px !important;
+    text-align: left;
+    border: none;
+    background-color: #fff;
+    padding-left: 19px;
+    font-size: 14px;
+    vertical-align: middle;
+    color: #222;
+    font-weight: 500;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr th span {
+    display: inline-block;
+    font-weight: 500;
+    padding-top: 27px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr td {
+    border: none;
+    text-align: left;
+    vertical-align: middle;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr td textarea {
+    width: 100%;
+    height: 102px;
+    border: solid 1px #dedede;
+    padding-left: 20px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    font-size: 14px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr td p {
+    font-size: 16px;
+    padding-left: 0px;
+    padding-top: 29px;
+  }
+  main [data-content_box=mobile] [data-table_box] [data-total_table] tr td p span {
     color: #0C3994;
     font-weight: bold;
   }

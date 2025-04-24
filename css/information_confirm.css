@@ -201,7 +201,7 @@ main [data-mobile_content_box] {
 }
 main [data-popup_box] {
   width: 600px;
-  height: 353px;
+  min-height: 353px;
   border: 2px solid #0C3994;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -216,6 +216,7 @@ main [data-popup_box] {
   padding-top: 60px;
   padding-left: 60px;
   padding-right: 60px;
+  padding-bottom: 60px;
   background-color: #fff;
   position: fixed;
   top: 50%;
@@ -496,7 +497,7 @@ main [data-popup_box] [data-done_txt] {
   }
   main [data-popup_box] {
     width: calc(100% - 32px);
-    height: 235px;
+    min-height: 235px;
     border: 2px solid #0C3994;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -511,6 +512,7 @@ main [data-popup_box] [data-done_txt] {
     padding-top: 60px;
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: 20px;
     background-color: #fff;
     position: fixed;
     top: 50%;

@@ -18,6 +18,9 @@ body {
           align-items: center;
   width: 100%;
 }
+body [data-img-area] img {
+  max-width: 100%;
+}
 body [data-pc_header] {
   max-width: 1280px;
   width: 100%;
