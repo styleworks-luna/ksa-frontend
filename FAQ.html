@@ -1,279 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
-    <script src="/js/common.js"></script>
-    <script src="/js/information.js"></script>
-    <style>
-        [data-title_box] {
-            font-size: 32px;
-            font-weight: 700;
-            text-align: center;
-            margin: 60px 0 40px;
-            color: #222;
-        }
-
-        [data-notice_wrap] {
-            width: 100%;
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        [data-th_row="faq"] {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            padding: 20px 0;
-            border-bottom: 2px solid #0C3994;
-            font-weight: 600;
-            text-align: center;
-            font-size: 18px;
-            color: #0C3994;
-        }
-
-        [data-td_row="faq"] {
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        [data-title_row] {
-            display: grid;
-            grid-template-columns: 100px 1fr;
-            padding: 20px 0;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
-        }
-
-        [data-title_row]:hover {
-            background-color: #f8f9fa;
-        }
-
-        [data-content_box] {
-            display: none;
-            padding: 30px;
-            background-color: #f8f9fa;
-            border-top: 1px solid #e5e5e5;
-            font-size: 15px;
-            line-height: 1.6;
-        }
-
-        [data-content_box].active {
-            display: block;
-        }
-
-        /* 페이지네이션 스타일 */
-        .paginationjs {
-            margin: 50px 0;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .paginationjs-pages {
-            display: inline-block;
-        }
-
-        .paginationjs-pages ul {
-            display: inline-flex;
-            list-style: none;
-            padding: 0;
-            gap: 5px;
-            align-items: center;
-        }
-
-        .paginationjs-pages li {
-            margin: 0;
-        }
-
-        .paginationjs-pages a {
-            display: inline-block;
-            min-width: 40px;
-            height: 40px;
-            line-height: 40px;
-            padding: 0 10px;
-            border: 1px solid #0C3994;
-            border-radius: 4px;
-            text-decoration: none;
-            color: #0C3994;
-            transition: all 0.3s;
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .paginationjs-pages a:hover {
-            background-color: #0C3994;
-            color: #fff;
-        }
-
-        .paginationjs-pages .active a {
-            background-color: #0C3994;
-            color: #fff;
-        }
-
-        .paginationjs-pages .paginationjs-prev a,
-        .paginationjs-pages .paginationjs-next a {
-            font-weight: bold;
-        }
-
-        .paginationjs-pages .paginationjs-ellipsis {
-            padding: 0 5px;
-        }
-
-        .paginationjs-pages .paginationjs-ellipsis a {
-            border: none;
-            cursor: default;
-        }
-
-        .paginationjs-pages .paginationjs-ellipsis a:hover {
-            background: none;
-            color: #0C3994;
-        }
-
-        @media (max-width: 760px) {
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+        <script src="/js/common.js"></script>
+        <script src="/js/information.js"></script>
+        <style>
             [data-title_box] {
-                font-size: 24px;
-                margin: 40px 0 30px;
+                font-size: 32px;
+                font-weight: 700;
+                text-align: center;
+                margin: 60px 0 40px;
+                color: #222;
             }
 
             [data-notice_wrap] {
-                padding: 0 15px;
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            [data-th_row="faq"] {
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                padding: 20px 0;
+                border-bottom: 2px solid #0c3994;
+                font-weight: 600;
+                text-align: center;
+                font-size: 18px;
+                color: #0c3994;
+            }
+
+            [data-td_row="faq"] {
+                border-bottom: 1px solid #e5e5e5;
             }
 
             [data-title_row] {
-                grid-template-columns: 1fr;
-                padding: 15px;
+                display: grid;
+                grid-template-columns: 100px 1fr;
+                padding: 20px 0;
+                cursor: pointer;
+                transition: all 0.3s;
+                font-size: 16px;
+            }
+
+            [data-title_row]:hover {
+                background-color: #f8f9fa;
             }
 
             [data-content_box] {
-                padding: 20px;
+                display: none;
+                padding: 30px;
+                background-color: #f8f9fa;
+                border-top: 1px solid #e5e5e5;
+                font-size: 15px;
+                line-height: 1.6;
             }
 
+            [data-content_box].active {
+                display: block;
+            }
+
+            /* 페이지네이션 스타일 */
             .paginationjs {
-                margin: 30px 0;
+                margin: 50px 0;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .paginationjs-pages {
+                display: inline-block;
+            }
+
+            .paginationjs-pages ul {
+                display: inline-flex;
+                list-style: none;
+                padding: 0;
+                gap: 5px;
+                align-items: center;
+            }
+
+            .paginationjs-pages li {
+                margin: 0;
             }
 
             .paginationjs-pages a {
-                min-width: 35px;
-                height: 35px;
-                line-height: 35px;
-                font-size: 14px;
+                display: inline-block;
+                min-width: 40px;
+                height: 40px;
+                line-height: 40px;
+                padding: 0 10px;
+                border: 1px solid #0c3994;
+                border-radius: 4px;
+                text-decoration: none;
+                color: #0c3994;
+                transition: all 0.3s;
+                font-size: 16px;
+                font-weight: 500;
             }
-        }
 
-        main [data-header_box] {
-            width: 100%;
-            height: 260px;
-            background-image: url(/images/2024_pc_back_v2.png);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-        }
+            .paginationjs-pages a:hover {
+                background-color: #0c3994;
+                color: #fff;
+            }
 
-        main [data-header_box] div {
-            width: 100%;
-            height: 260px;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            flex-direction: row;
-            padding-bottom: 40px;
-        }
+            .paginationjs-pages .active a {
+                background-color: #0c3994;
+                color: #fff;
+            }
 
-        main [data-header_box] div > a {
-            width: 180px;
-            height: 52px;
-            border-radius: 37px;
-            background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-        }
+            .paginationjs-pages .paginationjs-prev a,
+            .paginationjs-pages .paginationjs-next a {
+                font-weight: bold;
+            }
 
-        @media (max-width: 760px) {
+            .paginationjs-pages .paginationjs-ellipsis {
+                padding: 0 5px;
+            }
+
+            .paginationjs-pages .paginationjs-ellipsis a {
+                border: none;
+                cursor: default;
+            }
+
+            .paginationjs-pages .paginationjs-ellipsis a:hover {
+                background: none;
+                color: #0c3994;
+            }
+
+            @media (max-width: 760px) {
+                [data-title_box] {
+                    font-size: 24px;
+                    margin: 40px 0 30px;
+                }
+
+                [data-notice_wrap] {
+                    padding: 0 15px;
+                }
+
+                [data-title_row] {
+                    grid-template-columns: 1fr;
+                    padding: 15px;
+                }
+
+                [data-content_box] {
+                    padding: 20px;
+                }
+
+                .paginationjs {
+                    margin: 30px 0;
+                }
+
+                .paginationjs-pages a {
+                    min-width: 35px;
+                    height: 35px;
+                    line-height: 35px;
+                    font-size: 14px;
+                }
+            }
+
             main [data-header_box] {
-                height: 180px;
-                background-image: url(/images/2024_mobile_back_v2.png);
+                width: 100%;
+                height: 260px;
+                background-image: url(/images/2024_pc_back_v2.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
             }
 
             main [data-header_box] div {
-                height: 180px;
-                padding-bottom: 20px;
+                width: 100%;
+                height: 260px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                flex-direction: row;
+                padding-bottom: 40px;
             }
 
             main [data-header_box] div > a {
-                width: 140px;
-                height: 40px;
-                font-size: 18px;
+                width: 180px;
+                height: 52px;
+                border-radius: 37px;
+                background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
             }
-        }
-    </style>
-</head>
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li><a href="FAQ.html">FAQ</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-                <li><a href="FAQ.html">FAQ</a></li>
-            </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div>
+
+            @media (max-width: 760px) {
+                main [data-header_box] {
+                    height: 180px;
+                    background-image: url(/images/2024_mobile_back_v2.png);
+                }
+
+                main [data-header_box] div {
+                    height: 180px;
+                    padding-bottom: 20px;
+                }
+
+                main [data-header_box] div > a {
+                    width: 140px;
+                    height: 40px;
+                    font-size: 18px;
+                }
+            }
+
+            main [data-pc_content_wrap] {
+                width: 100%;
+                max-width: 1280px;
+                padding-bottom: 120px;
+            }
+            [data-btn-area] {
+                width: 100%;
+                max-width: 1280px;
+                margin: 30px auto 0;
+                padding: 0 20px 120px;
+            }
+            [data-btn-area] .btn {
+                background: #fff;
+                width: 100%;
+                height: 38px;
+                font-weight: bold;
+                font-size: 14px;
+                border: 1px solid #808080;
+                border-radius: 8px;
+                padding: 0;
+                color: #000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body>
+        <header data-pc_header>
             <a href="Index.html" data-logo_box></a>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
                 <li><a href="FAQ.html">FAQ</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div>
+                <a href="Index.html" data-logo_box></a>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
         <main>
             <div data-header_box>
                 <div>
@@ -309,16 +335,25 @@
                 </div>
                 <div data-mobile_pagination_box></div>
             </div>
+            <div data-btn-area>
+                <a href="PrivateQuestion.html" class="btn" target="_blank">1:1 문의</a>
+            </div>
         </main>
         <footer>
             <div data-footer_wrap>
                 <div data-logo_box></div>
                 <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a href="" class="btn">통장사본</a>
+                        <a href="" class="btn">사업자등록증</a>
+                    </div>
                     <p>
-                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
+                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
                         하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                     </p>
-                    <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
                 </div>
             </div>
         </footer>
@@ -336,8 +371,8 @@
                                 pageRange: 1,
                                 showFirstOnEllipsisShow: true,
                                 showLastOnEllipsisShow: true,
-                                formatNavigator: '<span>전체 <strong>%d</strong> 개</span>',
-                                formatPageSize: '<span>%d 개씩 보기</span>',
+                                formatNavigator: "<span>전체 <strong>%d</strong> 개</span>",
+                                formatPageSize: "<span>%d 개씩 보기</span>",
                                 callback: function (data, pagination) {
                                     var dataHtml = '<ul id="data-container">';
                                     $.each(data, function (index, item) {
@@ -380,8 +415,8 @@
                                 pageRange: 1,
                                 showFirstOnEllipsisShow: true,
                                 showLastOnEllipsisShow: true,
-                                formatNavigator: '<span>전체 <strong>%d</strong> 개</span>',
-                                formatPageSize: '<span>%d 개씩 보기</span>',
+                                formatNavigator: "<span>전체 <strong>%d</strong> 개</span>",
+                                formatPageSize: "<span>%d 개씩 보기</span>",
                                 callback: function (data, pagination) {
                                     var dataHtml = '<ul id="data-container-mobile">';
                                     $.each(data, function (index, item) {
