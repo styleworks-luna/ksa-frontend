@@ -282,7 +282,7 @@
                                     if(item.hotel.type === "INDIVIDUAL"){
                                         $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + " (롯데호텔 外)</span></p><button type='button'>X</button></div > </div>");
                                     }else{
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label></div></div>");
+                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName +  " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청(48,400원/1박)</label></div></div>");
                                     }
                                 });
                             } else {
@@ -292,7 +292,7 @@
                                     if (item.hotel.type === "INDIVIDUAL") {
                                         $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " +  item.hotel.bedType + " (롯데호텔 外)</p><button type='button'>X</button></div></div>");
                                     } else {
-                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청</label></div></div>");
+                                        $("[data-show_row]").append("<div data-add_row='" + item.hotel.hotelId + "'><div><p>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span data-cost>" + (total_cost[index].cost).toLocaleString() + "원</span></p><button type='button'>X</button></div > <div data-add_check=" + (!item.hotel.isSubBed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? "checked" : "") + "> 보조침대 신청(48,400원/1박)</label></div></div>");
                                     }
                                 });
                             }
@@ -393,7 +393,7 @@
                             if (hotel_cost === 0) {
                                 $("[data-show_row]").append("<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div ></div>");
                             }else{
-                                $("[data-show_row]").append("<div data-add_row='"+ hotel_val +"'><div><p>["+ start_val +"~"+ end_val +"] "+ hotel_txt +"<span data-bar>ㅣ</span><span data-cost>" + (hotel_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div > <div data-add_check="+ (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
+                                $("[data-show_row]").append("<div data-add_row='"+ hotel_val +"'><div><p>["+ start_val +"~"+ end_val +"] "+ hotel_txt +"<span data-bar>ㅣ</span><span data-cost>" + (hotel_cost * cal_date).toLocaleString() +"원</span></p><button type='button'>X</button></div > <div data-add_check="+ (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>");
                             }
                         // Mobile 화면 일때
                         } else {
@@ -401,7 +401,7 @@
                                 $("[data-show_row]").append("<div data-add_row='" + hotel_val + "'><div><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button'>X</button></div></div>");
                             }
                             else{
-                                $("[data-show_row]").append("<div data-add_row='" + hotel_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + hotel_txt +"<span data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check=" + (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
+                                $("[data-show_row]").append("<div data-add_row='" + hotel_val +"'><div><p>[" + start_val +"~"+ end_val + "] " + hotel_txt +"<span data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button'>X</button></div><div data-add_check=" + (!hotel_sub_bed ? "none" : "") +"><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청(48,400원/1박)</label></div></div>");
                             }
 
                         }
