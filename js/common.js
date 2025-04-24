@@ -1,10 +1,10 @@
 $(function () {
-    $('[data-more_box]').on("click", function() {
-        $('[data-menu_box]').show();
+    $("[data-more_box]").on("click", function () {
+        $("[data-menu_box]").show();
     });
-    
-    $('[data-close_box]').on("click", function() {
-        $('[data-menu_box]').hide();
+
+    $("[data-close_box]").on("click", function () {
+        $("[data-menu_box]").hide();
     });
 
     $(document).on("click", "[data-logout_btn]", function () {
@@ -16,10 +16,10 @@ $(function () {
             window.location = "Index.html";
         }
     });
-    
-    const attend_id = sessionStorage.getItem('attend_id');
-    if(attend_id !== null){
-        $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>")
+
+    const attend_id = sessionStorage.getItem("attend_id");
+    if (attend_id !== null) {
+        $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>");
     }
 
     // document.addEventListener("click", function (event) {
@@ -37,10 +37,10 @@ $(function () {
 });
 let url = window.location.href;
 let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
-if(base_url && typeof base_url === 'string' && ( base_url.toLowerCase().includes("127.0.0.1") || base_url.toLowerCase().includes("localhost") ) ){  
-    //base_url = "https://api-ksa.styleworks.kr";
-    base_url = "http://127.0.0.1:8888";
-}else {
+if (base_url && typeof base_url === "string" && (base_url.toLowerCase().includes("127.0.0.1") || base_url.toLowerCase().includes("localhost"))) {
+    base_url = "https://api-ksa.styleworks.kr";
+    //base_url = "http://127.0.0.1:8888";
+} else {
     base_url = "https://api-" + base_url;
 }
 // let base_url = "api-ksa.onoffmix.xyz"
