@@ -1,529 +1,631 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/flight.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script src="/js/common.js"></script>
-    <script src="/js/information.js"></script>
-</head>
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/flight.css" />
+        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+        <script src="/js/common.js"></script>
+        <script src="/js/information.js"></script>
+    </head>
+    <body>
+        <header data-pc_header>
             <a href="Index.html" data-logo_box></a>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
                 <li><a href="Gallery.html">갤러리</a></li>
                 <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <main>
-        <div data-pc_process_box>
-            <ul>
-                <li><a href="./Information.html">참가자정보입력</a></li>
-                <li class="present"><a href="./Flight.html">항공예약</a></li>
-                <li><a href="./Hotel.html">호텔예약</a></li>
-                <li><a href="./Rentalcar.html">렌터카예약</a></li>
-                <li><a href="./Program.html">프로그램</a></li>
-                <li><a href="./InformationConfirm.html">신청확인</a></li>
-                <li><button type="button" data-logout_btn>로그아웃</button></li>
-            </ul>
-        </div>
-        <div data-mobile_process_box>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="./Information.html">참가자정보입력</a>
-                    </div>
-                    <div class="swiper-slide present">
-                        <a href="./Flight.html">항공예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Hotel.html">호텔예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Rentalcar.html">렌터카예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Program.html">프로그램</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./InformationConfirm.html">신청확인</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <button type="button" data-logout_btn>로그아웃</button>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div>
+                <a href="Index.html" data-logo_box></a>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">포럼안내</a></li>
+                    <li><a href="Application.html">참가신청 / 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-pc_process_box>
+                <ul>
+                    <li><a href="./Information.html">참가자정보입력</a></li>
+                    <li class="present"><a href="./Flight.html">항공예약</a></li>
+                    <li><a href="./Hotel.html">호텔예약</a></li>
+                    <li><a href="./Rentalcar.html">렌터카예약</a></li>
+                    <li><a href="./Program.html">프로그램</a></li>
+                    <li><a href="./InformationConfirm.html">신청확인</a></li>
+                    <li><button type="button" data-logout_btn>로그아웃</button></li>
+                </ul>
+            </div>
+            <div data-mobile_process_box>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a href="./Information.html">참가자정보입력</a>
+                        </div>
+                        <div class="swiper-slide present">
+                            <a href="./Flight.html">항공예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Hotel.html">호텔예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Rentalcar.html">렌터카예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Program.html">프로그램</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./InformationConfirm.html">신청확인</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <button type="button" data-logout_btn>로그아웃</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div data-content_box>
-            <div data-title_box>항공예약</div>
-            <table>
-                <tr>
-                    <th>탑승자 선택</th>
-                    <td>
-                        <select data-passenger_select class="reset">
-                            <option selected disabled value="">선택</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <th>출/도착 도시</th>
-                    <td>
-                        <div data-select_box>
-                            <label>
-                                <input type="radio" value="김포" name="city">김포 - 제주
-                            </label>
-                            <label>
-                                <input type="radio" value="부산" name="city">부산 - 제주
-                            </label>
-                            <label>
-                                <input type="radio" value="광주" name="city">광주 - 제주
-                            </label>
-                            <label>
-                                <input type="radio" value="청주" name="city">청주 - 제주
-                            </label>
-                            <label>
-                                <input type="radio" value="대구" name="city">대구 - 제주
-                            </label>
-                            <label>
-                                <input type="radio" value="none" name="city" data-none_input>항공개별예약
-                            </label>
-                        </div>
-                    </td>
-                </tr>
-                <tr data-none_row>
-                    <th><span class="display">제주공항<br>도착시간</span></th>
-                    <td>
-                        <div class="display">
-                            <div data-date_box>
-                                <input type="date" min="2025-07-24" max="2025-07-27" data-date_picker>
-                                <input type="time" data-time_picker>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>비행시간</th>
-                    <td>
-                        <select data-time_select class="reset">
-                            <option selected disabled value="">선택</option>
-                        </select>
-                        <p style="color: #FF2200; font-size: 16px; padding-top: 5px;">항공사로부터 확보한 좌석이 한정되어, 선택하신 항공편 예약이 제한될 수 있습니다.
-                            희망하시는 출발·복귀 항공편 일정을 ‘요청사항’란에 작성해주시면 개별 안내드리겠습니다.</p>
-                    </td>
-                </tr>
-                <tr data-list_row>
-                    <th><span class="passenger">탑승자 명단</span></th>
-                    <td>
-                        <div data-show_row class="passenger">
-                        </div>
-                    </td>
-                </tr>
-                <tr data-text_row>
-                    <th>요청 사항</th>
-                    <td>
-                        <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
-                    </td>
-                </tr>
-                <tr>
-                    <th>금액합계</th>
-                    <td>
-                        <div data-total_box>
-                            <span><span data-total>0</span>원</span>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-            <div data-notice_box>
-                <p>※ 제출 전 반드시 확인해 주세요.</p>
-                <p>• 신청서 제출이 완료되면 항공권이 순차적으로 발권됩니다.</p>
-                <p>• 발권 후 취소 시 수수료 및 항공사 패널티가 부과되며, 발권 수수료(10,000원/왕복)는 환불되지 않습니다.</p>
-                <p>• 항공 요금에는 공항세, 유류할증료 및 발권 수수료(10,000원/왕복)가 포함되어 있으며, 요금은 항공사의 운임 정책 및 유류할증료 등에 따라 변동될 수 있습니다.</p>
-                <p>• 탑승자 선택 시 성인/경로/소아 요금이 자동 적용됩니다.</p>
-                <p>• (소아: 만 24개월 이상 만 13세 미만, 경로: 만 65세 이상)</p>
-                <p>• 최종 예약 번호가 포함된 e티켓은 포럼 시작 1주 전, 참가자 본인 및 신청 담당자에게 이메일과 문자 메시지로 개별 안내드립니다.</p>
-            </div>
-            <div data-button_box>
-                <button data-pre_btn type="button" onclick="history.back()">이전</button>
-                <button type="submit">항공정보 임시저장</button>
-            </div>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
-            </div>
-        </div>
-    </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script>
-        function getParameterByName(name, url) {
-            if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, '\\$&');
-            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-            const results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
-        }
-        const id_num = getParameterByName('id');
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 'auto',
-            spaceBetween: 23.5,
-            freeMode: true,
-        });
-        $(document).ready(function () {
-            const attend_id = sessionStorage.getItem('attend_id');
-            let passenger = [];
-            let flight_total = [];
-            let schedule = [];
-            let passenger_list = [];
-            let flight_val = ""
-            let flight_txt = ""
-            let passenger_val = ""
-            let passenger_txt = ""
-            let passenger_type = ""
-            let senior_cost = ""
-            let child_cost = ""
-            let adult_cost = ""
-            let type_cost = ""
+            <div data-content_box>
+                <div data-title_box>항공예약</div>
+                <table>
+                    <tr>
+                        <th>탑승자 선택</th>
+                        <td>
+                            <select data-passenger_select class="reset">
+                                <option selected disabled value="">선택</option>
+                            </select>
+                        </td>
+                    </tr>
 
-            // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
-            if(attend_id !== null){
-                // 이미 신청한 상황이라면 신청내역 보여주기
-                $.ajax({
-                    "type": "GET",
-                    "url": base_url +"/api/v1/flight-orders?attendId=" + attend_id,
-                    beforeSend: function (xhr) {
-                        if (sessionStorage.getItem('token')) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-                        }
-                    },
-                    success: function (response) {
-                        if (response.attendStatus === "DONE") {
-                            alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
-                            window.location.href = "./InformationConfirm.html";
-                        }
-                        if (response.flightTickets !== null) {
-                            $(".passenger").show();
-                            $("[data-total]").text(response.totalCost.toLocaleString());
-                            if (window.innerWidth > 760) {
+                    <tr>
+                        <th>출/도착 도시</th>
+                        <td>
+                            <div data-select_box>
+                                <label> <input type="radio" value="김포" name="city" />김포 - 제주 </label>
+                                <label> <input type="radio" value="부산" name="city" />부산 - 제주 </label>
+                                <label> <input type="radio" value="광주" name="city" />광주 - 제주 </label>
+                                <label> <input type="radio" value="청주" name="city" />청주 - 제주 </label>
+                                <label> <input type="radio" value="대구" name="city" />대구 - 제주 </label>
+                                <label> <input type="radio" value="none" name="city" data-none_input />항공개별예약 </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-none_row>
+                        <th>
+                            <span class="display">제주공항<br />도착시간</span>
+                        </th>
+                        <td>
+                            <div class="display">
+                                <div data-date_box>
+                                    <input type="date" min="2025-07-24" max="2025-07-27" data-date_picker />
+                                    <input type="time" data-time_picker />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>비행시간</th>
+                        <td>
+                            <select data-time_select class="reset">
+                                <option selected disabled value="">선택</option>
+                            </select>
+                            <p style="color: #ff2200; font-size: 16px; padding-top: 5px">
+                                항공사로부터 확보한 좌석이 한정되어, 선택하신 항공편 예약이 제한될 수 있습니다. 희망하시는 출발·복귀 항공편 일정을 ‘요청사항’란에 작성해주시면 개별 안내드리겠습니다.
+                            </p>
+                        </td>
+                    </tr>
+                    <tr data-list_row>
+                        <th><span class="passenger">탑승자 명단</span></th>
+                        <td>
+                            <div data-show_row class="passenger"></div>
+                        </td>
+                    </tr>
+                    <tr data-text_row>
+                        <th>요청 사항</th>
+                        <td>
+                            <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>금액합계</th>
+                        <td>
+                            <div data-total_box>
+                                <span><span data-total>0</span>원</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div data-notice_box>
+                    <p>※ 제출 전 반드시 확인해 주세요.</p>
+                    <p>• 신청서 제출이 완료되면 항공권이 순차적으로 발권됩니다.</p>
+                    <p>• 발권 후 취소 시 수수료 및 항공사 패널티가 부과되며, 발권 수수료(10,000원/왕복)는 환불되지 않습니다.</p>
+                    <p>• 항공 요금에는 공항세, 유류할증료 및 발권 수수료(10,000원/왕복)가 포함되어 있으며, 요금은 항공사의 운임 정책 및 유류할증료 등에 따라 변동될 수 있습니다.</p>
+                    <p>• 탑승자 선택 시 성인/경로/소아 요금이 자동 적용됩니다.</p>
+                    <p>• (소아: 만 24개월 이상 만 13세 미만, 경로: 만 65세 이상)</p>
+                    <p>• 최종 예약 번호가 포함된 e티켓은 포럼 시작 1주 전, 참가자 본인 및 신청 담당자에게 이메일과 문자 메시지로 개별 안내드립니다.</p>
+                </div>
+                <div data-img-area>
+                    <p><img src="/images/ksa_air_info.png" alt="" /></p>
+                </div>
+                <div data-button_box>
+                    <button data-pre_btn type="button" onclick="history.back()">이전</button>
+                    <button type="submit">항공정보 임시저장</button>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a href="" class="btn">통장사본</a>
+                        <a href="" class="btn">사업자등록증</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script>
+            function getParameterByName(name, url) {
+                if (!url) url = window.location.href;
+                name = name.replace(/[\[\]]/g, "\\$&");
+                const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                const results = regex.exec(url);
+                if (!results) return null;
+                if (!results[2]) return "";
+                return decodeURIComponent(results[2].replace(/\+/g, " "));
+            }
+            const id_num = getParameterByName("id");
+            var swiper = new Swiper(".mySwiper", {
+                slidesPerView: "auto",
+                spaceBetween: 23.5,
+                freeMode: true,
+            });
+            $(document).ready(function () {
+                const attend_id = sessionStorage.getItem("attend_id");
+                let passenger = [];
+                let flight_total = [];
+                let schedule = [];
+                let passenger_list = [];
+                let flight_val = "";
+                let flight_txt = "";
+                let passenger_val = "";
+                let passenger_txt = "";
+                let passenger_type = "";
+                let senior_cost = "";
+                let child_cost = "";
+                let adult_cost = "";
+                let type_cost = "";
+
+                // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
+                if (attend_id !== null) {
+                    // 이미 신청한 상황이라면 신청내역 보여주기
+                    $.ajax({
+                        type: "GET",
+                        url: base_url + "/api/v1/flight-orders?attendId=" + attend_id,
+                        beforeSend: function (xhr) {
+                            if (sessionStorage.getItem("token")) {
+                                xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+                            }
+                        },
+                        success: function (response) {
+                            if (response.attendStatus === "DONE") {
+                                alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
+                                window.location.href = "./InformationConfirm.html";
+                            }
+                            if (response.flightTickets !== null) {
+                                $(".passenger").show();
+                                $("[data-total]").text(response.totalCost.toLocaleString());
+                                if (window.innerWidth > 760) {
+                                    $.each(response.flightTickets, function (index, item) {
+                                        $("[data-show_row]").append(
+                                            "<div data-add_row><p>[" +
+                                                item.flight.startCity +
+                                                "발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.startDate +
+                                                " " +
+                                                item.flight.startTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.startFlight +
+                                                " - " +
+                                                "[제주발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.landingDate +
+                                                " " +
+                                                item.flight.landingTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.endFlight +
+                                                ' ㅣ <span value="' +
+                                                item.attenderId +
+                                                '">' +
+                                                item.attenderName +
+                                                "</span></p><button type='button'>X</button></div>"
+                                        );
+                                    });
+                                } else {
+                                    $.each(response.flightTickets, function (index, item) {
+                                        $("[data-show_row]").append(
+                                            "<div data-add_row><p data-name_box><span value='" +
+                                                item.attenderId +
+                                                "'>" +
+                                                item.attenderName +
+                                                "</span><button>X</button></p><div data-info_box>[" +
+                                                item.flight.startCity +
+                                                "발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.startDate +
+                                                " " +
+                                                item.flight.startTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.startFlight +
+                                                " - " +
+                                                "[제주발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.landingDate +
+                                                " " +
+                                                item.flight.landingTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.endFlight +
+                                                "</span></div></div>"
+                                        );
+                                    });
+                                }
+
                                 $.each(response.flightTickets, function (index, item) {
-                                    $("[data-show_row]").append("<div data-add_row><p>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + ' ' + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + " - " + "[제주발] " + item.flight.airline + ' ' + item.flight.seatClass + ' ' + item.flight.landingDate + ' ' + item.flight.landingTime.slice(0, -3) + ' / ' + item.flight.endFlight + ' ㅣ <span value="' + item.attenderId + '">' + item.attenderName + "</span></p><button type='button'>X</button></div>");
+                                    passenger_list.push({
+                                        flightId: item.flight.flightId,
+                                        attenderId: item.attenderId,
+                                    });
+                                    flight_total.push({
+                                        attenderId: item.attenderId,
+                                        cost: item.cost,
+                                    });
+                                });
+
+                                // API 호출하여 동행인 목록 가져오기
+                                $.ajax({
+                                    type: "GET",
+                                    url: base_url + "/api/v1/attenders?attendId=" + attend_id,
+                                    success: function (response) {
+                                        passenger = response;
+                                        $("[data-passenger_select] option:not(:first-child)").remove();
+                                        $.each(passenger, function (index, item) {
+                                            if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
+                                                $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                            }
+                                        });
+                                    },
+                                    error: function (error) {
+                                        alert("error");
+                                    },
                                 });
                             } else {
-                                $.each(response.flightTickets, function (index, item) {
-                                    $("[data-show_row]").append("<div data-add_row><p data-name_box><span value='" + item.attenderId + "'>" + item.attenderName + "</span><button>X</button></p><div data-info_box>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + ' ' + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + " - " + "[제주발] " + item.flight.airline + ' ' + item.flight.seatClass + ' ' + item.flight.landingDate + ' ' + item.flight.landingTime.slice(0, -3) + ' / ' + item.flight.endFlight + "</span></div></div>");
+                                $.ajax({
+                                    type: "GET",
+                                    url: base_url + "/api/v1/attenders?attendId=" + attend_id,
+                                    success: function (response) {
+                                        passenger = response;
+                                        $("[data-passenger_select] option:not(:first-child)").remove();
+                                        $.each(passenger, function (index, item) {
+                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                        });
+                                    },
+                                    error: function (error) {
+                                        alert("error");
+                                    },
                                 });
                             }
-                            
-                            $.each(response.flightTickets, function (index, item) {
-                                passenger_list.push({
-                                    "flightId": item.flight.flightId,
-                                    "attenderId": item.attenderId
+                            $("textarea").val(response.userMemo);
+                            if (response.isIndividualOrder === true) {
+                                $(".display").show();
+                                $("[data-none_input]").attr("checked", true);
+                                $("[data-date_picker]").val(response.individualOrderLandingDate);
+                                $("[data-time_picker]").val(response.individualOrderLandingTime);
+                            }
+                        },
+                        error: function (error) {
+                            alert("error");
+                        },
+                    });
+
+                    // 항공스케쥴 가져오기 (PC)
+                    $("input[name='city']").click(function () {
+                        let value = $(this).val();
+                        $.ajax({
+                            type: "GET",
+                            url: base_url + "/api/v1/flights?year=" + current_year + "&startCity=" + value,
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem("token")) {
+                                    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+                                }
+                            },
+                            success: function (response) {
+                                $("[data-time_select] option:not(:first-child)").remove();
+                                $.each(response, function (index, item) {
+                                    $("[data-time_select]").append(
+                                        '<option data-child_cost="' +
+                                            item.childCost +
+                                            '" data-adult_cost="' +
+                                            item.adultCost +
+                                            '" data-senior_cost="' +
+                                            item.seniorCost +
+                                            '" value="' +
+                                            item.flightId +
+                                            '">[' +
+                                            item.startCity +
+                                            "발] " +
+                                            item.airline +
+                                            " " +
+                                            item.seatClass +
+                                            " " +
+                                            item.startDate +
+                                            " " +
+                                            item.startTime.slice(0, -3) +
+                                            " / " +
+                                            item.startFlight +
+                                            " - " +
+                                            "[제주발] " +
+                                            item.airline +
+                                            " " +
+                                            item.seatClass +
+                                            " " +
+                                            item.landingDate +
+                                            " " +
+                                            item.landingTime.slice(0, -3) +
+                                            " / " +
+                                            item.endFlight +
+                                            "</option>"
+                                    );
                                 });
-                                flight_total.push({
-                                    "attenderId": item.attenderId,
-                                    "cost": item.cost
-                                });
+                            },
+                            error: function (error) {
+                                alert("error");
+                            },
+                        });
+                    });
+
+                    // 개별예약 클릭시 보이고 다른 라디오버튼 클릭시 안보이게
+                    $("[data-none_input]").click(function () {
+                        $(".display").show();
+                        $("[data-time_select], [data-passenger_select]").prop("disabled", true);
+                    });
+                    $('input[name="city"]')
+                        .not("[data-none_input]")
+                        .click(function () {
+                            $(".display").hide();
+                            $("[data-time_select], [data-passenger_select]").prop("disabled", false);
+                        });
+
+                    // 비행시간과 탑승자 선택 후 리스트에 추가
+                    $("[data-time_select]").change(function () {
+                        const val = $(this).val();
+                        const txt = $("option:checked", this).text();
+                        const child = $("option:checked", this).data("child_cost");
+                        const adult = $("option:checked", this).data("adult_cost");
+                        const senior = $("option:checked", this).data("senior_cost");
+                        senior_cost = senior;
+                        child_cost = child;
+                        adult_cost = adult;
+                        flight_val = val;
+                        flight_txt = txt;
+                        showSelectedInfo();
+                    });
+
+                    $("[data-passenger_select]").change(function () {
+                        const val = $(this).val();
+                        const txt = $("option:checked", this).text();
+                        const type = $("option:checked", this).data("type");
+                        passenger_val = val;
+                        passenger_txt = txt;
+                        passenger_type = type;
+                        showSelectedInfo();
+                    });
+
+                    function showSelectedInfo() {
+                        if (flight_val !== "" && passenger_val !== "") {
+                            $(".passenger").show();
+                            // PC 화면 일때
+                            if (window.innerWidth > 760) {
+                                $("[data-show_row]").append(
+                                    "<div data-add_row><p> " + flight_txt + " ㅣ <span value='" + passenger_val + "'>" + passenger_txt + "</span></p><button type='button'>X</button></div>"
+                                );
+                                // Mobile 화면 일때
+                            } else {
+                                $("[data-show_row]").append(
+                                    "<div data-add_row><p data-name_box><span value='" +
+                                        passenger_val +
+                                        "'>" +
+                                        passenger_txt +
+                                        "</span><button>X</button></p><div data-info_box>" +
+                                        flight_txt +
+                                        "</div></div>"
+                                );
+                            }
+                            passenger_list.push({
+                                flightId: flight_val,
+                                attenderId: passenger_val,
                             });
 
-                            // API 호출하여 동행인 목록 가져오기
+                            if (passenger_type === "CHILD") {
+                                type_cost = child_cost;
+                            } else if (passenger_type === "ADULT") {
+                                type_cost = adult_cost;
+                            } else if (passenger_type === "SENIOR") {
+                                type_cost = senior_cost;
+                            }
+                            console.log(passenger_type);
+                            flight_total.push({
+                                attenderId: passenger_val,
+                                cost: type_cost,
+                            });
+
+                            $(".reset").val("");
+                            updateTotalCost();
+
+                            // 동행인 리스트 업데이트
                             $.ajax({
-                                "type": "GET",
-                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                type: "GET",
+                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
                                     $("[data-passenger_select] option:not(:first-child)").remove();
                                     $.each(passenger, function (index, item) {
-                                        if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
-                                            $("[data-passenger_select]").append('<option data-type="'+ item.flightCostType +'" value="' + item.attenderId + '">' + item.name + '</option>');
+                                        if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
+                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
                                         }
                                     });
                                 },
                                 error: function (error) {
-                                    alert("error")
-                                }
-                            });
-                        }
-                        else{
-                            $.ajax({
-                                "type": "GET",
-                                "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
-                                success: function (response) {
-                                    passenger = response;
-                                    $("[data-passenger_select] option:not(:first-child)").remove();
-                                    $.each(passenger, function (index, item) {
-                                        $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                    });
+                                    alert("error");
                                 },
-                                error: function (error) {
-                                    alert("error")
-                                }
                             });
+                            flight_val = "";
+                            passenger_val = "";
+                            passenger_type = "";
                         }
-                        $("textarea").val(response.userMemo);
-                        if (response.isIndividualOrder === true) {
-                            $(".display").show();
-                            $("[data-none_input]").attr("checked", true)
-                            $("[data-date_picker]").val(response.individualOrderLandingDate);
-                            $("[data-time_picker]").val(response.individualOrderLandingTime);
-                        }
-                    },
-                    error: function (error) {
-                        alert("error")
                     }
-                });
 
-                // 항공스케쥴 가져오기 (PC)
-                $("input[name='city']").click(function () {
-                    let value = $(this).val();
-                    $.ajax({
-                       "type": "GET",
-                       "url": base_url +"/api/v1/flights?year="+current_year+"&startCity=" + value,
-                       beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                               xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                    // 삭제 버튼 클릭 시 해당 탑승객 삭제 후 리스트에서도 삭제
+                    $(document).on("click", "[data-add_row] button", function () {
+                        const row = $(this).parent().find("span").attr("value");
+                        $(this).closest("[data-add_row]").remove();
+                        passenger_list.forEach((item, index) => {
+                            if (item.attenderId == row) {
+                                passenger_list.splice(index, 1);
                             }
-                       },
-                        success: function (response) {
-                            $("[data-time_select] option:not(:first-child)").remove();
-                            $.each(response, function (index, item) {
-                                $("[data-time_select]").append('<option data-child_cost="'+ item.childCost +'" data-adult_cost="' + item.adultCost +'" data-senior_cost="' + item.seniorCost +'" value="'+ item.flightId +'">[' + item.startCity + '발] ' + item.airline + ' ' + item.seatClass + ' ' + item.startDate + ' ' + item.startTime.slice(0, -3) + ' / ' + item.startFlight + ' - ' + '[제주발] ' + item.airline + ' ' + item.seatClass + ' ' + item.landingDate + ' ' + item.landingTime.slice(0, -3) +' / ' + item.endFlight + '</option>');
-                            });
-                       },
-                       error: function (error) {
-                           alert("error")
-                       }
-                   });
-                });
-
-                // 개별예약 클릭시 보이고 다른 라디오버튼 클릭시 안보이게
-                $("[data-none_input]").click(function () {
-                    $(".display").show();
-                    $("[data-time_select], [data-passenger_select]").prop("disabled", true);
-                });
-                $('input[name="city"]').not('[data-none_input]').click(function () {
-                    $(".display").hide();
-                    $("[data-time_select], [data-passenger_select]").prop("disabled", false);
-                });
-
-                // 비행시간과 탑승자 선택 후 리스트에 추가
-                $("[data-time_select]").change(function () {
-                    const val = $(this).val();
-                    const txt = $("option:checked", this).text();
-                    const child = $("option:checked", this).data("child_cost");
-                    const adult = $("option:checked", this).data("adult_cost");
-                    const senior = $("option:checked", this).data("senior_cost");
-                    senior_cost = senior
-                    child_cost = child
-                    adult_cost = adult
-                    flight_val = val;
-                    flight_txt = txt;
-                    showSelectedInfo();
-                });
-
-                $("[data-passenger_select]").change(function () {
-                    const val = $(this).val();
-                    const txt = $("option:checked", this).text();
-                    const type = $("option:checked", this).data("type");
-                    passenger_val = val;
-                    passenger_txt = txt;
-                    passenger_type = type;
-                    showSelectedInfo();
-                });
-
-                function showSelectedInfo() {
-                    if (flight_val !== "" && passenger_val !== "") {
-                        $(".passenger").show();
-                        // PC 화면 일때
-                        if (window.innerWidth > 760) {
-                            $("[data-show_row]").append("<div data-add_row><p> " + flight_txt + " ㅣ <span value='" + passenger_val + "'>" + passenger_txt + "</span></p><button type='button'>X</button></div>");
-                            // Mobile 화면 일때
-                        } else {
-                            $("[data-show_row]").append("<div data-add_row><p data-name_box><span value='" + passenger_val + "'>" + passenger_txt + "</span><button>X</button></p><div data-info_box>" + flight_txt + "</div></div>");
-                        }
-                        passenger_list.push({
-                            "flightId": flight_val,
-                            "attenderId": passenger_val
                         });
-
-                        if(passenger_type === 'CHILD'){
-                            type_cost = child_cost
-                        }else if(passenger_type === 'ADULT'){
-                            type_cost = adult_cost
-                        }else if(passenger_type === 'SENIOR'){
-                            type_cost = senior_cost
-                        }
-                        console.log(passenger_type);
-                        flight_total.push({
-                            "attenderId": passenger_val,
-                            "cost": type_cost
+                        flight_total.forEach((item, index) => {
+                            if (item.attenderId == row) {
+                                flight_total.splice(index, 1);
+                            }
                         });
-
-                        $('.reset').val("");
+                        if (passenger_list.length === 0) {
+                            $(".passenger").hide();
+                        }
                         updateTotalCost();
 
-                        // 동행인 리스트 업데이트
                         $.ajax({
-                            "type": "GET",
-                            "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
                                 $("[data-passenger_select] option:not(:first-child)").remove();
-                                $.each(passenger, function (index, item) {
-                                    if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                    }
-                                });
+
+                                if (passenger_list.length == 0) {
+                                    // passenger_list가 비어있을 경우 모든 승객을 드롭다운 메뉴에 추가
+                                    $.each(passenger, function (index, item) {
+                                        $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                    });
+                                } else {
+                                    // passenger_list에 있는 승객들만 드롭다운 메뉴에 추가
+                                    $.each(passenger, function (index, item) {
+                                        if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
+                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                        }
+                                    });
+                                }
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                        flight_val = "";
-                        passenger_val = "";
-                        passenger_type = ""
+                    });
+
+                    function updateTotalCost() {
+                        const sum = flight_total.reduce((acc, obj) => acc + obj.cost, 0);
+                        $("[data-total]").text(sum.toLocaleString());
                     }
+
+                    $("button[type='submit']").click(function () {
+                        const data = {
+                            attendId: attend_id,
+                            isIndividualOrder: $("[data-none_input]").is(":checked") === true ? true : false,
+                            individualOrderLandingDate: $("[data-date_picker]").val(),
+                            individualOrderLandingTime: $("[data-time_picker]").val(),
+                            flightTickets: passenger_list,
+                            userMemo: $("textarea").val(),
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: base_url + "/api/v1/flight-orders",
+                            data: JSON.stringify(data),
+                            contentType: "application/json",
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem("token")) {
+                                    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+                                }
+                            },
+                            success: function (response) {
+                                alert("저장이 완료 되었습니다.");
+                                window.location.href = "./Hotel.html";
+                            },
+                            error: function (xhr) {
+                                alert(xhr.responseJSON.message);
+                            },
+                        });
+                    });
+                } else {
+                    alert("잘못된 요청입니다.");
+                    window.location.href = "./Application.html";
                 }
-
-                // 삭제 버튼 클릭 시 해당 탑승객 삭제 후 리스트에서도 삭제
-                $(document).on("click", "[data-add_row] button", function () {
-                    const row = $(this).parent().find("span").attr("value");
-                    $(this).closest("[data-add_row]").remove();
-                    passenger_list.forEach((item, index) => {
-                        if (item.attenderId == row) {
-                            passenger_list.splice(index, 1);
-                        }
-                    });
-                    flight_total.forEach((item, index) => {
-                        if (item.attenderId == row) {
-                            flight_total.splice(index, 1);
-                        }
-                    });
-                    if (passenger_list.length === 0) {
-                        $(".passenger").hide();
-                    }
-                    updateTotalCost();
-
-                    $.ajax({
-                        "type": "GET",
-                        "url": base_url +"/api/v1/attenders?attendId=" + attend_id,
-                        success: function (response) {
-                            passenger = response;
-                            $("[data-passenger_select] option:not(:first-child)").remove();
-                            
-                            if (passenger_list.length == 0) {
-                                // passenger_list가 비어있을 경우 모든 승객을 드롭다운 메뉴에 추가
-                                $.each(passenger, function (index, item) {
-                                    $("[data-passenger_select]").append('<option data-type="' + (item.flightCostType) + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                });
-                            } else {
-                                // passenger_list에 있는 승객들만 드롭다운 메뉴에 추가
-                                $.each(passenger, function (index, item) {
-                                    if (!passenger_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-passenger_select]").append('<option data-type="' + (item.flightCostType) + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                    }
-                                });
-                            }
-                        },
-                        error: function (error) {
-                            alert("error")
-                        }
-                    });
-                });
-                
-                function updateTotalCost() {
-                    const sum = flight_total.reduce((acc, obj) => acc + obj.cost, 0);
-                    $("[data-total]").text(sum.toLocaleString());
-                }
-
-                $("button[type='submit']").click(function () {
-                    const data = {
-                        "attendId": attend_id,
-                        "isIndividualOrder": $("[data-none_input]").is(":checked") === true ? true : false,
-                        "individualOrderLandingDate": $("[data-date_picker]").val(),
-                        "individualOrderLandingTime": $("[data-time_picker]").val(),
-                        "flightTickets": passenger_list,
-                        "userMemo": $("textarea").val()
-                    };
-                    $.ajax({
-                        "type": "POST",
-                        "url": base_url +"/api/v1/flight-orders",
-                        "data": JSON.stringify(data),
-                        "contentType": 'application/json',
-                        beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-                            }
-                        },
-                        success: function (response) {
-                            alert("저장이 완료 되었습니다.")
-                            window.location.href = "./Hotel.html";
-                        },
-                        error: function (xhr) {
-                            alert(xhr.responseJSON.message);
-                        }
-                    });
-                });
-            }else{
-                alert("잘못된 요청입니다.");
-                window.location.href = "./Application.html";
-            }
-        });
-    </script>
-</body>
+            });
+        </script>
+    </body>
 </html>

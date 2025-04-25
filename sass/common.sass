@@ -8,6 +8,9 @@ body
     justify-content: center
     align-items: center
     width: 100%
+    [data-img-area]
+        img
+            max-width: 100%
     [data-pc_header]
         max-width: 1280px
         width: 100%
@@ -167,6 +170,23 @@ body
                 height: 29px
                 margin-right: 120px
             [data-text_box]
+                [data-foot-btn-area]
+                    display: flex
+                    align-items: center
+                    gap:10px
+                    padding-left: 15px
+                    margin-bottom: 10px
+
+                    .btn 
+                        border: 1px solid #ddd
+                        border-radius: 4px
+                        background: #fff
+                        height: 30px
+                        padding: 0 20px
+                        font-size: 14px
+                        color: #000
+                        display: flex
+                        align-items: center
                 p
                     display: flex
                     align-items: flex-start
@@ -185,6 +205,53 @@ body
                         padding-bottom: 20px
                     &:nth-of-type(2)
                         // justify-content: space-between
+
+    [data-info_title_box]
+        width: 100%
+        max-width: 1280px
+        border-bottom: 1px solid #222
+        padding: 
+            top: 65px
+            bottom: 15px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        h1
+            font:
+                size: 32px
+                weight: bold
+        div
+            font:
+                size: 16px
+                weight: 500 
+            [data-year_select]
+                margin-left: 16px
+                font-size: 14px
+                background: inherit
+                border: none
+                box-shadow: none
+                border-radius: 0
+                padding: 0
+                overflow: visible
+                cursor: pointer
+                width: 120px
+                height: 42px
+                white-space: nowrap
+                overflow: hidden
+                text-overflow: ellipsis
+                padding: 0 16px
+                box-sizing: border-box
+                border: 1px solid #dedede
+                outline: 0 none
+                color: #222
+                -webkit-appearance: none
+                -moz-appearance: none
+                appearance: none
+                background:
+                    image: url("data:image/svg+xml,%3Csvg width='12' height='6' viewBox='0 0 12 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m0 0 6 6 6-6z' fill='%234C4C4C' fill-rule='evenodd'/%3E%3C/svg%3E")
+                    position: center right 16px
+                    repeat: no-repeat
+                    color: #fff
 @media (max-width: 760px)
     body
         [data-pc_header]
@@ -367,3 +434,26 @@ body
                             line-height: 26px
                         &:nth-of-type(2)
                             padding-bottom: 32px
+        [data-info_title_box]
+            display: flex
+            justify-content: flex-end
+            border-bottom: none
+            padding:
+                top: 24px
+            h1
+                display: none
+            div
+                font:
+                    size: 14px
+                    weight: bold
+                [data-year_select]
+                    margin-left: 8px
+                    font-size: 14px
+                    width: 84px
+                    height: 34px
+                    padding: 0 12px
+                    background:
+                        image: url("data:image/svg+xml,%3Csvg width='8' height='4' viewBox='0 0 12 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m0 0 6 6 6-6z' fill='%234C4C4C' fill-rule='evenodd'/%3E%3C/svg%3E")
+                        position: center right 12px
+                        repeat: no-repeat
+                        color: #fff
