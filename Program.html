@@ -325,7 +325,7 @@
                     //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                     $.ajax({
                         type: "GET",
-                        url: base_url + "/api/v1/programs?date=2025-07-25",
+                        url: base_url + "/api/v1/programs?date=2025-07-24",
                         success: function (response) {
                             const data = response;
                             const tour = data.tours;
@@ -477,7 +477,7 @@
                             //투어 정보 가져오기 (금)
                             $.ajax({
                                 type: "GET",
-                                url: base_url + "/api/v1/programs?date=2025-07-26",
+                                url: base_url + "/api/v1/programs?date=2025-07-25",
                                 success: function (response) {
                                     const data = response;
                                     const tour = data.tours;
@@ -687,8 +687,8 @@
                                                         }, []);
                                                         return result;
                                                     };
-                                                    thu_tour_list = toursOnSameDate(tour_data, "2025-07-25");
-                                                    fri_tour_list = toursOnSameDate(tour_data, "2025-07-26");
+                                                    thu_tour_list = toursOnSameDate(tour_data, "2025-07-24");
+                                                    fri_tour_list = toursOnSameDate(tour_data, "2025-07-25");
                                                 }
 
                                                 if (family_data !== null) {
@@ -710,8 +710,8 @@
                                                         }, []);
                                                         return result;
                                                     };
-                                                    thu_family_list = familyOnSameDate(family_data, "2025-07-25");
-                                                    fri_family_list = familyOnSameDate(family_data, "2025-07-26");
+                                                    thu_family_list = familyOnSameDate(family_data, "2025-07-24");
+                                                    fri_family_list = familyOnSameDate(family_data, "2025-07-25");
                                                 }
 
                                                 if (golf_data !== null) {
@@ -733,8 +733,8 @@
                                                         }, []);
                                                         return result;
                                                     };
-                                                    thu_golf_list = golfOnSameDate(golf_data, "2025-07-25");
-                                                    fri_golf_list = golfOnSameDate(golf_data, "2025-07-26");
+                                                    thu_golf_list = golfOnSameDate(golf_data, "2025-07-24");
+                                                    fri_golf_list = golfOnSameDate(golf_data, "2025-07-25");
                                                 }
                                                 thu_list = thu_tour_list.concat(thu_golf_list);
                                                 fri_list = fri_tour_list.concat(fri_golf_list);
@@ -1100,7 +1100,7 @@
                             );
                         }
 
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1124,7 +1124,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1177,7 +1177,7 @@
                         $(this).closest("[data-golf_row]").remove();
                         totalCost();
 
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_list = thu_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
@@ -1199,7 +1199,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_list = fri_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
@@ -1296,7 +1296,7 @@
                         $("[data-tour]").val("");
                         totalCost();
 
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1319,7 +1319,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1359,7 +1359,7 @@
                         $(this).closest("[data-tour_row]").remove();
                         totalCost();
 
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_list = thu_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
@@ -1380,7 +1380,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_list = fri_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
@@ -1452,7 +1452,7 @@
 
                         $("[data-family]").val("");
 
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_family_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1475,7 +1475,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_family_list.push({
                                 attenderId: val,
                                 Id: text,
@@ -1510,7 +1510,7 @@
                             return !(item.attenderId == val && item.familySessionId == id);
                         });
                         $(this).closest("[data-family_row]").remove();
-                        if (date == "2025-07-25") {
+                        if (date == "2025-07-24") {
                             thu_family_list = thu_family_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
@@ -1531,7 +1531,7 @@
                                     alert("error");
                                 },
                             });
-                        } else if (date == "2025-07-26") {
+                        } else if (date == "2025-07-25") {
                             fri_family_list = fri_family_list.filter(function (item) {
                                 return !(item.attenderId == val);
                             });
