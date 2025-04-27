@@ -516,7 +516,8 @@ main [data-sponsore_box] [data-moblie_img_box] {
     width: 100%;
   }
   main [data-main_wrap] {
-    height: 111vw;
+    aspect-ratio: 360/450;
+    height: auto;
     background-image: url(/images/2025_m_top.png);
     background-position: center center;
     background-repeat: no-repeat;
