@@ -34,6 +34,12 @@ $(function () {
     //     }
 
     // });
+
+    const bank = `https://${base_url}/api/v1/ksa/files?ksaFileType=COPY_OF_BANKBOOK`;
+    const bussiness = `https://${base_url}/api/v1/ksa/files?ksaFileType=BUSINESS_REGISTRATION`;
+
+    $("[data-bank_download]").attr("href", bank);
+    $("[data-bussiness_download]").attr("href", bussiness);
 });
 let url = window.location.href;
 let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
