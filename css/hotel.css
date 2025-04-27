@@ -137,6 +137,26 @@ main [data-content_box] table tr td [data-total_box] label {
   font-size: 20px;
   padding-left: 12px;
 }
+main [data-content_box] table tr td [data-total_box].flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding-left: 0;
+}
+main [data-content_box] table tr td [data-total_box].flex-col label {
+  padding-left: 0;
+  margin-top: 5px;
+}
+main [data-content_box] table tr td [data-total_box].flex-col label input {
+  height: auto;
+}
 main [data-content_box] table [data-list_row] {
   height: auto;
 }
@@ -303,6 +323,20 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] label input::
 main [data-content_box] [data-card_info_wrap] [data-card_info_box] label input::placeholder {
   font-size: 20px;
   color: #aeaeae;
+}
+main [data-content_box] [data-card_info_wrap] [data-card_info_box] .form-info-box p {
+  font-size: 16px;
+  line-height: 1.2;
+  text-align: left;
+  padding: 0 0 0 10px;
+  text-indent: -10px;
+  font-weight: 400;
+}
+main [data-content_box] [data-card_info_wrap] [data-card_info_box] .form-info-box p:nth-child(n+2) {
+  margin-top: 10px;
+}
+main [data-content_box] [data-card_info_wrap] [data-card_info_box] .form-info-box p a {
+  display: inline;
 }
 
 @media (max-width: 760px) {
