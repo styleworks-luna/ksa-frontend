@@ -834,8 +834,8 @@
             }
             const id_num = getParameterByName('id');
             const year_num = getParameterByName('year');
-            const thu_tour = Number(year_num) === 2025 ? "2025-07-23" : "2023-07-26"
-            const fri_tour = Number(year_num) === 2025 ? "2025-07-24" : "2023-07-27"
+            const thu_tour = Number(year_num) === 2025 ? "2025-07-24" : "2023-07-26" //연도수정
+            const fri_tour = Number(year_num) === 2025 ? "2025-07-25" : "2023-07-27"
 
             const downloadLink = `https://${base_url}/api/v1/companies/businessRegistration?attendId=${id_num}`;
             let today_date = moment().format("YYYY-MM-DD");
