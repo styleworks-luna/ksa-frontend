@@ -204,9 +204,11 @@
             });
             const password_val = $("#pass_word");
             const regex_error_row = $("[data-regex_error_row]");
-            const password_regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
+            const password_regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/i;
             let pw_regex_confirm = false;
             let phone_check = false;
+
+           
 
             function isValidPassword(password) {
                 if (password.trim() === "") {
@@ -216,8 +218,8 @@
             }
 
             password_val.on("input", function () {
-                const password = password_val.val();
-                if (isValidPassword(password)) {
+                let password = password_val.val();
+                if (isValidPassword(password) == true) {
                     regex_error_row.html("");
                     pw_regex_confirm = true;
                     regex_error_row.hide();
@@ -226,6 +228,7 @@
                     regex_error_row.show();
                 }
             });
+            
             $("#phone").on("input", function () {
                 var phone_num = $("#phone").val();
                 if (phone_num.length === 13) {
