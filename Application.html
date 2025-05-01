@@ -184,7 +184,7 @@
                         <a data-bussiness_download href="" download class="btn">사업자등록증</a>
                     </div>
                     <p>
-                        한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
                         하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
                     </p>
                     <p>
@@ -204,11 +204,9 @@
             });
             const password_val = $("#pass_word");
             const regex_error_row = $("[data-regex_error_row]");
-            const password_regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/i;
+            const password_regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
             let pw_regex_confirm = false;
             let phone_check = false;
-
-           
 
             function isValidPassword(password) {
                 if (password.trim() === "") {
@@ -218,8 +216,8 @@
             }
 
             password_val.on("input", function () {
-                let password = password_val.val();
-                if (isValidPassword(password) == true) {
+                const password = password_val.val();
+                if (isValidPassword(password)) {
                     regex_error_row.html("");
                     pw_regex_confirm = true;
                     regex_error_row.hide();
@@ -228,7 +226,6 @@
                     regex_error_row.show();
                 }
             });
-            
             $("#phone").on("input", function () {
                 var phone_num = $("#phone").val();
                 if (phone_num.length === 13) {
