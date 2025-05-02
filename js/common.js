@@ -22,16 +22,16 @@ $(function () {
         $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>");
     }
 
-    // document.addEventListener("click", function (event) {
+ document.addEventListener("click", function (event) {
 
-    //     if (event.target.tagName === "A") {
-    //         if (
-    //             event.target.href.indexOf("Application.html") > -1
-    //         ) {
-    //             event.preventDefault();
-    //             alert("2024년 KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.")
-    //         }
-    //     }
+if (event.target.tagName === "A") {
+             if (
+                 event.target.href.indexOf("Application.html") > -1
+             ) {
+                 event.preventDefault();
+                 alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.")
+          }
+        }
 
     // });
 
@@ -49,5 +49,4 @@ if (base_url && typeof base_url === "string" && (base_url.toLowerCase().includes
 } else {
     base_url = "https://api-" + base_url;
 }
-// let base_url = "api-ksa.onoffmix.xyz"
 const current_year = 2025;
