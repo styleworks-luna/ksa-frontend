@@ -133,7 +133,7 @@ main [data-content_box] [data-image_wrap="2023"] {
   background-size: contain;
 }
 main [data-content_box] [data-image_wrap="2024"] {
-  display: block;
+  display: none;
 }
 main [data-content_box] [data-image_wrap="2024"] p {
   font-size: 28px;
@@ -155,6 +155,34 @@ main [data-content_box] [data-image_wrap="2024"] [data-image_box1] {
 }
 main [data-content_box] [data-image_wrap="2024"] [data-image_box2] {
   background-image: url(/images/2024-per-pc_v1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: contain;
+}
+main [data-content_box] [data-image_wrap="2025"] {
+  display: block;
+}
+main [data-content_box] [data-image_wrap="2025"] p {
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+main [data-content_box] [data-image_wrap="2025"] p span {
+  font-weight: bold;
+}
+main [data-content_box] [data-image_wrap="2025"] div {
+  min-height: 646px;
+}
+main [data-content_box] [data-image_wrap="2025"] [data-image_box1] {
+  margin-bottom: 40px;
+  background-image: url(/images/2025-per-pc2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: contain;
+}
+main [data-content_box] [data-image_wrap="2025"] [data-image_box2] {
+  background-image: url(/images/2025-per-pc_v1.png);
   background-position: center;
   background-repeat: no-repeat;
   background-color: #fff;
@@ -286,6 +314,31 @@ main [data-content_box] [data-image_wrap="2024"] [data-image_box2] {
   }
   main [data-content_box] [data-image_wrap="2024"] [data-image_box2] {
     background-image: url(/images/2024-per-m_v1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: contain;
+  }
+  main [data-content_box] [data-image_wrap="2025"] p {
+    font-size: 14px;
+    padding-bottom: 15px;
+  }
+  main [data-content_box] [data-image_wrap="2025"] p span {
+    font-weight: bold;
+  }
+  main [data-content_box] [data-image_wrap="2025"] div {
+    min-height: 300px;
+  }
+  main [data-content_box] [data-image_wrap="2025"] [data-image_box1] {
+    margin-bottom: 40px;
+    background-image: url(/images/2025-per-m2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: contain;
+  }
+  main [data-content_box] [data-image_wrap="2025"] [data-image_box2] {
+    background-image: url(/images/2025-per-m_v1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
