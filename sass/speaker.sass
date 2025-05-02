@@ -237,6 +237,156 @@ main
                 color: #0c3994 
                 font-weight: bold
                 margin-bottom: 95px
+
+[data-display_box]
+    display: none
+    [data-modal_wrap]
+        position: fixed
+        z-index: 999999
+        top: 0
+        left: 0
+        width: 100%
+        height: 100vh
+        background-color: rgba(0, 0, 0, 0.763)
+        display: flex
+        align-items: center
+        justify-content: center
+        [data-modal_box]
+            width: 802px
+            min-height: 370px
+            background-color: #f1f1f1
+            border: 1px solid rgba(0, 0, 0, 0.1)
+            box-sizing: border-box
+            padding-bottom: 20px
+            [data-btn_box]
+                display: flex
+                justify-content: flex-end
+                padding: 
+                    top: 20px
+                    right: 20px
+                    bottom: 10px
+                img
+                    cursor: pointer
+                    width: 40px
+                    height: 40px
+            [data-modal_content]
+                display: none
+                [data-flex_box]
+                    display: flex
+                    align-items: center
+                    padding: 
+                        left: 36px 
+                        right: 36px
+                        bottom: 36px
+                    img
+                        width: 240px
+                        aspect-ratio: 151/125
+                        flex-shrink: 0
+                    [data-info_box]
+                        padding:
+                            left: 26px
+                            top: 3px
+                        span
+                            display: block
+                            &:first-of-type
+                                color: #333333
+                                font:
+                                    size: 24px
+                                    weight: bold
+                                padding: 
+                                    bottom: 13px
+                            &:nth-of-type(2)
+                                color: #555555
+                                font-size: 16px
+                                padding: 
+                                    bottom: 23px
+                            &:nth-of-type(3)
+                                color: #7e499f
+                                font:
+                                    size: 20px
+                                    weight: bold
+                                padding: 
+                                    bottom: 32px
+                        p
+                            font-size: 16px
+                            line-height: 21px 
+                [data-download_box]
+                    display: flex
+                    justify-content: flex-end
+                    padding:
+                        top: 10px
+                        right: 36px
+                    a
+                        color: #7e499f
+                        font:
+                            weight: bold
+                            size: 14px
+        [data-number_confirm_wrap]
+            display: none
+            width: 680px
+            height: 409px
+            background-color: #fff
+            & > div
+                padding: 
+                    right: 10px
+                    top: 10px
+                &:first-of-type
+                    display: flex
+                    justify-content: flex-end
+                    button
+                        width: 40px
+                        height: 40px
+                        border: none
+                        cursor: pointer
+                        background: 
+                            image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath fill='none' d='M0 0h80v80H0z'/%3E%3Cg fill='%23777' fill-rule='nonzero'%3E%3Cpath d='m49.79 28.4 1.768 1.768L30.345 51.38l-1.768-1.768z'/%3E%3Cpath d='m28.4 30.345 1.768-1.768L51.38 49.79l-1.768 1.768z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A")
+                            repeat: no-repeat
+                            position: center
+                            color: #fff
+            [data-number_confirm]
+                padding: 
+                    left: 40px
+                    right: 40px
+                    top: 20px
+                div
+                    &:first-child
+                        border-bottom: 1px solid #222
+                        display: flex
+                        justify-content: center
+                        color: #000
+                        padding-bottom: 12px
+                        font:
+                            size: 20px
+                            weight: 500
+                    &:last-child
+                        display: flex
+                        justify-content: center
+                        padding-top: 40px
+                        button
+                            width: 150px
+                            height: 54px
+                            background-color: #7e499f
+                            border-radius: 27px
+                            border: none
+                            color: #fff
+                            font:
+                                size: 20px
+                                weight: bold 
+                input
+                    width: 100%
+                    height: 68px
+                    border: 1px solid #dedede
+                    margin-top: 40px
+                    outline: none
+                    font-size: 20px
+                    padding: 
+                        left: 16px
+                    &::placeholder
+                        color: #c2c2c2
+                p
+                    color: #e30000
+                    font-size: 20px
+                    padding-top: 20px
 @media (max-width: 760px)
     [data-mobile_header]
         [data-top_header]
@@ -330,10 +480,10 @@ main
                                 right: 10px
                                 bottom: 0px
                             width: 100%
-                            height: 43.9vw
+                            height: auto                            
                             img
                                 width: 100%
-                                height: 100%
+                                aspect-ratio: 151/125
                         span
                             font-size: 14px
                             font-weight: bold
@@ -367,3 +517,80 @@ main
                             display: block
                         &:nth-of-type(4n)
                             margin-right: 0
+    [data-display_box]
+        [data-modal_wrap]
+            position: fixed
+            z-index: 999999
+            top: 0
+            left: 0
+            width: 100%
+            height: 100vh
+            background-color: rgba(0, 0, 0, 0.763)
+            display: flex
+            align-items: center
+            justify-content: center
+            padding: 
+                left: 16px
+                right: 16px
+            [data-modal_box]
+                width: 100%
+                height: 638px
+                background-color: #f1f1f1
+                border: 1px solid rgba(0, 0, 0, 0.1)
+                box-sizing: border-box
+                padding-bottom: 0
+                [data-btn_box]
+                    display: flex
+                    justify-content: flex-end
+                    padding: 
+                        top: 6px
+                        right: 6px
+                        bottom: 10px
+                    img
+                        cursor: pointer
+                        width: 40px
+                        height: 40px
+                [data-modal_content]
+                    display: none
+                    [data-flex_box]
+                        display: flex
+                        flex-direction: column
+                        padding: 
+                            left: 40px 
+                            right: 40px
+                            bottom: 0
+                        img
+                            width: 248px
+                            aspect-ratio: 151/125
+                            flex-shrink: 0
+                        [data-info_box]
+                            height: 300px
+                            overflow: scroll
+                            padding:
+                                left: 0px
+                                top: 20px
+                            span
+                                display: block
+                                &:first-of-type
+                                    color: #333333
+                                    font:
+                                        size: 20px
+                                        weight: bold
+                                    padding: 
+                                        bottom: 10px
+                                    line-height: 24px
+                                &:nth-of-type(2)
+                                    color: #555555
+                                    font-size: 14px
+                                    padding: 
+                                        bottom: 18px
+                                &:nth-of-type(3)
+                                    color: #7e499f
+                                    font:
+                                        size: 18px
+                                        weight: bold
+                                    padding: 
+                                        bottom: 25px
+                            p
+                                font-size: 14px
+                                line-height: 20px 
