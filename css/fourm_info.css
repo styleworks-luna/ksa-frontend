@@ -63,6 +63,7 @@ main [data-header_box] div > a {
   background-image: -webkit-gradient(linear, left top, right top, from(#26A3B1), to(#105B63));
   background-image: linear-gradient(90deg, #26A3B1 0%, #105B63 100%);
 }
+/*
 main [data-content_box] {
   width: 100%;
   max-width: 1280px;
@@ -70,7 +71,7 @@ main [data-content_box] {
   background-position: right top 150px;
   background-repeat: no-repeat;
   background-size: 400px 400px;
-}
+} */
 main [data-content_box] [data-title_box] {
   width: 100%;
   max-width: 1280px;
