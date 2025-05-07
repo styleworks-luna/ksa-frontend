@@ -145,7 +145,7 @@
         <script>
             $("#dataTable").dataTable({
                 ajax: {
-                    url: base_url + "/api/v1/faq?page=0&size=20",
+                    url: base_url + "/api/v1/faq?page=0&size=500",
                     dataSrc: function (json) {
                         return json.faqs;
                     },
