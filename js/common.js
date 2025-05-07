@@ -29,7 +29,7 @@ $(function () {
                 event.preventDefault();
                 
                 const ksa_now = new Date();
-                const ksa_startDate = new Date('2025-05-12T13:00:00');
+                const ksa_startDate = new Date('2025-05-02T13:00:00');
                 const ksa_endDate = new Date('2025-07-09T18:00:00');
                 
                 if (ksa_now < ksa_startDate) {
