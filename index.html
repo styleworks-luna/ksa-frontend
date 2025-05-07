@@ -221,7 +221,7 @@
         </div>
     </footer>
     <script>
-        const downloadLink = `https://${base_url}/api/v1/ksa/files?year=`+current_year+`&ksaFileType=BROCHURE`;
+        const downloadLink = `${base_url}/api/v1/ksa/files?year=`+current_year+`&ksaFileType=BROCHURE`;
         $("[data-brochure_link]").attr("href", downloadLink);
         function getDirection() {
             var windowWidth = window.innerWidth;
