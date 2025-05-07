@@ -382,7 +382,7 @@
                                             '<li data-td_row="faq"><div data-title_row ><div data-index_row="' +
                                             item.id +
                                             '">' +
-                                            (index + 1) +
+                                            (response.faqs.length - ((pagination.pageNumber - 1) * pagination.pageSize + index)) +
                                             "</div><div>" +
                                             item.title +
                                             "</div></div><div data-content_box>" +
