@@ -270,7 +270,7 @@ main [data-content_box] [data-image_container="2025"] [data-image_wrap] [data-im
 }
 main [data-content_box] [data-image_container="2025"] [data-image_wrap] [data-image_box] [data-img] {
   height: auto;
-  aspect-ratio: 302/250;
+  aspect-ratio: 29/24;
   padding-left: 0;
   padding-right: 0;
   padding-bottom: 3px;
@@ -379,7 +379,7 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
 }
 [data-display_box] [data-modal_wrap] [data-modal_box] [data-modal_content] [data-flex_box] img {
   width: 240px;
-  aspect-ratio: 151/125;
+  aspect-ratio: 29/24;
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
@@ -562,7 +562,7 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
   main [data-header_box] {
     width: 100%;
     height: 208px;
-    background-image: url(/images/2024-sub-m.png);
+    background-image: url(/images/2025-sub-m.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -589,7 +589,8 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
     width: 148px;
     height: 48px;
     border-radius: 37px;
-    background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#26A3B1), to(#105B63));
+    background-image: linear-gradient(90deg, #26A3B1 0%, #105B63 100%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -645,15 +646,13 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
     margin-bottom: 29px;
   }
   main [data-content_box] [data-image_container] [data-image_wrap] [data-image_box] [data-img] {
-    padding-left: 10px;
-    padding-right: 10px;
     padding-bottom: 0px;
     width: 100%;
     height: auto;
   }
   main [data-content_box] [data-image_container] [data-image_wrap] [data-image_box] [data-img] img {
     width: 100%;
-    aspect-ratio: 151/125;
+    aspect-ratio: 29/24;
   }
   main [data-content_box] [data-image_container] [data-image_wrap] [data-image_box] span {
     font-size: 14px;
@@ -753,7 +752,7 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
   }
   [data-display_box] [data-modal_wrap] [data-modal_box] [data-modal_content] [data-flex_box] img {
     width: 248px;
-    aspect-ratio: 151/125;
+    aspect-ratio: 29/24;
     -ms-flex-negative: 0;
         flex-shrink: 0;
   }
