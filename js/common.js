@@ -25,7 +25,6 @@ $(function () {
     document.addEventListener("click", function (event) {
 
         if (event.target.tagName === "A") {
-<<<<<<< HEAD
             if (event.target.href.indexOf("Application.html") > -1) {
                 event.preventDefault();
                 
@@ -39,22 +38,6 @@ $(function () {
                     alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.");
                 } else {
                     window.location.href = event.target.href;
-=======
-                if (event.target.href.indexOf("Application.html") > -1) {
-                    event.preventDefault();
-                    
-                    const ksa_now = new Date();
-                    const ksa_startDate = new Date('2025-05-02T13:00:00');
-                    const ksa_endDate = new Date('2025-07-09T18:00:00');
-                    
-                    if (ksa_now < ksa_startDate) {
-                        alert("KSA하계CEO포럼 참가접수가 2025년 5월 12일 오후 1시 오픈 예정입니다.");
-                    } else if (ksa_now > ksa_endDate) {
-                        alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.");
-                    } else {
-                        window.location.href = event.target.href;
-                    }
->>>>>>> feature/sw_2025_001
                 }
             }
         }
