@@ -298,9 +298,9 @@
                                             <select id="add_type" class="reset">
                                                 <option value="" disabled selected>선택</option>
                                                 <option value="LUXURY">고급</option>
-                                                <option value="MID_SIZE">중형</option>
+                                                <option value="MID_SIZE">일반</option>
                                                 <option value="SUV">SUV</option>
-                                                <option value="CARNIVAL">카니발급</option>
+                                                <option value="CARNIVAL">승합</option>
                                                 <option value="ELECTRIC">전기차</option>
                                             </select>
                                         </td>
@@ -781,9 +781,9 @@
             success: function (response) {
                 const type = {
                     "고급": "LUXURY",
-                    "중형": "MID_SIZE",
+                    "일반": "MID_SIZE",
                     "SUV": "SUV",
-                    "CARNIVAL": "카니발급",
+                    "CARNIVAL": "승합",
                     "ELECTRIC": "전기차"
                 };
 
