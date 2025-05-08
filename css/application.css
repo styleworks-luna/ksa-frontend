@@ -16,7 +16,7 @@ main {
 }
 main [data-header_box] {
   width: 100%;
-  height: 220px;
+  height: 260px;
   background-image: url(/images/2025_pc_back_v2.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -337,21 +337,21 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
   }
   main [data-header_box] {
     width: 100%;
-    height: 150px;
-    background-image: url(/images/2024-mobile-back.png);
+    aspect-ratio: 375/216;
+    background-image: url(/images/2025-sub-m.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
   }
   main [data-header_box] div {
     width: 100%;
-    height: 150px;
+    height: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
@@ -359,12 +359,14 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding-bottom: 29px;
   }
   main [data-header_box] div > a {
     width: 148px;
     height: 48px;
     border-radius: 37px;
-    background-color: #ff8f11;
+    background-image: -webkit-gradient(linear, left top, right top, from(#26a3b1), to(#105b63));
+    background-image: linear-gradient(90deg, #26a3b1 0%, #105b63 100%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -379,7 +381,7 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     font-weight: bold;
   }
   main [data-header_box] div > a:first-of-type {
-    margin-right: 0px;
+    margin-right: 10px;
   }
   main [data-content_box] {
     padding-top: 39px;
