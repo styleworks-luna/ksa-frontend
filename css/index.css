@@ -144,7 +144,7 @@ main [data-main_wrap] [data-main_box] [data-button_wrap] [data-button_box] a:fir
   margin-right: 24px;
 }
 main [data-main_wrap] [data-main_box] [data-button_wrap] [data-button_box] a:last-of-type {
-  background-color: #F38075;
+  background-color: #08245B;
 }
 main [data-speaker_box] {
   display: -webkit-box;
