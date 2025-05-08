@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div data-content_box>
-                <div data-title_box>렌터카 예약</div>
+                <div data-title_box>렌터카예약</div>
                 <table>
                     <tr>
                         <th>차종선택</th>
@@ -168,18 +168,45 @@
                     </tr>
                 </table>
                 <div data-notice_box>
-                    <p>• 보험료 안내 (1일/24시간 기준)</p>
-                    <p>만 30세 이상 : 포함, 만 30세 미만 : 7,000원, 만 26세 미만 : 30,000원</p>
-                    <p>• 제주공항에서 수령·반납해주시기 바랍니다. (공항에서 셔틀버스 이용하여 지점으로 이동 수령·반납)</p>
-                    <p>• 차종 및 연료, 색상 지정은 불가하며 랜덤 배차되고, 선착순 마감입니다.</p>
-                    <p>• 롯데호텔 수령 반납은 신청시 기재 바랍니다.</p>
-                    <p>• 불포함사항 : 주유비 및 주차통행료, 보험료 등</p>
+                    <p>※ 제출 전 반드시 확인해 주세요.</p>
+                    <p style="color: #ff2200">• 렌터카 예약을 하지 않을 경우에도 ‘임시저장’을 클릭하면 다음 단계로 진행됩니다.</p>
+                    <p>• 차종, 색상, 연료는 지정 불가하며, 랜덤 배정됩니다.</p>
+                    <p>• 일부 차종은 수량이 제한되어 선착순 마감될 수 있습니다.</p>
+                    <p>• 렌터카는 1일 단위로 운영되며, 이용시간 초과 시 추가 요금이 발생합니다.</p>
+                    <p>
+                        • 요금은 자차보험(만 30세 이상 기준)이 포함된 조건이며, 운전자의 연령에 따라 보험료가 추가됩니다. <br />
+                        - 만 30세 미만 : 보험료 추가 7,000원/1일<br />
+                        - 만 26세 미만 : 보험료 추가 30,000원/1일
+                    </p>
+                    <p>• 시간 연장 요금 및 보험료 차액은 현장에서 결제됩니다.</p>
+                    <p>• 주유비, 주차료, 통행료 등 실비는 별도 부담입니다.</p>
+                    <p>
+                        • 공항 수령 및 반납은 공항 인근 롯데렌터카 지점에서 진행되며, 지점까지는 롯데렌터카 셔틀버스를 이용해 이동해주시기 바랍니다. 반납은 23:00까지 가능하며, 해당 시간까지 직원이
+                        상주합니다.
+                    </p>
+                    <p>• 호텔 반납을 원하실 경우, 지정 주차 후 사무실 방문 또는 스마트 키박스를 통한 비대면 반납이 가능합니다.</p>
                 </div>
                 <div data-button_box>
                     <button data-pre_btn type="button">이전</button>
-                    <button type="submit">렌터카정보 저장</button>
+                    <button type="button" data-save_button>렌터카정보 임시저장</button>
                 </div>
             </div>
+            <!-- 250509 -->
+            <div data-popup_box>
+                <div data-notice_txt>
+                    <p>
+                        <!-- 임시 저장되었습니다.
+                        “최종제출”전까지는 로그인하셔서 수정이 가능합니다. -->
+                        임시저장이 완료되었습니다.<br />
+                        제출 전 임시저장 상태에서는 본 등록 페이지에 로그인하여 <br />
+                        신청 내용 수정이 가능합니다.
+                    </p>
+                    <div>
+                        <button data-notice_close_btn="notice" type="button">닫기</button>
+                    </div>
+                </div>
+            </div>
+            <!-- //250509 -->
         </main>
         <footer>
             <div data-footer_wrap>
@@ -217,6 +244,14 @@
                 freeMode: true,
             });
             $(document).ready(function () {
+                //250509 임시저장 클릭시
+                $("[data-save_button]").on("click", function () {
+                    $("[data-popup_box]").show();
+                });
+                $("[data-notice_close_btn='notice']").on("click", function () {
+                    $("[data-popup_box]").hide();
+                });
+
                 const attend_id = sessionStorage.getItem("attend_id");
                 let car_list = [];
                 let total_cost = [];
