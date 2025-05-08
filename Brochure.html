@@ -178,7 +178,7 @@
             // const downloadLink = "https://${base_url}/api/v1/ksa/files?ksaFileType=BROCHURE";
             $("[data-brochure_link]").click(function () {
                 const year = $(this).data("brochure_link");
-                const downloadLink = `https://${base_url}/api/v1/ksa/files?year=` + year + `&ksaFileType=BROCHURE`;
+                const downloadLink = `${base_url}/api/v1/ksa/files?year=` + year + `&ksaFileType=BROCHURE`;
                 $(this).attr("href", downloadLink);
             });
             $(function () {

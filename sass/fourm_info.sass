@@ -35,11 +35,6 @@ main
     [data-content_box]
         width: 100%
         max-width: 1280px
-        background:
-            image: url(/images/2024_info.png)
-            position: right top 150px
-            repeat: no-repeat
-            size: 400px 400px
         [data-title_box]
             width: 100%
             max-width: 1280px
@@ -146,19 +141,33 @@ main
     main
         [data-header_box]
             width: 100%
-            height: 150px
+            aspect-ratio: 375 / 216
             background:
-                image: url(/images/2024-mobile-back.png)
+                image: url(/images/2025-sub-m.png)
                 position: center
                 repeat: no-repeat
                 size: cover
             div
                 width: 100%
-                height: 150px
+                height: 100%
                 display: flex
-                align-items: center
+                align-items: flex-end
                 justify-content: center
                 flex-direction: row
+                padding-bottom: 29px
+                & > a
+                    width: 148px
+                    height: 48px
+                    border-radius: 37px
+                    background-image: linear-gradient(90deg, #26a3b1 0%, #105b63 100%)
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    color: #fff
+                    font-size: 16px
+                    font-weight: bold
+                    &:first-of-type
+                        margin-right: 10px
         [data-content_box]
             padding: 
                 left: 15px

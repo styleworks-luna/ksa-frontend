@@ -399,7 +399,7 @@ main [data-mobile_content_box] {
   main [data-header_box] {
     width: 100%;
     aspect-ratio: 375/216;
-    background-image: url(/images/2025_mobile-back.png);
+    background-image: url(/images/2025-sub-m.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

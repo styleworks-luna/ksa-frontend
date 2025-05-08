@@ -561,7 +561,7 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
   }
   main [data-header_box] {
     width: 100%;
-    height: 208px;
+    aspect-ratio: 375/216;
     background-image: url(/images/2025-sub-m.png);
     background-position: center;
     background-repeat: no-repeat;
