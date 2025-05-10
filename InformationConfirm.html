@@ -844,7 +844,9 @@
                             success: function (response) {
                                 $("[data-popup_box] form").hide();
                                 $("[data-done_txt]").show();
-                                $("[data-apply-end]").show(); // 250510 추가: attendStatus가 "DONE"일 때만 data-apply-end 팝업을 보여줌
+                                if (response.attendStatus === "DONE") {
+                                    $("[data-apply-end]").show(); // 250510 추가: attendStatus가 "DONE"일 때만 data-apply-end 팝업을 보여줌
+                                }
                             },
                             error: function (xhr) {
                                 $("[data-done_btn]").prop("disabled", false);
