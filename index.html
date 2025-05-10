@@ -310,7 +310,7 @@
             url: base_url + "/api/v1/galleries/all",
             success: function (response) {
                 $.each(response, function (response, item) {
-                    $(".gallery-swiper").append('<div class="swiper-slide"><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
+                    $(".gallery-swiper").append('<div class="swiper-slide"><img src="' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
                 });
             },
             error: function (xhr) {
