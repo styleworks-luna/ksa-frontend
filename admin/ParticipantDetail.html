@@ -1861,6 +1861,7 @@
                                         const tour_data = tour.tourAttenders;
                                         const family = response.familySessionOrder;
                                         const family_data = family.familySessionAttenders;
+                                        $("#golf_memo").val(response.userMemo);
                                         if (golf_data !== null || tour_data !== null || family_data !== null) {
                                             if (tour_data !== null) {
                                                 const toursOnSameDate = (attenders, date) => {
