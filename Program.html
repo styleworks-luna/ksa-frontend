@@ -1202,6 +1202,7 @@
                             handicap: 0,
                             attenderId: val,
                             golfCourseId: id,
+                            date: date,
                         });
                         total_cost.push({
                             attenderId: val,
@@ -1275,13 +1276,22 @@
 
                     // 골프 핸디값 입력시
                     $(document).on("input", "[data-handy_input]", function () {
-                        const val = $(this).closest("[data-golf_row]").data("attender_id");
+                        const $row = $(this).closest("[data-golf_row]");
+                        const attenderId = $row.data("attender_id");
+                        const golfCourseId = $row.data("golf_id");
+                        const date = $row.data("date");
+                        const handyValue = $(this).val();
+
                         golf_list.forEach((item) => {
-                            if (item.attenderId == val) {
-                                item.handicap = $(this).val();
+                            if (
+                                item.attenderId == attenderId &&
+                                item.golfCourseId == golfCourseId &&
+                                item.date == date
+                            ) {
+                                item.handicap = handyValue;
                             }
                         });
-                        $("[data-golf_row][data-attender_id='" + val + "'] [data-handy_input]").val($(this).val());
+                        // 동기화 필요 없음, 입력한 input만 반영하면 됨
                     });
 
                     // 투어 참여자 선택시 리스트에 추가
