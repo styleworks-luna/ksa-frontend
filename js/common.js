@@ -30,7 +30,7 @@ $(function () {
                 
                 const ksa_now = new Date();
                 const ksa_startDate = new Date('2025-05-14T10:00:00');
-                const ksa_endDate = new Date('2025-07-09T18:00:00');
+                const ksa_endDate = new Date('2027-07-09T18:00:00');
                 
                 if (ksa_now < ksa_startDate) {
                     alert("KSA하계CEO포럼 참가접수가 2025.05.14 10시 예정입니다.");
@@ -59,3 +59,4 @@ if (base_url && typeof base_url === "string" && (base_url.toLowerCase().includes
     base_url = "https://" + base_url;
 }
 const current_year = 2025;
+
