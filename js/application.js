@@ -1,6 +1,6 @@
 (function() {
     // base_url 계산
-    const base_url = "https://ceoforum.ksa.or.kr";
+    //const base_url = "https://ceoforum.ksa.or.kr"; -> 주석 해제 시 const 하지 말것
 
     // Application.html 직접 접근 시 처리
     //if (window.location.pathname.match(/Application\.html$/i)) {

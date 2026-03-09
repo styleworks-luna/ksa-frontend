@@ -29,11 +29,11 @@ $(function () {
                 event.preventDefault();
                 
                 const ksa_now = new Date();
-                const ksa_startDate = new Date('2025-05-14T10:00:00');
+                const ksa_startDate = new Date('2026-03-09T10:00:00');
                 const ksa_endDate = new Date('2027-07-09T18:00:00');
                 
                 if (ksa_now < ksa_startDate) {
-                    alert("KSA하계CEO포럼 참가접수가 2025.05.14 10시 예정입니다.");
+                    alert("KSA하계CEO포럼 참가접수가 2025.03.09 10시 예정입니다.");
                 } else if (ksa_now > ksa_endDate) {
                     alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.");
                 } else {
@@ -44,8 +44,8 @@ $(function () {
 
     });
 
-    const bank = `${base_url}/api/v1/ksa/files?year=2025&ksaFileType=COPY_OF_BANKBOOK`;
-    const bussiness = `${base_url}/api/v1/ksa/files?year=2025&ksaFileType=BUSINESS_REGISTRATION`;
+    const bank = `${base_url}/api/v1/ksa/files?year=2026&ksaFileType=COPY_OF_BANKBOOK`;
+    const bussiness = `${base_url}/api/v1/ksa/files?year=2026&ksaFileType=BUSINESS_REGISTRATION`;
 
     $("[data-bank_download]").attr("href", bank);
     $("[data-bussiness_download]").attr("href", bussiness);
@@ -58,5 +58,5 @@ if (base_url && typeof base_url === "string" && (base_url.toLowerCase().includes
 } else {
     base_url = "https://" + base_url;
 }
-const current_year = 2025;
+const current_year = 2026;
 
