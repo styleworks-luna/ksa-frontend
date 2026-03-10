@@ -33,7 +33,7 @@ $(function () {
                 const ksa_endDate = new Date('2027-07-09T18:00:00');
                 
                 if (ksa_now < ksa_startDate) {
-                    alert("KSA하계CEO포럼 참가접수가 2025.03.09 10시 예정입니다.");
+                    alert("KSA하계CEO포럼 참가접수가 2026.03.09 10시 예정입니다.");
                 } else if (ksa_now > ksa_endDate) {
                     alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.");
                 } else {
