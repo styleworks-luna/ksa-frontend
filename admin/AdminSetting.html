@@ -323,6 +323,41 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col d-flex justify-flex-end align-items-center mt-2 mb-3">
+                            <h1 class="h3 mt-0 mb-0 text-gray-800">파일 설정</h1>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4" style="width: 50%">
+                        <div class="card-body">
+                            <table class="table text-center font-weight-bold">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark">파일 종류</th>
+                                        <th class="table-dark">파일 선택</th>
+                                        <th class="table-dark">등록</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <select id="ksa_file_type" class="form-control">
+                                                <option value="BUSINESS_REGISTRATION">사업자등록증</option>
+                                                <option value="COPY_OF_BANKBOOK">통장사본</option>
+                                                <option value="BROCHURE">브로셔</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="file" id="ksa_file_input" class="form-control-file">
+                                        </td>
+                                        <td>
+                                            <button type="button" id="ksa_file_upload_btn" class="btn btn-primary btn-m pl-3 pr-3">등록</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -930,6 +965,37 @@
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message)
+                }
+            });
+        });
+
+        //----------------------------------KSA 파일 등록----------------------------------------
+        $("#ksa_file_upload_btn").click(function () {
+            var fileType = $("#ksa_file_type").val();
+            var fileInput = $("#ksa_file_input")[0];
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("파일을 선택해주세요.");
+                return;
+            }
+            var formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+            $.ajax({
+                "type": "POST",
+                "url": base_url + "/api/v1/ksa/files?year=" + current_year + "&ksaFileType=" + fileType,
+                "data": formData,
+                "processData": false,
+                "contentType": false,
+                beforeSend: function (xhr) {
+                    if (sessionStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    alert("파일이 등록되었습니다.");
+                    $("#ksa_file_input").val("");
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.message : "파일 등록에 실패했습니다.");
                 }
             });
         });
