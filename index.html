@@ -32,6 +32,7 @@
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
+            <li><a href="Notice.html">인사말</a></li>
             <li><a href="Notice.html">공지사항</a></li>
             <li><a href="Schedule.html">행사일정</a></li>
             <li><a href="Speaker.html">연사</a></li>
@@ -78,7 +79,18 @@
         </div>
     </header>
     <main>
-        <a data-kakao_link href="FAQ.html">FAQ</a>
+        <!--a data-kakao_link href="FAQ.html">FAQ</a-->
+        <div class="floating_menu">
+            <div class="menu_main">
+                <span>FILE<br>DOWN</span>
+            </div>
+            <ul class="menu_items">
+                <li><a href="/files/개최공문.pdf" download>개최공문</a></li>
+                <li><a href="/files/사업자등록증.pdf" download>사업자등록증</a></li>
+                <li><a href="/files/통장사본.pdf" download>통장사본</a></li>
+                <li><a href="/files/수료증안내.pdf" download>수료증안내</a></li>
+            </ul>
+        </div>
         <div data-main_wrap>
             <div data-main_box>
                 <div data-button_wrap>
@@ -89,6 +101,85 @@
                 </div>
             </div>
         </div>
+        <!-- 공식파트너 시작-->
+        <div data-speaker_box class="partner_section">
+            <div data-speaker_btn>
+                <span>PARTNERS</span>
+                <a href="javascript:void(0);" onclick="openPartnerPopup();">공식파트너십 문의 ></a>
+            </div>
+            <div class="swiper partnerSwiper">
+                <div class="swiper-wrapper partner">
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사1"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사2"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사3"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사4"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사5"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사6"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사7"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사8"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2025_2.png" alt="파트너사9"></div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <div id="partner_popup" class="modal_popup" style="display:none;">
+            <div class="popup_content partner_form">
+                <div class="popup_header">
+                    <h3>공식파트너십 문의</h3>
+                    <button type="button" onclick="closePartnerPopup();" class="btn_close">×</button>
+                </div>
+                <div class="popup_body">
+                    <p class="popup_notice">정보를 기입하시면 사무국에서 별도 연락 드리겠습니다.</p>
+                    <form id="partnerForm">
+                        <div class="input_row">
+                            <label>소속</label>
+                            <input type="text" name="company" placeholder="소속을 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>이름/직위</label>
+                            <input type="text" name="name" placeholder="이름과 직위를 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>연락처</label>
+                            <input type="text" name="tel" placeholder="연락처를 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>이메일</label>
+                            <input type="email" name="email" placeholder="이메일을 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>내용</label>
+                            <textarea name="content" placeholder="문의 내용을 입력하세요"></textarea>
+                        </div>
+                        <div class="btn_group">
+                            <button type="button" onclick="submitPartnerInquiry();" class="btn_submit">문의하기</button>
+                            <a href="/files/제안서_2026.pdf" class="btn_download" download>제안서 다운로드</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--공식 파트너 끝 -->
         <div data-speaker_box>
             <div data-speaker_btn>
                 <span>SPEAKER</span>
@@ -353,46 +444,70 @@
             $("#main_popup").fadeOut();
         }
 
-    </script>
-    <style>
-        .space [data-green] {
-            letter-spacing: -1px;
+        /* 공싴파트너사 팝업*/
+        var partnerSwiper = new Swiper(".partnerSwiper", {
+                slidesPerView: 2,
+                grid: { rows: 1 },
+                spaceBetween: 20,
+                speed: 6000,
+                loopedSlides: 1,
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    768: { slidesPerView: 4, spaceBetween: 30 },
+                    1024: { slidesPerView: 5, spaceBetween: 40 }
+                }
+        });
+        
+        // 팝업 열기
+        function openPartnerPopup() {
+            $("#partner_popup").fadeIn(200);
+            $("body").css("overflow", "hidden"); 
         }
 
-        /* 팝업CSS */
-        #main_popup {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); /* 배경 어둡게 */
-            z-index: 9999; /* 최상단 배치 */
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        // 팝업 닫기
+        function closePartnerPopup() {
+            $("#partner_popup").fadeOut(200);
+            $("body").css("overflow", "auto");
         }
-        .popup_content {
-            width: 90%;
-            max-width: 450px; /* 팝업 최대 너비 */
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
+
+        // 문의하기 제출
+        function submitPartnerInquiry() {
+            
+            if (!$("input[name='company']").val()) { alert("소속을 입력해주세요."); return; }
+            if (!$("input[name='name']").val()) { alert("이름을 입력해주세요."); return; }
+            if (!$("input[name='tel']").val()) { alert("연락처를 입력해주세요."); return; }
+
+            const formData = $("#partnerForm").serialize();
+            
+            const $submitBtn = $(".btn_submit");
+            $submitBtn.prop("disabled", true).text("전송 중...");
+
+            $.ajax({
+                url: '/api/partner/inquiry', // 예정 엔드포인트
+                type: 'POST',
+                data: formData,
+                dataType: 'json',
+                success: function(response) {
+                    alert("문의가 성공적으로 접수되었습니다. 사무국에서 확인 후 연락드리겠습니다.");
+                    $("#partnerForm")[0].reset(); 
+                    closePartnerPopup();
+                },
+                error: function(xhr, status, error) {
+                    console.error("에러 발생:", error);
+                    alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                },
+                complete: function() {
+                    $submitBtn.prop("disabled", false).text("문의하기");
+                }
+            });
         }
-        .popup_footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 15px;
-            background: #333;
-            color: #fff;
-            font-size: 14px;
-        }
-        .popup_footer button {
-            background: none;
-            border: 1px solid #fff;
-            color: #fff;
-            padding: 3px 10px;
-            cursor: pointer;
-        }
+
+    </script>
+    <style>
+        
     </style>
 </body>
 </html>

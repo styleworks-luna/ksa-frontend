@@ -573,3 +573,39 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #0C3994;
   }
 }
+
+.download_section {
+    margin: 40px 0;
+    padding: 30px;
+    background: #f8f9fb;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.download_section p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.btn_paper_download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0c3994; /* 기존 테마색 유지 */
+    color: #fff;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(12, 57, 148, 0.2);
+}
+
+.btn_paper_download:hover {
+    background: #071d4b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(7, 29, 75, 0.3);
+    color: #fff;
+}
