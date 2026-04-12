@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
+
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/application.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="/js/common.js"></script>
+        <!--script src="/js/application.js"></script-->
+    </head>
+
+    <body>
+        <header data-pc_header>
+            <a href="Index.html" data-logo_box></a>
+            <ul>
+                <li><a href="Notice.html">인사말</a></li>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
+            </ul>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div data-top_header>
+                <button type="button" onclick="history.back()" data-back_btn></button>
+                <span>참가신청</span>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-header_box></div>
+            <div data-content_box>
+                <div data-padding_box>
+                    <h1>제71회 KSA하계CEO포럼 신청 접수 조회</h1>
+                    <p>
+                        2026년 제71회 KSA하계CEO포럼 등록페이지입니다.<br />
+                        문의사항은 하계CEO포럼 사무국(02-6240-4981, 4983)로 연락 주시기 바랍니다.<br />
+                        <span style="color: #ff2200">※ 참석자 휴대전화번호로 신규 계정이 생성되며, 최종제출 완료 전까지는 임시 저장되어 수정이 가능합니다.</span><br />
+                        <span>※ 수정을 원하실때에도 로그인해주시기 바랍니다.</span>
+                    </p>
+                </div>
+            <form>
+                <input
+                    type="text"
+                    name="business_num"
+                    id="business_num"
+                    placeholder="사업자번호를 입력해주세요 (-없이)"
+                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                    maxlength="10"
+                />
+                <input
+                    type="text"
+                    name="phone"
+                    id="phone"
+                    placeholder="참석자 휴대전화번호를 입력해주세요."
+                    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)"
+                    maxlength="11"
+                />
+                <p data-error_row></p>
+                <input type="hidden" name="pass_word" id="pass_word" placeholder="비밀번호를 입력해주세요. (영문,숫자 포함 8자리 이상)" />
+                <p data-regex_error_row></p>
+                <button type="button" data-submit_button>확인</button>
+                <button type="button" data-reset_button style="display: none;" >비밀번호 초기화</button>
+                <a href="ApplicationCheck.html" style="width: 200px; padding:13px; background:#fff; color:#0c3994; border:1px solid #0c3994; border-radius:5px; text-align:center; text-decoration:none; font-size:14px; font-weight:500;">신청접수조회</a>
+            </form>
+            <div data-popup_box>
+                <h1>비밀번호 초기화</h1>
+                <form>
+                    <input
+                        type="text"
+                        name="pass_num"
+                        placeholder="사업자번호를 입력해주세요"
+                        id="pass_num"
+                        oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                        maxlength="10"
+                        required
+                    />
+                    <input
+                        type="text"
+                        name="phone"
+                        id="pass_phone"
+                        placeholder="참석자 휴대전화번호를 입력해주세요."
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{3})(\d{4})(\d{4})$/, `$1-$2-$3`)"
+                        maxlength="11"
+                    />
+                    <p>비밀번호 초기화 시 신청한 대표자/교육담당자/정산담당자 이메일로 임시 비밀번호가 발급됩니다.</p>
+                    <p>초기화하시겠습니까?</p>
+                    <div>
+                        <button type="button" data-close_btn>취소</button>
+                        <button type="button" data-post_btn>확인</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $("[data-reset_button]").on("click", function () {
+                $("[data-popup_box]").show();
+            });
+            $("[data-close_btn]").on("click", function () {
+                $("[data-popup_box]").hide();
+                $("#pass_num").val("");
+                $("#pass_phone").val("");
+            });
+            const password_val = $("#pass_word");
+            const regex_error_row = $("[data-regex_error_row]");
+            /*const password_regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;*/
+            const password_regex = /^[0-9]{10,11}$/;
+            let pw_regex_confirm = false;
+            let phone_check = false;
+
+            function isValidPassword(password) {
+                if (password.trim() === "") {
+                    return false;
+                }
+                return password_regex.test(password);
+            }
+
+            /*password_val.on("input", function () {
+                const password = password_val.val();
+                if (isValidPassword(password)) {
+                    regex_error_row.html("");
+                    pw_regex_confirm = true;
+                    regex_error_row.hide();
+                } else {
+                    regex_error_row.html("비밀번호는 영문, 숫자를 포함하는 8자리 이상이어야 합니다.");
+                    regex_error_row.show();
+                }
+            });*/
+            $("#phone").on("input", function () {
+                var phone_num = $("#phone").val();
+                if (phone_num.length === 13) {
+                    $("#phone").siblings("[data-error_row]").text("");
+                    phone_check = true;
+                    $("#password").val(phone_num);
+                } else {
+                    $("#phone").siblings("[data-error_row]").text("핸드폰 번호를 올바르게 입력해주세요.");
+                    phone_check = false;
+                }
+            });
+
+            $("[data-submit_button]").click(function () {
+                if ($("#purpose").is(":checked") !== true) {
+                    alert("개인정보취급방침에 동의 해주세요.");
+                } else {
+                    if ($("input[name='business_num']").val() === "") {
+                        alert("사업자 번호를 입력 해주세요.");
+                    } else if ($("input[name='business_num']").val().length !== 10) {
+                        alert("올바른 사업자번호를 입력해주세요.");
+                    } else if (pw_regex_confirm === false) {
+                        //alert("비밀번호를 확인해주세요");
+                    } else if (phone_check === false) {
+                        alert("올바른 핸드폰 번호인지 확인해주세요");
+                    } else {
+                        const data = {
+                            businessNumber: $("input[name='business_num']").val(),
+                            mobilePhone: $("input[name='phone']").val(),
+                            password: $("input[name='pass_word']").val(),
+                            year: "2026",
+                        };
+                        $.ajax({
+                            type: "POST",
+                            url: base_url + "/api/v1/attender/login?year=" + current_year,
+                            data: JSON.stringify(data),
+                            contentType: "application/json",
+                            success: function (response) {
+                                if (response.attendStatus === "DONE") {
+                                    sessionStorage.setItem("attend_id", response.attendId);
+                                    sessionStorage.setItem("token", response.accessToken.token);
+                                    alert("신청 확인 페이지로 이동합니다.");
+                                    window.location.href = "./InformationConfirm.html";
+                                } else {
+                                    sessionStorage.setItem("attend_id", response.attendId);
+                                    sessionStorage.setItem("token", response.accessToken.token);
+                                    alert("정보 수정 페이지로 이동합니다.");
+                                    window.location.href = "./Information.html";
+                                }
+                            },
+                            error: function (xhr) {
+                                if (xhr.responseJSON.code === "INVALID_PASSWORD") {
+                                    alert("비밀번호가 틀렸습니다.");
+                                } else if (xhr.responseJSON.code === "USERNAME_NOT_FOUND") {
+                                    alert("신규회원 등록 페이지로 이동합니다.");
+                                    window.location.href = "./Information.html";
+                                    sessionStorage.setItem("bussiness_num", $("input[name='business_num']").val());
+                                    sessionStorage.setItem("user_password", password_val.val());
+                                    sessionStorage.setItem("phone_num", $("#phone").val());
+                                }
+                            },
+                        });
+                    }
+                }
+            });
+            $("[data-post_btn]").click(function () {
+                const num = $("#pass_num").val();
+                const phone = $("#pass_phone").val();
+                if (num === "" || phone === "") {
+                    alert("사업자번호와 핸드폰번호 모두 기입해주세요.");
+                } else {
+                    $("[data-post_btn]").prop("disabled", true);
+                    $.ajax({
+                        type: "POST",
+                        url: base_url + "/api/v1/attenders/reset-password?year=2026&mobilePhone=" + phone + "&businessNumber=" + num,
+                        contentType: "application/json",
+                        success: function (response) {
+                            alert("정상적으로 이메일이 발송되었습니다.");
+                            $("[data-popup_box]").hide();
+                            location.reload();
+                        },
+                        error: function (xhr) {
+                            if (xhr.responseJSON.code === "ATTENDER_NOT_FOUND") {
+                                alert("존재하지 않는 참가자 입니다.");
+                                $("[data-post_btn]").prop("disabled", false);
+                            }
+                        },
+                    });
+                }
+            });
+        </script>
+    </body>
+</html>

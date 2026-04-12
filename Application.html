@@ -18,6 +18,7 @@
         <header data-pc_header>
             <a href="Index.html" data-logo_box></a>
             <ul>
+                <li><a href="Notice.html">인사말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
                 <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
@@ -69,7 +70,7 @@
             <div data-header_box></div>
             <div data-content_box>
                 <div data-padding_box>
-                    <h1>제71회 KSA하계CEO포럼 신규 등록 및 로그인</h1>
+                    <h1>제71회 KSA하계CEO포럼 참가 신청</h1>
                     <p>
                         2026년 제71회 KSA하계CEO포럼 등록페이지입니다.<br />
                         문의사항은 하계CEO포럼 사무국(02-6240-4981, 4983)로 연락 주시기 바랍니다.<br />
@@ -124,6 +125,13 @@
                     </div>
                 </div>
             </div>
+            <div class="download_section">
+                <p>온라인 신청이 어려우신 경우, 아래 버튼을 클릭하여 종이신청서를 다운로드 후 사무국으로 보내주시기 바랍니다.</p>
+                <a href="/files/2026_KSA_하계포럼_종이신청서.pdf" class="btn_paper_download" download>
+                    <img src="/images/icon_download.png" alt="" style="width:16px; margin-right:8px;">
+                    종이신청서 다운로드 (PDF)
+                </a>
+            </div>
             <form>
                 <input
                     type="text"
@@ -142,10 +150,11 @@
                     maxlength="11"
                 />
                 <p data-error_row></p>
-                <input type="password" name="pass_word" id="pass_word" placeholder="비밀번호를 입력해주세요. (영문,숫자 포함 8자리 이상)" />
+                <input type="hidden" name="pass_word" id="pass_word" placeholder="비밀번호를 입력해주세요. (영문,숫자 포함 8자리 이상)" />
                 <p data-regex_error_row></p>
                 <button type="button" data-submit_button>확인</button>
-                <button type="button" data-reset_button>비밀번호 초기화</button>
+                <button type="button" data-reset_button style="display: none;" >비밀번호 초기화</button>
+                <a href="ApplicationCheck.html" style="width: 200px; padding:13px; background:#fff; color:#0c3994; border:1px solid #0c3994; border-radius:5px; text-align:center; text-decoration:none; font-size:14px; font-weight:500;">신청접수조회</a>
             </form>
             <div data-popup_box>
                 <h1>비밀번호 초기화</h1>
@@ -205,7 +214,8 @@
             });
             const password_val = $("#pass_word");
             const regex_error_row = $("[data-regex_error_row]");
-            const password_regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;
+            /*const password_regex = /^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$/i;*/
+            const password_regex = /^[0-9]{10,11}$/;
             let pw_regex_confirm = false;
             let phone_check = false;
 
@@ -216,7 +226,7 @@
                 return password_regex.test(password);
             }
 
-            password_val.on("input", function () {
+            /*password_val.on("input", function () {
                 const password = password_val.val();
                 if (isValidPassword(password)) {
                     regex_error_row.html("");
@@ -226,12 +236,13 @@
                     regex_error_row.html("비밀번호는 영문, 숫자를 포함하는 8자리 이상이어야 합니다.");
                     regex_error_row.show();
                 }
-            });
+            });*/
             $("#phone").on("input", function () {
                 var phone_num = $("#phone").val();
                 if (phone_num.length === 13) {
                     $("#phone").siblings("[data-error_row]").text("");
                     phone_check = true;
+                    $("#password").val(phone_num);
                 } else {
                     $("#phone").siblings("[data-error_row]").text("핸드폰 번호를 올바르게 입력해주세요.");
                     phone_check = false;
@@ -247,7 +258,7 @@
                     } else if ($("input[name='business_num']").val().length !== 10) {
                         alert("올바른 사업자번호를 입력해주세요.");
                     } else if (pw_regex_confirm === false) {
-                        alert("비밀번호를 확인해주세요");
+                        //alert("비밀번호를 확인해주세요");
                     } else if (phone_check === false) {
                         alert("올바른 핸드폰 번호인지 확인해주세요");
                     } else {
