@@ -15,6 +15,64 @@
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script src="/js/common.js"></script>
         <script src="/js/information.js"></script>
+        <style>
+            .passenger-radio-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 5px 0;
+            }
+            .passenger-radio-item {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 8px 16px;
+                border: 1px solid #0c3994;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 14px;
+                color: #0c3994;
+                transition: all 0.2s;
+            }
+            .passenger-radio-item input[type="radio"] {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #0c3994;
+                border-radius: 2px; /* 사각형 모양 */
+                margin-right: 8px;
+                position: relative;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            .passenger-radio-item input[type="radio"]:checked {
+                background-color: #0c3994;
+            }
+            .passenger-radio-item input[type="radio"]:checked::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 12px;
+            }
+            .passenger-radio-item:has(input:checked) {
+                background: #0c3994;
+                color: #fff;
+            }
+            .passenger-radio-item.disabled {
+                opacity: 0.5;
+                cursor: not-allowed;
+                border-color: #ccc;
+                color: #999;
+            }
+            .passenger-radio-item.disabled input {
+                border-color: #ccc;
+                pointer-events: none;
+            }
+        </style>
     </head>
     <body>
         <header data-pc_header>
@@ -112,9 +170,7 @@
                     <tr>
                         <th>탑승자 선택</th>
                         <td>
-                            <select data-passenger_select class="reset">
-                                <option selected disabled value="">선택</option>
-                            </select>
+                            <div data-passenger_select_wrap class="passenger-radio-group"></div>
                         </td>
                     </tr>
 
@@ -144,7 +200,7 @@
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr data-flight_time_row>
                         <th>비행시간</th>
                         <td>
                             <select data-time_select class="reset">
@@ -153,6 +209,19 @@
                             <p style="color: #ff2200; font-size: 16px; padding-top: 5px">
                                 항공사로부터 확보한 좌석이 한정되어, 선택하신 항공편 예약이 제한될 수 있습니다. 희망하시는 출발·복귀 항공편 일정을 ‘요청사항’란에 작성해주시면 개별 안내드리겠습니다.
                             </p>
+                        </td>
+                    </tr>
+                    <tr data-ticketing_row style="display: none;">
+                        <th>발권여부</th>
+                        <td>
+                            <div class="passenger-radio-group">
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="ticketing_status" value="true" /> 표준협회를 통해 발권합니다
+                                </label>
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="ticketing_status" value="false" /> 표준협회를 통해 발권하지 않습니다
+                                </label>
+                            </div>
                         </td>
                     </tr>
                     <tr data-list_row>
@@ -381,10 +450,14 @@
                                     url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                     success: function (response) {
                                         passenger = response;
-                                        $("[data-passenger_select] option:not(:first-child)").remove();
+                                $("[data-passenger_select_wrap]").empty();
                                         $.each(passenger, function (index, item) {
                                             if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
-                                                $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                        $("[data-passenger_select_wrap]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                            item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
+                                            item.name + '</label>'
+                                        );
                                             }
                                         });
                                     },
@@ -398,9 +471,13 @@
                                     url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                     success: function (response) {
                                         passenger = response;
-                                        $("[data-passenger_select] option:not(:first-child)").remove();
+                                $("[data-passenger_select_wrap]").empty();
                                         $.each(passenger, function (index, item) {
-                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                    $("[data-passenger_select_wrap]").append(
+                                        '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                        item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
+                                        item.name + '</label>'
+                                    );
                                         });
                                     },
                                     error: function (error) {
@@ -414,6 +491,12 @@
                                 $("[data-none_input]").attr("checked", true);
                                 $("[data-date_picker]").val(response.individualOrderLandingDate);
                                 $("[data-time_picker]").val(response.individualOrderLandingTime);
+                                $("[data-text_row]").hide();
+                                $("[data-flight_time_row]").hide();
+                                $("[data-ticketing_row]").show();
+                                if (response.isTicketingRequested !== null) {
+                                    $("input[name='ticketing_status'][value='" + response.isTicketingRequested + "']").prop("checked", true);
+                                }
                             }
                         },
                         error: function (error) {
@@ -480,13 +563,23 @@
                     // 개별예약 클릭시 보이고 다른 라디오버튼 클릭시 안보이게
                     $("[data-none_input]").click(function () {
                         $(".display").show();
-                        $("[data-time_select], [data-passenger_select]").prop("disabled", true);
+                        $("[data-time_select]").prop("disabled", true);
+                        $("[data-passenger_select_wrap] input").prop("disabled", true);
+                        $(".passenger-radio-item").addClass("disabled");
+                        $("[data-text_row]").hide();
+                        $("[data-flight_time_row]").hide();
+                        $("[data-ticketing_row]").show();
                     });
                     $('input[name="city"]')
                         .not("[data-none_input]")
                         .click(function () {
                             $(".display").hide();
-                            $("[data-time_select], [data-passenger_select]").prop("disabled", false);
+                            $("[data-time_select]").prop("disabled", false);
+                            $("[data-passenger_select_wrap] input").prop("disabled", false);
+                            $(".passenger-radio-item").removeClass("disabled");
+                            $("[data-text_row]").show();
+                            $("[data-flight_time_row]").show();
+                            $("[data-ticketing_row]").hide();
                         });
 
                     // 비행시간과 탑승자 선택 후 리스트에 추가
@@ -504,13 +597,10 @@
                         showSelectedInfo();
                     });
 
-                    $("[data-passenger_select]").change(function () {
-                        const val = $(this).val();
-                        const txt = $("option:checked", this).text();
-                        const type = $("option:checked", this).data("type");
-                        passenger_val = val;
-                        passenger_txt = txt;
-                        passenger_type = type;
+                    $(document).on("change", "input[name='passenger_choice']", function () {
+                        passenger_val = $(this).val();
+                        passenger_txt = $(this).data("name");
+                        passenger_type = $(this).data("type");
                         showSelectedInfo();
                     });
 
@@ -561,10 +651,14 @@
                                 url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                 success: function (response) {
                                     passenger = response;
-                                    $("[data-passenger_select] option:not(:first-child)").remove();
+                                    $("[data-passenger_select_wrap]").empty();
                                     $.each(passenger, function (index, item) {
                                         if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
-                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                            $("[data-passenger_select_wrap]").append(
+                                                '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                                item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
+                                                item.name + '</label>'
+                                            );
                                         }
                                     });
                                 },
@@ -602,18 +696,26 @@
                             url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-passenger_select] option:not(:first-child)").remove();
+                                $("[data-passenger_select_wrap]").empty();
 
                                 if (passenger_list.length == 0) {
                                     // passenger_list가 비어있을 경우 모든 승객을 드롭다운 메뉴에 추가
                                     $.each(passenger, function (index, item) {
-                                        $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                        $("[data-passenger_select_wrap]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                            item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
+                                            item.name + '</label>'
+                                        );
                                     });
                                 } else {
                                     // passenger_list에 있는 승객들만 드롭다운 메뉴에 추가
                                     $.each(passenger, function (index, item) {
                                         if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
-                                            $("[data-passenger_select]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + "</option>");
+                                            $("[data-passenger_select_wrap]").append(
+                                                '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                                item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
+                                                item.name + '</label>'
+                                            );
                                         }
                                     });
                                 }
@@ -636,6 +738,7 @@
                             individualOrderLandingDate: $("[data-date_picker]").val(),
                             individualOrderLandingTime: $("[data-time_picker]").val(),
                             flightTickets: passenger_list,
+                            isTicketingRequested: $("input[name='ticketing_status']:checked").val() === "true",
                             userMemo: $("textarea").val(),
                         };
                         $.ajax({

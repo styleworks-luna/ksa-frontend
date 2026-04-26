@@ -16,6 +16,54 @@
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script src="/js/common.js"></script>
         <script src="/js/information.js"></script>
+        <style>
+            .passenger-radio-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 5px 0;
+            }
+            .passenger-radio-item {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 8px 16px;
+                border: 1px solid #0c3994;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 14px;
+                color: #0c3994;
+                transition: all 0.2s;
+            }
+            .passenger-radio-item input[type="radio"] {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #0c3994;
+                border-radius: 2px; /* 사각형 모양 */
+                margin-right: 8px;
+                position: relative;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            .passenger-radio-item input[type="radio"]:checked {
+                background-color: #0c3994;
+            }
+            .passenger-radio-item input[type="radio"]:checked::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 12px;
+            }
+            .passenger-radio-item:has(input:checked) {
+                background: #0c3994;
+                color: #fff;
+            }
+        </style>
     </head>
     <body>
         <header data-pc_header>
@@ -138,6 +186,19 @@
                     <tr>
                         <th>체크인 예정</th>
                         <td>15시 00분</td>
+                    </tr>
+                    <tr>
+                        <th>조식 이용 여부</th>
+                        <td>
+                            <div class="passenger-radio-group">
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="breakfast_status" value="true" checked /> 이용
+                                </label>
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="breakfast_status" value="false" /> 이용안함
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                     <tr data-text_row>
                         <th>요청 사항</th>
@@ -430,6 +491,9 @@
                                 $("#cardNumber").val(response.cardNumber);
                                 $("#cardExpiryDate").val(response.cardExpiryDate);
                             }
+                            if (response.isBreakfastRequested !== null) {
+                                $("input[name='breakfast_status'][value='" + response.isBreakfastRequested + "']").prop("checked", true);
+                            }
                         },
                         error: function (error) {
                             alert("error");
@@ -639,6 +703,7 @@
                             cardNumber: $("#cardNumber").val(),
                             cardExpiryDate: $("#cardExpiryDate").val(),
                             isIndividualPay: $("input[name='pay']").is(":checked") === true ? true : false,
+                            isBreakfastRequested: $("input[name='breakfast_status']:checked").val() === "true",
                         };
                         $.ajax({
                             type: "POST",
