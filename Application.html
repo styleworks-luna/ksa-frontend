@@ -242,7 +242,7 @@
                 if (phone_num.length === 13) {
                     $("#phone").siblings("[data-error_row]").text("");
                     phone_check = true;
-                    $("#password").val(phone_num);
+                    $("#password").val(phone_num.slice(-4));
                 } else {
                     $("#phone").siblings("[data-error_row]").text("핸드폰 번호를 올바르게 입력해주세요.");
                     phone_check = false;

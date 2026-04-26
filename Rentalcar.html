@@ -16,6 +16,54 @@
         <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
         <script src="/js/common.js"></script>
         <script src="/js/information.js"></script>
+        <style>
+            .passenger-radio-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                padding: 5px 0;
+            }
+            .passenger-radio-item {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 8px 16px;
+                border: 1px solid #0c3994;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 14px;
+                color: #0c3994;
+                transition: all 0.2s;
+            }
+            .passenger-radio-item input[type="radio"] {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #0c3994;
+                border-radius: 2px; /* 사각형 모양 */
+                margin-right: 8px;
+                position: relative;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            .passenger-radio-item input[type="radio"]:checked {
+                background-color: #0c3994;
+            }
+            .passenger-radio-item input[type="radio"]:checked::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 12px;
+            }
+            .passenger-radio-item:has(input:checked) {
+                background: #0c3994;
+                color: #fff;
+            }
+        </style>
     </head>
     <body>
         <header data-pc_header>
@@ -110,7 +158,20 @@
             <div data-content_box>
                 <div data-title_box>렌터카예약</div>
                 <table>
-                    <tr>
+                    <tr data-usage_row>
+                        <th>이용 항목</th>
+                        <td>
+                            <div class="passenger-radio-group">
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="usage_type" value="rental" checked /> 렌터카
+                                </label>
+                                <label class="passenger-radio-item">
+                                    <input type="radio" name="usage_type" value="shuttle" /> 셔틀버스
+                                </label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr data-car_row>
                         <th>차종선택</th>
                         <td>
                             <select data-car_select class="reset">
@@ -295,6 +356,23 @@
                     }
                 }
 
+                // 이용 항목 변경 이벤트 (렌터카/셔틀버스)
+                $(document).on("change", "input[name='usage_type']", function () {
+                    if ($(this).val() === "shuttle") {
+                        $("[data-car_row], [data-date_row]").hide();
+                    } else {
+                        $("[data-car_row], [data-date_row]").show();
+                    }
+                });
+
+                // 초기 로드 시 셔틀버스 선택 여부 확인
+                function checkInitialUsage() {
+                    if ($("input[name='usage_type']:checked").val() === "shuttle") {
+                        $("[data-car_row], [data-date_row]").hide();
+                    }
+                }
+                checkInitialUsage();
+
                 // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
                 if (attend_id !== null) {
                     //이미 신청한 상황이라면 신청내역 보여주기
@@ -312,6 +390,11 @@
                                 alert("이미 제출을 완료하셨기 때문에\n신청 확인 페이지로 이동합니다.");
                                 window.location.href = "./InformationConfirm.html";
                             }
+                            // 저장된 데이터가 셔틀버스 이용인 경우
+                            if (response.isShuttleRequested === true) {
+                                $("input[name='usage_type'][value='shuttle']").prop("checked", true).trigger("change");
+                            }
+
                             if (response.renterCarOrders !== null) {
                                 $(".car").show();
                                 $.each(response.renterCarOrders, function (index, item) {
@@ -622,6 +705,7 @@
                         const data = {
                             attendId: attend_id,
                             renterCars: car_list,
+                            isShuttleRequested: $("input[name='usage_type']:checked").val() === "shuttle",
                             userMemo: $("textarea").val(),
                         };
 
