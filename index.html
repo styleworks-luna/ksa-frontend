@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="kor">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +16,7 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/common.js"></script>
 </head>
+
 <body>
     <div id="main_popup" style="display:none;">
         <div class="popup_content">
@@ -285,7 +287,7 @@
                         <p data-sky>영혼을<br />노래하는 목소리</p>
                         <p data-pc><span>소향</span> | 가수</p>
                         <p data-mobile><span>소향</span><br />가수</p>
-                    </div> -->                    
+                    </div> -->
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -312,20 +314,21 @@
         <div data-footer_wrap>
             <div data-logo_box></div>
             <div data-text_box>
-                    <div data-foot-btn-area>
-                        <a data-bank_download href="" download class="btn">통장사본</a>
-                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
-                    </div>
-                    <p>
-                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
-                        하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                    </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a><a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+                <div data-foot-btn-area>
+                    <a data-bank_download href="" download class="btn">통장사본</a>
+                    <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                </div>
+                <p>
+                    한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                </p>
+                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a><a href="/admin/login.html" target="_blank">관리자
+                        페이지</a></p>
             </div>
         </div>
     </footer>
     <script>
-        const downloadLink = `${base_url}/api/v1/ksa/files?year=`+current_year+`&ksaFileType=BROCHURE`;
+        const downloadLink = `${base_url}/api/v1/ksa/files?year=` + current_year + `&ksaFileType=BROCHURE`;
         $("[data-brochure_link]").attr("href", downloadLink);
         function getDirection() {
             var windowWidth = window.innerWidth;
@@ -427,7 +430,7 @@
         })
 
         /* 레이어 팝업 */
-        $(document).ready(function() {
+        $(document).ready(function () {
             const popupValue = localStorage.getItem("hideMainPopup");
             const now = new Date().getTime();
 
@@ -438,7 +441,7 @@
 
         function closePopup() {
             if ($("#chk_today").is(":checked")) {
-                const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000); 
+                const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
                 localStorage.setItem("hideMainPopup", expiryTime);
             }
             $("#main_popup").fadeOut();
@@ -446,25 +449,25 @@
 
         /* 공싴파트너사 팝업*/
         var partnerSwiper = new Swiper(".partnerSwiper", {
-                slidesPerView: 2,
-                grid: { rows: 1 },
-                spaceBetween: 20,
-                speed: 6000,
-                loopedSlides: 1,
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                },
-                breakpoints: {
-                    768: { slidesPerView: 4, spaceBetween: 30 },
-                    1024: { slidesPerView: 5, spaceBetween: 40 }
-                }
+            slidesPerView: 2,
+            grid: { rows: 1 },
+            spaceBetween: 20,
+            speed: 6000,
+            loopedSlides: 1,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 4, spaceBetween: 30 },
+                1024: { slidesPerView: 5, spaceBetween: 40 }
+            }
         });
-        
+
         // 팝업 열기
         function openPartnerPopup() {
             $("#partner_popup").fadeIn(200);
-            $("body").css("overflow", "hidden"); 
+            $("body").css("overflow", "hidden");
         }
 
         // 팝업 닫기
@@ -475,13 +478,13 @@
 
         // 문의하기 제출
         function submitPartnerInquiry() {
-            
+
             if (!$("input[name='company']").val()) { alert("소속을 입력해주세요."); return; }
             if (!$("input[name='name']").val()) { alert("이름을 입력해주세요."); return; }
             if (!$("input[name='tel']").val()) { alert("연락처를 입력해주세요."); return; }
 
             const formData = $("#partnerForm").serialize();
-            
+
             const $submitBtn = $(".btn_submit");
             $submitBtn.prop("disabled", true).text("전송 중...");
 
@@ -490,16 +493,16 @@
                 type: 'POST',
                 data: formData,
                 dataType: 'json',
-                success: function(response) {
+                success: function (response) {
                     alert("문의가 성공적으로 접수되었습니다. 사무국에서 확인 후 연락드리겠습니다.");
-                    $("#partnerForm")[0].reset(); 
+                    $("#partnerForm")[0].reset();
                     closePartnerPopup();
                 },
-                error: function(xhr, status, error) {
+                error: function (xhr, status, error) {
                     console.error("에러 발생:", error);
                     alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
                 },
-                complete: function() {
+                complete: function () {
                     $submitBtn.prop("disabled", false).text("문의하기");
                 }
             });
@@ -507,7 +510,8 @@
 
     </script>
     <style>
-        
+
     </style>
 </body>
+
 </html>
