@@ -137,7 +137,7 @@
                                                     <th class="table-secondary">기본결제</th>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary">결제수정</th>
+                                                    <th class="table-secondary">조정금액</th>
                                                     <td><input type="text" class="form-control" id="attendTotalCost"
                                                             name="pay_mod"
                                                             oninput="this.value = this.value.replace(/[^-0-9.]/g, '').replace(/(?!^)-/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
@@ -163,6 +163,16 @@
                                                             oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
                                                             placeholder="숫자만 입력 가능합니다"></td>
                                                     <td><span data-admin_total>0</span>원</td>
+                                                </tr>
+                                                <tr class="subtotal-pay">
+                                                    <th class="table-secondary">소계</th>
+                                                    <td><span data-sub_attend>0</span>원</td>
+                                                    <td><span data-sub_flight>0</span>원</td>
+                                                    <td><span data-sub_hotel>0</span>원</td>
+                                                    <td><span data-sub_golf>0</span>원</td>
+                                                    <td><span data-sub_tour>0</span>원</td>
+                                                    <td><span data-sub_rental>0</span>원</td>
+                                                    <td><span data-sub_total>0</span>원</td>
                                                 </tr>
                                             </table>
                                         </div>
@@ -834,6 +844,9 @@
             }
             const id_num = getParameterByName('id');
             const year_num = getParameterByName('year');
+
+            let defaultCosts = { attend: 0, flight: 0, hotel: 0, golf: 0, tour: 0, rental: 0, total: 0 };
+
             const thu_tour = Number(year_num) === 2026 ? "2026-07-24" : "2023-07-26" //연도수정
             const fri_tour = Number(year_num) === 2026 ? "2026-07-25" : "2023-07-27"
 
@@ -907,7 +920,21 @@
                         for_check_total_cost = response.defaultCost.totalCost;
                         for_check_total_cost2 = response.finalCost.totalCost;
 
-                        $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.renterCarTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="2" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
+                        defaultCosts = {
+                            attend: response.defaultCost.attendTotalCost,
+                            flight: response.defaultCost.flightTotalCost,
+                            hotel: response.defaultCost.hotelTotalCost,
+                            golf: response.defaultCost.golfCourseTotalCost,
+                            tour: response.defaultCost.tourTotalCost,
+                            rental: response.defaultCost.renterCarTotalCost,
+                            total: response.defaultCost.totalCost
+                        };
+
+                        $(".default-pay").append('<td>' + response.defaultCost.attendTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.flightTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.hotelTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.golfCourseTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.tourTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.renterCarTotalCost.toLocaleString() + '원</td><td>' + response.defaultCost.totalCost.toLocaleString() + '원</td><td rowspan="3" class="align-middle"><button class="btn pay-btn btn-' + color + ' btn-m active" role="button" aria-pressed="true">' + pay_staus + '</button>');
+
+                        if (typeof calculateTotal === 'function') {
+                            calculateTotal();
+                        }
 
                         $('.pay-btn').on("click", (event) => {
                             if (response.depositStatus === 'NON_PAY') {
