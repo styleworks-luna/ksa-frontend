@@ -195,9 +195,7 @@
             });
 
             $("[data-submit_button]").click(function () {
-                if ($("#purpose").is(":checked") !== true) {
-                    alert("개인정보취급방침에 동의 해주세요.");
-                } else {
+                
                     if ($("input[name='business_num']").val() === "") {
                         alert("사업자 번호를 입력 해주세요.");
                     } else if ($("input[name='business_num']").val().length !== 10) {
@@ -244,7 +242,7 @@
                             },
                         });
                     }
-                }
+                
             });
             $("[data-post_btn]").click(function () {
                 const num = $("#pass_num").val();
