@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
     <script src="/js/common.js"></script>
 </head>
-
+<style>
+[data-content_box].active {
+    display: block !important; 
+}
+</style>
 <body>
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
@@ -135,7 +139,7 @@
                         container.pagination({
                             dataSource: response,
                             callback: function (data, pagination) {
-                                var dataHtml = '<ul id="data-container">';
+                                var dataHtml = '';
                                 $.each(data, function (index, item) {
                                     dataHtml +=
                                         '<li data-td_row><div data-title_row ><div data-index_row="' +
@@ -153,28 +157,59 @@
                                         "</div></li>";
                                 });
 
-                                dataHtml += "</ul>";
-
                                 $("#data-container").html(dataHtml);
 
                                 $("[data-title_row]").click(function () {
-                                    $(this).siblings("[data-content_box]").toggle("active");
-                                    var id_num = $(this).children("[data-index_row]").data("index_row");
-                                    console.log(id_num);
+                                    var $this = $(this);
+                                    var $currentContent = $this.siblings("[data-content_box]");
+
+                                    // 아코디언 동작: 현재 클릭한 것 외에 다른 열려있는 컨텐츠는 모두 닫음
+                                    $("[data-content_box]").not($currentContent).removeClass("active");
+
+                                    // 현재 컨텐츠 토글
+                                    $currentContent.toggleClass("active");
+
+                                    // 컨텐츠가 열릴 때만 데이터를 새로 불러오고 조회수 증가
+                                    if ($currentContent.hasClass("active")) {
+                                        var id_num = $this.find("[data-index_row]").data("index_row");
                                     $.ajax({
                                         type: "PATCH",
                                         url: base_url + "/api/v1/notices/" + id_num + "/view",
-                                        success: function (response) {
+                                        success: function (response) {                                            
                                             var rawContent = response.content;
-                                            var decodedHtml = $('<div/>').html(rawContent).text();
-                                            decodedHtml = decodedHtml.replace(
-                                                /<a href="(https:\/\/www\.youtube\.com\/embed\/.*?)">.*?<\/a>/g,
-                                                '<div class="video-container"><iframe src="$1" width="100%" height="450" frameborder="0" allowfullscreen></iframe></div>'
-                                            );
-                                            $("[data-content_box]").html(decodedHtml);
+                                            var finalHtml = "";
+                                            if (rawContent.indexOf("&lt;") !== -1 || rawContent.indexOf("&quot;") !== -1) {
+                                                finalHtml = $('<div/>').html(rawContent).text();
+                                            } else {
+                                                finalHtml = rawContent;
+                                            }
+
+                                            var $container = $('<div>').html(finalHtml);
+
+                                            const youtubeRegex = /(https:\/\/www\.youtube\.com\/embed\/[^\s<"']+)/g;
+
+                                            $container.contents().each(function walk(index, node) {
+                                                if (node.nodeType === 3) {
+                                                    var text = node.textContent;
+                                                    if (youtubeRegex.test(text)) {
+                                                        var newHtml = text.replace(youtubeRegex, function (url) {
+                                                            return '<div class="video-container" style="margin:20px 0;">' +
+                                                                '<iframe src="' + url + '" width="100%" height="500" ' +
+                                                                'frameborder="0" allowfullscreen></iframe></div>';
+                                                        });
+                                                        $(node).replaceWith(newHtml);
+                                                    }
+                                                } else if (node.nodeType === 1) {
+                                                    $(node).contents().each(walk);
+                                                }
+                                            });
+
+                                            // 현재 클릭된 상세 박스만 업데이트
+                                            $currentContent.html($container.html());
                                         },
                                         error: function (xhr) { },
                                     });
+                                    }
                                 });
                             },
                         });
@@ -192,7 +227,7 @@
                         container.pagination({
                             dataSource: response,
                             callback: function (data, pagination) {
-                                var dataHtml = '<ul id="data-container-mobile">';
+                                var dataHtml = '';
                                 $.each(data, function (index, item) {
                                     dataHtml +=
                                         '<li data-td_row><div data-title_row="' +
@@ -201,23 +236,62 @@
                                         item.title +
                                         "</p><span>" +
                                         item.createdAt +
-                                        "</span></div></div><div data-content_box>" +
+                                        "</span></div></div><div data-content_box class='ql-editor'>" +
                                         item.content +
                                         "</div></li>";
                                 });
 
-                                dataHtml += "</ul>";
                                 $("#data-container-mobile").html(dataHtml);
 
-                                $("[data-title_row]").click(function () {
-                                    $(this).siblings("[data-content_box]").toggle("active");
-                                    var id_num = $(this).attr("data-title_row");
+                                $("#data-container-mobile [data-title_row]").off("click").on("click", function () {
+                                    var $this = $(this);
+                                    var $currentContent = $this.siblings("[data-content_box]");
+
+                                    // 아코디언 동작: 다른 컨텐츠 닫기
+                                    $("#data-container-mobile [data-content_box]").not($currentContent).removeClass("active");
+                                    $currentContent.toggleClass("active");
+
+                                    if ($currentContent.hasClass("active")) {
+                                        var id_num = $this.attr("data-title_row");
                                     $.ajax({
                                         type: "PATCH",
                                         url: base_url + "/api/v1/notices/" + id_num + "/view",
-                                        success: function (response) { },
+                                        success: function (response) {
+                                            var rawContent = response.content;
+                                            var finalHtml = "";
+                                            if (rawContent.indexOf("&lt;") !== -1 || rawContent.indexOf("&quot;") !== -1) {
+                                                finalHtml = $('<div/>').html(rawContent).text();
+                                            } else {
+                                                finalHtml = rawContent;
+                                            }
+
+                                            var $container = $('<div>').html(finalHtml);
+
+                                            // YouTube 링크 iframe 변환 로직 (PC 버전과 동일하게 추가)
+                                            const youtubeRegex = /(https:\/\/www\.youtube\.com\/embed\/[^\s<"']+)/g;
+
+                                            $container.contents().each(function walk(index, node) {
+                                                if (node.nodeType === 3) {
+                                                    var text = node.textContent;
+                                                    if (youtubeRegex.test(text)) {
+                                                        var newHtml = text.replace(youtubeRegex, function (url) {
+                                                            return '<div class="video-container" style="margin:20px 0;">' +
+                                                                '<iframe src="' + url + '" width="100%" height="500" ' +
+                                                                'frameborder="0" allowfullscreen></iframe></div>';
+                                                        });
+                                                        $(node).replaceWith(newHtml);
+                                                    }
+                                                } else if (node.nodeType === 1) {
+                                                    $(node).contents().each(walk);
+                                                }
+                                            });
+
+                                            // 현재 클릭된 상세 박스만 업데이트
+                                            $currentContent.html($container.html());
+                                        },
                                         error: function (xhr) { },
                                     });
+                                    }
                                 });
                             },
                         });
