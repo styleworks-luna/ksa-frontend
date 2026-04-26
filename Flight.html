@@ -16,13 +16,16 @@
         <script src="/js/common.js"></script>
         <script src="/js/information.js"></script>
         <style>
-            .passenger-radio-group {
+            /* 공통 레이아웃 스타일 */
+            .passenger-choice-group, .ticketing-choice-group {
                 display: flex;
                 flex-wrap: wrap;
                 gap: 8px;
                 padding: 5px 0;
             }
-            .passenger-radio-item {
+
+            /* 탑승자 선택 전용 스타일 */
+            .passenger-choice-item {
                 display: inline-flex;
                 align-items: center;
                 cursor: pointer;
@@ -34,22 +37,22 @@
                 color: #0c3994;
                 transition: all 0.2s;
             }
-            .passenger-radio-item input[type="radio"] {
+            .passenger-choice-item input[type="radio"] {
                 appearance: none;
                 -webkit-appearance: none;
                 width: 16px;
                 height: 16px;
                 border: 1px solid #0c3994;
-                border-radius: 2px; /* 사각형 모양 */
+                border-radius: 2px;
                 margin-right: 8px;
                 position: relative;
                 cursor: pointer;
                 background-color: #fff;
             }
-            .passenger-radio-item input[type="radio"]:checked {
+            .passenger-choice-item input[type="radio"]:checked {
                 background-color: #0c3994;
             }
-            .passenger-radio-item input[type="radio"]:checked::after {
+            .passenger-choice-item input[type="radio"]:checked::after {
                 content: '✓';
                 position: absolute;
                 top: 50%;
@@ -58,19 +61,61 @@
                 color: #fff;
                 font-size: 12px;
             }
-            .passenger-radio-item:has(input:checked) {
+            .passenger-choice-item:has(input:checked) {
                 background: #0c3994;
                 color: #fff;
             }
-            .passenger-radio-item.disabled {
+            .passenger-choice-item.disabled {
                 opacity: 0.5;
                 cursor: not-allowed;
                 border-color: #ccc;
                 color: #999;
             }
-            .passenger-radio-item.disabled input {
+            .passenger-choice-item.disabled input {
                 border-color: #ccc;
                 pointer-events: none;
+            }
+
+            /* 발권 여부 선택 전용 스타일 */
+            .ticketing-choice-item {
+                display: inline-flex;
+                align-items: center;
+                cursor: pointer;
+                padding: 8px 16px;
+                border: 1px solid #0c3994;
+                border-radius: 4px;
+                background: #fff;
+                font-size: 14px;
+                color: #0c3994;
+                transition: all 0.2s;
+            }
+            .ticketing-choice-item input[type="radio"] {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #0c3994;
+                border-radius: 2px;
+                margin-right: 8px;
+                position: relative;
+                cursor: pointer;
+                background-color: #fff;
+            }
+            .ticketing-choice-item input[type="radio"]:checked {
+                background-color: #0c3994;
+            }
+            .ticketing-choice-item input[type="radio"]:checked::after {
+                content: '✓';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 12px;
+            }
+            .ticketing-choice-item:has(input:checked) {
+                background: #0c3994;
+                color: #fff;
             }
         </style>
     </head>
@@ -170,7 +215,7 @@
                     <tr>
                         <th>탑승자 선택</th>
                         <td>
-                            <div data-passenger_select_wrap class="passenger-radio-group"></div>
+                            <div data-passenger_select_wrap class="passenger-choice-group"></div>
                         </td>
                     </tr>
 
@@ -214,11 +259,11 @@
                     <tr data-ticketing_row style="display: none;">
                         <th>발권여부</th>
                         <td>
-                            <div class="passenger-radio-group">
-                                <label class="passenger-radio-item">
+                            <div class="ticketing-choice-group">
+                                <label class="ticketing-choice-item">
                                     <input type="radio" name="ticketing_status" value="true" /> 표준협회를 통해 발권합니다
                                 </label>
-                                <label class="passenger-radio-item">
+                                <label class="ticketing-choice-item">
                                     <input type="radio" name="ticketing_status" value="false" /> 표준협회를 통해 발권하지 않습니다
                                 </label>
                             </div>
@@ -454,7 +499,7 @@
                                         $.each(passenger, function (index, item) {
                                             if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
                                         $("[data-passenger_select_wrap]").append(
-                                            '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                            '<label class="passenger-choice-item"><input type="radio" name="passenger_choice" value="' + 
                                             item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
                                             item.name + '</label>'
                                         );
@@ -474,7 +519,7 @@
                                 $("[data-passenger_select_wrap]").empty();
                                         $.each(passenger, function (index, item) {
                                     $("[data-passenger_select_wrap]").append(
-                                        '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                        '<label class="passenger-choice-item"><input type="radio" name="passenger_choice" value="' + 
                                         item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
                                         item.name + '</label>'
                                     );
@@ -565,8 +610,7 @@
                         $(".display").show();
                         $("[data-time_select]").prop("disabled", true);
                         $("[data-passenger_select_wrap] input").prop("disabled", true);
-                        //$(".passenger-radio-item").addClass("disabled");
-                        $(".passenger-radio-item").removeClass("disabled");
+                        $(".passenger-choice-item").addClass("disabled");
                         $("[data-text_row]").hide();
                         $("[data-flight_time_row]").hide();
                         $("[data-ticketing_row]").show();
@@ -577,7 +621,7 @@
                             $(".display").hide();
                             $("[data-time_select]").prop("disabled", false);
                             $("[data-passenger_select_wrap] input").prop("disabled", false);
-                            $(".passenger-radio-item").removeClass("disabled");
+                            $(".passenger-choice-item").removeClass("disabled");
                             $("[data-text_row]").show();
                             $("[data-flight_time_row]").show();
                             $("[data-ticketing_row]").hide();
@@ -656,7 +700,7 @@
                                     $.each(passenger, function (index, item) {
                                         if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
                                             $("[data-passenger_select_wrap]").append(
-                                                '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                                '<label class="passenger-choice-item"><input type="radio" name="passenger_choice" value="' + 
                                                 item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
                                                 item.name + '</label>'
                                             );
@@ -703,7 +747,7 @@
                                     // passenger_list가 비어있을 경우 모든 승객을 드롭다운 메뉴에 추가
                                     $.each(passenger, function (index, item) {
                                         $("[data-passenger_select_wrap]").append(
-                                            '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                            '<label class="passenger-choice-item"><input type="radio" name="passenger_choice" value="' + 
                                             item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
                                             item.name + '</label>'
                                         );
@@ -713,7 +757,7 @@
                                     $.each(passenger, function (index, item) {
                                         if (!passenger_list.some((p) => p.attenderId == item.attenderId)) {
                                             $("[data-passenger_select_wrap]").append(
-                                                '<label class="passenger-radio-item"><input type="radio" name="passenger_choice" value="' + 
+                                                '<label class="passenger-choice-item"><input type="radio" name="passenger_choice" value="' + 
                                                 item.attenderId + '" data-type="' + item.flightCostType + '" data-name="' + item.name + '"> ' + 
                                                 item.name + '</label>'
                                             );
