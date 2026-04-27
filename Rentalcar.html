@@ -394,6 +394,7 @@
                             if (response.isShuttleRequested === true) {
                                 $("input[name='usage_type'][value='shuttle']").prop("checked", true).trigger("change");
                             }
+                            $("textarea").val(response.userMemo);
 
                             if (response.renterCarOrders !== null) {
                                 $(".car").show();
@@ -482,7 +483,7 @@
                                         );
                                     });
                                 }
-                                $("textarea").val(response.userMemo);
+                                
                                 $("[data-total]").text(response.totalCost.toLocaleString());
                             }
                         },

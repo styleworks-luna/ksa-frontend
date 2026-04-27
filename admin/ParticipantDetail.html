@@ -606,7 +606,7 @@
                                                     <th class="table-secondary align-middle">요청사항</th>
                                                     <td>
                                                         <textarea class="form-control" rows="4"
-                                                            id="flight_memo"></textarea>
+                                                            id="flight_memo" readonly></textarea>
                                                     </td>
                                                 </tr>
                                                 <!-- 골프백 픽드랍 -->
@@ -687,7 +687,24 @@
                                                     <th class="table-secondary align-middle">요청사항</th>
                                                     <td>
                                                         <textarea class="form-control" rows="4"
-                                                            id="hotel_memo"></textarea>
+                                                            id="hotel_memo" readonly></textarea>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="table-secondary align-middle">조식 이용 여부</th>
+                                                    <td>
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="breakfast_status" id="breakfast_true"
+                                                                value="true">
+                                                            <label class="form-check-label"
+                                                                for="breakfast_true">이용</label>
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="breakfast_status" id="breakfast_false"
+                                                                value="false" checked>
+                                                            <label class="form-check-label"
+                                                                for="breakfast_false">이용안함</label>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -751,7 +768,7 @@
                                                     </th>
                                                     <td>
                                                         <textarea class="form-control" rows="4" id="golf_memo"
-                                                            placeholder="골프 주문 관련 메모를 입력해주세요."></textarea>
+                                                            readonly></textarea>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -791,6 +808,22 @@
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">06.렌터카예약 정보</p>
                                             <table class="table align-middle" style="color: #222;">
+                                                <tr>
+                                                    <th class="table-secondary align-middle">이용 항목</th>
+                                                    <td>
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="usage_type" id="usage_rental" value="rental"
+                                                                checked>
+                                                            <label class="form-check-label"
+                                                                for="usage_rental">렌터카</label>
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="usage_type" id="usage_shuttle" value="shuttle">
+                                                            <label class="form-check-label"
+                                                                for="usage_shuttle">셔틀버스</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <th class="table-secondary align-middle">차종선택</th>
                                                     <td>
@@ -848,7 +881,7 @@
                                                     <th class="table-secondary align-middle">요청사항</th>
                                                     <td>
                                                         <textarea class="form-control" rows="4"
-                                                            id="car_memo"></textarea>
+                                                            id="car_memo" readonly></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -1764,6 +1797,9 @@
                             $("#cardNumber").val(response.cardNumber);
                             $("#cardExpiryDate").val(response.cardExpiryDate);
                         }
+                        if (response.isBreakfastRequested !== null) {
+                            $("input[name='breakfast_status'][value='" + response.isBreakfastRequested + "']").prop("checked", true);
+                        }
                     },
                     error: function (error) {
                         alert("error")
@@ -1917,7 +1953,8 @@
                         "cardHolderName": $("#cardHolderName").val(),
                         "cardNumber": $("#cardNumber").val(),
                         "cardExpiryDate": $("#cardExpiryDate").val(),
-                        "isIndividualPay": $("input[name='pay']").is(":checked") === true ? true : false
+                        "isIndividualPay": $("input[name='pay']").is(":checked") === true ? true : false,
+                        "isBreakfastRequested": $("input[name='breakfast_status']:checked").val() === "true"
                     };
 
                     $.ajax({
@@ -2748,7 +2785,16 @@
                     },
                     success: function (response) {
                         console.log(response)
+                        // 셔틀버스 이용 여부 로드
+                        if (response.isShuttleRequested === true) {
+                            $("input[name='usage_type'][value='shuttle']").prop("checked", true).trigger("change");
+                        } else {
+                            $("input[name='usage_type'][value='rental']").prop("checked", true).trigger("change");
+                        }
+                        $("#car_memo").val(response.userMemo);
                         if (response.renterCarOrders !== null) {
+
+
                             $(".car").show();
                             $.each(response.renterCarOrders, function (index, item) {
                                 cal_date = (new Date(item.renterStartDate) - new Date(item.renterEndDate)) / (1000 * 60 * 60 * 24);
@@ -2777,12 +2823,23 @@
                                 $("[data-show_row='car']").append("<div data-car_add_row='" + item.renterCarId + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + item.renterStartDate + " " + item.renterStartTime.slice(0, -3) + " ~ " + item.renterEndDate + "  " + item.renterEndTime.slice(0, -3) + "] " + item.renterCar.name + "<span data-bar>ㅣ</span><span data-cost>" + (item.orderCost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + index + "' data-pick_jeju data-pick value='JEJU_AIRPORT' " + (item.pickUpPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='pickup" + index + "' value='LOTTE_HOTEL' data-pick_hotel data-pick " + (item.pickUpPlace === 'LOTTE_HOTEL' ? "checked" : "") + ">롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + index + "' value='JEJU_AIRPORT' data-back_jeju data-back " + (item.returnPlace === 'JEJU_AIRPORT' ? "checked" : "") + "> 제주공항</label><label><input  type='radio' name='back" + index + "' value='LOTTE_HOTEL' data-back_hotel data-back " + (item.returnPlace === 'LOTTE_HOTEL' ? "checked" : "") + "> 롯데호텔</label></div></div>");
                             });
 
-                            $("#car_memo").val(response.userMemo);
+
                             $("[data-car_total]").text(response.totalCost.toLocaleString());
                         }
                     },
                     error: function (error) {
                         alert("error")
+                    }
+                });
+
+                // 이용 항목 변경에 따른 UI 토글 로직 추가
+                $(document).on("change", "input[name='usage_type']", function () {
+                    if ($(this).val() === "shuttle") {
+                        $("[data-car_select]").closest("tr").hide();
+                        $("[data-rental_start_date]").closest("tr").hide();
+                    } else {
+                        $("[data-car_select]").closest("tr").show();
+                        $("[data-rental_start_date]").closest("tr").show();
                     }
                 });
 
@@ -2951,6 +3008,7 @@
                     const data = {
                         "attendId": id_num,
                         "renterCars": car_list,
+                        "isShuttleRequested": $("input[name='usage_type']:checked").val() === "shuttle",
                         "userMemo": $("#car_memo").val(),
                     };
 
