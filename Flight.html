@@ -129,6 +129,59 @@
             background: #0c3994;
             color: #fff;
         }
+
+        /* 골프백 픽드랍 선택 전용 스타일 */
+        .golf-bag-choice-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 5px 0;
+        }
+
+        .golf-bag-choice-item {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 16px;
+            border: 1px solid #0c3994;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 14px;
+            color: #0c3994;
+            transition: all 0.2s;
+        }
+
+        .golf-bag-choice-item input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #0c3994;
+            border-radius: 2px;
+            margin-right: 8px;
+            position: relative;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .golf-bag-choice-item input[type="radio"]:checked {
+            background-color: #0c3994;
+        }
+
+        .golf-bag-choice-item input[type="radio"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .golf-bag-choice-item:has(input:checked) {
+            background: #0c3994;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -225,7 +278,7 @@
         <div data-content_box>
             <div data-title_box>항공예약</div>
             <table>
-                <tr>
+                <tr data-passenger_box>
                     <th>탑승자 선택</th>
                     <td>
                         <div data-passenger_select_wrap class="passenger-choice-group"></div>
@@ -278,7 +331,7 @@
                                 <input type="radio" name="ticketing_status" value="true" /> 표준협회를 통해 발권합니다
                             </label>
                             <label class="ticketing-choice-item">
-                                <input type="radio" name="ticketing_status" value="false" /> 표준협회를 통해 발권하지 않습니다
+                                <input type="radio" name="ticketing_status" value="false" checked /> 표준협회를 통해 발권하지 않습니다
                             </label>
                         </div>
                     </td>
@@ -293,6 +346,19 @@
                     <th>요청 사항</th>
                     <td>
                         <textarea name="" id="" cols="30" rows="10" placeholder="요청사항을 입력해주세요."></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>골프백 픽드랍</th>
+                    <td>
+                        <div class="golf-bag-choice-group">
+                            <label class="golf-bag-choice-item">
+                                <input type="radio" name="golf_bag_pickup" value="true" /> 신청
+                            </label>
+                            <label class="golf-bag-choice-item">
+                                <input type="radio" name="golf_bag_pickup" value="false" checked /> 미신청
+                            </label>
+                        </div>
                     </td>
                 </tr>
                 <tr>
@@ -382,6 +448,7 @@
             freeMode: true,
         });
         $(document).ready(function () {
+            $("[data-passenger_box]").hide();
             //250509 임시저장 클릭시
             $("[data-save_button]").on("click", function () {
                 $("[data-popup_box]").show();
@@ -556,6 +623,9 @@
                             if (response.isTicketingRequested !== null) {
                                 $("input[name='ticketing_status'][value='" + response.isTicketingRequested + "']").prop("checked", true);
                             }
+                            if (response.isGolfBagPickupRequested !== null) {
+                                $("input[name='golf_bag_pickup'][value='" + response.isGolfBagPickupRequested + "']").prop("checked", true);
+                            }
                         }
                     },
                     error: function (error) {
@@ -628,6 +698,7 @@
                     $("[data-text_row]").hide();
                     $("[data-flight_time_row]").hide();
                     $("[data-ticketing_row]").show();
+                    $("[data-passenger_box]").hide();
                 });
                 $('input[name="city"]')
                     .not("[data-none_input]")
@@ -639,6 +710,7 @@
                         $("[data-text_row]").show();
                         $("[data-flight_time_row]").show();
                         $("[data-ticketing_row]").hide();
+                        $("[data-passenger_box]").show();
                     });
 
                 // 비행시간과 탑승자 선택 후 리스트에 추가
@@ -798,6 +870,7 @@
                         individualOrderLandingTime: $("[data-time_picker]").val(),
                         flightTickets: passenger_list,
                         isTicketingRequested: $("input[name='ticketing_status']:checked").val() === "true",
+                        isGolfBagPickupRequested: $("input[name='golf_bag_pickup']:checked").val() === "true",
                         userMemo: $("textarea").val(),
                     };
                     $.ajax({

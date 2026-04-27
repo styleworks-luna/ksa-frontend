@@ -183,22 +183,39 @@
                                                     <td>
                                                         <div class="border p-3 mt-2">
                                                             <div class="form-check form-check-inline pr-4">
-                                                                <input class="form-check-input" type="checkbox" value="attendCost" id="attendCost" name="">
-                                                                <label class="form-check-label mr-2" for="attendCost">참가비</label>
-                                                                <input class="form-check-input" type="checkbox" value="flightCost" id="flightCost" name="">
-                                                                <label class="form-check-label mr-2" for="flightCost">항공비</label>
-                                                                <input class="form-check-input" type="checkbox" value="hotelCost" id="hotelCost" name="">
-                                                                <label class="form-check-label mr-2" for="hotelCost">호텔비</label>
-                                                                <input class="form-check-input" type="checkbox" value="golfCost" id="golfCost" name="">
-                                                                <label class="form-check-label mr-2" for="golfCost">골프비</label>
-                                                                <input class="form-check-input" type="checkbox" value="tourCost" id="tourCost" name="">
-                                                                <label class="form-check-label mr-2" for="tourCost">관광비</label>
-                                                                <input class="form-check-input" type="checkbox" value="renterCarCost" id="renterCarCost" name="">
-                                                                <label class="form-check-label mr-2" for="renterCarCost">렌트카</label>
-                                                                <input class="form-check-input" type="checkbox" value="sendCostEmail" id="sendCostEmail" name="">
-                                                                <label class="form-check-label mr-2" for="sendCostEmail">결제메일 발송</label>
-                                                                <input class="form-check-input" type="checkbox" value="sendAttendEmail" id="sendAttendEmail" name="">
-                                                                <label class="form-check-label mr-2" for="sendAttendEmail">등록안내 발송</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="attendCost" id="attendCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="attendCost">참가비</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="flightCost" id="flightCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="flightCost">항공비</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="hotelCost" id="hotelCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="hotelCost">호텔비</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="golfCost" id="golfCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="golfCost">골프비</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="tourCost" id="tourCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="tourCost">관광비</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="renterCarCost" id="renterCarCost" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="renterCarCost">렌트카</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="sendCostEmail" id="sendCostEmail" name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="sendCostEmail">결제메일 발송</label>
+                                                                <input class="form-check-input" type="checkbox"
+                                                                    value="sendAttendEmail" id="sendAttendEmail"
+                                                                    name="">
+                                                                <label class="form-check-label mr-2"
+                                                                    for="sendAttendEmail">등록안내 발송</label>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -209,13 +226,17 @@
                                                         <div class="row">
                                                             <div class="col-2">
                                                                 <label>회사 부담</label>
-                                                                <input type="text" class="form-control" id="company_cost" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
-                                                                placeholder="숫자만 입력 가능합니다" >
+                                                                <input type="text" class="form-control"
+                                                                    id="company_cost" min="0"
+                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                                                    placeholder="숫자만 입력 가능합니다">
                                                             </div>
                                                             <div class="col-2">
                                                                 <label>개인 부담</label>
-                                                                <input type="text" class="form-control" id="personal_cost" min="0" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
-                                                                placeholder="숫자만 입력 가능합니다" >
+                                                                <input type="text" class="form-control"
+                                                                    id="personal_cost" min="0"
+                                                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')"
+                                                                    placeholder="숫자만 입력 가능합니다">
                                                             </div>
                                                         </div>
                                                     </td>
@@ -226,7 +247,7 @@
                                                         <textarea class="form-control" rows="4"
                                                             id="admin_memo"></textarea>
                                                     </td>
-                                                </tr>                                                
+                                                </tr>
                                             </table>
                                         </div>
                                         <div class="row justify-content-center" style="width: 99%;">
@@ -237,7 +258,7 @@
                                             <span class="font-weight-bold pr-3" style="font-size: 25px;">02. 비밀번호</span>
                                             <button type="button"
                                                 class="btn password-reset btn-danger btn-m">초기화</button>
-                                            <p class="mt-3">※ 비밀번호 초기화 시 신청한 대표자/교육담당자/정산담당자 이메일로 임시 비밀번호가 발급됩니다.</p>
+                                            <p class="mt-3">※ 비밀번호 초기화 시 신청한 대표자의 휴대폰번호 뒤 4자리로 초기화됩니다.</p>
                                         </div>
                                     </div>
                                     <div id="" class="tab pt-5" style="width: 100%">
@@ -248,13 +269,17 @@
                                                     <th width="10%">KSA회원사 여부 선택</th>
                                                     <td colspan="3">
                                                         <div class="form-check form-check-inline pr-4">
-                                                            <input class="form-check-input" type="radio" name="friendly" id="MEMBER" value="MEMBER">
+                                                            <input class="form-check-input" type="radio" name="friendly"
+                                                                id="MEMBER" value="MEMBER">
                                                             <label class="form-check-label" for="MEMBER">회원사</label>
-                                                            <input class="form-check-input ml-3" name="friendly" type="radio" id="NOT_MEMBER" value="NOT_MEMBER">
-                                                            <label class="form-check-label" for="NOT_MEMBER">비회원사</label>
-                                                            <input class="form-check-input ml-3" name="friendly" type="radio" id="HIGHEST_LEVEL"
-                                                                value="HIGHEST_LEVEL">
-                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정 원우(AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
+                                                            <input class="form-check-input ml-3" name="friendly"
+                                                                type="radio" id="NOT_MEMBER" value="NOT_MEMBER">
+                                                            <label class="form-check-label"
+                                                                for="NOT_MEMBER">비회원사</label>
+                                                            <input class="form-check-input ml-3" name="friendly"
+                                                                type="radio" id="HIGHEST_LEVEL" value="HIGHEST_LEVEL">
+                                                            <label class="form-check-label" for="HIGHEST_LEVEL">최고위과정
+                                                                원우(AMQP, 기술경영, 인문경영) 및 서비스포럼사</label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -268,15 +293,20 @@
                                                 <tr>
                                                     <th rowspan="10">기업정보</th>
                                                     <th width="10%" class="table-secondary align-middle">회사명</th>
-                                                    <td><input type="text" id="companyName" class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" id="companyName" class="form-control"
+                                                            style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">대표자명</th>
-                                                    <td><input type="text" id="companyBoss" class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" id="companyBoss" class="form-control"
+                                                            style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">사업자번호</th>
-                                                    <td><input type="text" placeholder="‘-’없이 입력해주세요." oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')" maxlength="10" id="companyBusinessNumber" class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" placeholder="‘-’없이 입력해주세요."
+                                                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                                                            maxlength="10" id="companyBusinessNumber"
+                                                            class="form-control" style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" rowspan="3" class="table-secondary align-middle">
@@ -316,11 +346,13 @@
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">업체코드</th>
-                                                    <td><input type="text" id="code" class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" id="code" class="form-control"
+                                                            style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th width="10%" class="table-secondary align-middle">지역본부</th>
-                                                    <td><input type="text" id="location" class="form-control" style="width: 50%"></td>
+                                                    <td><input type="text" id="location" class="form-control"
+                                                            style="width: 50%"></td>
                                                 </tr>
                                                 <tr>
                                                     <th rowspan="9">참가자정보</th>
@@ -455,7 +487,7 @@
                                                     <th width="10%" class="table-secondary align-middle">사업자등록증</th>
                                                     <td colspan="3">
                                                         <div class="d-flex align-items-center">
-                                                            
+
                                                             <span class="pr-3"></span>
                                                             <div class="custom-file" style="width: 40%;">
                                                                 <input type="file" class="custom-file-input"
@@ -517,7 +549,8 @@
                                                     <td class="p-0">
                                                         <div class="form-check form-check-inline pr-4 airport pb-3 pt-3"
                                                             style="display: none;">
-                                                            <input data-date_picker class="mr-3 ml-3" type="date"  min="2026-07-23" max="2026-07-26">
+                                                            <input data-date_picker class="mr-3 ml-3" type="date"
+                                                                min="2026-07-23" max="2026-07-26">
                                                             <input type="time" data-time_picker>
                                                         </div>
                                                     </td>
@@ -529,6 +562,24 @@
                                                             data-time_select>
                                                             <option selected disabled value="">선택</option>
                                                         </select>
+                                                    </td>
+                                                </tr>
+                                                <!-- 발권여부 -->
+                                                <tr class="airport" style="display: none;">
+                                                    <th class="table-secondary align-middle">발권 여부</th>
+                                                    <td>
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="ticketing_status" id="ticketing_true"
+                                                                value="true">
+                                                            <label class="form-check-label" for="ticketing_true">표준협회
+                                                                발권</label>
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="ticketing_status" id="ticketing_false"
+                                                                value="false" checked>
+                                                            <label class="form-check-label" for="ticketing_false">개별
+                                                                발권</label>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -577,12 +628,15 @@
                                             <p class="font-weight-bold" style="font-size: 25px;">05.호텔예약 정보</p>
                                             <table class="table align-middle" style="color: #222;">
                                                 <tr>
-                                                    <th class="table-secondary align-middle" style="width: 10%;">투숙기간</th>
+                                                    <th class="table-secondary align-middle" style="width: 10%;">투숙기간
+                                                    </th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2026-07-21" max="2026-07-29" data-placeholder="시작일 선택">
+                                                            <input data-start_date type="date" min="2026-07-21"
+                                                                max="2026-07-29" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2026-07-22" max="2026-07-30" data-placeholder="종료일 선택">
+                                                            <input data-end_date type="date" min="2026-07-22"
+                                                                max="2026-07-30" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
                                                     </td>
@@ -597,7 +651,9 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary align-middle p-0"><span class="room pb-3 pt-3 pl-3" style="display: none;">객실 현황</span></th>
+                                                    <th class="table-secondary align-middle p-0"><span
+                                                            class="room pb-3 pt-3 pl-3" style="display: none;">객실
+                                                            현황</span></th>
                                                     <td class="p-0">
                                                         <div data-show_row="hotel" class="room pb-3 pt-3 pl-3"
                                                             style="display: none;">
@@ -613,13 +669,17 @@
                                                 <tr>
                                                     <th class="table-secondary align-middle">요청사항</th>
                                                     <td>
-                                                        <textarea class="form-control" rows="4" id="hotel_memo"></textarea>
+                                                        <textarea class="form-control" rows="4"
+                                                            id="hotel_memo"></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th class="table-secondary align-middle">금액합계</th>
                                                     <td>
-                                                        <p><span data-hotel_total class="font-weight-bold text-primary">0</span>원<label>( <input type="checkbox" name="pay" id="isIndividualPay" class="mr-2">호텔비 별도 결제 )</label></p>
+                                                        <p><span data-hotel_total
+                                                                class="font-weight-bold text-primary">0</span>원<label>(
+                                                                <input type="checkbox" name="pay" id="isIndividualPay"
+                                                                    class="mr-2">호텔비 별도 결제 )</label></p>
                                                         <div data-card_info_box style="display: none;">
                                                             <p class="font-weight-bold">카드 정보 입력</p>
                                                             <label for="cardType">
@@ -632,13 +692,15 @@
                                                             </label>
                                                             <label for="cardNumber">
                                                                 카드번호
-                                                                <input type="text" id="cardNumber" placeholder="카드번호 16자리"
+                                                                <input type="text" id="cardNumber"
+                                                                    placeholder="카드번호 16자리"
                                                                     oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/^(\d{4})(\d{4})(\d{4})(\d{4})$/, `$1-$2-$3-$4`)"
                                                                     maxlength="16">
                                                             </label>
                                                             <label for="cardExpiryDate">
                                                                 유효기간
-                                                                <input type="text" id="cardExpiryDate" placeholder="ex) 2035년 01월">
+                                                                <input type="text" id="cardExpiryDate"
+                                                                    placeholder="ex) 2035년 01월">
                                                             </label>
                                                         </div>
                                                     </td>
@@ -646,7 +708,8 @@
                                             </table>
                                         </form>
                                         <div class="row justify-content-center mt-5" style="width: 99%;">
-                                            <button type="button" class="hotel-save btn btn-primary btn-m">입력사항 저장</button>
+                                            <button type="button" class="hotel-save btn btn-primary btn-m">입력사항
+                                                저장</button>
                                         </div>
                                     </div>
                                     <div id="" class="tab pt-5" style="width: 100%">
@@ -659,15 +722,19 @@
                                             </table>
                                             <table class="table align-middle" style="color: #222;">
                                                 <tr>
-                                                    <th class="table-secondary align-middle" style="width: 222px">금액합계</th>
+                                                    <th class="table-secondary align-middle" style="width: 222px">금액합계
+                                                    </th>
                                                     <td>
-                                                        <p><span data-golf_total class="font-weight-bold text-primary">0</span>원</p>
+                                                        <p><span data-golf_total
+                                                                class="font-weight-bold text-primary">0</span>원</p>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary align-middle" style="width: 222px">요청사항</th>
+                                                    <th class="table-secondary align-middle" style="width: 222px">요청사항
+                                                    </th>
                                                     <td>
-                                                        <textarea class="form-control" rows="4" id="golf_memo" placeholder="골프 주문 관련 메모를 입력해주세요."></textarea>
+                                                        <textarea class="form-control" rows="4" id="golf_memo"
+                                                            placeholder="골프 주문 관련 메모를 입력해주세요."></textarea>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -676,24 +743,31 @@
                                         <form>
                                             <p class="font-weight-bold" style="font-size: 25px;">07. 관광 정보</p>
                                             <p class="font-weight-bold text-primary">7월 24일 (목)</p>
-                                            <table data-tour_thu_table class="table align-middle mb-0" style="color: #222;"></table>
-                                            <table data-family_thu_table class="table align-middle" style="color: #222;"></table>
+                                            <table data-tour_thu_table class="table align-middle mb-0"
+                                                style="color: #222;"></table>
+                                            <table data-family_thu_table class="table align-middle"
+                                                style="color: #222;"></table>
 
                                             <p class="font-weight-bold text-primary">7월 25일 (금)</p>
-                                            <table data-tour_fri_table class="table align-middle mb-0" style="color: #222;">
+                                            <table data-tour_fri_table class="table align-middle mb-0"
+                                                style="color: #222;">
                                             </table>
-                                            <table data-family_fri_table class="table align-middle mb-0" style="color: #222;"></table>
+                                            <table data-family_fri_table class="table align-middle mb-0"
+                                                style="color: #222;"></table>
                                             <table class="table align-middle" style="color: #222;">
                                                 <tr>
-                                                    <th class="table-secondary align-middle" style="width: 222px">금액합계</th>
+                                                    <th class="table-secondary align-middle" style="width: 222px">금액합계
+                                                    </th>
                                                     <td>
-                                                        <p><span data-program_total class="font-weight-bold text-primary">0</span>원</p>
+                                                        <p><span data-program_total
+                                                                class="font-weight-bold text-primary">0</span>원</p>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </form>
                                         <div class="row justify-content-center mt-5" style="width: 99%;">
-                                            <button type="button" class="program-save btn btn-primary btn-m">입력사항 저장</button>
+                                            <button type="button" class="program-save btn btn-primary btn-m">입력사항
+                                                저장</button>
                                         </div>
                                     </div>
                                     <div id="" class="tab pt-5" style="width: 100%">
@@ -703,7 +777,8 @@
                                                 <tr>
                                                     <th class="table-secondary align-middle">차종선택</th>
                                                     <td>
-                                                        <select data-car_select class="form-control font-weight-bold reset">
+                                                        <select data-car_select
+                                                            class="form-control font-weight-bold reset">
                                                             <option selected disabled value="">선택</option>
                                                         </select>
                                                     </td>
@@ -714,8 +789,10 @@
                                                         <div data-date_box>
                                                             <div data-time_box class="d-flex">
                                                                 <span class="font-weight-bold pr-3">시작일 선택</span>
-                                                                <input data-rental_start_date type="date" min="2026-07-21" max="2026-07-30" class="reset mr-2">
-                                                                <div data-check_in_box >
+                                                                <input data-rental_start_date type="date"
+                                                                    min="2026-07-21" max="2026-07-30"
+                                                                    class="reset mr-2">
+                                                                <div data-check_in_box>
                                                                     <select data-start_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
                                                                     </select><span>시</span>
@@ -726,7 +803,8 @@
                                                             </div>
                                                             <div data-time_box class="d-flex pt-3">
                                                                 <span class="font-weight-bold pr-3">반납일 선택</span>
-                                                                <input data-rental_end_date type="date" min="2026-07-21" max="2026-07-30" class="reset mr-2">
+                                                                <input data-rental_end_date type="date" min="2026-07-21"
+                                                                    max="2026-07-30" class="reset mr-2">
                                                                 <div data-check_in_box>
                                                                     <select data-end_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
@@ -740,28 +818,34 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary align-middle p-0"><span class="car pb-3 pt-3 pl-3" style="display: none;">차량현황</span></th>
+                                                    <th class="table-secondary align-middle p-0"><span
+                                                            class="car pb-3 pt-3 pl-3"
+                                                            style="display: none;">차량현황</span></th>
                                                     <td class="p-0">
-                                                        <div data-show_row="car" class="car pb-3 pt-3 pl-3" style="display: none;">
+                                                        <div data-show_row="car" class="car pb-3 pt-3 pl-3"
+                                                            style="display: none;">
                                                         </div>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th class="table-secondary align-middle">요청사항</th>
                                                     <td>
-                                                        <textarea class="form-control" rows="4" id="car_memo"></textarea>
+                                                        <textarea class="form-control" rows="4"
+                                                            id="car_memo"></textarea>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <th class="table-secondary align-middle">금액합계</th>
                                                     <td>
-                                                        <p><span data-car_total class="font-weight-bold text-primary">0</span>원</p>
+                                                        <p><span data-car_total
+                                                                class="font-weight-bold text-primary">0</span>원</p>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </form>
                                         <div class="row justify-content-center mt-5" style="width: 99%;">
-                                            <button type="button" class="car-save btn btn-primary btn-m">입력사항 저장</button>
+                                            <button type="button" class="car-save btn btn-primary btn-m">입력사항
+                                                저장</button>
                                         </div>
                                     </div>
                                 </div>
@@ -969,7 +1053,7 @@
                             if (response.depositStatus === 'NON_PAY') {
                                 if (confirm("결제 상태를 완납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": base_url + "/api/v1/attends/"+ id_num +"/deposit-status/full",
+                                        "url": base_url + "/api/v1/attends/" + id_num + "/deposit-status/full",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -988,7 +1072,7 @@
                             } else if (response.depositStatus === 'FULL_PAY') {
                                 if (confirm("결제 상태를 미납으로 변경 하시겠습니까?")) {
                                     $.ajax({
-                                        "url": base_url + "/api/v1/attends/" + id_num +"/deposit-status/non",
+                                        "url": base_url + "/api/v1/attends/" + id_num + "/deposit-status/non",
                                         "method": "PATCH",
                                         beforeSend: function (xhr) {
                                             if (localStorage.getItem('token')) {
@@ -1043,8 +1127,8 @@
                             let send_total_cost = parseInt(data.adminMemo.totalCompanyCost) + parseInt(data.adminMemo.totalPersonalCost);
                             let print_sum_check_total_cost = sum_check_total_cost.toLocaleString();
 
-                            if(send_total_cost !== sum_check_total_cost) {
-                                if(confirm("회사비용 + 개인비용 총합이 총계(" + print_sum_check_total_cost + ")와 일치하지 않습니다.\n그래도 저장 하시겠습니까?")) {
+                            if (send_total_cost !== sum_check_total_cost) {
+                                if (confirm("회사비용 + 개인비용 총합이 총계(" + print_sum_check_total_cost + ")와 일치하지 않습니다.\n그래도 저장 하시겠습니까?")) {
                                     $.ajax({
                                         "url": base_url + "/api/v1/attends/summary",
                                         "method": "PATCH",
@@ -1248,12 +1332,12 @@
                 $('.info-save').on("click", (event) => {
                     const cal_file = $(".custom-file-input").get(0).files[0];
                     const cal_file_val = cal_file === undefined ? "" : cal_file;
-                    
+
                     const data = {
                         "attendId": id_num,
                         "ksaCompanyType": $("input[name='friendly']:checked").val(),
                         "company": {
-                            "companyCode":  $("#code").val(),
+                            "companyCode": $("#code").val(),
                             "regionalHead": $("#location").val(),
                             "companyAddress": $("#sample6_address").val(),
                             "companyDetailAddress": $("#sample6_detailAddress").val(),
@@ -1325,7 +1409,7 @@
 
                 });
 
-                       //---------------------- 항공시간 및 동행인 가져오기 ----------------------------
+                //---------------------- 항공시간 및 동행인 가져오기 ----------------------------
 
                 let flight_passenger = [];
                 let flight_total = [];
@@ -1358,7 +1442,7 @@
                     let value = $(this).val();
                     $.ajax({
                         "type": "GET",
-                        "url": base_url + "/api/v1/flights?year="+current_year+"&startCity=" + value + "&hideFullFlight=false",
+                        "url": base_url + "/api/v1/flights?year=" + current_year + "&startCity=" + value + "&hideFullFlight=false",
                         beforeSend: function (xhr) {
                             if (sessionStorage.getItem('token')) {
                                 xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -1404,11 +1488,14 @@
                                 });
                             });
                         }
-                        if(response.isIndividualOrder === true){
+                        if (response.isIndividualOrder === true) {
                             $(".airport").show();
                             $("[data-none_input]").attr("checked", true)
                             $("[data-date_picker]").val(response.individualOrderLandingDate);
                             $("[data-time_picker]").val(response.individualOrderLandingTime);
+                        }
+                        if (response.isTicketingRequested !== null) {
+                            $("input[name='ticketing_status'][value='" + response.isTicketingRequested + "']").prop("checked", true);
                         }
                         $("#flight_memo").val(response.userMemo);
 
@@ -1570,6 +1657,7 @@
                         "individualOrderLandingDate": $("[data-date_picker]").val(),
                         "individualOrderLandingTime": $("[data-time_picker]").val(),
                         "flightTickets": flight_passenger_list,
+                        "isTicketingRequested": $("input[name='ticketing_status']:checked").val() === "true",
                         "userMemo": $("#flight_memo").val()
                     };
 
@@ -1640,7 +1728,7 @@
 
                                 if (item.hotel.type === "INDIVIDUAL") {
                                     $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.bedType + " (롯데호텔 外)</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
-                                }else{
+                                } else {
                                     $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'>[" + item.stayStartDate + "~" + item.stayEndDate + "] " + item.hotel.hotelName + " " + item.hotel.roomType + "/" + item.hotel.bedType + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + item.cost.toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check " + (item.isSubBedPresent === true ? 'checked' : '') + "> 보조침대 신청</label></div></div>");
                                 }
                             });
@@ -1664,7 +1752,7 @@
                 // 호텔 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
+                    "url": base_url + "/api/v1/hotels?year=" + current_year + "&isRoomRemaining=false",
                     success: function (response) {
                         $.each(response, function (index, item) {
                             $("[data-room_select]").append('<option data-cost="' + item.cost + '" value="' + item.hotelId + '">' + (item.type === "INDIVIDUAL" ? "" : item.hotelName) + " " + (item.type === "INDIVIDUAL" ? "숙소개별예약 (롯데호텔 外)" : item.roomType + " / " + item.bedType) + (item.type === "INDIVIDUAL" ? "" : (" / " + item.cost.toLocaleString() + "원")) + '</option>');
@@ -1707,7 +1795,7 @@
                         $(".room").show();
                         if (hotel_cost === 0) {
                             $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "</p><button type='button' class='btn btn-danger ml-3'>삭제</button></div></div>");
-                        }else{
+                        } else {
                             $("[data-show_row='hotel']").append("<div data-hotel_add_row><div class='d-flex align-items-center'><p class='mb-0'><p>[" + start_val + "~" + end_val + "] " + hotel_txt + "<span data-bar>ㅣ</span><span class='font-weight-bold' data-cost>" + (hotel_cost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div> <div data-add_check><label><input type='checkbox' value='48400' data-bed_check> 보조침대 신청</label></div></div>");
                         }
                         room_list.push({
@@ -1855,7 +1943,7 @@
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
                     "type": "GET",
-                    "url": base_url + "/api/v1/programs?date="+ thu_tour +"&hideFullProgram=false",
+                    "url": base_url + "/api/v1/programs?date=" + thu_tour + "&hideFullProgram=false",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -1863,7 +1951,7 @@
                         const family = data.familySessions;
                         $.each(golf, function (index, item) {
                             let full = item.capacity === item.currentAttenderNumber;
-                            $("[data-golf_thu_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 ("+ thu_tour +")</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td class='align-middle' data-amount_row>" + item.cost.toLocaleString() + "원</td><td class='align-middle'><select " + (full === true ? "disabled" : "") + " data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "' data-thu_golf data-golf><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
+                            $("[data-golf_thu_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 (" + thu_tour + ")</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td class='align-middle' data-amount_row>" + item.cost.toLocaleString() + "원</td><td class='align-middle'><select " + (full === true ? "disabled" : "") + " data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "' data-thu_golf data-golf><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
                         });
                         $.each(tour, function (index, array) {
                             $.each(array, function (index, item) {
@@ -1876,7 +1964,7 @@
                         //투어 정보 가져오기 (금)
                         $.ajax({
                             "type": "GET",
-                            "url": base_url + "/api/v1/programs?date="+ fri_tour +"&hideFullProgram=false",
+                            "url": base_url + "/api/v1/programs?date=" + fri_tour + "&hideFullProgram=false",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -1884,7 +1972,7 @@
                                 const family = data.familySessions;
                                 $.each(golf, function (index, item) {
                                     let full = item.capacity === item.currentAttenderNumber;
-                                    $("[data-golf_fri_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 ("+ fri_tour +")</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select class='pl-1' " + (full === true ? "disabled" : "") + " data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "' data-golf data-fri_golf><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'></div></td></tr>");
+                                    $("[data-golf_fri_table]").append("<tr class='pt-3 pb-3' " + (full === true ? "data-full_row" : "") + "><td class='table-secondary align-middle font-weight-bold pt-4 pb-4 pl-3' style='width: 222px'>골프 (" + fri_tour + ")</td><td class='align-middle pl-3' style='width:20%'>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select class='pl-1' " + (full === true ? "disabled" : "") + " data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "' data-golf data-fri_golf><option selected disabled value=''>선택</option></select></td><td style='width:30%'><div data-show_box='golf' class='mb-2'></div></td></tr>");
                                 });
 
                                 $.each(tour, function (index, array) {
@@ -2045,7 +2133,7 @@
 
                                                 $showBox.append("<div class='mb-2' data-family_row data-date='" + item.familySession.startDate + "' data-attender_id='" + item.attenderId + "' data-family_id='" + item.familySession.id + "' data-cost='" + 0 + "'><span>" + item.attenderName + "</span><button type='button' class='btn btn-danger ml-3'>삭제</button></div>");
                                             });
-                                            
+
                                             // API 호출하여 동행인 목록 가져오기 (목 골프)
                                             $.ajax({
                                                 "type": "GET",
@@ -2450,7 +2538,7 @@
                     }
                 });
 
-                 // 패밀리 참여자 선택시 리스트에 추가
+                // 패밀리 참여자 선택시 리스트에 추가
                 $(document).on("change", "[data-family]", function () {
                     const val = $(this).val();
                     const text = $(this).find("option:selected").text();
@@ -2680,7 +2768,7 @@
                 // 렌터카 데이터 불러오기
                 $.ajax({
                     "type": "GET",
-                    "url": base_url + "/api/v1/renter-cars?year="+ year_num +"&hideFullRenterCar=false",
+                    "url": base_url + "/api/v1/renter-cars?year=" + year_num + "&hideFullRenterCar=false",
                     success: function (response) {
                         console.log(response)
                         $.each(response, function (index, item) {
@@ -2795,7 +2883,7 @@
 
                         $("[data-show_row='car']").append("<div data-car_add_row='" + car_val + "'><div data-info_box class='d-flex'><p class='font-weight-bold'>[" + start_val + " " + start_hour + ":" + start_min + "~" + end_val + " " + end_hour + ":" + end_min + "] " + car_txt + "<span data-bar>ㅣ</span><span data-cost>" + (car_cost * cal_date).toLocaleString() + "원</span></p><button type='button' class='btn btn-danger ml-3'>삭제</button></div><div data-pickup_check><span data-text class='font-weight-bold'>수령장소</span><label class='ml-3 mr-3'><input type='radio' name='pickup" + (index + car_list.length) + "' data-pick_jeju data-pick value='JEJU_AIRPORT'> 제주공항</label><label><input  type='radio' name='pickup" + (index + car_list.length) + "' value='LOTTE_HOTEL' data-pick_hotel data-pick>롯데호텔</label></div><div data-back_check><span data-text class='font-weight-bold'>반납장소</span><label class='ml-3 mr-3'><input type='radio' name='back" + (index + car_list.length) + "' value='JEJU_AIRPORT' data-back_jeju data-back> 제주공항</label><label><input  type='radio' name='back" + (index + car_list.length) + "' value='LOTTE_HOTEL' data-back_hotel data-back> 롯데호텔</label></div></div>");
                         index++
-                        
+
                         updateCarTotalCost();
                         $('.reset').val("");
                         start_val = "";
