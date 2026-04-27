@@ -609,6 +609,23 @@
                                                             id="flight_memo"></textarea>
                                                     </td>
                                                 </tr>
+                                                <!-- 골프백 픽드랍 -->
+                                                <tr>
+                                                    <th class="table-secondary align-middle">골프백 픽드랍</th>
+                                                    <td>
+                                                        <div class="form-check form-check-inline pr-4">
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="golf_bag_pickup" id="golf_bag_true" value="true">
+                                                            <label class="form-check-label"
+                                                                for="golf_bag_true">신청</label>
+                                                            <input class="form-check-input ml-3" type="radio"
+                                                                name="golf_bag_pickup" id="golf_bag_false" value="false"
+                                                                checked>
+                                                            <label class="form-check-label"
+                                                                for="golf_bag_false">미신청</label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
                                                 <tr>
                                                     <th class="table-secondary align-middle">금액합계</th>
                                                     <td>
@@ -1498,6 +1515,9 @@
                             $("input[name='ticketing_status'][value='" + response.isTicketingRequested + "']").prop("checked", true);
                         }
                         $("#flight_memo").val(response.userMemo);
+                        if (response.isGolfBagPickupRequested !== null) {
+                            $("input[name='golf_bag_pickup'][value='" + response.isGolfBagPickupRequested + "']").prop("checked", true);
+                        }
 
                         // API 호출하여 동행인 목록 가져오기
                         $.ajax({
@@ -1658,6 +1678,7 @@
                         "individualOrderLandingTime": $("[data-time_picker]").val(),
                         "flightTickets": flight_passenger_list,
                         "isTicketingRequested": $("input[name='ticketing_status']:checked").val() === "true",
+                        "isGolfBagPickupRequested": $("input[name='golf_bag_pickup']:checked").val() === "true",
                         "userMemo": $("#flight_memo").val()
                     };
 
