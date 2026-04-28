@@ -21,49 +21,9 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="FaqList.html">
-                    <i class='fas fa-image'></i>
-                    <span>FAQ</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -150,6 +110,7 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
     <script>
         $("#dataTable").dataTable({
             ajax: {
