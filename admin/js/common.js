@@ -1,6 +1,7 @@
 $(function () {
     // 공통 사이드바 로드
-    $("#sidebar-placeholder").load("/admin/sidebar.html", function () {
+    var cacheBuster = new Date().getTime();
+    $("#sidebar-placeholder").load("/admin/sidebar.html" + cacheBuster , function () {
         var path = window.location.pathname.split("/").pop() || "index.html";
 
         $("#accordionSidebar .nav-item").removeClass("active");
