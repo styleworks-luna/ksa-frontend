@@ -1,0 +1,16 @@
+/* 사이드바 로딩 전 레이아웃 깜빡임 및 틀어짐 방지 */
+#sidebar-placeholder {
+    min-height: 100vh;
+    background: #4e73df linear-gradient(180deg, #4e73df 10%, #224abe 100%);
+    width: 6.5rem;
+    /* 기본 축소 상태 너비 */
+    flex-shrink: 0;
+    display: flex;
+}
+
+@media (min-width: 768px) {
+    #sidebar-placeholder {
+        width: 224px;
+        /* SB Admin 2 기본 너비 */
+    }
+}

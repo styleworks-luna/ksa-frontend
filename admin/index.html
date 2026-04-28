@@ -10,56 +10,16 @@
     <title>관리자 페이지 - KSA</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
-    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
 </head>
 
-<body id="page-top"> 
+<body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-
-            <li class="nav-item active">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="FaqList.html">
-                    <i class='fas fa-image'></i>
-                    <span>FAQ</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
@@ -221,6 +181,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
     <script src="js/sb-admin-2.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
     <script>
         $(document).ready(function () {
             getCountingData(current_year);
@@ -233,7 +194,7 @@
             function getCountingData(year) {
                 $.ajax({
                     type: "GET",
-                    url: base_url + "/api/v2/attends/counting?year="+ year +"",
+                    url: base_url + "/api/v2/attends/counting?year=" + year + "",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -345,7 +306,7 @@
                                                             <tr>
                                                                 <th class="table-active text-dark">미납</th>
                                                                 <td>${response.defaultCost.nonPay.peopleNumber}</td>
-                                                                <td>${response.defaultCost.nonPay.totalCost.toLocaleString() }</td>
+                                                                <td>${response.defaultCost.nonPay.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -371,12 +332,12 @@
                                                             <tr>
                                                                 <th class="table-active text-dark">완납</th>
                                                                 <td>${response.adminSettingCost.fullPay.peopleNumber}명</td>
-                                                                <td>${response.adminSettingCost.fullPay.totalCost.toLocaleString() }</td>
+                                                                <td>${response.adminSettingCost.fullPay.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th class="table-active text-dark">미납</th>
                                                                 <td>${response.adminSettingCost.nonPay.peopleNumber}명</td>
-                                                                <td>${response.adminSettingCost.nonPay.totalCost.toLocaleString() }</td>
+                                                                <td>${response.adminSettingCost.nonPay.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -673,7 +634,7 @@
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteDeluxeMountain.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">트윈</td>
@@ -681,7 +642,7 @@
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteDeluxeMountain.twinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">더블</td>
@@ -689,7 +650,7 @@
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteDeluxeMountain.doubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th rowspan="2" class="table-dark align-middle">디럭스 가든</td>
@@ -698,7 +659,7 @@
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteDeluxeGarden.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">더블</td>
@@ -706,7 +667,7 @@
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteDeluxeGarden.doubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th rowspan="2" class="table-dark align-middle">샤롯데 오션</td>
@@ -715,7 +676,7 @@
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteCharlotteOcean.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">더블</td>
@@ -723,7 +684,7 @@
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteCharlotteOcean.doubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th rowspan="2" class="table-dark align-middle">프리미어 오션</td>
@@ -732,7 +693,7 @@
                                                                 <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lottePremierOcean.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">더블</td>
@@ -740,7 +701,7 @@
                                                                 <td>${response.hotelCount.lottePremierOcean.doubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierOcean.doubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierOcean.doubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lottePremierOcean.doubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lottePremierOcean.doubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th rowspan="2" class="table-dark align-middle">프리미어 가든</td>
@@ -749,7 +710,7 @@
                                                                 <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lottePremierGarden.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">패밀리더블</td>
@@ -757,7 +718,7 @@
                                                                 <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lottePremierGarden.familyDoubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th rowspan="2" class="table-dark align-middle">온돌</td>
@@ -766,7 +727,7 @@
                                                                 <td>${response.hotelCount.lotteOnDol.doubleRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteOnDol.doubleRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteOnDol.doubleRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteOnDol.doubleRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteOnDol.doubleRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <td class="table-active">패밀리트윈</td>
@@ -774,7 +735,7 @@
                                                                 <td>${response.hotelCount.lotteOnDol.familyTwinRoom.finishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.lotteOnDol.familyTwinRoom.restRooms}</td>
                                                                 <td>${response.hotelCount.lotteOnDol.familyTwinRoom.subBedRoom}</td>
-                                                                <td>${response.hotelCount.lotteOnDol.familyTwinRoom.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.lotteOnDol.familyTwinRoom.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th colspan="2" class="table-dark align-middle">숙소 개별 예약</td>
@@ -790,7 +751,7 @@
                                                                 <td>${response.hotelCount.totalFinishedOrderRooms}</td>
                                                                 <td>${response.hotelCount.totalRestRooms}</td>
                                                                 <td>${response.hotelCount.totalSubBedRoom}</td>
-                                                                <td>${response.hotelCount.totalCost.toLocaleString() }</td>
+                                                                <td>${response.hotelCount.totalCost.toLocaleString()}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -800,11 +761,11 @@
                                     </div>
                                 </div>
                             </div>`;
-                            function generateTableRow(flightCount) {
-                                let tableRow = '';
-                                const rowCount = flightCount.length;
-                                for (const flight of flightCount) {
-                                    tableRow += `
+                        function generateTableRow(flightCount) {
+                            let tableRow = '';
+                            const rowCount = flightCount.length;
+                            for (const flight of flightCount) {
+                                tableRow += `
                                         <tr>
                                             ${flightCount.indexOf(flight) === 0 ? `<th class="table-dark align-middle" rowspan="${rowCount}">${flight.startCity}-제주</td>` : ''}
                                             <td>${flight.airline}</td>
@@ -816,9 +777,9 @@
                                             <td>${flight.totalCost.toLocaleString()}</td>
                                         </tr>
                                     `;
-                                }
-                                return tableRow;
                             }
+                            return tableRow;
+                        }
                         $(".table-wrap").html(template);
                     },
                     error: function (xhr) {
@@ -999,7 +960,7 @@
                     }
                 });
             })
-            
+
             $("[data-renter_download]").click(function () {
                 const select_year = $("#year").val();
                 $.ajax({
