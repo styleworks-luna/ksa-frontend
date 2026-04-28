@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>행사 등록/수정 - KSA</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="sidebar-placeholder"></div>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px"
+                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid mt-4">
+                    <h1 class="h3 mb-4 text-gray-800">행사 등록/수정</h1>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">행사 상세 정보</h6>
+                        </div>
+                        <div class="card-body">
+                            <form id="eventForm">
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label font-weight-bold">포럼년도</label>
+                                    <div class="col-sm-10">
+                                        <select id="eventYearSelect" class="form-control form-control-sm"
+                                            style="width: 120px;">
+                                            <option value="2026" selected>2026년</option>
+                                            <option value="2025">2025년</option>
+                                            <option value="2024">2024년</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label font-weight-bold">행사명</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="eventName" name="title" required
+                                            placeholder="행사명을 입력하세요">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label font-weight-bold">입장가능인원</label>
+                                    <div class="col-sm-4">
+                                        <div class="input-group">
+                                            <input type="number" class="form-control" id="maxCapacity"
+                                                name="maxCapacity" required min="0">
+                                            <div class="input-group-append"><span class="input-group-text">명</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-2 col-form-label font-weight-bold">입장일시</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" class="form-control" id="eventDate" name="eventDate"
+                                            required>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="time" class="form-control" id="eventTime" name="eventTime"
+                                            required>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary px-5">저장</button>
+                                    <a href="EventList.html" class="btn btn-secondary px-5">취소</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+
+            if (eventId) {
+                $('#eventYearSelect').hide();
+                $.ajax({
+                    url: base_url + '/api/v1/events/' + eventId,
+                    method: 'GET',
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        $('#eventName').val(response.title);
+                        $('#maxCapacity').val(response.maxCapacity);
+
+                        let year, month, day, hours, minutes;
+                        if (Array.isArray(response.eventDateTime)) {
+                            const dt = response.eventDateTime;
+                            year = dt[0];
+                            month = String(dt[1]).padStart(2, '0');
+                            day = String(dt[2]).padStart(2, '0');
+                            hours = String(dt[3]).padStart(2, '0');
+                            minutes = String(dt[4]).padStart(2, '0');
+                        } else {
+                            const eventDateTime = new Date(response.eventDateTime);
+                            year = eventDateTime.getFullYear();
+                            month = String(eventDateTime.getMonth() + 1).padStart(2, '0');
+                            day = String(eventDateTime.getDate()).padStart(2, '0');
+                            hours = String(eventDateTime.getHours()).padStart(2, '0');
+                            minutes = String(eventDateTime.getMinutes()).padStart(2, '0');
+                        }
+
+                        $('#eventDate').val(`${year}-${month}-${day}`);
+                        $('#eventTime').val(`${hours}:${minutes}`);
+                    },
+                    error: function (xhr) {
+                        if (xhr.status === 401) {
+                            alert("로그인이 필요한 페이지입니다.");
+                            window.location.href = 'login.html';
+                        } else {
+                            alert('행사 정보를 불러오는 데 실패했습니다: ' + (xhr.responseJSON ? xhr.responseJSON.message : '알 수 없는 오류'));
+                            location.href = "EventList.html"; // 실패 시 목록으로 돌아가기
+                        }
+                    }
+                });
+            } else {
+                $('#maxCapacity').val(999);
+            }
+
+            $('#eventForm').submit(function (e) {
+                e.preventDefault();
+
+                const title = $('#eventName').val();
+                const maxCapacity = $('#maxCapacity').val();
+                const eventDate = $('#eventDate').val();
+                const eventTime = $('#eventTime').val();
+
+
+                if (!title || !maxCapacity || !eventDate || !eventTime) {
+                    alert('모든 필드를 입력해주세요.');
+                    return;
+                }
+
+
+                const formData = {
+                    title: title,
+                    maxCapacity: parseInt(maxCapacity),
+                    eventDateTime: `${eventDate}T${eventTime}:00`, // LocalDateTime 형식 (ISO 8601)
+                    year: !eventId ? $('#eventYearSelect').val() : null
+                };
+
+
+                console.log("전송 데이터:", formData);
+
+                const apiUrl = eventId ? `${base_url}/api/v1/events/${eventId}` : `${base_url}/api/v1/events`;
+                const methodType = eventId ? 'PATCH' : 'POST';
+
+                $.ajax({
+                    url: apiUrl,
+                    method: methodType,
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function () {
+                        alert('행사가 성공적으로 ' + (eventId ? '수정' : '등록') + '되었습니다.');
+                        location.href = "EventList.html";
+                    },
+                    error: function (xhr) {
+                        alert('행사 ' + (eventId ? '수정' : '등록') + '에 실패했습니다: ' + (xhr.responseJSON ? xhr.responseJSON.message : '알 수 없는 오류'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

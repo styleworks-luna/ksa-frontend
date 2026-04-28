@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>행사정보 관리 - KSA</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <div id="sidebar-placeholder"></div>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid mt-4">
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-0 text-gray-800">행사정보 관리</h1>
+                        <a href="EventWrite.html" class="btn btn-primary shadow-sm">
+                            <i class="fas fa-plus fa-sm text-white-50"></i> 행사 등록
+                        </a>
+                    </div>
+
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">행사 리스트</h6>
+                            <select id="eventYearSelect" class="form-control form-control-sm" style="width: 120px;">
+                                <option value="2026" selected>2026년</option>
+                                <option value="2025">2025년</option>
+                                <option value="2024">2024년</option>
+                            </select>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered font-weight-bold" id="eventDataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th>No</th>
+                                            <th>행사명</th>
+                                            <th>입장가능인원</th>
+                                            <th>입장일시</th>
+                                            <th>관리</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        <!-- 데이터 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //const currentYear = new Date().getFullYear();
+            let yearOptions = '';
+            for (let i = 2026; i >= 2024; i--) { 
+                yearOptions += `<option value="${i}" ${i === 2026 ? 'selected' : ''}>${i}년</option>`;
+            }
+            $('#eventYearSelect').html(yearOptions);
+
+            const table = $('#eventDataTable').DataTable({
+                ajax: {
+                    url: base_url + '/api/v1/events?year=' + $('#eventYearSelect').val(),
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    dataSrc: function (json) {
+                        return json;
+                    },
+                    error: function (xhr, status, error) {
+                        if (xhr.status === 401) {
+                            alert("로그인이 필요한 페이지입니다.");
+                            window.location.href = 'login.html';
+                        } else {
+                            alert("데이터를 불러오는 데 실패했습니다: " + (xhr.responseJSON ? xhr.responseJSON.message : '알 수 없는 오류'));
+                        }
+                    }
+                },
+                aLengthMenu: [20, 30, 50, 100],
+                columns: [
+                    {
+                        render: function (data, type, row, meta) {
+                            var api = $('#eventDataTable').DataTable();
+                            var json = api.ajax.json();
+                            return json ? json.length - meta.row : meta.settings.fnRecordsDisplay() - meta.row;
+                        },
+                        orderable: false, 
+                        searchable: false
+                    },
+                    { data: 'title', render: function(data, type, row) {
+                        return `<a href="EventWrite.html?id=${row.id}">${data}</a>`;
+                    }},
+                    { data: 'maxCapacity', render: $.fn.dataTable.render.number(',', '.', 0, '', '명'), searchable: false },
+                    { data: 'eventDateTime', render: function(data) {
+                        if (!data) return "-";
+                        let y, m, d, h, i;
+                        if (Array.isArray(data)) {
+                            y = data[0];
+                            m = String(data[1]).padStart(2, '0');
+                            d = String(data[2]).padStart(2, '0');
+                            h = String(data[3]).padStart(2, '0');
+                            i = String(data[4]).padStart(2, '0');
+                        } else {
+                            const dt = new Date(data);
+                            y = dt.getFullYear();
+                            m = String(dt.getMonth() + 1).padStart(2, '0');
+                            d = String(dt.getDate()).padStart(2, '0');
+                            h = String(dt.getHours()).padStart(2, '0');
+                            i = String(dt.getMinutes()).padStart(2, '0');
+                        }
+                        return `${y}-${m}-${d} ${h}:${i}`;
+                    }, searchable: false },
+                    { data: null, render: function(data, type, row) {
+                        return `<button class="btn btn-sm btn-primary btn-edit mr-1" data-id="${row.id}">수정</button><button class="btn btn-sm btn-danger btn-delete" data-id="${row.id}">삭제</button>`;
+                    }, searchable: false }
+                ],
+                order: [[0, "desc"]], 
+                language: {
+                    emptyTable: "등록된 행사가 없습니다."
+                }
+            });
+
+            $('#eventYearSelect').change(function() {
+                const year = $(this).val();
+                table.ajax.url(base_url + '/api/v1/events?year=' + year).load();
+            });
+
+            // 삭제 
+            $('#eventDataTable tbody').on('click', '.btn-delete', function () {
+                const eventId = $(this).data('id');
+                if (confirm('정말로 이 행사를 삭제하시겠습니까?')) {
+                    $.ajax({
+                        url: base_url + '/api/v1/events/' + eventId,
+                        method: 'DELETE',
+                        beforeSend: function (xhr) {
+                            if (localStorage.getItem('token')) {
+                                xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                            }
+                        },
+                        success: function () {
+                            alert('행사가 삭제되었습니다.');
+                            table.ajax.reload(); 
+                        },
+                        error: function (xhr) {
+                            if (xhr.status === 401) {
+                                alert("로그인이 필요한 페이지입니다.");
+                                window.location.href = 'login.html';
+                            } else {
+                                alert('행사 삭제에 실패했습니다: ' + (xhr.responseJSON ? xhr.responseJSON.message : '알 수 없는 오류'));
+                            }
+                        }
+                    });
+                }
+            });
+
+            // 수정 
+            $('#eventDataTable tbody').on('click', '.btn-edit', function () {
+                const eventId = $(this).data('id');
+                window.location.href = `EventWrite.html?id=${eventId}`;
+            });
+        });
+    </script>
+</body>
+</html>
