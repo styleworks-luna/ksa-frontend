@@ -129,7 +129,8 @@
                         searchable: false
                     },
                     { data: 'title', render: function(data, type, row) {
-                        return `<a href="EventView.html?id=${row.id}">${data}</a>`;
+                        //return `<a href="EventView.html?id=${row.id}">${data}</a>`;
+                        return `${data}`;
                     }},
                     { data: 'maxCapacity', render: $.fn.dataTable.render.number(',', '.', 0, '', '명'), searchable: false },
                     { data: 'eventDateTime', render: function(data) {
