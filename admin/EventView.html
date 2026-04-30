@@ -182,8 +182,9 @@
                             const company = $img.data('company');
                             const name = $img.data('name');
                             const attendId = $img.data('id');
+                            const attenderId = $img.data('attender-id');
                             
-                            const fileName = `${company}_${name}_${attendId}.png`;
+                            const fileName = `${company}_${name}_${attendId}_${attenderId}.png`;
 
                             const response = await fetch(blobUrl);
                             const blob = await response.blob();
@@ -241,11 +242,11 @@
                                 currentCompany = companyName;
                             }
 
-                            html += renderParticipantCard(companyName, attend.mainAttender.koreaName, attend.attendId);
+                            html += renderParticipantCard(companyName, attend.mainAttender.koreaName, attend.attendId, attend.mainAttender.mainAttenderId);
 
                             if (attend.familyAttenders && attend.familyAttenders.length > 0) {
                                 attend.familyAttenders.forEach(fam => {
-                                    html += renderParticipantCard(companyName, fam.name, attend.attendId);
+                                    html += renderParticipantCard(companyName, fam.name, attend.attendId, fam.familyAttenderId);
                                 });
                             }
                         });
@@ -259,6 +260,7 @@
                             const $img = $(this);
                             const qrData = {
                                 attendId: $img.data('id'),
+                                attenderId: $img.data('attender-id'),
                                 companyName: $img.data('company'),
                                 name: $img.data('name')
                             };
@@ -283,13 +285,14 @@
                 });
             }
 
-            function renderParticipantCard(company, name, attendId) {
+            function renderParticipantCard(company, name, attendId, attenderId) {
                 return `
                     <div class="col-md-3 col-print-3 mb-4 text-center">
                         <div class="card border-0 shadow-none p-0 bg-white">
                             <div class="d-flex justify-content-center">
                                 <img class="qr-img-placeholder" 
                                      data-id="${attendId}" 
+                                     data-attender-id="${attenderId}"
                                      data-company="${company}" 
                                      data-name="${name}"
                                      src="img/undraw_profile.svg" 
