@@ -262,7 +262,7 @@ main [data-content_box] [data-button_box] button {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #0C3994;
+  background-color: #9cd4b8;
   border: none;
   font-size: 20px;
   font-weight: bold;
@@ -274,7 +274,7 @@ main [data-content_box] [data-button_box] [data-pre_btn] {
 main [data-popup_box] {
   width: 600px;
   min-height: 353px;
-  border: 2px solid #0C3994;
+  border: 2px solid #9cd4b8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -317,14 +317,14 @@ main [data-popup_box] div button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-popup_box] div button:nth-of-type(2) {
-  background-color: #0C3994;
+  background-color: #9cd4b8;
 }
 main [data-popup_box] div button:nth-of-type(2):disabled {
   background-color: #a3a3a3;
   pointer-events: none;
 }
 main [data-popup_box] div [data-notice_close_btn] {
-  background-color: #0C3994 !important;
+  background-color: #9cd4b8 !important;
 }
 main [data-popup_box] form {
   display: none;
@@ -579,7 +579,7 @@ main [data-popup_box] [data-done_txt] {
   main [data-popup_box] {
     width: calc(100% - 32px);
     min-height: 235px;
-    border: 2px solid #0C3994;
+    border: 2px solid #9cd4b8;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -623,7 +623,7 @@ main [data-popup_box] [data-done_txt] {
     background-color: #a3a3a3;
   }
   main [data-popup_box] div button:nth-of-type(2) {
-    background-color: #0C3994;
+    background-color: #9cd4b8;
   }
   main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #a3a3a3;

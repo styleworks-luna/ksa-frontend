@@ -86,7 +86,7 @@ main [data-pc_content_box] [data-table_box] [data-total_data] tr th {
 }
 main [data-pc_content_box] [data-table_box] [data-total_data] tr td:last-of-type {
   font-weight: bold;
-  color: #0C3994;
+  color: #9cd4b8;
 }
 main [data-pc_content_box] [data-table_box] [data-attend_data] {
   margin-bottom: 20px;
@@ -191,7 +191,7 @@ main [data-pc_content_box] [data-button_box] button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-pc_content_box] [data-button_box] button:nth-of-type(2) {
-  background-color: #0C3994;
+  background-color: #9cd4b8;
 }
 main [data-pc_content_box] [data-button_box] [data-print_btn] {
   background-color: #3cb4d0 !important;
@@ -202,7 +202,7 @@ main [data-mobile_content_box] {
 main [data-popup_box] {
   width: 600px;
   min-height: 353px;
-  border: 2px solid #0C3994;
+  border: 2px solid #9cd4b8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -245,14 +245,14 @@ main [data-popup_box] div button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-popup_box] div button:nth-of-type(2) {
-  background-color: #0C3994;
+  background-color: #9cd4b8;
 }
 main [data-popup_box] div button:nth-of-type(2):disabled {
   background-color: #a3a3a3;
   pointer-events: none;
 }
 main [data-popup_box] div [data-notice_close_btn] {
-  background-color: #0C3994 !important;
+  background-color: #9cd4b8 !important;
 }
 main [data-popup_box] form {
   display: none;
@@ -490,7 +490,7 @@ main [data-popup_box] [data-done_txt] {
     background-color: #a3a3a3;
   }
   main [data-mobile_content_box] [data-button_box] button:nth-of-type(2) {
-    background-color: #0C3994;
+    background-color: #9cd4b8;
   }
   main [data-mobile_content_box] [data-button_box] [data-print_btn] {
     background-color: #3cb4d0 !important;
@@ -498,7 +498,7 @@ main [data-popup_box] [data-done_txt] {
   main [data-popup_box] {
     width: calc(100% - 32px);
     min-height: 235px;
-    border: 2px solid #0C3994;
+    border: 2px solid #9cd4b8;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -542,7 +542,7 @@ main [data-popup_box] [data-done_txt] {
     background-color: #a3a3a3;
   }
   main [data-popup_box] div button:nth-of-type(2) {
-    background-color: #0C3994;
+    background-color: #9cd4b8;
   }
   main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #a3a3a3;
