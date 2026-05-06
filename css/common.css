@@ -120,7 +120,7 @@ body [data-pc_header] [data-menu_box] div {
           justify-content: flex-end;
 }
 body [data-pc_header] [data-menu_box] div button {
-  background-color: #0C3994;
+  background-color:#9cd4b8;
   border: none;
   cursor: pointer;
   width: 80px;
@@ -155,7 +155,7 @@ body [data-pc_header] [data-menu_box] ul li a {
 }
 body [data-pc_header] [data-menu_box] ul li:hover a {
   font-weight: 800;
-  color: #fff;
+  color: #2d8064;
   text-decoration: underline;
 }
 body [data-pc_header] [data-menu_box] ul [data-logout_row] {
