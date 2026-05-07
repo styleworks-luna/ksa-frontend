@@ -390,14 +390,14 @@ main [data-content_box] [data-image_wrap="2026"] [data-image_box2] {
   }
   main [data-content_box] [data-image_wrap="2026"] [data-image_box1] {
     margin-bottom: 40px;
-    background-image: url(/images/2026-per-m2.png);
+    background-image: url(/images/2026-per-m_v1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
     background-size: contain;
   }
   main [data-content_box] [data-image_wrap="2026"] [data-image_box2] {
-    background-image: url(/images/2026-per-m_v1.png);
+    background-image: url(/images/2026-per-m2.png);
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
