@@ -197,7 +197,9 @@ main [data-content_box] [data-image_wrap="2026"] p {
   font-size: 28px;
   padding-bottom: 20px;
 }
-
+main [data-content_box] [data-image_wrap="2026"] p span {
+  font-weight: bold;
+}
 main [data-content_box] [data-image_wrap="2026"] div {
   min-height: 646px;
 }
