@@ -188,6 +188,36 @@ main [data-content_box] [data-image_wrap="2025"] [data-image_box2] {
   background-color: #fff;
   background-size: contain;
 }
+/* 2026 PC용 추가 */
+main [data-content_box] [data-image_wrap="2026"] {
+  display: block;
+}
+
+main [data-content_box] [data-image_wrap="2026"] p {
+  font-size: 28px;
+  padding-bottom: 20px;
+}
+
+main [data-content_box] [data-image_wrap="2026"] div {
+  min-height: 646px;
+}
+
+main [data-content_box] [data-image_wrap="2026"] [data-image_box1] {
+  margin-bottom: 40px;
+  background-image: url(/images/2026-per-pc1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: contain;
+}
+main [data-content_box] [data-image_wrap="2026"] [data-image_box2] {
+  background-image: url(/images/2026-per-pc_v1.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  background-size: contain;
+}
+
 
 @media (max-width: 760px) {
   [data-mobile_header] [data-top_header] {
@@ -340,6 +370,32 @@ main [data-content_box] [data-image_wrap="2025"] [data-image_box2] {
   }
   main [data-content_box] [data-image_wrap="2025"] [data-image_box2] {
     background-image: url(/images/2025-per-m_v1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: contain;
+  }
+/* 2026 추가 */
+   main [data-content_box] [data-image_wrap="2026"] p {
+    font-size: 14px;
+    padding-bottom: 15px;
+  }
+  main [data-content_box] [data-image_wrap="2026"] p span {
+    font-weight: bold;
+  }
+  main [data-content_box] [data-image_wrap="2026"] div {
+    min-height: 300px;
+  }
+  main [data-content_box] [data-image_wrap="2026"] [data-image_box1] {
+    margin-bottom: 40px;
+    background-image: url(/images/2026-per-m2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #fff;
+    background-size: contain;
+  }
+  main [data-content_box] [data-image_wrap="2026"] [data-image_box2] {
+    background-image: url(/images/2026-per-m_v1.png);
     background-position: center;
     background-repeat: no-repeat;
     background-color: #fff;
