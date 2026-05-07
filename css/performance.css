@@ -161,7 +161,7 @@ main [data-content_box] [data-image_wrap="2024"] [data-image_box2] {
   background-size: contain;
 }
 main [data-content_box] [data-image_wrap="2025"] {
-  display: block;
+  display: none;
 }
 main [data-content_box] [data-image_wrap="2025"] p {
   font-size: 28px;
