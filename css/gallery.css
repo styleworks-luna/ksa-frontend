@@ -60,8 +60,8 @@ main [data-header_box] div > a {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
-  background-image: -webkit-gradient(linear, left top, right top, from(#26A3B1), to(#105B63));
-  background-image: linear-gradient(90deg, #26A3B1 0%, #105B63 100%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#26A3B1), to(#FF8E34));
+  background-image: linear-gradient(90deg, #26A3B1 0%, #FF8E34 100%);
 }
 main [data-content_box] {
   width: 100%;
@@ -238,8 +238,8 @@ main [data-content_box] [data-image_wrap] [data-image_box] [data-modal_box] div 
     width: 148px;
     height: 48px;
     border-radius: 37px;
-    background-image: -webkit-gradient(linear, left top, right top, from(#26a3b1), to(#105b63));
-    background-image: linear-gradient(90deg, #26a3b1 0%, #105b63 100%);
+    background-image: -webkit-gradient(linear, left top, right top, from(#26a3b1), to(#FF8E34));
+    background-image: linear-gradient(90deg, #26a3b1 0%, #FF8E34 100%);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
