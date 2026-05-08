@@ -258,7 +258,7 @@ main [data-content_box] [data-image_container="2024"] [data-check_txt] {
   margin-bottom: 95px;
 }
 main [data-content_box] [data-image_container="2025"] {
-  display: block;
+  display: none;
 }
 main [data-content_box] [data-image_container="2025"] [data-image_wrap] {
   padding-bottom: 20px;
