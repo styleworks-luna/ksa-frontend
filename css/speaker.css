@@ -316,6 +316,66 @@ main [data-content_box] [data-image_container="2025"] [data-check_txt] {
   font-weight: bold;
   margin-bottom: 95px;
 }
+/* 2026년 추가 */
+main [data-content_box] [data-image_container="2026"] {
+  display: block;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] {
+  padding-bottom: 20px;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] {
+  width: 302px;
+  margin-right: 20px;
+  margin-bottom: 55px;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-img] {
+  height: auto;
+  aspect-ratio: 29/24;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 3px;
+  width: 100%;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-img] img {
+  width: 100%;
+  height: 100%;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] p:first-of-type {
+  padding-top: 12px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-pink] {
+  background-image: -webkit-gradient(linear, left top, right top, from(#f1acc1), color-stop(8%, #efa2ba), color-stop(32%, #e98aa7), color-stop(47%, #e881a1), color-stop(61%, #e07da1), color-stop(82%, #cb75a1), to(#b46ba2));
+  background-image: linear-gradient(to right, #f1acc1, #efa2ba 8%, #e98aa7 32%, #e881a1 47%, #e07da1 61%, #cb75a1 82%, #b46ba2);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-sky] {
+  background-image: -webkit-gradient(linear, left top, right top, from(#7ea6d4), to(#7bc1ce));
+  background-image: linear-gradient(to right, #7ea6d4, #7bc1ce);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-green] {
+  background-image: -webkit-gradient(linear, left top, right top, color-stop(13%, #35b5aa), color-stop(54%, #a5c658), to(#d2db86));
+  background-image: linear-gradient(to right, #35b5aa 13%, #a5c658 54%, #d2db86);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+main [data-content_box] [data-image_container="2026"] [data-image_wrap] [data-image_box] [data-black] {
+  color: #222 !important;
+}
+main [data-content_box] [data-image_container="2026"] [data-check_txt] {
+  color: #9cd4b8;
+  font-weight: bold;
+  margin-bottom: 95px;
+}
 
 [data-display_box] {
   display: none;
