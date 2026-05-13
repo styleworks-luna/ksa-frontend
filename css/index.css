@@ -520,7 +520,7 @@ main [data-sponsore_box] [data-moblie_img_box] {
     background-image: url(/images/2025_m_top.png);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto 705px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -970,7 +970,7 @@ main [data-sponsore_box] [data-moblie_img_box] {
             align-items: center;
             justify-content: center;
             height: 200px; 
-            background: #f9f9f9; /* 로고 배경색 */
+            /* background: #f9f9f9; /* 로고 배경색 */
             border-radius: 8px;
             padding: 10px;
         }
@@ -1062,4 +1062,23 @@ main [data-sponsore_box] [data-moblie_img_box] {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+
+        main .partner_section .partnerSwiper .swiper-button-next,
+        main .partner_section .partnerSwiper .swiper-button-prev {
+            display: flex;
+            top: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: 0;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+
+        main .partner_section .partnerSwiper .swiper-button-next {
+            right: 0;
+        }
+
+        main .partner_section .partnerSwiper .swiper-button-prev {
+            left: 0;
         }

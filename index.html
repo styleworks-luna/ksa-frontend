@@ -477,13 +477,19 @@
         /* 공싴파트너사 팝업*/
         var partnerSwiper = new Swiper(".partnerSwiper", {
             slidesPerView: 2,
-            grid: { rows: 1 },
             spaceBetween: 20,
-            speed: 6000,
-            loopedSlides: 1,
+            loop: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            speed: 4000,
+            freeMode: true,
+            observer: true,
+            observeParents: true,
             navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
+                nextEl: ".partnerSwiper .swiper-button-next",
+                prevEl: ".partnerSwiper .swiper-button-prev",
             },
             breakpoints: {
                 768: { slidesPerView: 4, spaceBetween: 30 },
