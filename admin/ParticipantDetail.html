@@ -396,12 +396,12 @@
                                                     <th width="10%" class="table-secondary align-middle">성명</th>
                                                     <td width="10%"><input type="text" id="eduManagerName"
                                                             class="form-control"></td>
-                                                    <th width="10%" class="table-secondary align-middle">소속</th>
+                                                    <th width="10%" class="table-secondary align-middle">부서명</th>
                                                     <td width="10%"><input type="text" id="eduManagerTeam"
                                                             class="form-control"></td>
                                                 </tr>
                                                 <tr class="text-center">
-                                                    <th width="10%" class="table-secondary align-middle">일반전화</th>
+                                                    <th width="10%" class="table-secondary align-middle">유선전화</th>
                                                     <td width="10%"><input type="text" id="eduManagerTelephone"
                                                             class="form-control"></td>
                                                     <th width="10%" class="table-secondary align-middle">직위</th>
@@ -424,12 +424,12 @@
                                                     <th width="10%" class="table-secondary align-middle">성명</th>
                                                     <td width="10%"><input type="text" id="calManagerName"
                                                             class="form-control"></td>
-                                                    <th width="10%" class="table-secondary align-middle">소속</th>
+                                                    <th width="10%" class="table-secondary align-middle">부서명</th>
                                                     <td width="10%"><input type="text" id="calManagerTeam"
                                                             class="form-control"></td>
                                                 </tr>
                                                 <tr class="text-center">
-                                                    <th width="10%" class="table-secondary align-middle">일반전화</th>
+                                                    <th width="10%" class="table-secondary align-middle">유선전화</th>
                                                     <td width="10%"><input type="text" id="calManagerTelephone"
                                                             class="form-control"></td>
                                                     <th width="10%" class="table-secondary align-middle">직위</th>
@@ -610,10 +610,10 @@
                                                     </th>
                                                     <td>
                                                         <div data-date_box>
-                                                            <input data-start_date type="date" min="2026-07-21"
+                                                            <input data-start_date type="date" min="2026-07-18"
                                                                 max="2026-07-29" data-placeholder="시작일 선택">
                                                             <span data-tilde>~</span>
-                                                            <input data-end_date type="date" min="2026-07-22"
+                                                            <input data-end_date type="date" min="2026-07-27"
                                                                 max="2026-07-30" data-placeholder="종료일 선택">
                                                             <span data-cal_row></span>
                                                         </div>
@@ -652,19 +652,19 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <th class="table-secondary align-middle">조식 이용 여부</th>
+                                                    <th class="table-secondary align-middle">환영,환송 만찬 참석여부</th>
                                                     <td>
                                                         <div class="form-check form-check-inline pr-4">
                                                             <input class="form-check-input ml-3" type="radio"
                                                                 name="breakfast_status" id="breakfast_true"
                                                                 value="true">
                                                             <label class="form-check-label"
-                                                                for="breakfast_true">이용</label>
+                                                                for="breakfast_true">모두 참석합니다</label>
                                                             <input class="form-check-input ml-3" type="radio"
                                                                 name="breakfast_status" id="breakfast_false"
                                                                 value="false" checked>
                                                             <label class="form-check-label"
-                                                                for="breakfast_false">이용안함</label>
+                                                                for="breakfast_false">일부만 참석합니다</label>
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -780,8 +780,8 @@
                                                                 for="usage_rental">렌터카</label>
                                                             <input class="form-check-input ml-3" type="radio"
                                                                 name="usage_type" id="usage_shuttle" value="shuttle">
-                                                            <label class="form-check-label"
-                                                                for="usage_shuttle">셔틀버스</label>
+                                                           <!-- <label class="form-check-label"
+                                                                for="usage_shuttle">셔틀버스</label> -->
                                                         </div>
                                                     </td>
                                                 </tr>
@@ -801,7 +801,7 @@
                                                             <div data-time_box class="d-flex">
                                                                 <span class="font-weight-bold pr-3">시작일 선택</span>
                                                                 <input data-rental_start_date type="date"
-                                                                    min="2026-07-21" max="2026-07-30"
+                                                                    min="2026-07-18" max="2026-07-27"
                                                                     class="reset mr-2">
                                                                 <div data-check_in_box>
                                                                     <select data-start_hour_select class="reset">
@@ -814,8 +814,8 @@
                                                             </div>
                                                             <div data-time_box class="d-flex pt-3">
                                                                 <span class="font-weight-bold pr-3">반납일 선택</span>
-                                                                <input data-rental_end_date type="date" min="2026-07-21"
-                                                                    max="2026-07-30" class="reset mr-2">
+                                                                <input data-rental_end_date type="date" min="2026-07-18"
+                                                                    max="2026-07-27" class="reset mr-2">
                                                                 <div data-check_in_box>
                                                                     <select data-end_hour_select class="reset">
                                                                         <option selected disabled value="">선택</option>
