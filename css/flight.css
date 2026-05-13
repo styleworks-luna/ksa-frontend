@@ -232,9 +232,9 @@ main [data-content_box] table [data-text_row] {
 }
 main [data-content_box] [data-notice_box] {
   width: 100%;
-  padding: 30px;
+  padding: 20px;
   background-color: #f7f7f7;
-  margin-top: 50px;
+  margin-top: 20px;
 }
 main [data-content_box] [data-notice_box] p {
   font-size: 18px;
@@ -555,9 +555,9 @@ main [data-popup_box] [data-done_txt] {
   }
   main [data-content_box] [data-notice_box] {
     width: 100%;
-    padding: 20px 16px;
+    padding: 20px;
     background-color: #f7f7f7;
-    margin-top: 24px;
+    margin-top: 20px;
   }
   main [data-content_box] [data-notice_box] p {
     font-size: 14px;
