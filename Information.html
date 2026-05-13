@@ -312,17 +312,17 @@
                     <div data-info_wrap="education">
                         <div data-title_box>
                             교육 담당자
-                            <label for="info_default_same"> <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="pc_info_default_same" />참가자와 동일 </label>
+                            <label for="pc_info_default_same"> <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="pc_info_default_same" />참가자와 동일 </label>
                         </div>
                         <table>
                             <tr>
                                 <th data-none_row><span>성명</span></th>
                                 <td><input type="text" placeholder="이름을 입력해주세요." name="pc_edu_name" id="edu_name" /></td>
-                                <th data-none_row><span>소속</span></th>
-                                <td><input type="text" placeholder="소속을 입력해주세요." name="pc_edu_belong" id="edu_belong" /></td>
+                                <th data-none_row><span>부서명</span></th>
+                                <td><input type="text" placeholder="부서명을 입력해주세요." name="pc_edu_belong" id="edu_belong" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>일반전화</span></th>
+                                <th data-none_row><span>유선전화</span></th>
                                 <td><input type="text" placeholder="전화번호를 입력해주세요." name="pc_edu_tell" id="edu_tell" /></td>
                                 <th data-none_row><span>직위</span></th>
                                 <td><input type="text" placeholder="직위를 입력해주세요." name="pc_edu_job_position" id="edu_job_position" /></td>
@@ -350,11 +350,11 @@
                             <tr>
                                 <th data-none_row><span>성명</span></th>
                                 <td><input type="text" placeholder="이름을 입력해주세요." name="pc_cal_name" id="cal_name" /></td>
-                                <th data-none_row><span>소속</span></th>
-                                <td><input type="text" placeholder="소속을 입력해주세요." name="pc_cal_belong" id="cal_belong" /></td>
+                                <th data-none_row><span>부서명</span></th>
+                                <td><input type="text" placeholder="부서명을 입력해주세요." name="pc_cal_belong" id="cal_belong" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>일반전화</span></th>
+                                <th data-none_row><span>유선전화</span></th>
                                 <td><input type="text" placeholder="전화번호를 입력해주세요." name="pc_cal_tell" id="cal_tell" /></td>
                                 <th data-none_row><span>직위</span></th>
                                 <td><input type="text" placeholder="직위를 입력해주세요." name="pc_cal_job_position" id="cal_job_position" /></td>
@@ -589,7 +589,7 @@
                     <div data-info_wrap="education">
                         <div data-title_box="2">
                             교육 담당자
-                            <label for="info_default_same"> <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="info_default_same_mobile" />참가자와 동일 </label>
+                            <label for="info_default_same_mobile"> <input type="checkbox" name="info_default_same" value="" class="info_default_same" id="info_default_same_mobile" />참가자와 동일 </label>
                         </div>
                         <table>
                             <tr>
@@ -597,11 +597,11 @@
                                 <td><input type="text" placeholder="이름을 입력해주세요." name="mobile_edu_name" id="edu_name_mobile" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>소속</span></th>
-                                <td><input type="text" placeholder="소속을 입력해주세요." name="mobile_edu_belong" id="edu_belong_mobile" /></td>
+                                <th data-none_row><span>부서명</span></th>
+                                <td><input type="text" placeholder="부서명을 입력해주세요." name="mobile_edu_belong" id="edu_belong_mobile" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>일반전화</span></th>
+                                <th data-none_row><span>유선전화</span></th>
                                 <td><input type="text" placeholder="전화번호를 입력해주세요." name="mobile_edu_tell" id="edu_tell_mobile" /></td>
                             </tr>
                             <tr>
@@ -631,21 +631,21 @@
                         <table>
                             <tr data-down_row>
                                 <th data-none_row><span></span></th>
-                                <td>
+                                <!-- <td>
                                     <a data-bussiness_download href="" download>* KSA 사업자등록증</a>
                                     <a data-bank_download href="" download>* KSA 통장사본</a>
-                                </td>
+                                </td> -->
                             </tr>
                             <tr>
                                 <th data-none_row><span>성명</span></th>
                                 <td><input type="text" placeholder="이름을 입력해주세요." name="mobile_cal_name" id="cal_name_mobile" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>소속</span></th>
-                                <td><input type="text" placeholder="소속을 입력해주세요." name="mobile_cal_belong" id="cal_belong_mobile" /></td>
+                                <th data-none_row><span>부서명</span></th>
+                                <td><input type="text" placeholder="부서명을 입력해주세요." name="mobile_cal_belong" id="cal_belong_mobile" /></td>
                             </tr>
                             <tr>
-                                <th data-none_row><span>일반전화</span></th>
+                                <th data-none_row><span>유선전화</span></th>
                                 <td><input type="text" placeholder="전화번호를 입력해주세요." name="mobile_cal_tell" id="cal_tell_mobile" /></td>
                             </tr>
                             <tr>
@@ -676,6 +676,7 @@
                                         <label for="file_mobile">첨부하기</label>
                                         <input type="file" id="file_mobile" />
                                         <button data-clear_btn type="button">X</button>
+                                        <p>최대 10MB까지 첨부 가능합니다.</p>
                                     </div>
                                 </td>
                             </tr>
