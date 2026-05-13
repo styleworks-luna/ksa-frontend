@@ -29,7 +29,7 @@ main [data-main_wrap] {
   background-image: url(/images/2025_pc_top.png);
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: auto 705px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -520,7 +520,7 @@ main [data-sponsore_box] [data-moblie_img_box] {
     background-image: url(/images/2025_m_top.png);
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: auto 705px;
+    background-size: cover;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
