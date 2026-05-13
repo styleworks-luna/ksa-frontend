@@ -328,6 +328,25 @@ main [data-content_box] [data-notice_box] p {
   font-size: 18px;
   line-height: 30px;
 }
+main [data-content_box] [data-notice_box] table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+main [data-content_box] [data-notice_box] table th,
+main [data-content_box] [data-notice_box] table td {
+  width: 50%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: left;
+  vertical-align: top;
+}
+main [data-content_box] [data-notice_box] table th {
+  font-weight: bold;
+  background-color: #fff;
+}
 main [data-content_box] [data-notice_box] [data-red_text] {
   color: #f10000;
 }
@@ -772,6 +791,25 @@ main [data-popup_box] [data-done_txt] {
   main [data-content_box=mobile] [data-notice_box] p {
     font-size: 14px;
     line-height: 23px;
+  }
+  main [data-content_box=mobile] [data-notice_box] table {
+    width: 100%;
+    margin-top: 12px;
+    border-collapse: collapse;
+  }
+  main [data-content_box=mobile] [data-notice_box] table th,
+  main [data-content_box=mobile] [data-notice_box] table td {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: left;
+    vertical-align: top;
+  }
+  main [data-content_box=mobile] [data-notice_box] table th {
+    font-weight: bold;
+    background-color: #fff;
   }
   main [data-content_box=mobile] [data-button_box] {
     display: -webkit-box;
