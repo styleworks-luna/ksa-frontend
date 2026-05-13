@@ -164,8 +164,16 @@
         </div>
         <div data-content_box="pc">
             <div data-title_box>골프/관광 외</div>
+            <div data-notice_box>
+               <P>
+                <P>※ 날짜별 1개 프로그램만 신청 가능합니다. (예: 동일 날짜에 골프와 관광 중복 신청 불가)</P>
+                <P>※ 프로그램별 정원 초과 시 선착순 마감될 수 있습니다.</P>
+                <P>※ 골프백은 행사 기간 중 공항-골프장-호텔 간 이동 지원 예정입니다.</P>
+                <P>   (자택 → 골프장 직접 탁송 예정인 경우 요청사항에 반드시 기재 부탁드립니다)</P>
+                </P> 
+            </div>
             <div data-table_box>
-                <span data-date_row>7월 24일 (목)</span>
+                <span data-date_row>7월 22일 (목)</span>
                 <table data-golf_thu_table>
                     <tr>
                         <th>종류</th>
@@ -202,7 +210,7 @@
                 </p>
             </div>
             <div data-table_box>
-                <span data-date_row>7월 25일 (금)</span>
+                <span data-date_row>7월 23일 (금)</span>
                 <table data-golf_fri_table>
                     <tr>
                         <th>종류</th>
@@ -270,7 +278,7 @@
         <div data-content_box="mobile">
             <div data-title_box>골프/관광 외</div>
             <div data-table_box>
-                <span data-date_row>7월 24일 (목)</span>
+                <span data-date_row>7월 22일 (목)</span>
                 <div data-content="golf_thu"></div>
                 <table data-total_table>
                     <tr>
@@ -284,7 +292,7 @@
                 <div data-content="family_thu"></div>
             </div>
             <div data-table_box>
-                <span data-date_row>7월 26일 (금)</span>
+                <span data-date_row>7월 23일 (금)</span>
                 <div data-content="golf_fri"></div>
                 <table data-total_table>
                     <tr>
@@ -721,7 +729,7 @@
                                                     return result;
                                                 };
                                                 thu_tour_list = toursOnSameDate(tour_data, "2026-07-23");
-                                                fri_tour_list = toursOnSameDate(tour_data, "2026-07-24");
+                                                fri_tour_list = toursOnSameDate(tour_data, "2026-07-23");
                                             }
 
                                             if (family_data !== null) {
@@ -744,7 +752,7 @@
                                                     return result;
                                                 };
                                                 thu_family_list = familyOnSameDate(family_data, "2026-07-23");
-                                                fri_family_list = familyOnSameDate(family_data, "2026-07-24");
+                                                fri_family_list = familyOnSameDate(family_data, "2026-07-23");
                                             }
 
                                             if (golf_data !== null) {
@@ -767,7 +775,7 @@
                                                     return result;
                                                 };
                                                 thu_golf_list = golfOnSameDate(golf_data, "2026-07-23");
-                                                fri_golf_list = golfOnSameDate(golf_data, "2026-07-24");
+                                                fri_golf_list = golfOnSameDate(golf_data, "2026-07-23");
                                             }
                                             thu_list = thu_tour_list.concat(thu_golf_list);
                                             fri_list = fri_tour_list.concat(fri_golf_list);
@@ -1243,7 +1251,7 @@
                                 alert("error");
                             },
                         });
-                    } else if (date == "2026-07-24") {
+                    } else if (date == "2026-07-23") {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -1374,7 +1382,7 @@
                                 alert("error");
                             },
                         });
-                    } else if (date == "2026-07-24") {
+                    } else if (date == "2026-07-23") {
                         fri_list.push({
                             attenderId: val,
                             Id: text,
@@ -1437,7 +1445,7 @@
                                 alert("error");
                             },
                         });
-                    } else if (date == "2026-07-24") {
+                    } else if (date == "2026-07-23") {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
@@ -1534,7 +1542,7 @@
                                 alert("error");
                             },
                         });
-                    } else if (date == "2026-07-24") {
+                    } else if (date == "2026-07-23") {
                         fri_family_list.push({
                             attenderId: val,
                             Id: text,
@@ -1594,7 +1602,7 @@
                                 alert("error");
                             },
                         });
-                    } else if (date == "2026-07-24") {
+                    } else if (date == "2026-07-23") {
                         fri_family_list = fri_family_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
