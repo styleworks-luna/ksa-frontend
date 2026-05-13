@@ -63,6 +63,11 @@
                 background: #9cd4b8;
                 color: #fff;
             }
+            .usage-notice {
+                color: #666;
+                font-size: 14px;
+                line-height: 1.5;
+            }
         </style>
     </head>
     <body>
@@ -165,9 +170,13 @@
                                 <label class="passenger-radio-item">
                                     <input type="radio" name="usage_type" value="rental" checked /> 렌터카
                                 </label>
-                                <label class="passenger-radio-item">
+                                <!-- <label class="passenger-radio-item">
                                     <input type="radio" name="usage_type" value="shuttle" /> 셔틀버스
-                                </label>
+                                </label> -->
+                                <div class="usage-notice">
+                                    <p>※ 행사 첫날/마지막 날 제주공항 ↔ 롯데호텔 간 무료 셔틀버스가 운영됩니다.</p>
+                                    <p>※ 렌터카 이용 희망 시 아래 항목에서 별도 신청 부탁드립니다.</p>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -230,22 +239,17 @@
                     </tr>
                 </table>
                 <div data-notice_box>
-                    <p>※ 제출 전 반드시 확인해 주세요.</p>
-                    <p style="color: #ff2200">• 렌터카는 24시간 기준으로 1일 요금이 적용되므로, 수령일시와 반납일시 설정 시 꼭 유의해 주시기 바랍니다.</p>
-                    <p style="color: #ff2200">• 시간 연장 요금 및 보험료 차액은 현장에서 정산 가능합니다. <br />&nbsp;&nbsp;&nbsp;(예: 25시간 이용 시 1일만 선택 후, 초과분은 현장 결제)</p>
-                    <p>• 차종, 색상, 연료는 지정 불가하며, 랜덤 배정됩니다.</p>
-                    <p>• 일부 차종은 수량이 제한되어 선착순 마감될 수 있습니다.</p>
-                    <p>
-                        • 요금은 자차보험(만 30세 이상 기준)이 포함된 조건이며, 운전자의 연령에 따라 보험료가 추가됩니다. <br />
-                        &nbsp;&nbsp;&nbsp;- 만 30세 미만 : 보험료 추가 7,000원/1일<br />
-                        &nbsp;&nbsp;&nbsp;- 만 26세 미만 : 보험료 추가 30,000원/1일
-                    </p>
-                    <p>• 주유비, 주차료, 통행료 등 실비는 별도 부담입니다.</p>
-                    <p>
-                        • 공항 수령 및 반납은 공항 인근 롯데렌터카 지점에서 진행되며, 지점까지는 롯데렌터카 셔틀버스를 이용해 이동해주시기 바랍니다. 반납은 23:00까지 가능하며, 해당 시간까지 직원이
-                        상주합니다.
-                    </p>
-                    <p>• 호텔 반납을 원하실 경우, 지정 주차 후 사무실 방문 또는 스마트 키박스를 통한 비대면 반납이 가능합니다.</p>
+                    <p style="color: #ff2200">※ 제출 전 반드시 확인해 주세요.</p>
+                    <p><b style="color: #ff2200;">• 렌터카는 24시간(1일) 단위로만 예약</b> 가능하며, <b style="color: #ff2200;">1시간 초과 시에도 1일 요금이 추가 적용</b>됩니다.</p>
+                    <p>• 일부 차종은 선착순 조기 마감될 수 있으며, 동급 차량 내 차종 및 색상은 랜덤 배정됩니다. </p>
+                    <p>• <b style="color: #ff2200;">자차보험료(완전면책, CDW)</b>가 포함된 요금이며, <b style="color: #ff2200;">만 30세 미만 운전자는 추가 보험료가 발생</b>합니다.</p>
+                    <p>  - 만 30세 미만 : 7,000원/1일 </p>
+                    <p>  - 만 26세 미만 : 30,000원/1일 </p>
+                    <p> <b style="color: #ff2200;">• 주유비, 주차료 및 통행료 등 실비는 참가자 별도 부담</b>입니다. </p>
+                    <p>• 제주공항 인근 롯데렌터카 지점 및 롯데호텔에서 인수·반납 가능합니다. </p>
+                    <p> - 제주공항 지점 : 공항 ↔ 지점 이동 시 롯데렌터카 셔틀버스 이용 </p>
+                    <p> - 롯데호텔 제주 : 호텔 인수 희망 시 48시간 전 사전 예약 필요 </p>
+                    <p>• 렌터카 취소 및 변경은 인수 장소 및 시점에 따라 수수료가 발생할 수 있습니다. </p>
                 </div>
                 <div data-button_box>
                     <button data-pre_btn type="button">이전</button>
