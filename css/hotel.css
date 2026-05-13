@@ -338,6 +338,10 @@ main [data-content_box] [data-card_info_wrap] [data-card_info_box] .form-info-bo
 main [data-content_box] [data-card_info_wrap] [data-card_info_box] .form-info-box p a {
   display: inline;
 }
+main [data-content_box] [data-button_box] {
+  padding-top: 20px;
+  padding-bottom: 35px;
+}
 
 @media (max-width: 760px) {
   main [data-content_box] {
