@@ -278,12 +278,12 @@
         <div data-content_box>
             <div data-title_box>항공예약</div>
             <table>
-                <tr data-passenger_box>
+                <!-- <tr data-passenger_box>
                     <th>탑승자 선택</th>
                     <td>
                         <div data-passenger_select_wrap class="passenger-choice-group"></div>
                     </td>
-                </tr>
+                </tr> -->
 
                 <tr>
                     <th>출/도착 도시</th>
@@ -334,6 +334,7 @@
                                 <input type="radio" name="ticketing_status" value="false" checked /> 표준협회를 통해 발권하지 않습니다
                             </label>
                         </div>
+                        <p data-ticketing_notice style="display: none; margin-top: 8px; color: #666; font-size: 14px;">사무국으로 연락 부탁드립니다.</p>
                     </td>
                 </tr>
                 <tr data-list_row>
@@ -464,6 +465,14 @@
             let child_cost = "";
             let adult_cost = "";
             let type_cost = "";
+
+            function toggleTicketingNotice() {
+                if ($("input[name='ticketing_status']:checked").val() === "true") {
+                    $("[data-ticketing_notice]").show();
+                } else {
+                    $("[data-ticketing_notice]").hide();
+                }
+            }
 
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
             if (attend_id !== null) {
@@ -616,6 +625,7 @@
                             if (response.isTicketingRequested !== null) {
                                 $("input[name='ticketing_status'][value='" + response.isTicketingRequested + "']").prop("checked", true);
                             }
+                            toggleTicketingNotice();
                             if (response.isGolfBagPickupRequested !== null) {
                                 $("input[name='golf_bag_pickup'][value='" + response.isGolfBagPickupRequested + "']").prop("checked", true);
                             }
@@ -692,6 +702,7 @@
                     $("[data-flight_time_row]").hide();
                     $("[data-ticketing_row]").show();
                     $("[data-passenger_box]").hide();
+                    toggleTicketingNotice();
                 });
                 $('input[name="city"]')
                     .not("[data-none_input]")
@@ -703,8 +714,13 @@
                         $("[data-text_row]").show();
                         $("[data-flight_time_row]").show();
                         $("[data-ticketing_row]").hide();
+                        $("[data-ticketing_notice]").hide();
                         $("[data-passenger_box]").show();
                     });
+
+                $("input[name='ticketing_status']").change(function () {
+                    toggleTicketingNotice();
+                });
 
                 // 비행시간과 탑승자 선택 후 리스트에 추가
                 $("[data-time_select]").change(function () {
