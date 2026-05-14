@@ -574,7 +574,10 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
 }
 
 .download_section {
-    margin: 40px 0;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1280px;
+    margin: 40px auto;
     padding: 30px;
     background: #f8f9fb;
     border-radius: 12px;
@@ -607,4 +610,10 @@ main [data-popup_box] div button:nth-of-type(2):disabled {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(7, 29, 75, 0.3);
     color: #fff;
+}
+
+.btn_application_check {
+    box-sizing: border-box;
+    display: block;
+    margin: 0 auto;
 }
