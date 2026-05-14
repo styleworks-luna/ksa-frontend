@@ -1008,7 +1008,7 @@
             const fileId = $(this).data("id");
             if(confirm("정말로 이 파일을 삭제하시겠습니까?")) {
                 $.ajax({
-                    type: "DELETE",
+                    type: "GET",
                     url: base_url + "/api/v1/ksa/files/delete/" + fileId,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
