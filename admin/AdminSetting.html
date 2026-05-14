@@ -1009,7 +1009,7 @@
             if(confirm("정말로 이 파일을 삭제하시겠습니까?")) {
                 $.ajax({
                     type: "DELETE",
-                    url: base_url + "/api/v1/ksa/files/" + fileId,
+                    url: base_url + "/api/v1/ksa/files/delete/" + fileId,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
