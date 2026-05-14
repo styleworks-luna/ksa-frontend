@@ -794,7 +794,7 @@
                     }
                 });
             }
-            $("[data-flight_download]").click(function () {
+            $(document).on("click", "[data-flight_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/flights?year=" + select_year + "",
@@ -822,7 +822,7 @@
                 });
             })
 
-            $("[data-hotel_download]").click(function () {
+            $(document).on("click", "[data-hotel_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/hotels?year=" + select_year + "",
@@ -850,7 +850,7 @@
                 });
             })
 
-            $("[data-cost_download]").click(function () {
+            $(document).on("click", "[data-cost_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/attends-cost?year=" + select_year + "",
@@ -878,7 +878,7 @@
                 });
             })
 
-            $("[data-attender_download]").click(function () {
+            $(document).on("click", "[data-attender_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/attends?year=" + select_year + "",
@@ -906,7 +906,7 @@
                 });
             })
 
-            $("[data-tour_download]").click(function () {
+            $(document).on("click", "[data-tour_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/programs?year=" + select_year + "",
@@ -934,7 +934,7 @@
                 });
             })
 
-            $("[data-golf_download]").click(function () {
+            $(document).on("click", "[data-golf_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/golfs?year=" + select_year + "",
@@ -962,7 +962,7 @@
                 });
             })
 
-            $("[data-renter_download]").click(function () {
+            $(document).on("click", "[data-renter_download]", function () {
                 const select_year = $("#year").val();
                 $.ajax({
                     "url": base_url + "/api/v1/excel/renter-cars?year=" + select_year + "",
