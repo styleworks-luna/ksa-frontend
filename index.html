@@ -511,25 +511,33 @@
 
         // 문의하기 제출
         function submitPartnerInquiry() {
+            const name = $("input[name='name']").val();
+            const email = $("input[name='email']").val(); 
+            const title = $("input[name='company']").val() + " 공식파트너쉽 문의"; 
+            const content = `소속: ${$("input[name='company']").val()}\n연락처: ${$("input[name='tel']").val()}\n내용: ${$("textarea[name='content']").val() || ''}`;
 
-            if (!$("input[name='company']").val()) { alert("소속을 입력해주세요."); return; }
-            if (!$("input[name='name']").val()) { alert("이름을 입력해주세요."); return; }
-            if (!$("input[name='tel']").val()) { alert("연락처를 입력해주세요."); return; }
+            if (!name) { alert("이름을 입력해주세요."); return; }
+            if (!email) { alert("이메일을 입력해주세요."); return; } 
 
-            const formData = $("#partnerForm").serialize();
+            const requestData = {
+                name: name,
+                email: email,
+                title: title,
+                content: content
+            };
 
             const $submitBtn = $(".btn_submit");
             $submitBtn.prop("disabled", true).text("전송 중...");
 
             $.ajax({
-                url: '/api/partner/inquiry', // 예정 엔드포인트
+                url: '/api/v2/official-partner', 
                 type: 'POST',
-                data: formData,
-                dataType: 'json',
+                contentType: 'application/json', 
+                data: JSON.stringify(requestData), 
                 success: function (response) {
                     alert("문의가 성공적으로 접수되었습니다. 사무국에서 확인 후 연락드리겠습니다.");
                     $("#partnerForm")[0].reset();
-                    closePartnerPopup();
+                    if (typeof closePartnerPopup === 'function') closePartnerPopup();
                 },
                 error: function (xhr, status, error) {
                     console.error("에러 발생:", error);
