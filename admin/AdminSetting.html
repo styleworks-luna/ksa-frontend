@@ -938,7 +938,7 @@
         function getKsaFiles() {
             $.ajax({
                 type: "GET",
-                url: base_url + "/api/v1/ksa/files/all?year=" + current_year,
+                url: base_url + "/api/v1/ksa/files/list?year=" + current_year,
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
