@@ -294,11 +294,15 @@
                                 <thead>
                                     <tr>
                                         <th class="table-dark">파일 종류</th>
-                                        <th class="table-dark">파일 선택</th>
-                                        <th class="table-dark">등록</th>
+                                        <th class="table-dark">파일링크</th>
+                                        <th class="table-dark">관리</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="ksa_file_list_body">
+                                    <!-- 리스트 -->
+                                </tbody>
+                                <tfoot style="border-top: solid 3px #1c82ff;">
+                                    <!-- 등록용 -->
                                     <tr>
                                         <td>
                                             <select id="ksa_file_type" class="form-control">
@@ -314,7 +318,7 @@
                                             <button type="button" id="ksa_file_upload_btn" class="btn btn-primary btn-m pl-3 pr-3">등록</button>
                                         </td>
                                     </tr>
-                                </tbody>
+                                </tfoot>
                             </table>
                         </div>
                     </div>
@@ -931,6 +935,44 @@
         });
 
         //----------------------------------KSA 파일 등록----------------------------------------
+        function getKsaFiles() {
+            $.ajax({
+                type: "GET",
+                url: base_url + "/api/v1/ksa/files/all?year=" + current_year,
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    const fileTypeName = {
+                        "BUSINESS_REGISTRATION": "사업자등록증",
+                        "COPY_OF_BANKBOOK": "통장사본",
+                        "BROCHURE": "브로셔"
+                    };
+                    let html = '';
+                    $.each(response, function (index, item) {
+                        const downloadUrl = `${base_url}/api/v1/ksa/files?year=${current_year}&ksaFileType=${item.ksaFileType}`;
+                        html += `
+                            <tr>
+                                <td>${fileTypeName[item.ksaFileType] || item.ksaFileType}</td>
+                                <td><a href="${downloadUrl}" target="_blank">${item.originalFileName}</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-m pl-3 pr-3 ksa-file-delete-btn" data-id="${item.id}">삭제</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    $("#ksa_file_list_body").html(html);
+                },
+                error: function (xhr) {
+                    $("#ksa_file_list_body").html('<tr><td colspan="3">등록된 파일이 없습니다.</td></tr>');
+                }
+            });
+        }
+
+        getKsaFiles();
+
         $("#ksa_file_upload_btn").click(function () {
             var fileType = $("#ksa_file_type").val();
             var fileInput = $("#ksa_file_input")[0];
@@ -947,18 +989,46 @@
                 "processData": false,
                 "contentType": false,
                 beforeSend: function (xhr) {
-                    if (sessionStorage.getItem('token')) {
-                        xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
                     }
                 },
                 success: function (response) {
                     alert("파일이 등록되었습니다.");
                     $("#ksa_file_input").val("");
+                    getKsaFiles();
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON ? xhr.responseJSON.message : "파일 등록에 실패했습니다.");
                 }
             });
+        });
+
+        $(document).on("click", ".ksa-file-delete-btn", function() {
+            const fileId = $(this).data("id");
+            if(confirm("정말로 이 파일을 삭제하시겠습니까?")) {
+                $.ajax({
+                    type: "DELETE",
+                    url: base_url + "/api/v1/ksa/files/" + fileId,
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function() {
+                        alert("삭제되었습니다.");
+                        getKsaFiles();
+                    },
+                    error: function(xhr) {
+                        if (xhr.status === 401) {
+                            alert("로그인이 필요한 페이지입니다.");
+                            window.location.href = 'login.html';
+                        } else {
+                            alert("파일 삭제에 실패했습니다: " + (xhr.responseJSON ? xhr.responseJSON.message : "알 수 없는 오류"));
+                        }
+                    }
+                });
+            }
         });
 
         $(".add-rental-save-btn").click(function () {

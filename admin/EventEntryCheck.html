@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>입장관리 - KSA</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <style>
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #qrSearchInput:disabled {
+            background-color: #eaecf4;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="sidebar-placeholder"></div>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px"
+                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid mt-4">
+                    <h1 class="h3 mb-4 text-gray-800">현장 입장 관리</h1>
+                    
+                    <!-- 상단 설정 영역 -->
+                    <div class="card shadow mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <label class="font-weight-bold">포럼 년도</label>
+                                    <select id="forumYear" class="form-control">
+                                        <!-- Options will be dynamically loaded -->
+                                        <option value="2025">2025년</option>
+                                        <option value="2024">2024년</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="font-weight-bold">대상 행사 선택</label>
+                                    <select id="eventSelect" class="form-control">
+                                        <option value="">연도를 선택해주세요</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 검색 영역 -->
+                    <div class="search-container text-center mb-5">
+                        <div class="input-group input-group-lg shadow-sm">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text bg-primary text-white"><i class="fas fa-qrcode"></i></span>
+                            </div>
+                            <input type="text" id="qrSearchInput" class="form-control" 
+                                placeholder="QR 스캔 또는 이름/전화번호 입력" disabled>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="btnManualSearch">검색</button>
+                            </div>
+                        </div>
+                        <small class="text-muted mt-2 d-block">연도와 행사를 선택하면 검색창이 활성화됩니다.</small>
+                    </div>
+
+                    <!-- 입장자 목록 테이블 -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">오늘의 입장자 명단</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered font-weight-bold text-center" id="entryTable" width="100%">
+                                    <thead class="bg-light">
+                                        <tr>
+                                            <th>입장시간</th>
+                                            <th>소속</th>
+                                            <th>성명</th>
+                                            <th>직위</th>
+                                            <th>구분</th>
+                                            <th>비고</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="entryBody">
+                                        <!-- 입장 데이터가 여기에 추가됨 -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="/admin/js/common.js"></script>
+
+    <script>
+        let allParticipants = []; // 해당 연도 입장 가능 대상자 풀
+        let enteredIds = new Set(); // 중복 체크용 (attendId_attenderId 조합)
+        let eventsData = []; // 해당 연도의 모든 행사 데이터
+        let selectedEventId = null;
+        let selectedEventMaxCapacity = 0;
+        let currentEnteredCount = 0;
+        let inputResetTimer = null;
+
+        $(document).ready(function () {
+            let yearOptions = '';
+            const currentYear = 2026;
+            for (let i = currentYear; i >= 2025; i--) {
+                yearOptions += `<option value="${i}" ${i === currentYear ? 'selected' : ''}>${i}년</option>`;
+            }
+            $('#forumYear').html(yearOptions);
+
+            $('#forumYear').change(function() {
+                const year = $(this).val();
+                loadEvents(year); 
+                loadParticipantsPool(year); 
+                selectedEventId = null; 
+                selectedEventMaxCapacity = 0; 
+                currentEnteredCount = 0; 
+                $('#entryBody').empty(); 
+                enteredIds.clear(); 
+                checkSearchActivation();
+            }).trigger('change'); 
+
+            $('#eventSelect').change(function() {
+                selectedEventId = $(this).val();
+                if (selectedEventId) {
+                    const event = eventsData.find(e => e.id == selectedEventId);
+                    if (event) {
+                        selectedEventMaxCapacity = event.maxCapacity;
+                        currentEnteredCount = 0; // Reset count for the new event
+                        $('#entryBody').empty(); // Clear previous entries
+                        enteredIds.clear(); // Clear previous entered IDs
+                        console.log(`Selected Event: ${event.title}, Max Capacity: ${selectedEventMaxCapacity}`);
+                    }
+                } else {
+                    selectedEventMaxCapacity = 0;
+                    currentEnteredCount = 0;
+                    $('#entryBody').empty();
+                    enteredIds.clear();
+                }
+                checkSearchActivation();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey || e.metaKey) {
+        
+                    const allowedKeys = ['c', 'v', 'a', 'z', 'C', 'V', 'A', 'Z'];
+                    
+                    if (!allowedKeys.includes(e.key)) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        console.warn(`차단된 단축키 조합: Ctrl + ${e.key}`);
+                    }
+                }
+                if (e.shiftKey) {
+                    const allowedShiftKeys = [
+                        '{', '}', '"', ':', '?', '_', '+', '|', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
+                        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+                    ];
+
+                    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown'].includes(e.key)) {
+                        e.preventDefault();
+                    }
+                }
+            });
+            
+            $('#btnManualSearch').click(function() {
+                handleSearch($('#qrSearchInput').val());
+            });
+
+            $('#qrSearchInput').on('input', function() {
+                const $input = $(this);
+                const val = $input.val().trim();
+                const hasKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(val);
+                const hasWrongSymbols = val.includes('[') || val.includes(']') || val.includes(';');
+
+                if (hasKorean || hasWrongSymbols) {
+                    // 즉시 입력창 비우기 (추가 데이터 유입 차단)
+                    $(this).val('');
+                    $(this).focus();
+
+                    // 사용자에게 알림
+                    showAlertModal(
+                        "반드시 <b>영문(A) 모드</b>임을 확인하고 다시 스캔해주세요!"
+                    );
+                    return;
+                }
+
+                clearTimeout(inputResetTimer);
+                if (val !== '') {
+                    inputResetTimer = setTimeout(function() {
+                        $input.val('');
+                    }, 5000);
+                }
+
+                if (!val.includes('{') && val.includes('"') && val.includes('}')) {
+                    $input.val('');
+                    return;
+                }
+                if (val.split('}').length > 2) {
+                    $input.val('');
+                    return;
+                }
+
+                if (val.startsWith('{') && val.endsWith('}')) {
+                    try {
+                        const qrData = JSON.parse(val);
+                        if (qrData.attendId !== undefined && qrData.attenderId !== undefined) {
+                            handleSearch(val);
+                        }
+                    } catch (e) {
+                        // 데이터 수신 중이거나 형식이 불완전한 경우 에러 무시
+                    }
+                }
+            });
+
+            
+
+        });
+
+        
+
+        // 행사 목록 로드
+        function loadEvents(year) {
+            $.ajax({
+                url: base_url + '/api/v1/events?year=' + year,
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                success: function(res) {
+                    eventsData = res; // Store all events for later use
+                    let options = '<option value="">행사를 선택해주세요</option>';
+                    res.forEach(ev => {
+                        options += `<option value="${ev.id}">${ev.title}</option>`;
+                    });
+                    $('#eventSelect').html(options);
+                },
+                error: function(xhr) {
+                    console.error("Error loading events:", xhr);
+                    showAlertModal("행사 목록을 불러오는 데 실패했습니다.");
+                }
+            });
+        }
+
+        // 입장 가능자 풀 로드 (년도 기준)
+        function loadParticipantsPool(year) {
+                $.ajax({
+                    url: base_url + "/api/v1/attends/search?year=" + year ,
+                    method: 'GET',
+                    data: {                      
+                        ksaCompanyType: "",
+                        //depositStatus: 'FULL_PAY', // 결제 완료된 인원만
+                        //attendStatus: 'DONE'       // 신청 완료 상태
+                        attendStatus: "",
+                        depositStatus: "",
+                        taxBillPublishStatus: "",
+
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                    allParticipants = response;
+                    console.log("대상자 풀 로드 완료:", allParticipants.length);
+                },
+                error: function(xhr) {
+                    console.error("Error loading participants pool:", xhr);
+                    showAlertModal("참가자 명단을 불러오는 데 실패했습니다.");
+                    }
+                });
+            
+        }
+
+        function checkSearchActivation() {
+            const isReady = $('#forumYear').val() && $('#eventSelect').val();
+            $('#qrSearchInput').prop('disabled', !isReady);
+            if(isReady) $('#qrSearchInput').focus();
+        }
+
+        // 검색 및 입장 처리 핵심 로직
+        function handleSearch(input) {
+            const cleanInput = input.trim();
+            if (!cleanInput) return;
+            
+            // 즉시 입력창 초기화 및 포커스 (다음 스캔 준비)
+            $('#qrSearchInput').val('').focus();
+
+            if (!selectedEventId) {
+                showAlertModal("행사를 먼저 선택해주세요.");
+                return;
+            }
+
+            // CASE A: QR 코드 (JSON 형식)
+            if (cleanInput.startsWith('{')) {
+                try {
+                    const qrData = JSON.parse(cleanInput);
+                    const target = findParticipant(qrData.attendId, qrData.attenderId);
+                    if (target) {
+                        processEntry(target);
+                    } else {
+                        showAlertModal("참가자 정보를 찾을 수 없습니다.");
+                    }
+                } catch (e) {
+                    showAlertModal("유효하지 않은 QR 코드 형식입니다.");
+                }
+            }
+            // CASE B: 수기 검색 (이름 또는 전화번호)
+            else {
+                const results = searchParticipantsManually(cleanInput);
+                if (results.length === 0) {
+                    showAlertModal("일치하는 참가자가 없습니다.");
+                } else if (results.length > 1) {
+                    showDuplicateModal(results);
+                } else {
+                    processEntry(results[0]);
+                }
+            }
+        }
+
+        // 풀에서 특정인 찾기
+        function findParticipant(attendId, attenderId) {
+            const attend = allParticipants.find(a => a.attendId == attendId);
+            if (!attend) return null;
+
+            // 대표자 확인
+            if (attend.mainAttender.mainAttenderId == attenderId) {
+                return { attend, person: attend.mainAttender, type: '대표자' };
+            }
+            // 동반가족 확인
+            const family = attend.familyAttenders.find(f => f.familyAttenderId == attenderId);
+            if (family) {
+                return { attend, person: family, type: '동반가족' };
+            }
+            return null;
+        }
+
+        // 수기 검색용 필터링
+        function searchParticipantsManually(query) {
+            let matches = [];
+            const lowerCaseQuery = query.toLowerCase();
+            allParticipants.forEach(a => {
+                // 대표자 검색
+                if (a.mainAttender.koreaName.toLowerCase().includes(lowerCaseQuery) || a.mainAttender.mobilePhone.replace(/-/g, '').includes(query.replace(/-/g, ''))) {
+                    matches.push({ attend: a, person: a.mainAttender, type: '대표자' });
+                }
+                // 동반가족 검색
+                a.familyAttenders.forEach(f => {
+                    if (f.name.toLowerCase().includes(lowerCaseQuery) || f.mobilePhone.replace(/-/g, '').includes(query.replace(/-/g, ''))) {
+                        matches.push({ attend: a, person: f, type: '동반가족' });
+                    }
+                });
+            });
+            return matches;
+        }
+
+        // 동명이인 선택 모달 표시
+        function showDuplicateModal(results) {
+            let html = '';
+            results.forEach((item, index) => {
+                const phone = item.person.mobilePhone || '-';
+                const name = item.person.koreaName || item.person.name;
+                html += `
+                    <tr>
+                        <td class="align-middle">${item.attend.company.companyName}</td>
+                        <td class="align-middle">${name}</td>
+                        <td class="align-middle">${phone}</td>
+                        <td class="align-middle"><span class="badge ${item.type === '대표자' ? 'badge-info' : 'badge-secondary'}">${item.type}</span></td>
+                        <td>
+                            <button class="btn btn-primary btn-sm px-3" onclick="selectFromDuplicate(${index})">선택</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            $('#duplicateListBody').html(html);
+            window.tempResults = results; // 선택을 위해 임시 저장
+            $('#qrSearchInput').blur(); // 모달 뜰 때 포커스 해제
+            $('#duplicateModal').modal('show');
+        }
+
+        // 알림 모달 표시 후 1초 뒤 자동 종료
+        function showAlertModal(message) {
+            $('#alertMessage').text(message);
+            $('#alertModal').modal('show');
+            setTimeout(function() {
+                $('#alertModal').modal('hide');
+            }, 1000);
+        }
+
+        // 모든 모달 닫힐 때 포커스 복구 (오류/성공/중복 모달 공통)
+        $('#duplicateModal, #alertModal, #successModal').on('hidden.bs.modal', function () {
+            $('#qrSearchInput').focus();
+        });
+
+        // 모달에서 선택 처리
+        function selectFromDuplicate(index) {
+            const target = window.tempResults[index];
+            processEntry(target);
+        }
+
+        // 입장 처리 및 UI 업데이트
+        function processEntry(target) {
+            const uniqueKey = `${target.attend.attendId}_${target.person.mainAttenderId || target.person.familyAttenderId}`;
+
+            if (enteredIds.has(uniqueKey)) {
+                showAlertModal("이미 입장 처리가 완료된 인원입니다.");
+                return;
+            }
+
+            if (selectedEventMaxCapacity > 0 && currentEnteredCount >= selectedEventMaxCapacity) {
+                showAlertModal("이 행사의 입장 가능 인원을 초과했습니다.");
+                return;
+            }
+
+            const displayName = target.person.koreaName || target.person.name;
+            //if (confirm(`${target.attend.company.companyName} - ${displayName}님을 입장 처리하시겠습니까?`)) {
+                // TODO: 여기에 서버로 입장 처리 API 호출 로직 추가 (예: /api/v1/events/{eventId}/entry)
+                // 성공 시에만 클라이언트 상태 업데이트
+
+                // 입장 완료 대형 모달 표시 후 1초 뒤 숨김
+                $('#successName').text(displayName);
+                $('#successCompany').text(target.attend.company.companyName);
+                $('#successModal').modal('show');
+                
+                setTimeout(function() {
+                    $('#successModal').modal('hide');
+                }, 1000);
+
+                const now = new Date().toLocaleTimeString('ko-KR', { hour12: false });
+                const row = `
+                    <tr class="animated fadeIn">
+                        <td class="text-primary font-weight-bold">${now}</td>
+                        <td>${target.attend.company.companyName}</td>
+                        <td>${target.person.koreaName || target.person.name}</td>
+                        <td>${target.person.grade || '-'}</td>
+                        <td><span class="badge ${target.type === '대표자' ? 'badge-info' : 'badge-secondary'}">${target.type}</span></td>
+                        <td class="text-success"><i class="fas fa-check-circle mr-1"></i>정상입장</td>
+                    </tr>
+                `;
+
+                $('#entryBody').prepend(row);
+                enteredIds.add(uniqueKey);
+                currentEnteredCount++; // Increment entered count
+
+                console.log("Entry Success:", target);
+
+                //     error: function(xhr) {
+                //         showAlertModal("입장 처리 중 오류가 발생했습니다.");
+                //     }
+                // });
+            //} else {
+            //    $('#qrSearchInput').focus();
+            //}
+        }
+    </script>
+</body>
+
+</html>
