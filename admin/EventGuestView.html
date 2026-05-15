@@ -124,6 +124,7 @@
         $(document).ready(function () {
             const urlParams = new URLSearchParams(window.location.search);
             const eventId = urlParams.get('id');
+            var thisYear = '';
 
             if (!eventId) {
                 alert("잘못된 접근입니다.");
@@ -151,7 +152,10 @@
                     }
                     $('#view_eventDateTime').text(formattedDate);
 
-                    if (response.year) fetchPaidParticipants(response.year);
+                    if (response.year){
+                        thisYear = response.year;
+                        fetchPaidParticipants(response.year);
+                    } 
 
                     $('#edit_btn').on('click', function () {
                         location.href = `EventWrite.html?id=${eventId}`;
@@ -259,6 +263,7 @@
                         $('.qr-img-placeholder').each(function() {
                             const $img = $(this);
                             const qrData = {
+                                year: thisYear,
                                 attendId: $img.data('id'),
                                 attenderId: $img.data('attender-id'),
                                 companyName: $img.data('company'),
