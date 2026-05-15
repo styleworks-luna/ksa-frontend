@@ -458,7 +458,7 @@
             sessionStorage.removeItem('attend_id');
         })
 
-        /* 레이어 팝업 */
+        /* 레이어 팝업 비활성화
         $(document).ready(function () {
             const popupValue = localStorage.getItem("hideMainPopup");
             const now = new Date().getTime();
@@ -467,6 +467,7 @@
                 $("#main_popup").fadeIn();
             }
         });
+        */
 
         function closePopup() {
             if ($("#chk_today").is(":checked")) {
