@@ -35,7 +35,7 @@ $(function () {
 
     $('body').show();
 
-    const currentPage = window.location.pathname.split("/").pop() || "EventGuestList.html";
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
     
     const subAdminAllowedPages = [
         "EventGuestList.html", 
