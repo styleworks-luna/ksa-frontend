@@ -289,6 +289,7 @@ main [data-content_box] [data-table_box] [data-total_table] tr th {
   border: none;
   background-color: #fff;
   padding-left: 30px;
+  white-space: nowrap;
 }
 main [data-content_box] [data-table_box] [data-total_table] tr th span {
   display: inline-block;
@@ -303,11 +304,14 @@ main [data-content_box] [data-table_box] [data-total_table] tr td {
 main [data-content_box] [data-table_box] [data-total_table] tr td textarea {
   width: 100%;
   height: 136px;
+  display: block;
+  box-sizing: border-box;
   border: solid 1px #dedede;
   padding-left: 20px;
   padding-top: 24px;
   padding-bottom: 24px;
   font-size: 20px;
+  resize: vertical;
 }
 main [data-content_box] [data-table_box] [data-total_table] tr td p {
   font-size: 24px;
@@ -320,9 +324,13 @@ main [data-content_box] [data-table_box] [data-total_table] tr td p span {
 }
 main [data-content_box] [data-notice_box] {
   width: 100%;
+  box-sizing: border-box;
   padding: 30px;
   background-color: #f7f7f7;
   margin-top: 50px;
+}
+main [data-content_box] > [data-notice_box]:last-of-type {
+  margin-bottom: 50px;
 }
 main [data-content_box] [data-notice_box] p {
   font-size: 18px;
@@ -723,11 +731,14 @@ main [data-popup_box] [data-done_txt] {
   main [data-content_box=mobile] [data-total_table] tr td textarea {
     width: 100%;
     height: 102px;
+    display: block;
+    box-sizing: border-box;
     border: solid 1px #dedede;
     padding-left: 20px;
     padding-top: 24px;
     padding-bottom: 24px;
     font-size: 14px;
+    resize: vertical;
   }
   main [data-content_box=mobile] [data-total_table] tr td p {
     font-size: 16px;
@@ -767,11 +778,14 @@ main [data-popup_box] [data-done_txt] {
   main [data-content_box=mobile] [data-table_box] [data-total_table] tr td textarea {
     width: 100%;
     height: 102px;
+    display: block;
+    box-sizing: border-box;
     border: solid 1px #dedede;
     padding-left: 20px;
     padding-top: 24px;
     padding-bottom: 24px;
     font-size: 14px;
+    resize: vertical;
   }
   main [data-content_box=mobile] [data-table_box] [data-total_table] tr td p {
     font-size: 16px;
@@ -784,9 +798,13 @@ main [data-popup_box] [data-done_txt] {
   }
   main [data-content_box=mobile] [data-notice_box] {
     width: 100%;
+    box-sizing: border-box;
     padding: 20px 16px;
     background-color: #f7f7f7;
     margin-top: 24px;
+  }
+  main [data-content_box=mobile] > [data-notice_box]:last-of-type {
+    margin-bottom: 50px;
   }
   main [data-content_box=mobile] [data-notice_box] p {
     font-size: 14px;
