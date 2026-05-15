@@ -131,6 +131,42 @@
     </footer>
     <script>
         $(function () {
+            const noticePageSize = 10;
+            const openNoticeTitle = new URLSearchParams(window.location.search).get("title");
+
+            function normalizeNoticeTitle(value) {
+                return $.trim($("<div>").html(value || "").text()).replace(/\s+/g, " ");
+            }
+
+            function getOpenNoticePage(response) {
+                if (!openNoticeTitle) {
+                    return 1;
+                }
+
+                const targetTitle = normalizeNoticeTitle(openNoticeTitle);
+                const targetIndex = response.findIndex(function (item) {
+                    return normalizeNoticeTitle(item.title) === targetTitle;
+                });
+
+                return targetIndex === -1 ? 1 : Math.floor(targetIndex / noticePageSize) + 1;
+            }
+
+            function openNoticeByTitle($wrap, titleSelector) {
+                if (!openNoticeTitle) {
+                    return;
+                }
+
+                const targetTitle = normalizeNoticeTitle(openNoticeTitle);
+                const $targetRow = $wrap.find("[data-td_row]").filter(function () {
+                    return normalizeNoticeTitle($(this).find(titleSelector).first().text()) === targetTitle;
+                }).first();
+
+                if ($targetRow.length > 0) {
+                    $targetRow.find("[data-title_row]").trigger("click");
+                    $("html, body").animate({ scrollTop: $targetRow.offset().top - 100 }, 300);
+                }
+            }
+
             if (window.innerWidth > 760) {
                 $.ajax({
                     type: "GET",
@@ -139,6 +175,8 @@
                         let container = $("[data-pagination_box]");
                         container.pagination({
                             dataSource: response,
+                            pageSize: noticePageSize,
+                            pageNumber: getOpenNoticePage(response),
                             callback: function (data, pagination) {
                                 var dataHtml = '';
                                 $.each(data, function (index, item) {
@@ -212,6 +250,8 @@
                                         });
                                     }
                                 });
+
+                                openNoticeByTitle($("#data-container"), "[data-title_row] > div:nth-child(2)");
                             },
                         });
                     },
@@ -227,6 +267,8 @@
                         let container = $("[data-mobile_pagination_box]");
                         container.pagination({
                             dataSource: response,
+                            pageSize: noticePageSize,
+                            pageNumber: getOpenNoticePage(response),
                             callback: function (data, pagination) {
                                 var dataHtml = '';
                                 $.each(data, function (index, item) {
@@ -293,6 +335,8 @@
                                         });
                                     }
                                 });
+
+                                openNoticeByTitle($("#data-container-mobile"), "[data-title_row] p");
                             },
                         });
                     },
