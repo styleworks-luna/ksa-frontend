@@ -38,12 +38,20 @@
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto">
+
                         <div class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </nav>
@@ -117,6 +125,81 @@
         </div>
     </div>
 
+    <!-- 알림 모달 (에러 및 안내용) -->
+    <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-left-danger shadow">
+                <div class="modal-body text-center py-4">
+                    <i class="fas fa-exclamation-circle text-danger fa-3x mb-3"></i>
+                    <h5 class="font-weight-bold text-gray-800" id="alertMessage"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 중복 검색 결과 선택 모달 -->
+    <div class="modal fade" id="duplicateModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content shadow">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title font-weight-bold">검색 결과가 여러 명입니다. 대상자를 선택하세요.</h5>
+                    <button class="close text-white" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover text-center font-weight-bold">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th>소속</th>
+                                    <th>성명</th>
+                                    <th>휴대전화</th>
+                                    <th>구분</th>
+                                    <th>선택</th>
+                                </tr>
+                            </thead>
+                            <tbody id="duplicateListBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 입장 성공 확인 모달 -->
+    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-left-success shadow">
+                <div class="modal-body text-center py-5">
+                    <i class="fas fa-check-circle text-success fa-4x mb-3"></i>
+                    <h3 class="font-weight-bold text-success mb-2">입장 확인</h3>
+                    <h4 class="text-gray-900 mb-1"><span id="successName"></span> 님</h4>
+                    <p class="text-muted mb-0" id="successCompany"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="js/sb-admin-2.js"></script>
@@ -174,28 +257,6 @@
                 checkSearchActivation();
             });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.ctrlKey || e.metaKey) {
-        
-                    const allowedKeys = ['c', 'v', 'a', 'z', 'C', 'V', 'A', 'Z'];
-                    
-                    if (!allowedKeys.includes(e.key)) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        console.warn(`차단된 단축키 조합: Ctrl + ${e.key}`);
-                    }
-                }
-                if (e.shiftKey) {
-                    const allowedShiftKeys = [
-                        '{', '}', '"', ':', '?', '_', '+', '|', '~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')',
-                        'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
-                    ];
-
-                    if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Home', 'End', 'PageUp', 'PageDown'].includes(e.key)) {
-                        e.preventDefault();
-                    }
-                }
-            });
             
             $('#btnManualSearch').click(function() {
                 handleSearch($('#qrSearchInput').val());
@@ -204,19 +265,10 @@
             $('#qrSearchInput').on('input', function() {
                 const $input = $(this);
                 const val = $input.val().trim();
-                const hasKorean = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/.test(val);
-                const hasWrongSymbols = val.includes('[') || val.includes(']') || val.includes(';');
 
-                if (hasKorean || hasWrongSymbols) {
-                    // 즉시 입력창 비우기 (추가 데이터 유입 차단)
-                    $(this).val('');
-                    $(this).focus();
-
-                    // 사용자에게 알림
-                    showAlertModal(
-                        "반드시 <b>영문(A) 모드</b>임을 확인하고 다시 스캔해주세요!"
-                    );
-                    return;
+                // 14자리 숫자 규격 확인 (QR 규격: 년도4 + attendId5 + attenderId5)
+                if (val.length === 14 && /^\d+$/.test(val)) {
+                    handleSearch(val);
                 }
 
                 clearTimeout(inputResetTimer);
@@ -226,32 +278,19 @@
                     }, 5000);
                 }
 
-                if (!val.includes('{') && val.includes('"') && val.includes('}')) {
-                    $input.val('');
-                    return;
-                }
-                if (val.split('}').length > 2) {
-                    $input.val('');
-                    return;
-                }
-
-                if (val.startsWith('{') && val.endsWith('}')) {
-                    try {
-                        const qrData = JSON.parse(val);
-                        if (qrData.attendId !== undefined && qrData.attenderId !== undefined) {
-                            handleSearch(val);
-                        }
-                    } catch (e) {
-                        // 데이터 수신 중이거나 형식이 불완전한 경우 에러 무시
-                    }
-                }
-            });
-
-            
+            });            
 
         });
 
-        
+        //화면출력 모달
+        function showAlertModal(message) {
+            $('#alertMessage').text(message);
+            $('#alertModal').modal('show');
+            // 1.5초 후 자동으로 닫히도록 설정 (가독성 고려)
+            setTimeout(function() {
+                $('#alertModal').modal('hide');
+            }, 1500);
+        }
 
         // 행사 목록 로드
         function loadEvents(year) {
@@ -311,7 +350,7 @@
             if(isReady) $('#qrSearchInput').focus();
         }
 
-        // 검색 및 입장 처리 핵심 로직
+        // 검색 및 입장 처리
         function handleSearch(input) {
             const cleanInput = input.trim();
             if (!cleanInput) return;
@@ -324,22 +363,18 @@
                 return;
             }
 
-            // CASE A: QR 코드 (JSON 형식)
-            if (cleanInput.startsWith('{')) {
-                try {
-                    const qrData = JSON.parse(cleanInput);
-                    const target = findParticipant(qrData.attendId, qrData.attenderId);
-                    if (target) {
-                        processEntry(target);
-                    } else {
-                        showAlertModal("참가자 정보를 찾을 수 없습니다.");
-                    }
-                } catch (e) {
-                    showAlertModal("유효하지 않은 QR 코드 형식입니다.");
+            if (cleanInput.length === 14 && /^\d+$/.test(cleanInput)) {
+                const year = cleanInput.substring(0, 4);
+                const attendId = parseInt(cleanInput.substring(4, 9), 10);
+                const attenderId = parseInt(cleanInput.substring(9, 14), 10);
+                
+                const target = findParticipant(attendId, attenderId);
+                if (target) {
+                    processEntry(target);
+                } else {
+                    showAlertModal("참가자 정보를 찾을 수 없습니다.");
                 }
-            }
-            // CASE B: 수기 검색 (이름 또는 전화번호)
-            else {
+            } else {
                 const results = searchParticipantsManually(cleanInput);
                 if (results.length === 0) {
                     showAlertModal("일치하는 참가자가 없습니다.");
@@ -411,14 +446,6 @@
             $('#duplicateModal').modal('show');
         }
 
-        // 알림 모달 표시 후 1초 뒤 자동 종료
-        function showAlertModal(message) {
-            $('#alertMessage').text(message);
-            $('#alertModal').modal('show');
-            setTimeout(function() {
-                $('#alertModal').modal('hide');
-            }, 1000);
-        }
 
         // 모든 모달 닫힐 때 포커스 복구 (오류/성공/중복 모달 공통)
         $('#duplicateModal, #alertModal, #successModal').on('hidden.bs.modal', function () {

@@ -14,3 +14,7 @@
         /* SB Admin 2 기본 너비 */
     }
 }
+
+body{
+    display:none;
+}
