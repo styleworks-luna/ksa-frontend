@@ -452,6 +452,13 @@ main [data-mobile_content_box] {
     padding-bottom: 50px;
     padding-top: 0px;
   }
+  main [data-mobile_content_box] [data-content_container] img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
   main [data-mobile_content_box] [data-tab_bar] {
     display: -webkit-box;
     display: -ms-flexbox;

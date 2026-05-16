@@ -536,12 +536,14 @@ body [data-info_title_box] div [data-year_select] {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding-left: 16px;
+    padding-right: 16px;
   }
   body footer [data-footer_wrap] [data-logo_box] {
     background-image: url(/images/m_ksalogo-ai.png);
@@ -553,19 +555,30 @@ body [data-info_title_box] div [data-year_select] {
     margin-right: 0;
     margin-bottom: 24px;
   }
+  body footer [data-footer_wrap] [data-text_box] {
+    width: 100%;
+  }
+  body footer [data-footer_wrap] [data-text_box] [data-foot-btn-area] {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    padding-left: 0;
+  }
   body footer [data-footer_wrap] [data-text_box] p {
-    text-align: center;
+    text-align: left;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     font-size: 12px;
     line-height: 21px;
     color: rgba(255, 255, 255, 0.6);
@@ -579,8 +592,8 @@ body [data-info_title_box] div [data-year_select] {
     color: #fff;
   }
   body footer [data-footer_wrap] [data-text_box] p:first-of-type {
-    padding-left: 16px;
-    padding-right: 16px;
+    padding-left: 0;
+    padding-right: 0;
     color: rgba(255, 255, 255, 0.6);
     line-height: 26px;
   }
