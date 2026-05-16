@@ -109,6 +109,47 @@
                     },
                     success: function (response) {
                         const friend_group = response.ksaCompanyTypeCount.ksaCompanyTypeCount
+
+                        const renderTourRow = (tour) => {
+                            if (!tour) return '';
+                            const counts = tour.counts ?? [];
+                            const headCells = counts.map(c => `<td class="border-right">${c?.description ?? '-'}</td>`).join('');
+                            const bodyCells = counts.map(c => `<td class="border-right">${c?.count ?? '-'}</td>`).join('');
+                            return `
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card shadow mb-4">
+                                            <div class="card-body">
+                                                <p class="text-primary" style="font-weight: bold;">관광 현황 (${tour.startDate ?? '-'})</p>
+                                                <div class="">
+                                                    <table class="table text-center font-weight-bold mb-4">
+                                                        <thead>
+                                                            <td class="table-dark">구분</td>
+                                                            ${headCells}
+                                                            <td class="border-right">총계</td>
+                                                            <td>총액</td>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th class="table-dark">신청자수</th>
+                                                                ${bodyCells}
+                                                                <td class="border-right">${tour.totalCount ?? '-'}</td>
+                                                                <td>${(tour.totalCost ?? 0).toLocaleString()}</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>`;
+                        };
+                        const tourRows = (response?.tourCount?.tourCountResponses ?? [])
+                            .slice()
+                            .reverse()
+                            .map(renderTourRow)
+                            .join('');
+
                         const template = `
                             <div class=" p-0">
                                 <div class="row">
@@ -338,72 +379,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-body">
-                                                <p class="text-primary" style="font-weight: bold;">관광 현황 (${response.tourCount.tourCountResponses[1].startDate})</p>
-                                                <div class="">
-                                                    <table class="table text-center font-weight-bold mb-4">
-                                                        <thead>
-                                                            <td class="table-dark">구분</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[1].counts[0].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[1].counts[1].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[1].counts[2].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[1].counts[3].description}</td>
-                                                            <td class="border-right">총계</td>
-                                                            <td>총액</td>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th class="table-dark">신청자수</th>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[1].counts[0].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[1].counts[1].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[1].counts[2].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[1].counts[3].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[1].totalCount}</td>
-                                                                <td>${response.tourCount.tourCountResponses[1].totalCost.toLocaleString()}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <div class="card shadow mb-4">
-                                            <div class="card-body">
-                                                <p class="text-primary" style="font-weight: bold;">관광 현황 (${response.tourCount.tourCountResponses[0].startDate})</p>
-                                                <div class="">
-                                                    <table class="table text-center font-weight-bold mb-4">
-                                                        <thead>
-                                                            <td class="table-dark">구분</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[0].counts[0].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[0].counts[1].description}</td>
-                                                            <td class="border-right">${response.tourCount.tourCountResponses[0].counts[2].description}</td>
-                                                            <td class="border-right">${response?.tourCount?.tourCountResponses?.[0]?.counts?.[3]?.description ?? '-'}</td>
-                                                            <td class="border-right">총계</td>
-                                                            <td>총액</td>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th class="table-dark">신청자수</th>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[0].counts[0].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[0].counts[1].count}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[0].counts[2].count}</td>
-                                                                <td class="border-right">${response?.tourCount?.tourCountResponses?.[0]?.counts?.[3]?.count ?? '-'}</td>
-                                                                <td class="border-right">${response.tourCount.tourCountResponses[0].totalCount}</td>
-                                                                <td>${response.tourCount.tourCountResponses[0].totalCost.toLocaleString()}</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                ${tourRows}
                                 <div class="row">
                                     <div class="col-xl-12">
                                         <div class="card shadow mb-4">
