@@ -19,6 +19,6 @@ jobs:
           echo "Merged by: ${{ github.event.pull_request.merged_by.login }}"
           echo "Running on $(hostname) as $(whoami)"
 
-          bash /home/styleworks/public/ksa/scripts/deploy-prod-frontend.sh
+          bash /home/styleworks/public/ksa/prod/scripts/deploy-prod-frontend.sh
 
           echo "=== Deploy finished at $(date) ==="
