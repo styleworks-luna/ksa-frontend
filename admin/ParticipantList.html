@@ -17,8 +17,9 @@
         rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
     <style>
-        .dataTables_filter{
+        .dataTables_filter {
             display: none;
         }
     </style>
@@ -26,44 +27,9 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -99,7 +65,9 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <select id="year" class="form-control font-weight-bold mb-3" style="width: 300px">
-                                    <option selected value="2024">2024년</option>
+                                    <option selected value="2026">2026년</option>
+                                    <option value="2025">2025년</option>
+                                    <option value="2024">2024년</option>
                                     <option value="2023">2023년</option>
                                 </select>
                                 <div class="row pl-3 mb-3 justify-content-between" style="width: 100%">
@@ -139,8 +107,8 @@
                                             <option value="PUBLISHED">발행</option>
                                         </select>
                                     </div>
-                                    <a href=""
-                                        class="btn btn-success mr-3 mb-1 font-weight-bold align-items-center" onclick="alert('준비중 입니다.')">등록하기</a>
+                                    <a href="" class="btn btn-success mr-3 mb-1 font-weight-bold align-items-center"
+                                        onclick="alert('준비중 입니다.')">등록하기</a>
                                 </div>
                                 <div data-excel_table style="width: 99%">
                                     <div class="d-flex justify-content-end">
@@ -206,6 +174,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.66/vfs_fonts.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
     <script>
         const data = [
             {
@@ -271,7 +240,7 @@
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/search?year=2024",
+                "url": base_url + "/api/v1/attends/search?year=" + current_year,
                 "data": {
                     "ksaCompanyType": "",
                     "attendStatus": "",
@@ -323,31 +292,31 @@
 
         $('#friendlyGroupFilter').on('change', function () {
             friendly_group = $('#friendlyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword="+ keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#ApplyGroupFilter').on('change', function () {
             apply_status = $('#ApplyGroupFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#depositStatusFilter').on('change', function () {
             deposit_status = $('#depositStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#taxbillPublishStatusFilter').on('change', function () {
             taxbill_publish_status = $('#taxbillPublishStatusFilter option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword +"&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
         $('#year').on('change', function () {
             year = $('#year option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
 
@@ -356,7 +325,7 @@
             if (confirm("신청을 취소 하시겠습니까?")) {
                 $.ajax({
                     type: "PATCH",
-                    url: "https://" + base_url + "/api/v1/attends/" + id_num + "/cancel",
+                    url: base_url + "/api/v1/attends/" + id_num + "/cancel",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -378,14 +347,21 @@
             e.preventDefault();
             var id = $(this).attr('href');
             const num = $.trim(id.replace(/[^0-9]/g, ''));
-            window.location.href = '/admin/ParticipantDetail.html?id=' + num + '&year='+ year
+            window.location.href = '/admin/ParticipantDetail.html?id=' + num + '&year=' + year
         });
 
         $(".another-search").click(function () {
             keyword = $(".another-search-input").val();
 
-            var url = "https://" + base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
+            var url = base_url + "/api/v1/attends/search?keyword=" + keyword + "&ksaCompanyType=" + friendly_group + "&attendStatus=" + apply_status + "&depositStatus=" + deposit_status + "&taxBillPublishStatus=" + taxbill_publish_status + "&year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
+        });
+
+        $(".another-search-input").keydown(function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                $(".another-search").click();
+            }
         });
     </script>
 </body>

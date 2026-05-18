@@ -1,215 +1,258 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/privacy.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+        <script src="/js/common.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/privacy.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
-    <script src="/js/common.js"></script>
-</head>
-
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
+    <body>
+        <header data-pc_header>
+            <a href="Index.html" data-logo_box></a>
             <ul>
+                <li><a href="Ceomessage.html">인사말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div data-top_header>
-            <button type="button" onclick="history.back()" data-back_btn></button>
-            <span>개인정보처리방침</span>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <main>
-        <div data-header_box data-print_wrap>
-
-        </div>
-        <div data-content_wrap>
-            <div data-title_box>개인정보처리방침</div>
-            <div data-text_box>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
                 <ul>
-                    <li>
-                        <p>
-                            한국표준협회에서 운영하는 KSA 하계CEO포럼 홈페이지는 개인정보 보호법 제30조에 따라 정보주체의 개인정보를 보호 및 권익을 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 다음과 같이 개인정보
-                            처리지침을 수립하여 공개합니다.
-                        </p>
-                    </li>
-                    <li>
-                        <span>제1조(개인정보의 처리목적)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 개인정보를 다음 목적 이외의 용도로는 이용하지 않으며 이용 목적 등이 변경될 경우에는 동의를 받아 처리하겠습니다.</p>
-                        <p>· 비회원 민원신청 및 Q&A : 민원처리, 고객응대</p>
-                    </li>
-                    <li>
-                        <span>제2조(처리하는 개인정보 항목)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 다음의 개인정보 항목을 처리하고 있습니다.</p>
-                        <p>· 비회원 민원신청 및 Q&A 관리</p>
-                        <p data-sub_row>- 필수항목 : 성명, 이메일, 연락처</p>
-                    </li>
-                    <li>
-                        <span>제3조(개인정보의 처리 및 보유기간)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 법령에 따른 개인정보 보유 이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의 받은 개인정보 보유 이용기간 내에서 개인정보를 처리보유합니다.</p>
-                        <p>· 민원신청 및 Q&A 신청 비회원 정보 : 3년 (전자상거래 등에서의 소비자보호에 관한 법률 및 시행령)</p>
-                    </li>
-                    <li>
-                        <span>제4조(개인정보의 제3자 제공)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 개인정보 처리와 관련한 별도의 제3자 제공이 없음을 알려드립니다.</p>
-                    </li>
-                    <li>
-                        <span>제5조(개인정보처리의 위탁)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.</p>
-                        <table>
-                            <tr>
-                                <th>제공받는 자</th>
-                                <th>제공항목</th>
-                                <th>이용목적</th>
-                                <th>보유 및 이용기간</th>
-                            </tr>
-                            <tr>
-                                <td>(주)온오프믹스</td>
-                                <td>참가 신청 정보</td>
-                                <td>홈페이지 운영 및 유지보수</td>
-                                <td>이용목적 달성 시까지</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li>
-                        <span>제6조(정보주체의 권리의무 및 행사방법)</span>
-                        <p data-main_text>정보주체는 KSA 하계CEO포럼 홈페이지에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 등의 권리를 행사할 수 있습니다.</p>
-                        <p>· KSA 하계CEO포럼 홈페이지에 대해 개인정보보호법 시행령 제41조제1항에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며, KSA 하계CEO포럼 홈페이지는 이에 대해 지체없이 조치하겠습니다.</p>
-                        <p>· 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다. 이 경우 개인정보 보호법 시행규칙 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.</p>
-                        <p>· 개인정보 열람 및 처리정지 요구는 개인정보보호법 제35조 제5항, 제37조 제2항에 의하여 정보주체의 권리가 제한 될 수 있습니다.</p>
-                        <p>· 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.</p>
-                        <p>· 한국표준정보망은 정보주체 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.</p>
-                    </li>
-                    <li>
-                        <span>제7조(개인정보의 파기)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 다음과 같이 지체없이 해당 개인정보를 파기합니다.</p>
-                        <p>· 파기절차 : 불필요한 개인정보 및 개인정보파일은 내부방침 절차에 따라 지체 없이 파기합니다.</p>
-                        <p>· 파기방법 : 전자적 형태의 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하며, 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</p>
-                    </li>
-                    <li>
-                        <span>제8조(개인정보의 안전성 확보조치)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 「개인정보보호법」제29조에 따라 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.</p>
-                        <p>· 관리적 조치 : 내부관리계획 수립ㆍ시행, 개인정보 담당자 대상 정기적 직원 교육 등</p>
-                        <p>· 기술적 조치 : 개인정보처리시스템 등의 접근권한 관리, 접근통제시스템 설치, 비밀번호 등의 암호화, 보안프로그램 설치</p>
-                        <p>· 물리적 조치 : 전산실, 자료보관실 등의 접근통제</p>
-                    </li>
-                    <li>
-                        <span>제9조(개인정보 보호책임자)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 개인정보를 보호하고 개인정보와 관련된 사항을 처리하기 위하여 아래와 같이 개인정보보호책임자, 개인정보보호담당자 및 개인정보 열람청구를 접수ㆍ처리하는 부서 및 담당자를 지정하고
-                        있습니다.</p>
-                        <table>
-                            <tr>
-                                <th>구분</th>
-                                <th>개인정보보호<br>책임자</th>
-                                <th>개인정보보호<br>담당자</th>
-                                <th>개인정보 열람청구<br>접수ㆍ처리부서</th>
-                            </tr>
-                            <tr>
-                                <td>부서명</td>
-                                <td>경영지원본부</td>
-                                <td>지식정보실</td>
-                                <td>CEO&INNO센터</td>
-                            </tr>
-                            <tr>
-                                <td>성명</td>
-                                <td>이경근 본부장</td>
-                                <td>권진택 위원</td>
-                                <td>권진택 위원</td>
-                            </tr>
-                            <tr>
-                                <td>전화번호</td>
-                                <td>02-6240-4510</td>
-                                <td>02-6240-4544</td>
-                                <td>-</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li>
-                        <span>제10조(권익침해 구제방법)</span>
-                        <p data-main_text>정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다. 이 밖에 기타 개인정보침해의 신고, 상담에 대하여는
-                        아래의 기관에 문의하시기 바랍니다.</p>
-                        <p>· 개인정보 침해신고센터 (한국인터넷진흥원 운영) : (국번없이) 118 (privacy.kisa.or.kr)</p>
-                        <p data-sub_row>- 소관업무 : 개인정보 침해사실 신고, 상담 신청</p>
-                        <p>· 개인정보 분쟁조정위원회 :(국번없이) 118 (www.kopico.go.kr)</p>
-                        <p data-sub_row>- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)</p>
-                        <p>· 대검찰청 사이버범죄수사단 : (국번없이) 1301 (www.spo.go.kr)</p>
-                        <p>· 경찰청 사이버안전국 : (국번없이) 182 (cyberbureau.police.go.kr)</p>
-                    </li>
-                    <li>
-                        <span>제11조(개인정보 자동 수집 장치의 설치ㆍ운영 및 거부에 관한 사항)</span>
-                        <p data-main_text>KSA 하계CEO포럼 홈페이지는 정보주체의 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용하지 않습니다.</p>
-                    </li>
-                    <li>
-                        <span>제12조(개인정보 처리방침 변경)</span>
-                        <p data-main_text>제12조(개인정보 처리방침 변경)</p>
-                        <p data-sub_row>· 시행일자 : 2021년 07월 16일 (제9조 변경)</p>
-                        <p data-sub_row>· 변경일자 : 2019년 01월 11일 (제9조 변경) [보기]</p>
-                        <p data-sub_row>· 변경일자 : 2018년 04월 13일 (제5조, 제7조, 제9조 변경) [보기]</p>
-                        <p data-sub_row>· 변경일자 : 2017년 01월 01일 (제9조, 제11조, 제12조 변경) [보기]</p>
-                        <p data-sub_row>· 변경일자 : 2016년 01월 01일 (제9조 변경) [보기]</p>
-                        <p data-sub_row>· 변경일자 : 2015년 01월 01일 (제9조 변경) [보기]</p>
-                        <p data-sub_row>· 변경일자 : 2013년 04월 01일 [보기]</p>
-                    </li>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
                 </ul>
             </div>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+        </header>
+        <header data-mobile_header>
+            <div data-top_header>
+                <button type="button" onclick="history.back()" data-back_btn></button>
+                <span>개인정보처리방침</span>
+                <button type="button" data-more_box></button>
             </div>
-        </div>
-    </footer>
-</body>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-header_box data-print_wrap></div>
+            <div data-content_wrap>
+                <div data-title_box>개인정보처리방침</div>
+                <div data-text_box>
+                    <ul>
+                        <li>
+                            <p>
+                                한국표준협회(이하 ‘협회’)는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 관련 고충을 신속하고 원활하게 처리하기 위하여 다음과 같이
+                                개인정보처리방침을 수립·공개합니다.
+                            </p>
+                        </li>
+                        <li>
+                            <span>제1조(개인정보의 처리목적)</span>
+                            <p data-main_text>
+                                KSA 하계CEO포럼 홈페이지는 다음의 목적을 위하여 개인정보를 처리합니다. 처리한 개인정보는 아래 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 관련
+                                법령에 따라 별도의 동의를 받는 등 필요한 조치를 이행합니다.
+                            </p>
+                            <p>- 하계CEO포럼 참가 신청 및 운영 관리</p>
+                            <p>- 참가자 본인 확인 및 행사 운영 안내</p>
+                            <p>- 항공·숙박·렌터카·자율프로그램 예약 및 운영</p>
+                            <p>- 참가비 및 부대비용 정산, 계산서 발행</p>
+                            <p>- 민원처리 및 문의 응대</p>
+                        </li>
+                        <li>
+                            <span>제2조(처리하는 개인정보 항목)</span>
+                            <p data-main_text>KSA 하계CEO포럼 홈페이지는 다음의 개인정보 항목을 처리하고 있습니다.</p>
+                            <p>- 기업정보 : 회사명, 대표자명, 사업자등록번호, 회사주소 등</p>
+                            <p>- 참가자 및 동반가족 정보 : 성명, 관계, 직위, 연락처, 이메일 등</p>
+                            <p>- 교육·정산 담당자 정보 : 성명, 소속, 직위, 연락처, 이메일 등</p>
+                            <p>- 선택 프로그램 신청정보 : 자율프로그램, 항공, 호텔, 렌터카 신청 정보 등</p>
+                            <p>- 고유식별정보 : 주민등록번호(여행자보험 가입 목적)</p>
+                            <p>- 기타 행사 운영 및 문의 응대를 위한 정보</p>
+                        </li>
+                        <li>
+                            <span>제3조(개인정보의 처리 및 보유기간)</span>
+                            <p data-main_text>
+                                협회는 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보 수집 시 동의받은 기간 내에서 개인정보를 처리 및 보유합니다.
+                            </p>
+                            <p>- 포럼 참가 신청 및 운영 정보 : 행사 운영, 참가 이력 관리 및 관련 업무 대응 목적 범위 내 보관</p>
+                            <p>- 주민등록번호 등 고유식별정보 : 여행자보험 가입 및 관련 업무 처리 완료 후 지체 없이 파기</p>
+                            <p>- 민원 및 문의 내역 : 3년</p>
+                            <p>단, 관계 법령에 따라 보존할 필요가 있는 경우 해당 법령에서 정한 기간 동안 보관합니다.</p>
+                        </li>
+                        <li>
+                            <span>제4조(개인정보의 제3자 제공)</span>
+                            <p data-main_text>협회는 행사 운영 및 예약 진행을 위해 필요한 범위 내에서 아래 업체에 개인정보를 제공합니다.</p>
+                            <table>
+                                <tr>
+                                    <th>제공받는 자</th>
+                                    <th>이용목적</th>
+                                    <th>보유 및 이용기간</th>
+                                </tr>
+                                <tr>
+                                    <td>행사 대행사 : 이스터마케팅서비스(주)</td>
+                                    <td>행사 운영 대행, QR 입장권 및 명찰 제작 등 운영 지원</td>
+                                    <td>이용목적 달성 시까지</td>
+                                </tr>
+                                <tr>
+                                    <td>지정 여행사 : (주)무크투어</td>
+                                    <td>항공 예약 및 발권, 투어 프로그램 예약 및 운영 지원</td>
+                                    <td>이용목적 달성 시까지</td>
+                                </tr>
+                                <tr>
+                                    <td>지정 호텔 : 롯데호텔 제주</td>
+                                    <td>객실 예약, 배정 및 투숙 관리, 식음료 이용 및 비용 정산 관리</td>
+                                    <td>이용목적 달성 시까지</td>
+                                </tr>
+                                <tr>
+                                    <td>지정 렌터카 업체 : 롯데렌터카 제주사업단</td>
+                                    <td>렌터카 예약 및 이용 관리</td>
+                                    <td>이용목적 달성 시까지</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <span>제5조(개인정보 처리의 위탁)</span>
+                            <p data-main_text>협회는 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.</p>
+                            <table>
+                                <tr>
+                                    <th>수탁업체</th>
+                                    <th>위탁업무</th>
+                                    <th>보유 및 이용기간</th>
+                                </tr>
+                                <tr>
+                                    <td>스타일웍스</td>
+                                    <td>홈페이지 운영 및 유지보수</td>
+                                    <td>위탁계약 종료 시까지</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <span>제6조(정보주체의 권리·의무 및 행사방법)</span>
+                            <p data-main_text>정보주체는 개인정보 관련 열람·정정·삭제 등을 요청할 수 있습니다.</p>
+                        </li>
+                        <li>
+                            <span>제7조(개인정보의 파기)</span>
+                            <p data-main_text>
+                                KSA 하계CEO포럼 홈페이지는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 다음과 같이 지체없이 해당 개인정보를 파기합니다.
+                            </p>
+                            <p>- 파기절차 : 불필요한 개인정보 및 개인정보파일은 내부방침 절차에 따라 지체 없이 파기합니다.</p>
+                            <p>- 파기방법 : 전자적 형태의 개인정보는 기록을 재생할 수 없는 기술적 방법을 사용하며, 종이에 출력된 개인정보는 분쇄기로 분쇄하거나 소각을 통하여 파기합니다.</p>
+                        </li>
+                        <li>
+                            <span>제8조(개인정보의 안전성 확보조치)</span>
+                            <p data-main_text>협회는 개인정보의 안전성 확보를 위하여 다음과 같은 조치를 취하고 있습니다.</p>
+                            <p>- 관리적 조치 : 내부관리계획 수립 및 시행, 개인정보 취급자 교육</p>
+                            <p>- 기술적 조치 : 접근권한 관리, 보안프로그램 설치, 개인정보 암호화</p>
+                            <p>- 물리적 조치 : 전산실 및 자료보관실 접근통제</p>
+                        </li>
+                        <li>
+                            <span>제9조(개인정보 보호책임자)</span>
+                            <p data-main_text>
+                                KSA 하계CEO포럼 홈페이지는 개인정보를 보호하고 개인정보와 관련된 사항을 처리하기 위하여 아래와 같이 개인정보보호책임자, 개인정보보호담당자 및 개인정보 열람청구를
+                                접수ㆍ처리하는 부서 및 담당자를 지정하고 있습니다.
+                            </p>
+                            <table>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>개인정보보호<br />책임자</th>
+                                    <th>개인정보보호<br />담당자</th>
+                                    <th>개인정보 열람청구<br />접수ㆍ처리부서</th>
+                                </tr>
+                                <tr>
+                                    <td>부서명</td>
+                                    <td>경영전략본부</td>
+                                    <td>DX추진실</td>
+                                    <td>CEO&CX혁신센터</td>
+                                </tr>
+                                <tr>
+                                    <td>성명</td>
+                                    <td>조택현 본부장</td>
+                                    <td>권진택 책임</td>
+                                    <td>장선애 선임</td>
+                                </tr>
+                                <tr>
+                                    <td>전화번호</td>
+                                    <td>-</td>
+                                    <td>02-6240-4544</td>
+                                    <td>02-6240-4981</td>
+                                </tr>
+                            </table>
+                        </li>
+                        <li>
+                            <span>제10조(권익침해 구제방법)</span>
+                            <p data-main_text>
+                                정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다. 이 밖에
+                                기타 개인정보침해의 신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.
+                            </p>
+                            <p>· 개인정보 침해신고센터 (한국인터넷진흥원 운영) : (국번없이) 118 (privacy.kisa.or.kr)</p>
+                            <p data-sub_row>- 소관업무 : 개인정보 침해사실 신고, 상담 신청</p>
+                            <p>· 개인정보 분쟁조정위원회 :(국번없이) 118 (www.kopico.go.kr)</p>
+                            <p data-sub_row>- 소관업무 : 개인정보 분쟁조정신청, 집단분쟁조정 (민사적 해결)</p>
+                            <p>· 대검찰청 사이버범죄수사단 : (국번없이) 1301 (www.spo.go.kr)</p>
+                            <p>· 경찰청 사이버안전국 : (국번없이) 182 (cyberbureau.police.go.kr)</p>
+                        </li>
+                        <li>
+                            <span>제11조(개인정보 자동 수집 장치의 설치ㆍ운영 및 거부에 관한 사항)</span>
+                            <p data-main_text>KSA 하계CEO포럼 홈페이지는 정보주체의 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용하지 않습니다.</p>
+                        </li>
+                        <li>
+                            <span>제12조(개인정보 처리방침 변경)</span>
+                            <p data-main_text>본 개인정보처리방침은 2026년 5월 15일부터 적용됩니다.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+                <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>

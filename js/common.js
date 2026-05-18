@@ -1,10 +1,10 @@
 $(function () {
-    $('[data-more_box]').on("click", function() {
-        $('[data-menu_box]').show();
+    $("[data-more_box]").on("click", function () {
+        $("[data-menu_box]").show();
     });
-    
-    $('[data-close_box]').on("click", function() {
-        $('[data-menu_box]').hide();
+
+    $("[data-close_box]").on("click", function () {
+        $("[data-menu_box]").hide();
     });
 
     $(document).on("click", "[data-logout_btn]", function () {
@@ -16,28 +16,47 @@ $(function () {
             window.location = "Index.html";
         }
     });
-    
-    const attend_id = sessionStorage.getItem('attend_id');
-    if(attend_id !== null){
-        $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>")
+
+    const attend_id = sessionStorage.getItem("attend_id");
+    if (attend_id !== null) {
+        $("[data-menu_box] ul").append("<li data-logout_row><button data-logout_btn type='button'>로그아웃</button></li>");
     }
 
     document.addEventListener("click", function (event) {
 
         if (event.target.tagName === "A") {
-            if (
-                event.target.href.indexOf("Application.html") > -1
-            ) {
+            if (event.target.href.indexOf("Application.html") > -1) {
                 event.preventDefault();
-                alert("2024년 KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.")
+                
+                const ksa_now = new Date();
+                const ksa_startDate = new Date('2026-05-18T14:00:00');
+                const ksa_endDate = new Date('2026-07-01T18:00:00');
+                
+                if (ksa_now < ksa_startDate) {
+                    alert("KSA하계CEO포럼 참가접수가 2026.05.18 14시 예정입니다.");
+                } else if (ksa_now > ksa_endDate) {
+                    alert("KSA하계CEO포럼 참가접수가 마감되었습니다.\n성원에 감사드립니다.");
+                } else {
+                    window.location.href = event.target.href;
+                }
             }
         }
 
     });
+
+    const bank = `${base_url}/api/v1/ksa/files?year=2026&ksaFileType=COPY_OF_BANKBOOK`;
+    const bussiness = `${base_url}/api/v1/ksa/files?year=2026&ksaFileType=BUSINESS_REGISTRATION`;
+
+    $("[data-bank_download]").attr("href", bank);
+    $("[data-bussiness_download]").attr("href", bussiness);
 });
 let url = window.location.href;
 let base_url = url.replace(/^(https?:\/\/)?(www\.)?/i, "").split("/")[0];
-if (base_url === "ksa.onoffmix.xyz") {
-    base_url = "api-" + base_url;
+if (base_url && typeof base_url === "string" && (base_url.toLowerCase().includes("127.0.0.1") || base_url.toLowerCase().includes("localhost"))) {
+    //base_url = "https://api-ksa.styleworks.kr";
+    base_url = "http://127.0.0.1:8888";
+} else {
+    base_url = "https://" + base_url;
 }
-// let base_url = "api-ksa.onoffmix.xyz"
+const current_year = 2026;
+

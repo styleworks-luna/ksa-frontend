@@ -1,353 +1,891 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/speaker.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+        <script src="/js/common.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/speaker.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
-    <script src="/js/common.js"></script>
-</head>
-
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
+    <body>
+        <header data-pc_header>
+            <a href="Index.html" data-logo_box></a>
             <ul>
+                <li><a href="Ceomessage.html">인사말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div data-top_header>
-            <button type="button" onclick="history.back()" data-back_btn></button>
-            <span>연사 소개</span>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <main>
-        <div data-header_box>
-            <div>
-                <a href="Application.html">참가신청</a>
+        </header>
+        <header data-mobile_header>
+            <div data-top_header>
+                <button type="button" onclick="history.back()" data-back_btn></button>
+                <span>연사 소개</span>
+                <button type="button" data-more_box></button>
             </div>
-        </div>
-        <div data-content_box>
-            <div data-title_box>
-                연사 소개
-                <div data-select_box>
-                    연도별 연사
-                    <select>
-                        <option value="2024">2024년</option>
-                        <option value="2023">2023년</option>
-                    </select>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-header_box>
+                <div>
+                    <a href="Application.html">참가신청</a>
                 </div>
             </div>
-            <div data-image_container="2023">
-                <div data-image_wrap>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/KimHwangsik.png" alt="KimHwangsik">
-                        </div>
-                        <span>[기조강연]</span>
-                        <p>대전환의 시대,<br>
-                        대한민국의 과제</p>
-                        <p data-pc><span>김황식</span> | 삼성문화재단 이사장</p>
-                        <p data-mobile><span>김황식</span><br>삼성문화재단 이사장</p>
+            <div data-content_box>
+                <div data-title_box>
+                    연사 소개
+                    <div data-select_box>
+                        연도별 연사
+                        <select>
+                            <option value="2026">2026년</option>
+                            <option value="2025">2025년</option>
+                            <option value="2024">2024년</option>
+                            <option value="2023">2023년</option>
+                        </select>
                     </div>
-                    <div data-image_box="blue">
-                        <div data-img>
-                            <img src="/images/LeeMido.png" alt="LeeMido">
+                </div>
+                <div data-image_container="2023">
+                    <div data-image_wrap>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/KimHwangsik.png" alt="KimHwangsik" />
+                            </div>
+                            <span>[기조강연]</span>
+                            <p>
+                                대전환의 시대,<br />
+                                대한민국의 과제
+                            </p>
+                            <p data-pc><span>김황식</span> | 삼성문화재단 이사장</p>
+                            <p data-mobile><span>김황식</span><br />삼성문화재단 이사장</p>
                         </div>
-                        <span>[렉처콘서트]</span>
-                        <p>리더가 영화에서<br>
-                        훔쳐야 할 것들</p>
-                        <p data-pc><span>이미도</span> | 작가</p>
-                        <p data-mobile><span>이미도</span><br>작가</p>
+                        <div data-image_box="blue">
+                            <div data-img>
+                                <img src="/images/LeeMido.png" alt="LeeMido" />
+                            </div>
+                            <span>[렉처콘서트]</span>
+                            <p>
+                                리더가 영화에서<br />
+                                훔쳐야 할 것들
+                            </p>
+                            <p data-pc><span>이미도</span> | 작가</p>
+                            <p data-mobile><span>이미도</span><br />작가</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/KimKwangdoo.png" alt="KimKwangdoo" />
+                            </div>
+                            <span>[ECONOMY]</span>
+                            <p>
+                                전환기, K인더스트리의<br />
+                                길을 모색하다
+                            </p>
+                            <p data-pc><span>김광두</span> | 국가미래연구원 원장</p>
+                            <p data-mobile><span>김광두</span><br />국가미래연구원 원장</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/SonJueun.png" alt="SonJueun" />
+                            </div>
+                            <span>[CEO]</span>
+                            <p>
+                                메가스터디의<br />
+                                위기극복과 성공신화
+                            </p>
+                            <p data-pc><span>손주은</span> | 메가스터디 대표이사 회장</p>
+                            <p data-mobile><span>손주은</span><br />메가스터디 대표이사 회장</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/BaeSangmin.png" alt="BaeSangmin" />
+                            </div>
+                            <span>[INNOVATION]</span>
+                            <p>
+                                디자인,<br />
+                                세상을 바꾸다
+                            </p>
+                            <p data-pc><span>배상민</span> | 카이스트 교수</p>
+                            <p data-mobile><span>배상민</span><br />카이스트 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/GongKyungchul.png" alt="GongKyungchul" />
+                            </div>
+                            <span>[ROBOTICS]</span>
+                            <p>
+                                로보틱스<br />
+                                혁신이 바꿀 미래
+                            </p>
+                            <p data-pc><span>공경철</span> | 엔젤로보틱스 대표이사</p>
+                            <p data-mobile><span>공경철</span><br />엔젤로보틱스 대표이사</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/LeeKyungjeon.png" alt="LeeKyungjeon" />
+                            </div>
+                            <span>[A.I]</span>
+                            <p>
+                                인공지능 시대,<br />
+                                우리의 대응
+                            </p>
+                            <p data-pc><span>이경전</span> | 경희대학교 교수</p>
+                            <p data-mobile><span>이경전</span><br />경희대학교 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/SongKiwon.png" alt="SongKiwon" />
+                            </div>
+                            <span>[BIOTECH]</span>
+                            <p>유전자 가위 기술의<br />현재와 미래</p>
+                            <p data-pc><span>송기원</span> | 연세대학교 교수</p>
+                            <p data-mobile><span>송기원</span><br />연세대학교 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/JangDongsun.png" alt="JangDongsun" />
+                            </div>
+                            <span>[HUMANITIES]</span>
+                            <p>
+                                행복한 뇌는 도대체<br />
+                                어떻게 만들어지는가?
+                            </p>
+                            <p data-pc><span>장동선</span> | 궁금한뇌연구소 대표</p>
+                            <p data-mobile><span>장동선</span><br />궁금한뇌연구소 대표</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/ShinByungju.png" alt="ShinByungju" />
+                            </div>
+                            <span>[CLOSING LECTURE]</span>
+                            <p>
+                                위기에서 빛났던<br />
+                                조선 왕의 리더십
+                            </p>
+                            <p data-pc><span>신병주</span> | 건국대학교 교수</p>
+                            <p data-mobile><span>신병주</span><br />건국대학교 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/JungSunggeun.png" alt="JungSunggeun" />
+                            </div>
+                            <span>[FAMILY SESSION]</span>
+                            <p>
+                                백년허리, 백년목을<br />
+                                위한 척추 사용법
+                            </p>
+                            <p data-pc><span>정선근</span> | 서울대학교병원 교수</p>
+                            <p data-mobile><span>정선근</span><br />서울대학교병원 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/JangJaesik.png" alt="JangJaesik" />
+                            </div>
+                            <span>[FAMILY SESSION]</span>
+                            <p>
+                                아이언 정타,<br />
+                                골프스윙의 기초
+                            </p>
+                            <p data-pc><span>장재식</span> | 프로</p>
+                            <p data-mobile><span>장재식</span><br />프로</p>
+                        </div>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/KimKwangdoo.png" alt="KimKwangdoo">
+                </div>
+                <div data-image_container="2024">
+                    <div data-image_wrap>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/1.png" alt="1" />
+                            </div>
+                            <span>기조강연</span>
+                            <p data-pink>디지털 시대와 표준</p>
+                            <p data-pc><span>조성환</span> | ISO회장</p>
+                            <p data-mobile><span>조성환</span><br />ISO회장</p>
                         </div>
-                        <span>[ECONOMY]</span>
-                        <p>전환기, K인더스트리의<br>
-                        길을 모색하다</p>
-                        <p data-pc><span>김광두</span> | 국가미래연구원 원장</p>
-                        <p data-mobile><span>김광두</span><br>국가미래연구원 원장</p>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/2.png" alt="2" />
+                            </div>
+                            <span>환영공연</span>
+                            <p data-pink>
+                                한 여름밤의<br />
+                                페스티벌
+                            </p>
+                            <p data-pc><span>박상민</span> | 가수</p>
+                            <p data-mobile><span>박상민</span><br />가수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/3.png" alt="3" />
+                            </div>
+                            <span>Management</span>
+                            <p data-sky>
+                                저성장시대,<br />
+                                기업의 대응전략 
+                            </p>
+                            <p data-pc><span>김현철</span> | 교수</p>
+                            <p data-mobile><span>김현철</span><br />교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/4.png" alt="4" />
+                            </div>
+                            <span>Digital</span>
+                            <p data-sky>디지털자산<br />시대에 살아남는법</p>
+                            <p data-pc><span>홍기훈</span> | 홍익대학교 교수</p>
+                            <p data-mobile><span>홍기훈</span><br />홍익대학교 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/5.png" alt="5" />
+                            </div>
+                            <span>Family Session</span>
+                            <p data-sky>미술품 소비시대, 글로벌 미술시장과 아트컬렉션</p>
+                            <p data-pc><span>박혜경</span> | 에이트인스티튜트 대표</p>
+                            <p data-mobile><span>박혜경</span><br />에이트인스티튜트 대표</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/6.png" alt="6" />
+                            </div>
+                            <span>AI</span>
+                            <p data-sky>
+                                인공지능 시대,<br />
+                                주목해야 할 AI트렌드
+                            </p>
+                            <p data-pc><span>정지훈</span> | DGIST 교수</p>
+                            <p data-mobile><span>정지훈</span><br />DGIST 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/7.png" alt="7" />
+                            </div>
+                            <span>New Space</span>
+                            <p data-sky>뉴 스페이스 시대의<br />  비즈니스 기회</p>
+                            <p data-pc><span>이성희</span> | 컨텍 대표이사</p>
+                            <p data-mobile><span>이성희</span><br />컨텍 대표이사</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/13.png" alt="8" />
+                            </div>
+                            <span>Family Session</span>
+                            <p data-sky>당신의 다이어트,<br />건강하신가요?</p>
+                            <p data-pc><span>정재훈</span> | 약사</p>
+                            <p data-mobile><span>정재훈</span><br />약사</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/12.png" alt="12" />
+                            </div>
+                            <span>환송공연</span>
+                            <p data-black>
+                                맨발의<br />
+                                디바
+                            </p>
+                            <p data-pc><span>이은미</span> | 가수</p>
+                            <p data-mobile><span>이은미</span><br />가수</p>
+                        </div>
+                        <div data-image_box class="space">
+                            <div data-img>
+                                <img src="/images/15.png" alt="15" />
+                            </div>
+                            <span>Humanities</span>
+                            <p data-green>
+                                민주주의의 명장면: 고대<br />
+                                그리스와 로마의 새로운 좌표
+                            </p>
+                            <p data-pc><span>김상근</span> | 연세대학교 교수</p>
+                            <p data-mobile><span>김상근</span><br />연세대학교 교수</p>
+                        </div>
+                        <div data-image_box>
+                            <div data-img>
+                                <img src="/images/14.png" alt="14" />
+                            </div>
+                            <span>폐막강연</span>
+                            <p data-green>진정한<br />프로란</p>
+                            <p data-pc><span>허구연</span> | 한국야구위원회(KBO) 총재</p>
+                            <p data-mobile><span>허구연</span><br />한국야구위원회(KBO) 총재</p>
+                        </div>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/SonJueun.png" alt="SonJueun">
+                    <p data-check_txt>*표시는 섭외중입니다</p>
+                </div>
+                <div data-image_container="2025">
+                    <div data-image_wrap>
+                        <div data-image_box="2025_1">
+                            <div data-img>
+                                <img src="/images/sp_2025_1.png" alt="염재호" />
+                            </div>
+                            <span>기조 강연</span>
+                            <p data-black>왜 지금 AI인가? <br />위기의 시대,<br />돌파구로서의 AI</p>
+                            <p data-pc>국가AI위원회 부위원장 | <span>염재호</span></p>
+                            <p data-mobile>국가AI위원회 부위원장<br /><span>염재호</span></p>
                         </div>
-                        <span>[CEO]</span>
-                        <p>메가스터디의<br>
-                        위기극복과 성공신화</p>
-                        <p data-pc><span>손주은</span> | 메가스터디 대표이사 회장</p>
-                        <p data-mobile><span>손주은</span><br>메가스터디 대표이사 회장</p>
+                        <div data-image_box="2025_3">
+                            <div data-img>
+                                <img src="/images/sp_2025_2.png" alt="김상균" />
+                            </div>
+                            <span>경제</span>
+                            <p data-black>어떻게 바뀌고 있는가?<br />AI가 바꾸는<br />산업의 지형도</p>
+                            <p data-pc>경희대 교수 | <span>김상균</span></p>
+                            <p data-mobile>경희대 교수<br /><span>김상균</span></p>
+                        </div>
+                        <div data-image_box="2025_4">
+                            <div data-img>
+                                <img src="/images/sp_2025_3.png" alt="이진형" />
+                            </div>
+                            <span>경영</span>
+                            <p data-black>어떻게 활용할 것인가? <br />산업계의<br />AI 활용 성공사례</p>
+                            <p data-pc>KT AI 비즈니스전략담당 상무 | <span>이진형</span></p>
+                            <p data-mobile>KT AI 비즈니스전략담당 상무<br /><span>이진형</span></p>
+                        </div>
+                        <div data-image_box="2025_5">
+                            <div data-img>
+                                <img src="/images/sp_2025_4.png" alt="정김경숙(로이스 킴)" />
+                            </div>
+                            <span>Family</span>
+                            <p data-black>변화 앞에서<br />인생과 커리어<br />주도권 잡는 법</p>
+                            <p data-pc>前 구글 커뮤니케이션 디렉터 | <span>로이스 김</span></p>
+                            <p data-mobile>前 구글 커뮤니케이션 디렉터<br /><span>로이스 김</span></p>
+                        </div>
+                        <div data-image_box="2025_6">
+                            <div data-img>
+                                <img src="/images/sp_2025_5.png" alt="전영수" />
+                            </div>
+                            <span>사회</span>
+                            <p data-black>어떤 변화가 오는가? <br />인구 구조와 일자리의<br />전환을 마주하다</p>
+                            <p data-pc>한양대 국제대학원 교수 | <span>전영수</span></p>
+                            <p data-mobile>한양대 국제대학원 교수<br /><span>전영수</span></p>
+                        </div>
+                        <div data-image_box="2025_7">
+                            <div data-img>
+                                <img src="/images/sp_2025_6.png" alt="송길영" />
+                            </div>
+                            <span>교육</span>
+                            <p data-black>어떤 인재가 필요한가? <br />시대예보: 조직<br />=인공지능+인간지능</p>
+                            <p data-pc>마인드마이너, 작가 | <span>송길영</span></p>
+                            <p data-mobile>마인드마이너, 작가<br /><span>송길영</span></p>
+                        </div>
+                        <div data-image_box="2025_8">
+                            <div data-img>
+                                <img src="/images/sp_2025_7.png" alt="김선현" />
+                            </div>
+                            <span>Family</span>
+                            <p data-black>나를 치유하는<br />그림의 힘</p>
+                            <p data-pc>제주대 교수 | <span>김선현</span></p>
+                            <p data-mobile>제주대 교수<br /><span>김선현</span></p>
+                        </div>
+                        <div data-image_box="2025_10">
+                            <div data-img>
+                                <img src="/images/sp_2025_8.png" alt="박상준" />
+                            </div>
+                            <span>인문</span>
+                            <p data-black>상상이 현실이 되는 순간, <br />SF는 우리에게 어떤<br />미래를 상상하게 하는가</p>
+                            <p data-pc>SF평론가 | <span>박상준</span></p>
+                            <p data-mobile>SF평론가<br /><span>박상준</span></p>
+                        </div>
+                        <div data-image_box="2025_11">
+                            <div data-img>
+                                <img src="/images/sp_2025_9.png" alt="장대익" />
+                            </div>
+                            <span>폐막강연</span>
+                            <p data-black>우리가 제대로 해낸다면, <br />우리는 어디로<br />가야 하는가</p>
+                            <p data-pc>가천대 석좌교수 | <span>장대익</span></p>
+                            <p data-mobile>가천대 석좌교수<br /><span>장대익</span></p>
+                        </div>
+                        <!-- 
+                        <div data-image_box="2025_2">
+                            <div data-img>
+                                <img src="/images/sp_2025_11.png" alt="홍경민" />
+                            </div>
+                            <span>환영공연</span>
+                            <p data-pink>무대 위의 <br />유쾌한 반란</p>
+                            <p data-pc><span>홍경민</span> | 가수</p>
+                            <p data-mobile><span>홍경민</span><br />가수</p>
+                        </div>
+                        <div data-image_box="2025_9">
+                            <div data-img>
+                                <img src="/images/sp_2025_10.png" alt="소향" />
+                            </div>
+                            <span>환송만찬 & 경품추첨</span>
+                            <p data-sky>영혼을 노래하는 목소리</p>
+                            <p data-pc><span>소향</span> | 가수</p>
+                            <p data-mobile><span>소향</span><br />가수</p>
+                        </div> -->
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/BaeSangmin.png" alt="BaeSangmin">
+                    <p data-check_txt>* 강연 내용 및 연사는 변경될 수 있습니다.</p>
+                </div>
+                <div data-image_container="2026">
+                    <div data-image_wrap>
+                        <div data-image_box="2026_1">
+                            <div data-img>
+                                <img src="/images/sph_2026_1.png" alt="김용학" />
+                            </div>
+                            <span>기조 | AX Keynote</span>
+                            <p data-black>AX, 문명사적 변화와 <br />그 전환의 본질</p>
+                            <p data-pc>前 연세대 총장 | <span>김용학</span></p>
+                            <p data-mobile>前 연세대 총장<br /><span>김용학</span></p>
                         </div>
-                        <span>[INNOVATION]</span>
-                        <p>디자인,<br>
-                        세상을 바꾸다</p>
-                        <p data-pc><span>배상민</span> | 카이스트 교수</p>
-                        <p data-mobile><span>배상민</span><br>카이스트 교수</p>
+                        <div data-image_box="2026_2">
+                            <div data-img>
+                                <img src="/images/sph_2026_2.png" alt="박경은" />
+                            </div>
+                            <span>CEO | AX Business</span>
+                            <p data-black>글로벌 항공산업과<br />차세대 디지털 제조 혁신</p>
+                            <p data-pc>한국항공우주산업(KAI) 전무 | <span>박경은</span></p>
+                            <p data-mobile>한국항공우주산업(KAI) 전무<br /><span>박경은</span></p>
+                        </div>
+                        <div data-image_box="2026_3">
+                            <div data-img>
+                                <img src="/images/sph_2026_3.png" alt="명현" />
+                            </div>
+                            <span>CEO | AX Technology</span>
+                            <p data-black>피지컬 AI 및<br />자율 로봇 동향</p>
+                            <p data-pc>KAIST 전기및전자공학부 교수 | <span>명현</span></p>
+                            <p data-mobile>KAIST 전기및전자공학부 교수<br /><span>명현</span></p>
+                        </div>
+                        <div data-image_box="2026_4">
+                            <div data-img>
+                                <img src="/images/sph_2026_4.png" alt="이지윤" />
+                            </div>
+                            <span>Family | 예술과 사람</span>
+                            <p data-black>예술과 주목자본<br />(Attention Capital)</p>
+                            <p data-pc>숨 프로젝트 대표 | <span>이지윤</span></p>
+                            <p data-mobile>숨 프로젝트 대표<br /><span>이지윤</span></p>
+                        </div>
+                        <div data-image_box="2026_5">
+                            <div data-img>
+                                <img src="/images/sph_2026_5.png" alt="김상균" />
+                            </div>
+                            <span>CEO | Beyond AX</span>
+                            <p data-black>두 번째 지능과<br />인간의 역할 재정의</p>
+                            <p data-pc>경희대 경영대학원 교수 | <span>김상균</span></p>
+                            <p data-mobile>경희대 경영대학원 교수<br /><span>김상균</span></p>
+                        </div>
+                        <div data-image_box="2026_6">
+                            <div data-img>
+                                <img src="/images/sph_2026_6.png" alt="박웅현" />
+                            </div>
+                            <span>CEO | Beyond Leadership</span>
+                            <p data-black>조직문화와<br />리더십에 대하여</p>
+                            <p data-pc>TBWA KOREA 조직문화연구소장 | <span>박웅현</span></p>
+                            <p data-mobile>TBWA KOREA 조직문화연구소장<br /><span>박웅현</span></p>
+                        </div>
+                        <div data-image_box="2026_7">
+                            <div data-img>
+                                <img src="/images/sph_2026_7.png" alt="오영식" />
+                            </div>
+                            <span>Family | 선택과 도전</span>
+                            <p data-black>남극 세종기지 연구원이<br />회사를 그만두고<br />도전을 선택한 이유</p>
+                            <p data-pc>작가, 前 기상청 기상예보관 | <span>오영식</span></p>
+                            <p data-mobile>작가, 前 기상청 기상예보관<br /><span>오영식</span></p>
+                        </div>
+                        <div data-image_box="2026_8">
+                            <div data-img>
+                                <img src="/images/sph_2026_8.png" alt="유홍준" />
+                            </div>
+                            <span>폐막 | Beyond Essence</span>
+                            <p data-black>한국문화의 뿌리와 힘</p>
+                            <p data-pc>국립중앙박물관장 | <span>유홍준</span></p>
+                            <p data-mobile>국립중앙박물관장<br /><span>유홍준</span></p>
+                        </div>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/GongKyungchul.png" alt="GongKyungchul">
-                        </div>
-                        <span>[ROBOTICS]</span>
-                        <p>로보틱스<br>
-                        혁신이 바꿀 미래</p>
-                        <p data-pc><span>공경철</span> | 엔젤로보틱스 대표이사</p>
-                        <p data-mobile><span>공경철</span><br>엔젤로보틱스 대표이사</p>
+                    <p data-check_txt>* 강연 내용 및 연사는 변경될 수 있습니다.</p>
+                </div>
+            </div>
+        </main>
+        <div data-display_box>
+            <div data-modal_wrap>
+                <div data-modal_box>
+                    <div data-btn_box>
+                        <img src="/images/icn-pc-menu-close.png" alt="popup-close" />
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/LeeKyungjeon.png" alt="LeeKyungjeon">
+                    <div data-modal_content="2025_1">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_1.png" alt="sp_2025_1" />
+                            <div data-info_box>
+                                <span>[Why AI, Why Now?]<br />왜 지금 AI인가? 위기의 시대, 돌파구로서의 AI</span>
+                                <span>7월 23일 17:40~18:30</span>
+                                <span>국가AI위원회 부위원장, 태재대 총장 | 염재호</span>
+                                <p>
+                                    급변하는 시대에 우리는 왜 AI에 주목해야 하는가? AI를 기술이 아닌, 국가정책, 산업전략, 교육체계와 연결된 ‘구조적 전환의 축’으로 바라보는 염재호 총장님과 함께, 
+                                    한국 사회가 직면한 구조적 위기를 진단하고 산업, 조직, 교육, 사회, 인간 가치 등 주요 분야의 전략적 대응 방향을 짚어보고자 합니다.
+                                    이번 기조강연은 포럼의 핵심 질문들을 관통하며, 앞으로 우리가 탐구해야 할 방향을 여는 출발점이 될 것입니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[A.I]</span>
-                        <p>인공지능 시대,<br>
-                        우리의 대응</p>
-                        <p data-pc><span>이경전</span> | 경희대학교 교수</p>
-                        <p data-mobile><span>이경전</span><br>경희대학교 교수</p>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/SongKiwon.png" alt="SongKiwon">
+                    <!-- 
+                    <div data-modal_content="2025_2">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_11.png" alt="sp_2025_2" />
+                            <div data-info_box>
+                                <span>[환영공연] 무대 위의 유쾌한 반란 </span>
+                                <span>7월 23일 19:00~21:20</span>
+                                <span>홍경민 | 가수</span>
+                                <p>
+                                    〈흔들린 우정〉, <가져가>, <내 남은 사랑을 위해>, <못난이> 등으로 오랫동안 사랑받아온 가수 홍경민! <br />
+                                    탁월한 입담과 넘치는 에너지, 관객과 함께 호흡하는 유쾌한 퍼포먼스로 무더운 여름밤을 시원하게 채워드립니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[BIOTECH]</span>
-                        <p>유전자 가위 기술의<br>현재와 미래</p>
-                        <p data-pc><span>송기원</span> | 연세대학교 교수</p>
-                        <p data-mobile><span>송기원</span><br>연세대학교 교수</p>
+                    </div> -->
+                    <div data-modal_content="2025_3">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_2.png" alt="sp_2025_3" />
+                            <div data-info_box>
+                                <span>[Where AI Drives Change]<br />어떻게 바뀌고 있는가?<br />AI가 바꾸는 산업의 지형도</span>
+                                <span>7월 24일 08:30~09:40</span>
+                                <span>경희대 교수 | 김상균</span>
+                                <p>
+                                    AI가 산업 지형을 어떻게 흔들고 있을까? 디지털 전환과 인간 행동 변화를 연구해온 김상균 교수와 함께, 기술과 사회의 연결을 읽어내는 통찰력으로 AI가 이끄는 산업 구조
+                                    변화의 본질과 방향을 함께 살펴봅니다.
+                                </p>
+                            </div>
+                        </div>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/JangDongsun.png" alt="JangDongsun">
+                    <div data-modal_content="2025_4">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_3.png" alt="sp_2025_4" />
+                            <div data-info_box>
+                                <span>[How Companies Win with AI]<br />어떻게 활용할 것인가?<br />산업계의 AI 활용 성공사례</span>
+                                <span>7월 24일 10:00~11:10</span>
+                                <span>KT AI 비즈니스전략담당 상무 | 이진형</span>
+                                <p>
+                                    AI 경쟁 시대, KT는 어떤 전략을 선택했을까? <br />
+                                    KT는 AI 반도체부터 소프트웨어, 서비스까지 아우르는 Full Stack 생태계를 구축하고, 태국·베트남등지에서 글로벌 생성형 AI 사업을 선도하고 있습니다. 
+                                    이번 강연에서는 사례를 중심으로 KT의 AI 생태계 구축 인사이트를 공유합니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[HUMANITIES]</span>
-                        <p>행복한 뇌는 도대체<br>
-                        어떻게 만들어지는가?</p>
-                        <p data-pc><span>장동선</span> | 궁금한뇌연구소 대표</p>
-                        <p data-mobile><span>장동선</span><br>궁금한뇌연구소 대표</p>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/ShinByungju.png" alt="ShinByungju">
+                    <div data-modal_content="2025_5">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_4.png" alt="sp_2025_5" />
+                            <div data-info_box>
+                                <span>[Family]<br />변화 앞에서 인생과 커리어 주도권 잡는 법</span>
+                                <span>7월 24일 10:00~11:10</span>
+                                <span>前 구글 커뮤니케이션 디렉터 | 로이스 김</span>
+                                <p>
+                                    예고 없이 변화가 닥치는 시대,<br />
+                                    다양한 직업 전환 과정을 통해 새로운 길을 모색해온 로이스 김은 변화 앞에서 주체적으로 자신만의 방향을 만들어가고 있습니다. 이번 세션에서는 변화에 유연하게 대응하며
+                                    스스로를 성장시키는 힘을 이야기합니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[CLOSING LECTURE]</span>
-                        <p>위기에서 빛났던<br>
-                        조선 왕의 리더십
-                        </p>
-                        <p data-pc><span>신병주</span> | 건국대학교 교수</p>
-                        <p data-mobile><span>신병주</span><br>건국대학교 교수</p>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/JungSunggeun.png" alt="JungSunggeun">
+                    <div data-modal_content="2025_6">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_5.png" alt="sp_2025_6" />
+                            <div data-info_box>
+                                <span>[What’s Changing Now]<br />어떤 변화가 오는가?<br />인구 구조와 일자리의 전환을 마주하다</span>
+                                <span>7월 25일 08:30~09:40</span>
+                                <span>한양대 국제대학원 교수 | 전영수</span>
+                                <p>
+                                    인구구조 변화와 AI 전환이 맞물린 시대, 일자리와 경제는 어떻게 변할까?<br />
+                                    인구경제학자 전영수 교수와 함께 저출산·고령화 속 사회경제적 변화를 짚어보고, 다가올 시대를 대비하는 생존 전략지도를 그려봅니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[FAMILY SESSION]</span>
-                        <p>백년허리, 백년목을<br>
-                        위한 척추 사용법
-                        </p>
-                        <p data-pc><span>정선근</span> | 서울대학교병원 교수</p>
-                        <p data-mobile><span>정선근</span><br>서울대학교병원 교수</p>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/JangJaesik.png" alt="JangJaesik">
+                    <div data-modal_content="2025_7">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_6.png" alt="sp_2025_7" />
+                            <div data-info_box>
+                                <span>[Who Will Lead Tomorrow]<br />어떤 인재가 필요한가?<br />시대예보: 조직 = 인공지능+인간지능</span>
+                                <span>7월 25일 10:00~11:10</span>
+                                <span>마인드마이너, 송길영 작가 | 송길영</span>
+                                <p>
+                                    AI 시대, 조직은 어떤 인재를 필요로 하고, 우리는 어떻게 성장해야 할까?<br />
+                                    ‘시대의 마음을 캐는 마인드 마이너(Mind Miner)’ 송길영 작가는, 데이터로 읽은 일상과 사회 변화 속에서 새로운 시대의 인재상과 조직 변화를 풀어냅니다.
+                                </p>
+                            </div>
                         </div>
-                        <span>[FAMILY SESSION]</span>
-                        <p>아이언 정타,<br>
-                        골프스윙의 기초
-                        </p>
-                        <p data-pc><span>장재식</span> | 프로</p>
-                        <p data-mobile><span>장재식</span><br>프로</p>
+                    </div>
+                    <div data-modal_content="2025_8">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_7.png" alt="sp_2025_8" />
+                            <div data-info_box>
+                                <span>[Family]<br />나를 치유하는 그림의 힘</span>
+                                <span>7월 25일 10:00~11:10</span>
+                                <span>제주대 교수 | 김선현</span>
+                                <p>
+                                    우리는 예술로 스스로를 치유하고 변화시킬 수 있을까?<br />
+                                    미술치료를 선도해온 김선현 교수는 그림이 마음의 상처를 어루만지고 삶을 회복시키는 과정을 이야기합니다. 이번 세션에서는 그림이라는 액자를 통해, 우리 안의 치유
+                                    가능성과 스스로를 돌보는 방법을 함께 들여다봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div data-modal_content="2025_9">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_10.png" alt="sp_2025_9" />
+                            <div data-info_box>
+                                <span>[환송공연] 영혼을 노래하는 목소리</span>
+                                <span>7월 25일 19:00~21:00</span>
+                                <span>소향 | 가수</span>
+                                <p>
+                                    폭발적 고음과 섬세한 감성으로 “한국의 머라이어 캐리”라 불리는 소향! 
+                                    <비긴어게인>, <나는 가수다>등에서 독보적인 가창력을 인정받았고, 
+                                    NBA 경기 미국국가 제창과 평창 패럴림픽 무대에서 국가대표급 보컬로 활약했습니다. 
+                                    팝, 발라드, OST를 넘나드는 감성으로 한여름밤을 아름답게 수놓을 무대를 선사합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div data-modal_content="2025_10">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_8.png" alt="sp_2025_10" />
+                            <div data-info_box>
+                                <span>[When SF Becomes Reality]<br />상상이 현실이 되는 순간,<br />SF는 우리에게 어떤 미래를 상상하게 하는가</span>
+                                <span>7월 26일 08:30~09:30</span>
+                                <span>SF평론가 | 박상준</span>
+                                <p>
+                                    과거의 상상이 현실이 된 오늘, 우리는 어떤 ‘다음 상상’을 준비해야 할까?<br />
+                                    SF는 미래를 사유하고 예견해온 기록입니다. 박상준 평론가와 함께, 과거 작품들이 오늘날에 미친 영향을 짚어보고, 변화된 오늘을 발판 삼아 내일을 꿈꿔봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2025_11">
+                        <div data-flex_box>
+                            <img src="/images/sp_2025_9.png" alt="sp_2025_11" />
+                            <div data-info_box>
+                                <span>[What If We Get It Right?]<br />우리가 제대로 해낸다면,<br />우리는 어디로 가야 하는가</span>
+                                <span>7월 26일 09:50~10:50</span>
+                                <span>가천대 석좌교수 | 장대익</span>
+                                <p>
+                                    기술이 삶을 뒤바꾸는 시대, 우리는 무엇을 ‘제대로’ 해내야 할까?<br />
+                                    진화학자·인지과학자 장대익 교수와 함께, 과학과 인문학의 통섭으로써 변화의 시대를 넘는 길을 모색합니다. 인간성과 공동체 가치를 지키며, 우리가 함께 만들어갈 미래의
+                                    좌표를 설정하는 시간입니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2026년 강연 -->
+                                        <div data-modal_content="2026_1">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_1.png" alt="sp_2026_1" />
+                            <div data-info_box>
+                                <span>[AX Keynote]<br />AX, 문명사적 변화와 그 전환의 본질</span>
+                                <span>7월 222일 17:40~18:30</span>
+                                <span>前 연세대 총장 | 김용학</span>
+                                <p>
+                                    데이터와 AI가 판단을 대체하고 ‘연결’이 권력이 되는 시대, 사회학자이자 네트워크 이론 권위자인 김용학 전 연세대 총장님과 함께, AX를 문명사적 관점에서 바라보며
+                                    인간과 사회에 대한 근본적인 질문을 던집니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_2">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_2.png" alt="sp_2026_2" />
+                            <div data-info_box>
+                                <span>[AX Business]<br />글로벌 항공산업과 차세대 디지털 제조 혁신</span>
+                                <span>7월 23일 08:30~09:40</span>
+                                <span>한국항공우주산업(KAI) 전무 | 박경은</span>
+                                <p>
+                                    산업 구조가 빠르게 재편되는 가운데, 항공산업 역시 기술 혁신과 글로벌 경쟁 속에서 새로운 전환기를 맞이하고 있습니다.
+                                    본 강연에서는 글로벌 항공산업의 흐름과 미래 기술 트렌드를 중심으로, 기업의 산업 전환 실행 전략과 시사점을 살펴봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_3">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_3.png" alt="sp_2026_3" />
+                            <div data-info_box>
+                                <span>[AX Technology]<br />피지컬 AI 및 자율 로봇 동향</span>
+                                <span>7월 23일 10:00~11:10</span>
+                                <span>KAIST 전기및전자공학부 교수 | 명현</span>
+                                <p>
+                                    KAIST 명현 교수님과 함께, 피지컬 AI와 로봇의 자율 이동을 가능하게 하는 공간 AI 기술을 살펴봅니다.
+                                    드론과 보행 로봇 등 다양한 적용 사례를 통해, 해당 기술이 산업에 가져올 변화와 경쟁력으로 이어지는 지점을 짚어봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_4">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_4.png" alt="sp_2026_4" />
+                            <div data-info_box>
+                                <span>[Family]<br />예술과 주목자본(Attention Capital)</span>
+                                <span>7월 23일 10:00~11:10</span>
+                                <span>숨 프로젝트 대표 | 이지윤</span>
+                                <p>
+                                    전 세계의 자본이 미술관으로 모이고 있습니다. 루이비통 재단 미술관이 증명하듯, 현대 비즈니스의 종착지는 결국 
+                                    ‘사람의 마음’을 사는 일이며 그 정점에는 예술이 있습니다. 이제 예술은 대중의 결핍을 채우고 시선을 독점하는 주목자본으로 
+                                    진화하고 있습니다. 글로벌 미술 시장 속에서 예술이 창조하는 새로운 경제적 패러다임, 그 흐름 속에 여러분을 초대합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_5">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_5.png" alt="sp_2026_5" />
+                            <div data-info_box>
+                                <span>[Beyond AX]<br />두 번째 지능과 인간의 역할 재정의</span>
+                                <span>7월 24일 08:30~09:40</span>
+                                <span>경희대 경영대학원 교수 | 김상균</span>
+                                <p>
+                                    AI가 인간의 판단 영역까지 확장되는 요즘, 인지과학자 김상균 교수님과 함께 ‘두 번째 지능’ 개념을 통해
+                                    인간과 AI의 협업 구조를 살펴보고, 조직과 리더의 의사결정 방식 변화를 제시합니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_6">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_6.png" alt="sp_2026_6" />
+                            <div data-info_box>
+                                <span>[Beyond Leadership]<br />조직문화와 리더십에 대하여</span>
+                                <span>7월 24일 10:00~11:10</span>
+                                <span>TBWA KOREA 조직문화연구소장 | 박웅현</span>
+                                <p>
+                                    광고와 브랜딩 현장에서 사람과 조직을 탐구해온 박웅현 소장님의 시선으로,
+                                    언어와 감각, 관계를 통해 조직을 움직이는 힘과 리더의 역할을 짚어봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_7">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_7.png" alt="sp_2026_7" />
+                            <div data-info_box>
+                                <span>[Family]<br />남극 세종기지 연구원이<br />회사를 그만두고 도전을 선택한 이유</span>
+                                <span>7월 24일 10:00~11:10</span>
+                                <span>작가, 前 기상청 기상예보관 | 오영식</span>
+                                <p>
+                                    남극에서의 2년, 20년 공직을 내려놓고 선택한 삶. 前 남극 세종기지 연구원 오영식 작가님을 모시고,
+                                    남극에서의 경험과 삶의 선택, 그리고 아들과 함께한 시간을 바탕으로 ‘선택’과 ‘도전’의 의미를 함께 살펴봅니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-modal_content="2026_8">
+                        <div data-flex_box>
+                            <img src="/images/sph_2026_8.png" alt="sp_2026_8" />
+                            <div data-info_box>
+                                <span>[Beyond Essence]<br />한국문화의 뿌리와 힘</span>
+                                <span>7월 25일 09:00~10:20</span>
+                                <span>국립중앙박물관장 | 유홍준</span>
+                                <p>
+                                    우리 시대를 대표하는 미술사학자이자 문화유산 전문가인 유홍준 국립중앙박물관장님과 함께, 한국 역사와 문화의 흐름 속에서
+                                    현대사회 우리 문화(K-컬쳐)와 인문환경의 힘과 그 근원을 탐구하는 시간을 갖습니다.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div data-number_confirm_wrap>
+                    <div>
+                        <button type="button" data-confirm_close></button>
+                    </div>
+                    <div data-number_confirm>
+                        <div>강연자료 다운로드</div>
+                        <input
+                            type="text"
+                            data-number_input
+                            oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')"
+                            placeholder="사업자번호를 입력해주세요."
+                            maxlength="10"
+                        />
+                        <p data-num_err_txt></p>
+                        <div>
+                            <button type="button" data-download_btn>다운받기</button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div data-image_container="2024">
-                <div data-image_wrap>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/1.png" alt="1">
-                        </div>
-                        <span>기조강연</span>
-                        <p data-pink>디지털 시대와 표준</p>
-                        <p data-pc><span>조성환</span> | ISO회장</p>
-                        <p data-mobile><span>조성환</span><br>ISO회장</p>
+        </div>
+                <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
                     </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/2.png" alt="2">
-                        </div>
-                        <span>환영공연</span>
-                        <p data-pink>한 여름밤의<br>
-                        페스티벌</p>
-                        <p data-pc><span>박상민</span> | 가수</p>
-                        <p data-mobile><span>박상민</span><br>가수</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/3.png" alt="3">
-                        </div>
-                        <span>Management</span>
-                        <p data-sky>저성장시대,<br>
-                        기업의 대응전략 </p>
-                        <p data-pc><span>김현철</span> | 교수</p>
-                        <p data-mobile><span>김현철</span><br>교수</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/4.png" alt="4">
-                        </div>
-                        <span>Digital</span>
-                        <p data-sky>디지털자산<br>시대에 살아남는법</p>
-                        <p data-pc><span>홍기훈</span> | 홍익대학교 교수</p>
-                        <p data-mobile><span>홍기훈</span><br>홍익대학교 교수</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/5.png" alt="5">
-                        </div>
-                        <span>Family Session</span>
-                        <p data-sky>미술품 소비시대, 글로벌 미술시장과 아트컬렉션</p>
-                        <p data-pc><span>박혜경</span> | 에이트인스티튜트 대표</p>
-                        <p data-mobile><span>박혜경</span><br>에이트인스티튜트 대표</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/6.png" alt="6">
-                        </div>
-                        <span>AI</span>
-                        <p data-sky>인공지능 시대,<br>
-                        주목해야 할 AI트렌드</p>
-                        <p data-pc><span>정지훈</span> | DGIST 교수</p>
-                        <p data-mobile><span>정지훈</span><br>DGIST 교수</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/7.png" alt="7">
-                        </div>
-                        <span>New Space</span>
-                        <p data-sky>뉴 스페이스 시대의<br> 
-                        비즈니스 기회</p>
-                        <p data-pc><span>이성희</span> | 컨텍 대표이사</p>
-                        <p data-mobile><span>이성희</span><br>컨텍 대표이사</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/13.png" alt="8">
-                        </div>
-                        <span>Family Session</span>
-                        <p data-sky>당신의 다이어트,<br>건강하신가요?</p>
-                        <p data-pc><span>정재훈</span> | 약사</p>
-                        <p data-mobile><span>정재훈</span><br>약사</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/12.png" alt="12">
-                        </div>
-                        <span>환송공연</span>
-                        <p data-black>맨발의<br>
-                            디바</p>
-                        <p data-pc><span>이은미</span> | 가수</p>
-                        <p data-mobile><span>이은미</span><br>가수</p>
-                    </div>
-                    <div data-image_box class="space">
-                        <div data-img>
-                            <img src="/images/15.png" alt="15">
-                        </div>
-                        <span>Humanities</span>
-                        <p data-green>민주주의의 명장면: 고대<br>
-                        그리스와 로마의 새로운 좌표</p>
-                        <p data-pc><span>김상근</span> | 연세대학교 교수</p>
-                        <p data-mobile><span>김상근</span><br>연세대학교 교수</p>
-                    </div>
-                    <div data-image_box>
-                        <div data-img>
-                            <img src="/images/14.png" alt="14">
-                        </div>
-                        <span>폐막강연</span>
-                        <p data-green>진정한<br>프로란</p>
-                        <p data-pc><span>허구연</span> | 한국야구위원회(KBO) 총재</p>
-                        <p data-mobile><span>허구연</span><br>한국야구위원회(KBO) 총재</p>
-                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
                 </div>
-                <p data-check_txt>*표시는 섭외중입니다</p>
             </div>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
-            </div>
-        </div>
-    </footer>
-    <script>
-        document.querySelector("[data-select_box] select").addEventListener("change", (event) => {
-            console.log(event.target.value)
-            const select_year = event.target.value;
-            document.querySelectorAll("[data-image_container]").forEach(container => {
-                if (container.dataset.image_container === select_year) {
-                    container.style.display = "block";
-                } else {
-                    container.style.display = "none";
-                }
+        </footer>
+        <script>
+            document.querySelector("[data-select_box] select").addEventListener("change", (event) => {
+                console.log(event.target.value);
+                const select_year = event.target.value;
+                document.querySelectorAll("[data-image_container]").forEach((container) => {
+                    if (container.dataset.image_container === select_year) {
+                        container.style.display = "block";
+                    } else {
+                        container.style.display = "none";
+                    }
+                });
             });
-        })
-    </script>
-</body>
-<style>
-    .space [data-green]{
-        letter-spacing: -1px;
-    }
-</style>
+
+            let num;
+
+            $("[data-image_box]").click(function () {
+                num = $(this).data("image_box");
+                $("[data-display_box]").css("display", "block");
+                $("[data-modal_content='" + num + "']").css("display", "block");
+            });
+            $("[data-btn_box]").click(function () {
+                $("[data-display_box]").css("display", "none");
+                $("[data-modal_content='" + num + "']").css("display", "none");
+            });
+        </script>
+    </body>
+    <style>
+        .space [data-green] {
+            letter-spacing: -1px;
+        }
+    </style>
 </html>

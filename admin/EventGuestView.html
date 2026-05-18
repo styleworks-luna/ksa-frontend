@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="kor">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>행사별 입장가능 대상자 리스트 - KSA</title>
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <style>
+        @media print {
+            #sidebar-placeholder, .topbar, #edit_btn, .btn-secondary, #print_btn, .h3, .card-header, hr, footer, .no-print {
+                display: none !important;
+            }
+            #wrapper #content-wrapper {
+                background-color: #fff !important;
+            }
+            .container-fluid {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .card {
+                border: none !important;
+                box-shadow: none !important;
+            }
+            .participant-scroll-area {
+                max-height: none !important;
+                overflow: visible !important;
+                border: none !important;
+                background-color: #fff !important;
+                padding: 0 !important;
+            }
+            .col-print-3 {
+                flex: 0 0 25% !important;
+                max-width: 25% !important;
+            }
+        }
+    </style>
+</head>
+
+<body id="page-top">
+    <div id="wrapper">
+        <div id="sidebar-placeholder"></div>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <a href="/index.html">
+                            <img width="200px"
+                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                                src="/images/header-logo.png" alt="">
+                        </a>
+                    </div>
+                    <div class="navbar-nav ml-auto">
+                        <div class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="container-fluid mt-4">
+                    <h1 class="h3 mb-4 text-gray-800">행사별 입장가능 대상자 정보</h1>
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">상세 내용</h6>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-bordered font-weight-bold no-print" style="color: #222;">
+                                <tr>
+                                    <th class="table-secondary" width="20%">행사명</th>
+                                    <td id="view_title"></td>
+                                </tr>
+                                <tr>
+                                    <th class="table-secondary">입장가능인원</th>
+                                    <td id="view_maxCapacity"></td>
+                                </tr>
+                                <tr>
+                                    <th class="table-secondary">입장일시</th>
+                                    <td id="view_eventDateTime"></td>
+                                </tr>
+                            </table>
+
+                            <div class="d-flex align-items-center mt-5 mb-3">
+                                <h5 class="font-weight-bold text-dark mb-0"><i class="fas fa-user-check mr-2"></i><span id="view_title_sub"></span> 입장가능 대상자 리스트</h5>
+                                <button type="button" id="download_zip_btn" class="btn btn-sm btn-success ml-3 font-weight-bold no-print">
+                                    <i class="fas fa-file-archive mr-1"></i>QR 이미지 일괄 다운로드 (ZIP)
+                                </button>
+                            </div>
+                            <div class="participant-scroll-area p-3 border bg-light rounded"
+                                style="max-height: 500px; overflow-y: auto;">
+                                <div class="row" id="participant_list">
+                                    <!-- 인원 리스트 -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="text-center">
+                                <a href="EventGuestList.html" class="btn btn-secondary px-5">목록</a>
+                                <button type="button" id="print_btn" class="btn btn-info px-5 ml-2">QR북 인쇄</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">로그아웃 하시겠습니까?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">취소</button>
+                    <button class="logout-btn btn btn-primary">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/sb-admin-2.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="/admin/js/common.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const eventId = urlParams.get('id');
+            var thisYear = '';
+
+            if (!eventId) {
+                alert("잘못된 접근입니다.");
+                location.href = "EventList.html";
+                return;
+            }
+
+            $.ajax({
+                url: base_url + '/api/v1/events/' + eventId,
+                method: 'GET',
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    $('#view_title').text(response.title);
+                    $('#view_title_sub').text(response.title);
+                    $('#view_maxCapacity').text(response.maxCapacity.toLocaleString() + '명');
+
+                    let dt = response.eventDateTime;
+                    let formattedDate = "-";
+                    if (dt) {
+                        formattedDate = `${dt[0]}-${String(dt[1]).padStart(2, '0')}-${String(dt[2]).padStart(2, '0')} ${String(dt[3]).padStart(2, '0')}:${String(dt[4]).padStart(2, '0')}`;
+                    }
+                    $('#view_eventDateTime').text(formattedDate);
+
+                    if (response.year){
+                        thisYear = response.year;
+                        fetchPaidParticipants(response.year);
+                    } 
+
+                    $('#edit_btn').on('click', function () {
+                        location.href = `EventWrite.html?id=${eventId}`;
+                    });
+
+                    $('#print_btn').on('click', function() {
+                        window.print();
+                    });
+
+                    $('#download_zip_btn').on('click', async function() {
+                        const zip = new JSZip();
+                        const $imgs = $('.qr-img-placeholder').filter(function() {
+                            return $(this).attr('src').startsWith('blob:'); // 로드 완료된 이미지만 대상
+                        });
+
+                        if ($imgs.length === 0) {
+                            alert("다운로드할 준비가 된 QR 이미지가 없습니다. 잠시 후 다시 시도해주세요.");
+                            return;
+                        }
+
+                        const eventTitle = $('#view_title').text().trim() || 'QR_Codes';
+                        const folderName = eventTitle.replace(/[/\\?%*:|"<>]/g, '-'); // 파일명 사용 불가능 문자 치환
+                        const imgFolder = zip.folder(folderName);
+                        
+                        const downloadPromises = $imgs.map(async function() {
+                            const $img = $(this);
+                            const blobUrl = $img.attr('src');
+                            const company = $img.data('company');
+                            const name = $img.data('name');
+                            const attendId = $img.data('id');
+                            const attenderId = $img.data('attender-id');
+                            
+                            const fileName = `${company}_${name}_${attendId}_${attenderId}.png`;
+
+                            const response = await fetch(blobUrl);
+                            const blob = await response.blob();
+                            imgFolder.file(fileName, blob);
+                        }).get();
+
+                        await Promise.all(downloadPromises);
+
+                        zip.generateAsync({type: "blob"}).then(function(content) {
+                            saveAs(content, `${folderName}_QR_List.zip`);
+                        });
+                    });
+                },
+                error: function (xhr) {
+                    if (xhr.status === 401) {
+                        alert("로그인이 필요한 페이지입니다.");
+                        window.location.href = 'login.html';
+                    } else {
+                        alert('데이터를 불러오는 데 실패했습니다.');
+                    }
+                }
+            });
+
+            function fetchPaidParticipants(year) {
+                $.ajax({
+                    url: base_url + "/api/v1/attends/search?year=" + year ,
+                    method: 'GET',
+                    data: {                      
+                        ksaCompanyType: "",
+                        //depositStatus: 'FULL_PAY', // 결제 완료된 인원만
+                        //attendStatus: 'DONE'       // 신청 완료 상태
+                        attendStatus: "",
+                        depositStatus: "",
+                        taxBillPublishStatus: "",
+
+                    },
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function (response) {
+                        let html = '';
+                        let currentCompany = '';
+
+                        response.sort((a, b) => a.company.companyName.localeCompare(b.company.companyName, 'ko'));
+
+                        response.forEach(attend => {
+                            const companyName = attend.company.companyName;
+
+                            if (currentCompany !== companyName) {
+                                html += `<div class="col-12 mt-4 mb-2">
+                                            <h5 class="font-weight-bold text-dark border-bottom pb-2"><i class="fas fa-building mr-2"></i>${companyName}</h5>
+                                         </div>`;
+                                currentCompany = companyName;
+                            }
+
+                            html += renderParticipantCard(companyName, attend.mainAttender.koreaName, attend.attendId, attend.mainAttender.mainAttenderId);
+
+                            if (attend.familyAttenders && attend.familyAttenders.length > 0) {
+                                attend.familyAttenders.forEach(fam => {
+                                    html += renderParticipantCard(companyName, fam.name, attend.attendId, fam.familyAttenderId);
+                                });
+                            }
+                        });
+
+                        if (html === '') {
+                            html = '<div class="col-12 text-center py-5 text-gray-500">결제 완료된 인원이 없습니다.</div>';
+                        }
+                        $('#participant_list').html(html);
+                        
+                        $('.qr-img-placeholder').each(function() {
+                            const $img = $(this);
+                            const qrData = {
+                                year: '2026',
+                                attendId: $img.data('id'),
+                                attenderId: $img.data('attender-id'),
+                                companyName: $img.data('company'),
+                                name: $img.data('name')
+                            };
+
+                            fetch(base_url + '/api/v1/events/qrcode-json', {
+                                method: 'POST',
+                                headers: { 
+                                    'Content-Type': 'application/json',
+                                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                                },
+                                body: JSON.stringify(qrData)
+                            })
+                            .then(res => res.blob())
+                            .then(blob => {
+                                const url = URL.createObjectURL(blob);
+                                $img.attr('src', url);
+                                $img.css('opacity', '1');
+                            })
+                            .catch(err => console.error('QR Load Error:', err));
+                        });
+                    }
+                });
+            }
+
+            function renderParticipantCard(company, name, attendId, attenderId) {
+                return `
+                    <div class="col-md-3 col-print-3 mb-4 text-center">
+                        <div class="card border-0 shadow-none p-0 bg-white">
+                            <div class="d-flex justify-content-center">
+                                <img class="qr-img-placeholder" 
+                                     data-id="${attendId}" 
+                                     data-attender-id="${attenderId}"
+                                     data-company="${company}" 
+                                     data-name="${name}"
+                                     src="img/undraw_profile.svg" 
+                                     alt="QR" 
+                                     style="width: 250px; height: 290px; opacity: 0.2; transition: opacity 0.5s; object-fit: contain;">
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</body>
+
+</html>

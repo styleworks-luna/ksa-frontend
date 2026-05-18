@@ -146,9 +146,9 @@ main
                 height: auto
         [data-notice_box]
             width: 100%
-            padding: 30px
+            padding: 20px
             background-color: #f7f7f7
-            margin-top: 50px
+            margin-top: 20px
             p
                 font-size: 18px
                 line-height: 30px
@@ -159,21 +159,68 @@ main
             justify-content: center
             align-items: center
             padding: 
-                top: 80px
-                bottom: 130px 
+                top: 20px
+                bottom: 35px
             button
                 width: 200px
                 height: 54px
                 color: #fff
                 border-radius: 5px
                 cursor: pointer
-                background-color: #0C3994
+                background-color: #9cd4b8
                 border: none
                 font-size: 20px
                 font-weight: bold
             [data-pre_btn]
                 margin-right: 20px 
                 background-color: #a3a3a3
+    [data-popup_box]
+        width: 600px
+        min-height: 353px
+        border: 2px solid #9cd4b8
+        display: flex
+        align-items: center
+        flex-direction: column
+        padding: 
+            top: 60px
+            left: 60px
+            right: 60px
+            bottom: 60px
+        background-color: #fff
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        display: none
+        text-align: center
+        p
+            font-size: 20px
+            font-weight: 500
+            padding:
+                bottom: 80px
+                top: 50px
+        div
+            button
+                width: 200px
+                height: 54px
+                border-radius: 5px
+                border: none
+                font-size: 20px
+                color: #fff
+                &:first-of-type
+                    margin-right: 20px
+                    background-color: #a3a3a3
+                &:nth-of-type(2)
+                    background-color: #9cd4b8
+                    &:disabled
+                        background-color: #a3a3a3
+                        pointer-events: none
+            [data-notice_close_btn]
+                background-color: #9cd4b8 !important
+        form
+            display: none
+        [data-done_txt]
+            display: none
 @media (max-width: 760px)
     main
         [data-content_box]
@@ -314,16 +361,16 @@ main
                                     line-height: 20px
             [data-notice_box]
                 width: 100%
-                padding: 20px 16px
+                padding: 20px
                 background-color: #f7f7f7
-                margin-top: 24px
+                margin-top: 20px
                 p
                     font-size: 14px
                     line-height: 23px
             [data-button_box]
                 padding: 
-                    top: 18px
-                    bottom: 70px 
+                    top: 20px
+                    bottom: 35px 
                 button
                     width: 159px
                     height: 50px
@@ -331,3 +378,45 @@ main
                 [data-pre_btn]
                     margin-right: 10px 
                     background-color: #a3a3a3
+        [data-popup_box]
+            width: calc( 100% - 32px )
+            min-height: 235px
+            border: 2px solid #9cd4b8
+            display: flex
+            align-items: center
+            flex-direction: column
+            padding: 
+                top: 60px
+                left: 0px
+                right: 0px
+                bottom: 20px
+            background-color: #fff
+            position: fixed
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            display: none
+            text-align: center
+            p
+                font-size: 16px
+                font-weight: 500
+                line-height: 24px
+                padding:
+                    bottom: 59px
+                    top: 0px
+            div
+                button
+                    width: 143px
+                    height: 50px
+                    border-radius: 5px
+                    border: none
+                    font-size: 16px
+                    color: #fff
+                    &:first-of-type
+                        margin-right: 10px
+                        background-color: #a3a3a3
+                    &:nth-of-type(2)
+                        background-color: #9cd4b8
+                        &:disabled
+                            background-color: #a3a3a3
+                            pointer-events: none

@@ -1,9 +1,18 @@
 main {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 main [data-content_box=mobile] {
   display: none;
@@ -12,10 +21,6 @@ main [data-content_box] {
   width: 100%;
   max-width: 1280px;
   padding-top: 85px;
-}
-main [data-content_box] [data-table_box] [data-date_row]:nth-of-type(3) {
-  display: block;
-  margin-top: 45px;
 }
 main [data-content_box] [data-table_box] table {
   width: 100%;
@@ -51,7 +56,9 @@ main [data-content_box] [data-table_box] table tr [data-description_row] p {
   line-height: 28px;
 }
 main [data-content_box] [data-table_box] table tr td [data-show_box] [data-show_row] {
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 @media (max-width: 760px) {
@@ -76,13 +83,24 @@ main [data-content_box] [data-table_box] table tr td [data-show_box] [data-show_
     padding-bottom: 12px;
   }
   main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   main [data-content_box=mobile] [data-table_box] [data-content] [data-text_wrap] [data-flex_box] [data-text_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding-right: 15px;
     padding-top: 7px;
   }
@@ -115,5 +133,3 @@ main [data-content_box] [data-table_box] table tr td [data-show_box] [data-show_
     padding-bottom: 6px;
   }
 }
-
-/*# sourceMappingURL=lecture.css.map */

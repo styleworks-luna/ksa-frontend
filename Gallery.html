@@ -1,155 +1,194 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/gallery.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
+        <script src="/js/common.js"></script>
+    </head>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/gallery.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.4/pagination.css" />
-    <script src="/js/common.js"></script>
-</head>
-
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
+    <body>
+        <header data-pc_header>
+            <a href="Index.html" data-logo_box></a>
             <ul>
+                <li><a href="Ceomessage.html">인사말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div data-top_header>
-            <button type="button" onclick="history.back()" data-back_btn></button>
-            <span>공지사항</span>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
             </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <main>
-        <div data-header_box>
-            <div>
-                <a href="Application.html">참가신청</a>
+        </header>
+        <header data-mobile_header>
+            <div data-top_header>
+                <button type="button" onclick="history.back()" data-back_btn></button>
+                <span>공지사항</span>
+                <button type="button" data-more_box></button>
             </div>
-        </div>
-        <div data-content_box>
-            <div data-title_box>
-                갤러리
-                <div data-select_box>
-                    연도별 갤러리 
-                    <select>
-                        <option value>전체</option>
-                        <option value="2024">2024년</option>
-                        <option value="2023">2023년</option>
-                        <option value="2022">2022년</option>
-                    </select>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-header_box>
+                <div>
+                    <a href="Application.html">참가신청</a>
                 </div>
             </div>
-            <div data-image_wrap>
+            <div data-content_box>
+                <div data-title_box>
+                    갤러리
+                    <div data-select_box>
+                        연도별 갤러리
+                        <select>
+                            <option value>전체</option>
+                            <option value="2026">2026년</option>
+                            <option value="2025">2025년</option>
+                            <option value="2024">2024년</option>
+                            <option value="2023">2023년</option>
+                            <option value="2022">2022년</option>
+                        </select>
+                    </div>
+                </div>
+                <div data-image_wrap></div>
             </div>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+        </main>
+                <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
-    <script>
-        $.ajax({
-            type: "GET",
-            url: "https://" + base_url +"/api/v1/galleries/all",
-            success: function (response) {
-                $.each(response, function (response, item) {
-                    $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
-                });
-
-                $("[data-image_wrap]").on("click", "[data-image_box]", function () {
-                    $(this).children("[data-modal_box]").show();
-                });
-
-                $(document).on("click", "[data-img_close]", function () {
-                    $(this).closest("[data-modal_box]").hide();
-                });
-            },
-            error: function (xhr) {
-                alert(xhr.responseJSON.message);
-            }
-        });
-
-        $("select").change(function() {
-            let url;
-            if($("select").val()){
-                url = "https://" + base_url +"/api/v1/galleries/all?year=" + $("select").val()
-            } else {
-                url = "https://" + base_url +"/api/v1/galleries/all"
-            }
+        </footer>
+        <script>
             $.ajax({
                 type: "GET",
-                url: url,
+                url: base_url + "/api/v1/galleries/all",
                 success: function (response) {
-                    $("[data-image_wrap]").empty();
                     $.each(response, function (response, item) {
-                        $("[data-image_wrap]").append('<div data-image_box><img data-gallery_img src="https://'+ base_url +'/' + item.image.fileUri + '" alt="' +  item.image.originalFileName + '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div></div>');
+                        $("[data-image_wrap]").append(
+                            '<div data-image_box><img data-gallery_img src="' +
+                                base_url +
+                                "/" +
+                                item.image.fileUri +
+                                '" alt="' +
+                                item.image.originalFileName +
+                                '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="' +
+                                base_url +
+                                "/" +
+                                item.image.fileUri +
+                                '" alt="' +
+                                item.image.originalFileName +
+                                '"></div></div>'
+                        );
                     });
-    
+
                     $("[data-image_wrap]").on("click", "[data-image_box]", function () {
                         $(this).children("[data-modal_box]").show();
                     });
-    
+
                     $(document).on("click", "[data-img_close]", function () {
                         $(this).closest("[data-modal_box]").hide();
                     });
                 },
                 error: function (xhr) {
                     alert(xhr.responseJSON.message);
-                }
+                },
             });
-        })
-    </script>
-</body>
+
+            $("select").change(function () {
+                let url;
+                if ($("select").val()) {
+                    url = base_url + "/api/v1/galleries/all?year=" + $("select").val();
+                } else {
+                    url = base_url + "/api/v1/galleries/all";
+                }
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    success: function (response) {
+                        $("[data-image_wrap]").empty();
+                        $.each(response, function (response, item) {
+                            $("[data-image_wrap]").append(
+                                '<div data-image_box><img data-gallery_img src="' +
+                                    base_url +
+                                    "/" +
+                                    item.image.fileUri +
+                                    '" alt="' +
+                                    item.image.originalFileName +
+                                    '"><div data-modal_box><div><img data-img_close src="images/mobile-menu-close.svg" alt="close"></div><img src="' +
+                                    base_url +
+                                    "/" +
+                                    item.image.fileUri +
+                                    '" alt="' +
+                                    item.image.originalFileName +
+                                    '"></div></div>'
+                            );
+                        });
+
+                        $("[data-image_wrap]").on("click", "[data-image_box]", function () {
+                            $(this).children("[data-modal_box]").show();
+                        });
+
+                        $(document).on("click", "[data-img_close]", function () {
+                            $(this).closest("[data-modal_box]").hide();
+                        });
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    },
+                });
+            });
+        </script>
+    </body>
 </html>

@@ -1,10 +1,19 @@
 main {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: relative;
 }
 main [data-pc_content_box] {
@@ -77,7 +86,7 @@ main [data-pc_content_box] [data-table_box] [data-total_data] tr th {
 }
 main [data-pc_content_box] [data-table_box] [data-total_data] tr td:last-of-type {
   font-weight: bold;
-  color: #0C3994;
+  color: #9cd4b8;
 }
 main [data-pc_content_box] [data-table_box] [data-attend_data] {
   margin-bottom: 20px;
@@ -160,8 +169,12 @@ main [data-pc_content_box] [data-notice_box] div {
   padding-bottom: 10px;
 }
 main [data-pc_content_box] [data-button_box] {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-top: 17px;
   padding-bottom: 80px;
 }
@@ -178,7 +191,7 @@ main [data-pc_content_box] [data-button_box] button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-pc_content_box] [data-button_box] button:nth-of-type(2) {
-  background-color: #0C3994;
+  background-color: #9cd4b8;
 }
 main [data-pc_content_box] [data-button_box] [data-print_btn] {
   background-color: #3cb4d0 !important;
@@ -188,19 +201,28 @@ main [data-mobile_content_box] {
 }
 main [data-popup_box] {
   width: 600px;
-  height: 353px;
-  border: 2px solid #0C3994;
+  min-height: 353px;
+  border: 2px solid #9cd4b8;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding-top: 60px;
   padding-left: 60px;
   padding-right: 60px;
+  padding-bottom: 60px;
   background-color: #fff;
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   display: none;
   text-align: center;
 }
@@ -223,14 +245,14 @@ main [data-popup_box] div button:first-of-type {
   background-color: #a3a3a3;
 }
 main [data-popup_box] div button:nth-of-type(2) {
-  background-color: #0C3994;
+  background-color: #9cd4b8;
 }
 main [data-popup_box] div button:nth-of-type(2):disabled {
   background-color: #a3a3a3;
   pointer-events: none;
 }
 main [data-popup_box] div [data-notice_close_btn] {
-  background-color: #0C3994 !important;
+  background-color: #9cd4b8 !important;
 }
 main [data-popup_box] form {
   display: none;
@@ -243,10 +265,19 @@ main [data-popup_box] [data-done_txt] {
   main {
     width: 100%;
     height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   main [data-pc_content_box] {
     display: none;
@@ -380,8 +411,12 @@ main [data-popup_box] [data-done_txt] {
   }
   main [data-mobile_content_box] [data-table_box] [data-rental_data=mobile] [data-location_row] {
     margin-top: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   main [data-mobile_content_box] [data-table_box] [data-rental_data=mobile] [data-location_row] span {
     display: inline-block;
@@ -433,8 +468,12 @@ main [data-popup_box] [data-done_txt] {
     padding-bottom: 20px;
   }
   main [data-mobile_content_box] [data-button_box] {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding-top: 17px;
     padding-bottom: 60px;
   }
@@ -451,26 +490,35 @@ main [data-popup_box] [data-done_txt] {
     background-color: #a3a3a3;
   }
   main [data-mobile_content_box] [data-button_box] button:nth-of-type(2) {
-    background-color: #0C3994;
+    background-color: #9cd4b8;
   }
   main [data-mobile_content_box] [data-button_box] [data-print_btn] {
     background-color: #3cb4d0 !important;
   }
   main [data-popup_box] {
     width: calc(100% - 32px);
-    height: 235px;
-    border: 2px solid #0C3994;
+    min-height: 235px;
+    border: 2px solid #9cd4b8;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     padding-top: 60px;
     padding-left: 0px;
     padding-right: 0px;
+    padding-bottom: 20px;
     background-color: #fff;
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
     display: none;
     text-align: center;
   }
@@ -494,12 +542,10 @@ main [data-popup_box] [data-done_txt] {
     background-color: #a3a3a3;
   }
   main [data-popup_box] div button:nth-of-type(2) {
-    background-color: #0C3994;
+    background-color: #9cd4b8;
   }
   main [data-popup_box] div button:nth-of-type(2):disabled {
     background-color: #a3a3a3;
     pointer-events: none;
   }
 }
-
-/*# sourceMappingURL=information_confirm.css.map */

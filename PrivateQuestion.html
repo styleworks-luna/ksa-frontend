@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
+
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="/js/common.js"></script>
+        <style>
+            main [data-header_box] {
+                width: 100%;
+                height: 260px;
+                background-image: url(/images/2025_pc_back_v2.png);
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            main [data-header_box] div {
+                width: 100%;
+                height: 260px;
+                display: flex;
+                align-items: flex-end;
+                justify-content: center;
+                flex-direction: row;
+                padding-bottom: 40px;
+            }
+
+            main [data-header_box] div > a {
+                width: 210px;
+                height: 60px;
+                border-radius: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+                background-color: #FF8E34;
+            }
+
+            @media (max-width: 760px) {
+                main [data-header_box] {
+                    height: 180px;
+                    background-image: url(/images/2024_mobile_back_v2.png);
+                }
+
+                main [data-header_box] div {
+                    height: 180px;
+                    padding-bottom: 20px;
+                }
+
+                main [data-header_box] div > a {
+                    width: 140px;
+                    height: 40px;
+                    font-size: 18px;
+                }
+            }
+
+            [data-notice_wrap] {
+                width: 100%;
+                max-width: 1280px;
+                margin: 0 auto;
+                padding: 0 20px;
+            }
+
+            [data-title_box] {
+                font-size: 32px;
+                font-weight: 700;
+                text-align: center;
+                margin: 60px 0 40px;
+                color: #222;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
+            }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .form-group textarea {
+                height: 200px;
+                resize: vertical;
+            }
+
+            .btn-submit {
+                display: block;
+                width: 200px;
+                height: 50px;
+                margin: 30px auto;
+                background-color: #9cd4b8;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
+            .btn-submit:hover {
+                background-color: #0a2f7a;
+            }
+
+            @media (max-width: 760px) {
+                [data-title_box] {
+                    font-size: 24px;
+                    margin: 40px 0 30px;
+                }
+
+                [data-notice_wrap] {
+                    padding: 0 15px;
+                }
+            }
+
+            .radio-group {
+                display: flex;
+                gap: 20px;
+                margin-top: 10px;
+            }
+
+            .radio-group label {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                cursor: pointer;
+            }
+
+            .radio-group input[type="radio"] {
+                width: auto;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <header data-pc_header>
+            <a href="Index.html" data-logo_box></a>
+            <ul>
+                <li><a href="Ceomessage.html">인사말</a></li>
+                <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
+                <li><a href="Speaker.html">연사</a></li>
+                <li><a href="Performance.html">공연</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
+            </ul>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div>
+                <a href="Index.html" data-logo_box></a>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-header_box>
+                <div>
+                    <a href="Application.html">참가신청</a>
+                </div>
+            </div>
+            <div data-pc_content_wrap>
+                <div data-title_box>1:1 문의</div>
+                <div data-notice_wrap>
+                    <form id="questionForm">
+                        <div class="form-group">
+                            <label for="name">이름</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" name="phone" required />
+                        </div>
+                        <div class="form-group">
+                            <label>문의유형</label>
+                            <div class="radio-group">
+                                <label> <input type="radio" name="title" value="비밀번호찾기" required /> 비밀번호찾기 </label>
+                                <label> <input type="radio" name="title" value="신청문의" required /> 신청문의 </label>
+                                <label> <input type="radio" name="title" value="기타문의" required /> 기타문의 </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">문의내용</label>
+                            <textarea id="content" name="content" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">문의하기</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+                <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <script>
+            $(function () {
+                $("#questionForm").on("submit", function (e) {
+                    e.preventDefault();
+
+                    const formData = {
+                        name: $("#name").val(),
+                        email: $("#email").val(),
+                        title: $('input[name="title"]:checked').val(),
+                        content: "연락처 : " + $("#phone").val() + "\n문의내용 :\n" + $("#content").val(),
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        url: base_url + "/api/v2/private-question",
+                        contentType: "application/json",
+                        data: JSON.stringify(formData),
+                        success: function () {
+                            alert("문의가 접수되었습니다.");
+                            $("#questionForm")[0].reset();
+                        },
+                        error: function (xhr) {
+                            alert(xhr.responseJSON.message || "문의 접수에 실패했습니다.");
+                        },
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

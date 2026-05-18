@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="kor">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,66 +15,34 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-        
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
+
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <a href="/index.html">
-                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                            <img width="200px"
+                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
                                 src="/images/header-logo.png" alt="">
                         </a>
                     </div>
                     <div class="navbar-nav ml-auto">
                         <div class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
@@ -90,7 +59,8 @@
                     <div class="card shadow mb-4">
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table class="table table-bordered text-center font-weight-bold" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered text-center font-weight-bold" id="dataTable"
+                                    width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
                                             <th width="5%">No</th>
@@ -140,10 +110,11 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
     <script>
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://"+ base_url +"/api/v1/notices/all",
+                "url": base_url + "/api/v1/notices/all",
                 "dataSrc": function (json) {
                     return json;
                 },
@@ -179,7 +150,7 @@
                     "searchable": false
                 },
             ],
-            
+
         });
 
         $('#dataTable').on('click', '.btn-danger', function () {
@@ -188,7 +159,7 @@
             if (confirm("해당 공지를 삭제하시겠습니까?")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://"+ base_url +"/api/v1/notices/" + num,
+                    url: base_url + "/api/v1/notices/" + num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -209,7 +180,7 @@
                 });
             }
         });
-        
+
         $('#dataTable').on('click', '.btn-primary', function () {
             const id_num = $(this).parent().prev().find('a').attr('href');
             const num = $.trim(id_num.replace(/[^0-9]/g, ''));

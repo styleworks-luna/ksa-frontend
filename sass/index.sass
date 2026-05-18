@@ -15,15 +15,15 @@ main
         display: flex
         justify-content: center
         align-items: center
-        background-image: linear-gradient(106deg, #0c3994 0%, #071d4b 100%)
+        background-image: linear-gradient(106deg, #9cd4b8 0%, #071d4b 100%)
     [data-main_wrap]
         width: 100%
         height: 705px 
         background:
-            image: url(/images/2024_pc_top.png)
+            image: url(/images/2025_pc_top.png)
             position: center center
             repeat: no-repeat
-            size: cover
+            size: auto 705px
         display: flex
         align-items: flex-start
         justify-content: center
@@ -80,10 +80,10 @@ main
                         font-weight: bold
                         margin-bottom: 30px
                         &:first-of-type
-                            background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%)
+                            background-color: #FF8E34
                             margin-right: 24px
                         &:last-of-type
-                            background-image: linear-gradient(106deg, #0c3994 0%, #071d4b 100%)
+                            background-color: #F37C71
     [data-speaker_box]
         display: flex
         flex-direction: column
@@ -244,7 +244,7 @@ main
                 cursor: auto
                 pointer-events: block
     [data-gallery_box]
-        background-image: linear-gradient(107deg, #0c3994 0%, #071d4b 100%)
+        background-image: linear-gradient(107deg, #9cd4b8 0%, #071d4b 100%)
         height: 572px
         width: 100%
         padding: 
@@ -369,9 +369,10 @@ main
             img
                 width: 100%
         [data-main_wrap]
-            height: 111vw
+            aspect-ratio: 360 / 450
+            height: auto
             background:
-                image: url(/images/2024_m_top.png)
+                image: url(/images/2025_m_top.png)
                 position: center center
                 repeat: no-repeat
                 size: cover
@@ -407,7 +408,7 @@ main
                             width: 160px
                             height: 40px
                             border-radius: 37px
-                            background-image: linear-gradient(106deg, #b9cfec 0%, #7ca5d4 0%, #77c1ce 100%)
+                            background-color: #FF8E34
                             display: flex
                             align-items: center
                             justify-content: center

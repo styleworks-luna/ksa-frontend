@@ -1,537 +1,816 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KSA 하계포럼</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>KSA 하계포럼</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/information_confirm.css">
-    <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="/js/common.js"></script>
-</head>
-<body>
-    <header data-pc_header>
-        <a href="Index.html" data-logo_box></a>
-        <ul>
-            <li><a href="Notice.html">공지사항</a></li>
-            <li><a href="Speaker.html">연사</a></li>
-            <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
-            <li data-more_box></li>
-        </ul>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
-            <ul>
-                <li><a href="Notice.html">공지사항</a></li>
-                <li><a href="Speaker.html">연사</a></li>
-                <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
-            </ul>
-        </div>
-    </header>
-    <header data-mobile_header>
-        <div>
+        <link rel="stylesheet" href="/css/reset.css" />
+        <link rel="stylesheet" href="/css/common.css" />
+        <link rel="stylesheet" href="/css/information_confirm.css" />
+        <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+        <script src="/js/common.js"></script>
+    </head>
+    <body>
+        <header data-pc_header>
             <a href="Index.html" data-logo_box></a>
-            <button type="button" data-more_box></button>
-        </div>
-        <div data-menu_box>
-            <div>
-                <button data-close_box></button>
-            </div>
             <ul>
+                <li><a href="Ceomessage.html">인사말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
-                <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li data-more_box></li>
             </ul>
-        </div>
-    </header>
-    <main>
-        <div data-pc_process_box>
-            <ul>
-                <li><a href="./Information.html">참가자정보입력</a></li>
-                <li><a href="./Flight.html">항공예약</a></li>
-                <li><a href="./Hotel.html">호텔예약</a></li>
-                <li><a href="./Rentalcar.html">렌터카예약</a></li>
-                <li><a href="./Program.html">프로그램</a></li>
-                <li class="present"><a href="./InformationConfirm.html">신청확인</a></li>
-                <li><button type="button" data-logout_btn>로그아웃</button></li>
-            </ul>
-        </div>
-        <div data-mobile_process_box>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a>참가자정보입력</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Flight.html">항공예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Hotel.html">호텔예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Rentalcar.html">렌터카예약</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="./Program.html">프로그램</a>
-                    </div>
-                    <div class="swiper-slide present">
-                        <a href="./InformationConfirm.html">신청확인</a>
-                    </div>
-                    <div class="swiper-slide">
-                        <button data-logout_btn type="button">로그아웃</button>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <header data-mobile_header>
+            <div>
+                <a href="Index.html" data-logo_box></a>
+                <button type="button" data-more_box></button>
+            </div>
+            <div data-menu_box>
+                <div>
+                    <button data-close_box></button>
+                </div>
+                <ul>
+                    <li><a href="Notice.html">공지사항</a></li>
+                    <li><a href="Schedule.html">행사일정</a></li>
+                    <li><a href="Speaker.html">연사</a></li>
+                    <li><a href="Performance.html">공연</a></li>
+                    <li><a href="FourmInfo.html">참가안내</a></li>
+                    <li><a href="Application.html">참가신청 및 확인</a></li>
+                    <li><a href="Brochure.html">연도별 브로셔</a></li>
+                    <li><a href="Gallery.html">갤러리</a></li>
+                    <li><a href="FAQ.html">FAQ</a></li>
+                </ul>
+            </div>
+        </header>
+        <main>
+            <div data-pc_process_box>
+                <ul>
+                    <li><a href="./Information.html">참가자정보입력</a></li>
+                    <li><a href="./Flight.html">항공예약</a></li>
+                    <li><a href="./Hotel.html">호텔예약</a></li>
+                    <li><a href="./Rentalcar.html">렌터카예약</a></li>
+                    <li><a href="./Program.html">골프/관광 외</a></li>
+                    <li class="present"><a href="./InformationConfirm.html">신청확인</a></li>
+                    <li><button type="button" data-logout_btn>로그아웃</button></li>
+                </ul>
+            </div>
+            <div data-mobile_process_box>
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <a>참가자정보입력</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Flight.html">항공예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Hotel.html">호텔예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Rentalcar.html">렌터카예약</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <a href="./Program.html">골프/관광 외</a>
+                        </div>
+                        <div class="swiper-slide present">
+                            <a href="./InformationConfirm.html">신청확인</a>
+                        </div>
+                        <div class="swiper-slide">
+                            <button data-logout_btn type="button">로그아웃</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div data-pc_content_box>
-            <h1>신청내역 확인</h1>
-            <div data-print_wrap>
+            <div data-pc_content_box>
+                <h1>신청내역 확인</h1>
+                <div data-print_wrap>
+                    <div data-add_text_box="1"></div>
+                    <div data-table_box>
+                        <span>총 결제 금액</span>
+                        <table data-total_data>
+                            <tr>
+                                <th>참가비</th>
+                                <th>항공</th>
+                                <th>호텔</th>
+                                <th>렌터카</th>
+                                <th>골프</th>
+                                <th>투어</th>
+                                <th>총액</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div data-table_box>
+                        <span>참가자 정보 신청 내역</span>
+                        <table data-attend_data>
+                            <tr>
+                                <th>참가자 이름</th>
+                                <th>직위</th>
+                                <th>주민등록번호</th>
+                                <th>휴대전화번호</th>
+                                <th>전화번호</th>
+                                <th>이메일</th>
+                            </tr>
+                        </table>
+                        <table data-family_data>
+                            <tr>
+                                <th>관계</th>
+                                <th>이름</th>
+                                <th>주민등록번호</th>
+                                <th>휴대전화번호</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div data-table_box>
+                        <span>항공예약 신청 내역</span>
+                        <table data-flight_data>
+                            <tr>
+                                <th>출 도착 도시</th>
+                                <th>이름</th>
+                                <th>항공 일정</th>
+                                <th>요청사항</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div data-table_box>
+                        <span>호텔예약 신청 내역</span>
+                        <table data-hotel_data>
+                            <tr>
+                                <th>투숙기간</th>
+                                <th>객실타입</th>
+                                <th>추가선택</th>
+                                <th>체크인 예정</th>
+                                <th>요청사항</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div data-table_box>
+                        <span>렌터카 신청 내역</span>
+                        <table data-rental_data>
+                            <tr>
+                                <th>대여일자</th>
+                                <th>차종</th>
+                                <th>수령/반납장소</th>
+                                <th>요청사항</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div data-table_box>
+                        <span>골프 신청 내역</span>
+                        <table data-golf_data>
+                            <tr>
+                                <th>일자</th>
+                                <th>장소</th>
+                                <th>참가자</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div data-table_box>
+                        <span>프로그램 신청 내역</span>
+                        <table data-program_data>
+                            <tr>
+                                <th>일자</th>
+                                <th>종류</th>
+                                <th>내용</th>
+                                <th>참가자</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div data-add_text_box="2"></div>
+                </div>
+                <div data-notice_box>
+                    <p data-cancle_title style="font-weight: 600">[최종 확인사항]</p>
+                    <p>• 임시저장 상태에서는 로그인 후 신청 내용 수정이 가능합니다.</p>
+                    <p style="color: #ff2200">• ‘최종 제출’ 완료 이후에는 온라인 수정이 불가하오니, 신청 정보 및 금액을 반드시 확인 후 제출해주시기 바랍니다.</p>
+                    <p>• 최종 제출 이후 변경 및 취소는 사무국을 통해서만 가능합니다.</p>
+                    <p style="color: #ff2200">• 전자계산서 사전 발급 또는 법인/개인 부담금 분리 정산 희망 시 요청사항에 반드시 기재 부탁드립니다.</p>
+                    <p>• 신청 완료 후 안내 메일이 순차 발송되며, 신청 내역 및 금액을 반드시 확인해주시기 바랍니다.</p>
+                    <p>• 항공·숙박·렌터카·골프/관광 등 세부 취소 및 환불 기준은 각 신청 영역 안내사항을 참고해주시기 바랍니다.</p>
+                </div>
+            </div>
+            <div data-mobile_content_box>
+                <h1>신청내역 확인</h1>
                 <div data-add_text_box="1"></div>
                 <div data-table_box>
                     <span>총 결제 금액</span>
-                    <table data-total_data>
-                        <tr>
-                            <th>참가비</th>
-                            <th>항공</th>
-                            <th>호텔</th>
-                            <th>렌터카</th>
-                            <th>골프</th>
-                            <th>투어</th>
-                            <th>총액</th>
-                        </tr>
-                    </table>
+                    <table data-total_data="mobile"></table>
                 </div>
+
                 <div data-table_box>
                     <span>참가자 정보 신청 내역</span>
-                    <table data-attend_data>
-                        <tr>
-                            <th>참가자 이름</th>
-                            <th>직위</th>
-                            <th>주민등록번호</th>
-                            <th>휴대전화번호</th>
-                            <th>전화번호</th>
-                            <th>이메일</th>
-                        </tr>
-                    </table>
-                    <table data-family_data>
-                        <tr>
-                            <th>관계</th>
-                            <th>이름</th>
-                            <th>주민등록번호</th>
-                            <th>휴대전화번호</th>
-                        </tr>
-                    </table>
+                    <table data-attend_data="mobile"></table>
+                    <table data-family_data="mobile"></table>
                 </div>
 
-                <div data-table_box>
-                    <span>항공예약 신청 내역</span>
-                    <table data-flight_data>
-                        <tr>
-                            <th>출 도착 도시</th>
-                            <th>이름</th>
-                            <th>항공 일정</th>
-                            <th>요청사항</th>
-                        </tr>
-                    </table>
+                <div data-table_box="flight">
+                    <span data-title_span>항공예약 신청 내역</span>
                 </div>
-                
-                <div data-table_box>
-                    <span>호텔예약 신청 내역</span>
-                    <table data-hotel_data>
-                        <tr>
-                            <th>투숙기간</th>
-                            <th>객실타입</th>
-                            <th>추가선택</th>
-                            <th>체크인 예정</th>
-                            <th>요청사항</th>
-                        </tr>
-                    </table>
+
+                <div data-table_box="hotel">
+                    <span data-title_span>호텔예약 신청 내역</span>
                 </div>
-                
-                <div data-table_box>
-                    <span>렌터카 신청 내역</span>
-                    <table data-rental_data>
-                        <tr>
-                            <th>대여일자</th>
-                            <th>차종</th>
-                            <th>수령/반납장소</th>
-                            <th>요청사항</th>
-                        </tr>
-                    </table>
+
+                <div data-table_box="rental">
+                    <span data-title_span>렌터카 신청 내역</span>
                 </div>
-            
-                <div data-table_box>
-                    <span>골프 신청 내역</span>
-                    <table data-golf_data>
-                        <tr>
-                            <th>일자</th>
-                            <th>장소</th>
-                            <th>참가자</th>
-                        </tr>
-                    </table>
+
+                <div data-table_box="golf">
+                    <span data-title_span>골프 신청 내역</span>
                 </div>
-                <div data-table_box>
-                    <span>프로그램 신청 내역</span>
-                    <table data-program_data>
-                        <tr>
-                            <th>일자</th>
-                            <th>종류</th>
-                            <th>내용</th>
-                            <th>참가자</th>
-                        </tr>
-                    
-                    </table>
+                <div data-table_box="program">
+                    <span data-title_span>프로그램 신청 내역</span>
                 </div>
                 <div data-add_text_box="2"></div>
-            </div>
-            <div data-notice_box>
-                <p>· 최종 제출 전에는 수정사항 발생 시 본 등록 페이지에 로그인 하시어 수정하실 수 있으며 취소시에는 반드시 사무국으로 연락 부탁드립니다.</p>
-                <p>· 또한, 최종 안내 메일을 받으신 후에는 임의로 수정 불가하오니 사무국으로 수정 문의 부탁드립니다.</p>
-                <p>· 최종 안내메일은 참가등록 시점을 기준으로 3일 이내에 발송해 드리며, 최종안내 메일을 통해 신청내역과 그에 따른 금액을 확인 하시길 바라며 전자계산서는 7월 중에 일괄발행하며, 사전 계산서 발급
-                    요청도 가능합니다.</p>
-                <p>· 교육비에는 포럼기간 전 일정 조식 3회 및 석식 2회 비용이 포함되어 있습니다. (등록인원 수 만큼 사전 쿠폰 제공되며, 현장에서 인원 추가 시 추가비용 발생)</p>
-                <p>· 참가문의 : KSA하계CEO포럼 사무국 Tel. (02)6240-4981, 4983 Fax.(02)6919-4037 E-mail. ardorinus@ksa.or.kr</p>
-                <p data-cancle_title>
-                    < 취소 수수료>
-                </p>
-                <p>본 세미나는 제주에서 극성수기에 개최되는 계절/장소상의 특성으로 인해 ‘사전예약에 따른 선비용 처리’ 및 ‘취소에 따른 비용 공제 후 환불’이 불가피한 바 세미나의 원활한 준비를 위해 다음과 같이 환불기준을
-                    적용하오니 양지하여 주시기 바랍니다.</p>
-                <div>
-                    <p>• 7월 12일(금) 참가신청 접수 마감 후 취소 시에는 교육비의 50만 원/1인 공제 후 환불</p>
-                    <p>• 골프/관광/항공의 경우에는 사전 연락 없이 불참 또는 미탑승한 경우 100% 공제</p>
-                    <p>• 항공 취소 시 수수료 발생(항공사 환불규정 참고), 숙박의 경우 1박을 제하고 환불</p>
+                <div data-notice_box>
+                    <p data-cancle_title style="font-weight: 600">[최종 확인사항]</p>
+                    <p>• 임시저장 상태에서는 로그인 후 신청 내용 수정이 가능합니다.</p>
+                    <p style="color: #ff2200">• ‘최종 제출’ 완료 이후에는 온라인 수정이 불가하오니, 신청 정보 및 금액을 반드시 확인 후 제출해주시기 바랍니다.</p>
+                    <p>• 최종 제출 이후 변경 및 취소는 사무국을 통해서만 가능합니다.</p>
+                    <p style="color: #ff2200">• 전자계산서 사전 발급 또는 법인/개인 부담금 분리 정산 희망 시 요청사항에 반드시 기재 부탁드립니다.</p>
+                    <p>• 신청 완료 후 안내 메일이 순차 발송되며, 신청 내역 및 금액을 반드시 확인해주시기 바랍니다.</p>
+                    <p>• 항공·숙박·렌터카·골프/관광 등 세부 취소 및 환불 기준은 각 신청 영역 안내사항을 참고해주시기 바랍니다.</p>
+                    <p data-cancle_title style="font-weight: 600">[문의처]</p>
+                    <div>
+                        <p>KSA 하계CEO포럼 사무국</p>
+                        <p>Tel. 02-6240-4981, 4982(항공)</p>
+                        <p>Fax. 02-6919-4037</p>
+                        <p>E-mail. ceoforum@ksa.or.kr</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div data-mobile_content_box>
-            <h1>신청내역 확인</h1>
-            <div data-add_text_box="1"></div>
-            <div data-table_box>
-                <span>총 결제 금액</span>
-                <table data-total_data="mobile"></table>
-            </div>
-
-            <div data-table_box>
-                <span>참가자 정보 신청 내역</span>
-                <table data-attend_data="mobile"></table>
-                <table data-family_data="mobile"></table>
-            </div>
-
-            <div data-table_box="flight">
-                <span data-title_span>항공예약 신청 내역</span>
-            </div>
-            
-            <div data-table_box="hotel">
-                <span data-title_span>호텔예약 신청 내역</span>
-            </div>
-           
-            <div data-table_box="rental">
-                <span data-title_span>렌터카 신청 내역</span>
-            </div>
-           
-            <div data-table_box="golf">
-                <span data-title_span>골프 신청 내역</span>
-            </div>
-            <div data-table_box="program">
-                <span data-title_span>프로그램 신청 내역</span>
-            </div>
-            <div data-add_text_box="2"></div>
-            <div data-notice_box>
-                <p>· 최종 제출 전에는 수정사항 발생 시 본 등록 페이지에 로그인 하시어 수정하실 수 있으며 취소시에는 반드시 사무국으로 연락 부탁드립니다.</p>
-                <p>· 또한, 최종 안내 메일을 받으신 후에는 임의로 수정 불가하오니 사무국으로 수정 문의 부탁드립니다.</p>
-                <p>· 최종 안내메일은 참가등록 시점을 기준으로 3일 이내에 발송해 드리며, 최종안내 메일을 통해 신청내역과 그에 따른 금액을 확인 하시길 바라며 전자계산서는 7월 중에 일괄발행하며, 사전 계산서 발급
-                    요청도 가능합니다.</p>
-                <p>· 교육비에는 포럼기간 전 일정 조식 3회 및 석식 2회 비용이 포함되어 있습니다. (등록인원 수 만큼 사전 쿠폰 제공되며, 현장에서 인원 추가 시 추가비용 발생)</p>
-                <p>· 참가문의 : KSA하계CEO포럼 사무국 Tel. (02)6240-4981, 4983 Fax.(02)6919-4037 E-mail. ardorinus@ksa.or.kr</p>
-                <p data-cancle_title>
-                    < 취소 수수료>
-                </p>
-                <p>본 세미나는 제주에서 극성수기에 개최되는 계절/장소상의 특성으로 인해 ‘사전예약에 따른 선비용 처리’ 및 ‘취소에 따른 비용 공제 후 환불’이 불가피한 바 세미나의 원활한 준비를 위해 다음과 같이 환불기준을
-                적용하오니 양지하여 주시기 바랍니다.</p>
-                <div>
-                    <p>• 7월 12일(금) 참가신청 접수 마감 후 취소 시에는 교육비의 50만 원/1인 공제 후 환불</p>
-                    <p>• 골프/관광/항공의 경우에는 사전 연락 없이 불참 또는 미탑승한 경우 100% 공제</p>
-                    <p>• 항공 취소 시 수수료 발생(항공사 환불규정 참고), 숙박의 경우 1박을 제하고 환불</p>
+            <div data-popup_box>
+                <div data-done_txt>
+                    <p>
+                        최종 제출이 완료되었습니다. <br />
+                        신청 내역은 온라인으로 수정이 불가하오니 <br />이후 변경 또는 취소를 원하실 경우 반드시 사무국으로 연락 바랍니다.
+                    </p>
+                    <div>
+                        <button data-notice_close_btn="done" type="button">닫기</button>
+                    </div>
+                </div>
+                <div data-notice_txt>
+                    <p>
+                        임시 저장되었습니다.<br />
+                        “최종제출”전까지는 로그인하셔서 수정이 가능합니다.
+                    </p>
+                    <div>
+                        <button data-notice_close_btn="notice" type="button">닫기</button>
+                    </div>
+                </div>
+                <form>
+                    <p>
+                        작성된 내용으로 제출하시겠습니까?<br />
+                        제출 이후에는 수정이 불가합니다.
+                    </p>
+                    <div>
+                        <button data-close_btn type="button">취소</button>
+                        <button data-done_btn type="button">확인</button>
+                    </div>
+                </form>
+                <div data-apply-end>
+                    <p>
+                        신청 내역 및 금액을 꼭 확인해주시기 바랍니다. <br />
+                        참가신청 마감일(7월 1일) 이후 취소 시, 항목별로 공제 적용 후 환불이 진행됩니다.
+                    </p>
+                    <div>
+                        <button data-apply_close_btn="apply" type="button">닫기</button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div data-popup_box>
-            <div data-done_txt>
-                <p>최종제출 되었습니다. 최종제출 시 항공권은 순차 발권되며,<br> 담당자 메일로 전달됩니다.<br> 발권 후 취소 시 수수료 발생합니다</p>
-                <div>
-                    <button data-notice_close_btn="done" type="button">닫기</button>
+        </main>
+                <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
                 </div>
             </div>
-            <div data-notice_txt>
-                <p>임시 저장되었습니다.<br>
-                    “최종제출”전까지는 로그인하셔서 수정이 가능합니다.</p>
-                <div>
-                    <button data-notice_close_btn="notice" type="button">닫기</button>
-                </div>
-            </div>
-            <form>
-                <p>작성된 내용으로 제출하시겠습니까?<br>
-                제출 이후에는 수정이 불가합니다.</p>
-                <div>
-                    <button data-close_btn type="button">취소</button>
-                    <button data-done_btn type="button">확인</button>
-                </div>
-            </form>
-        </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
-            </div>
-        </div>
-    </footer>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
-    <script>
-        $(document).ready(function () {
-            let attend_id = sessionStorage.getItem('attend_id');
-            function getParameterByName(name, url) {
-                if (!url) url = window.location.href;
-                name = name.replace(/[\[\]]/g, '\\$&');
-                const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
-                const results = regex.exec(url);
-                if (!results) return null;
-                if (!results[2]) return '';
-                return decodeURIComponent(results[2].replace(/\+/g, ' '));
-            }
-            let id_num = getParameterByName('id');
-            if ( id_num !== null ) {
-                attend_id = id_num
-            }
-            // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
-            var swiper = new Swiper(".mySwiper", {
-                slidesPerView: 'auto',
-                spaceBetween: 23.5,
-                freeMode: true,
-            });
-            const tour_type = {
-                "NONE": "없음",
-                "NATURAL": "자연경관",
-                "CULTURE_TOUR": "문화탐방",
-                "CULTURE_EXP": "문화체험",
-                "HEALING_TOUR": "힐링투어",
-            }
-
-            if(attend_id !== null){
-                $.ajax({
-                    "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/attends/all-data?attendId=" + attend_id,
-                    beforeSend: function (xhr) {
-                        if (sessionStorage.getItem('token')) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
-                        }
-                    },
-                    success: function (response) {
-                        const cost = response.finalCost
-                        const main = response.mainAttender
-                        const relation = {
-                            "PARENTS": "부모",
-                            "SPOUSE": "배우자",
-                            "CHILD": "자녀",
-                            "RELATIVE": "친척",
-                            "STAFF": "직원",
-                            "GRAND_CHILD": "손자녀",
-                            "ETC": "기타",
-                        };
-                        const location = {
-                            "JEJU_AIRPORT" : "제주공항",
-                            "LOTTE_HOTEL" : "롯데호텔",
-                        }
-                        const today_date = moment(response.updatedAt).format("YYYY년 MM월 DD일");
-
-                        if (window.innerWidth > 760) {
-
-                            $("[data-total_data]").append("<tr><td>"+ cost.attendTotalCost.toLocaleString() +"원</td><td>" + cost.flightTotalCost.toLocaleString() +"원</td><td>" + cost.hotelTotalCost.toLocaleString() +"원</td><td>" + cost.renterCarTotalCost.toLocaleString() +"원</td><td>" + cost.golfCourseTotalCost.toLocaleString() +"원</td><td>"+ cost.tourTotalCost.toLocaleString() +"원</td><td>" + cost.totalCost.toLocaleString() +"원</td></tr>");
-    
-                            $("[data-attend_data]").append("<tr><td>"+ main.koreaName +"</td><td>" + main.grade +"</td><td>" + (main.juminNumber.substring(8, main.juminNumber - 6) + "******") +"</td><td>" + main.mobilePhone +"</td><td>" + main.telephone +"</td><td>" + main.email +"</td></tr>");
-    
-                            $.each(response.familyAttenders, function (index, item) {
-                                $("[data-family_data]").append("<tr><td>" + relation[item.relation] + "</td><td>" + item.name + "</td><td>" + (item.juminNumber.substring(8, item.juminNumber - 6) + "******") + "</td><td>" + item.mobilePhone + "</td></tr>");
-                            });
-                            
-                            if (response.flight.isIndividualOrder === true) {
-                                $("[data-flight_data]").append("<tr><td></td><td></td><td>개별 예약</td><td style='width: 15%'>" + response.flight.userMemo + "</td></tr>");
-                            }else{
-                                $.each(response.flight.flightTickets, function (index, item) {               
-                                    $("[data-flight_data]").append("<tr><td>" + item.flight.startCity + " - " + item.flight.landingCity +"</td><td>"+ item.attenderName +"</td><td>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startDate + " " + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + " - " + "[" + item.flight.landingCity + "발]" + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingDate + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight + "</td><td style='width: 15%'>"+  response.flight.userMemo +"</td></tr>");
-                                });
-                            }
-                            
-                            $.each(response.hotel.hotelOrders, function (index, item) {
-                                if (item.hotel.type === "INDIVIDUAL") {
-                                    $("[data-hotel_data]").append("<tr><td>" + item.stayStartDate + " ~ " + item.stayEndDate + "</td><td>" + item.hotel.bedType + "</td><td></td><td></td><td>" + response.hotel.userMemo + "</td></tr>");
-                                }
-                                else{
-                                    $("[data-hotel_data]").append("<tr><td>" + item.stayStartDate + " ~ " + item.stayEndDate + "</td><td>" + item.hotel.roomType + "</td><td>" + (item.isSubBedPresent === true ? "보조 침대" : "") + "</td><td>" + response.hotel.estimatedCheckInTime.slice(0, -3) + "</td><td>" + response.hotel.userMemo + "</td></tr>");
-                                }
-                            });
-                            
-                            $.each(response.renterCar.renterCarOrders, function (index, item) {
-                                $("[data-rental_data]").append("<tr><td>" + item.renterStartDate + " " + item.renterStartTime.slice(0, -3) + " ~ " + item.renterEndDate + " " + item.renterEndTime.slice(0, -3) +"</td><td>" + item.renterCar.name + "</td><td>"+ location[item.pickUpPlace] + " / " + location[item.returnPlace] + "</td><td>"+ response.renterCar.userMemo +"</td></tr>");
-                            });
-
-                            $.each(response.golf.golfCourseAttenders, function (index, item) {
-                                $("[data-golf_data]").append("<tr><td>"+ item.roundDate + "</td><td>" + item.GolfCourseName + "</td>><td>"+ item.attenderName +"</td></tr>");
-                            });
-
-                            $.each(response.tour.tourAttenders, function (index, item) {
-                                $("[data-program_data]").append("<tr><td>"+ item.tourStartDate + "</td><td>"+ tour_type[item.tourType] + "</td><td>" + item.description + "</td><td>" + item.attenderName +"</td></tr>");
-                            });
-
-                            $.each(response.familySession.familySessionAttenders, function (index, item) {
-                                $("[data-program_data]").append("<tr><td>"+ item.familySession.startDate + "</td><td>Family</td><td>" + item.familySession.title + "</td><td>" + item.attenderName +"</td></tr>");
-                            });
-
-                            if (response.attendStatus === "DONE") {
-                                $("[data-pc_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
-                                
-                                $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
-                                
-                                $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
-
-                            } else {
-                                $("[data-popup_box]").show();
-                                $("[data-pc_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>최종 제출</button>");
-                            }
-                        }
-                        else{
-                            $("[data-total_data]").append("<tr><th>참가비</th><td>" + cost.attendTotalCost.toLocaleString() + "원</td></tr><tr><th>항공</th><td>" + cost.flightTotalCost.toLocaleString() + "원</td></tr><tr><th>호텔</th><td>" + cost.hotelTotalCost.toLocaleString() + "원</td></tr><tr><th>렌터카</th><td>" + cost.renterCarTotalCost.toLocaleString() +"원</td></tr><tr><th>골프</th><td>" + cost.golfCourseTotalCost.toLocaleString() +"원</td></tr><tr><th>투어</th><td>" + cost.tourTotalCost.toLocaleString() +"원</td></tr><tr><th>총액</th><td>" + cost.totalCost.toLocaleString() + "원</td></tr>");
-
-                            $("[data-attend_data]").append("<tr><th>참가자 이름</th><td>" + main.koreaName + "</td></tr><tr><th>직위</th><td>" + main.grade + "</td></tr><tr><th>주민등록번호</th><td>" + (main.juminNumber.substring(8, main.juminNumber - 6) + "******") + "</td></tr><tr><th>휴대전화번호</th><td>" + main.mobilePhone + "</td></tr><tr><th>전화번호</th><td>" + main.telephone + "</td></tr><tr><th>이메일</th><td>" + main.email + "</td></tr>");
-                            
-                            $.each(response.familyAttenders, function (index, item) {
-                                $("[data-family_data]").append("<tr><td>" + relation[item.relation] + "</td><td>" + item.name + "</td><td>" + (item.juminNumber.substring(8, item.juminNumber - 6) + "******") + "</td><td>" + item.mobilePhone + "</td></tr>");
-                            });
-
-                            if (response.flight.isIndividualOrder === true) {
-                                $("[data-table_box='flight']").append("<div data-flight_data='mobile'><p></p><p>개별예약</p><div data-request_box><span>요청사항</span><p>" + response.flight.userMemo + "</p></div></div>");
-                            } else {
-                                $.each(response.flight.flightTickets, function (index, item) {
-                                    $("[data-table_box='flight']").append("<div data-flight_data='mobile'><p>" + item.flight.startCity + " - " + item.flight.landingCity + " | <span>" + item.attenderName + "</span></p><p>[" + item.flight.startCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.startTime.slice(0, -3) + " / " + item.flight.startFlight + "</p><p>["+ item.flight.landingCity + "발] " + item.flight.airline + " " + item.flight.seatClass + " " + item.flight.landingTime.slice(0, -3) + " / " + item.flight.endFlight + "</p><div data-request_box><span>요청사항</span><p>" + response.flight.userMemo + "</p></div></div>");
-                                });
-                            }
-
-                            $.each(response.hotel.hotelOrders, function (index, item) {
-                                if(item.hotel.type === "INDIVIDUAL"){
-                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + "</p><p>" + item.hotel.bedType +" (롯데호텔 外)</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
-                                }else{
-                                    $("[data-table_box='hotel']").append("<div data-hotel_data='mobile'><p>" + item.stayStartDate + " ~ " + item.stayEndDate + " | " + response.hotel.estimatedCheckInTime.slice(0, -3) + " (체크인)</p><p>" + item.hotel.hotelName + " " + item.hotel.roomType + " | " + (item.isSubBedPresent === true ? "보조 침대" : "") + "</p>" + (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") + "</div>");
-                                }
-                            });
-                            
-                            $.each(response.renterCar.renterCarOrders, function (index, item) {
-                                $("[data-table_box='rental']").append("<div data-rental_data='mobile'><p>" + item.renterStartDate +" " + item.renterStartTime.slice(0, -3) + " ~ " + item.renterEndDate + " " + item.renterEndTime.slice(0, -3) + "</p><p>" + item.renterCar.name + "</p><p data-location_row>수령장소 <span>" + location[item.pickUpPlace] + "</span> 반납장소 <span>" + location[item.returnPlace] + "</span></p>" + (response.renterCar.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.renterCar.userMemo + "</p></div>" : "") + "</div>");
-                            });
-
-                            $.each(response.golf.golfCourseAttenders, function (index, item) {
-                                $("[data-table_box='golf']").append("<div data-golf_data='mobile'><p>" + item.roundDate + " | " + item.GolfCourseName + " | <span>" + item.attenderName + "</span></p></div>");
-                            });
-
-                            $.each(response.tour.tourAttenders, function (index, item) {
-                                $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.tourStartDate + " | " + tour_type[item.tourType] + " | <span>" + item.attenderName + "</span></p><p>" + item.description + "</p></div>");
-                            });
-
-                            $.each(response.familySession.familySessionAttenders, function (index, item) {
-                                $("[data-table_box='program']").append("<div data-program_data='mobile'><p>" + item.familySession.startDate + " | " + item.familySession.title + " | <span>" + item.attenderName + "</span></p></div>");
-                            });
-                            
-                            if(response.attendStatus === "DONE"){
-                                $("[data-mobile_content_box]").append("<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>출력하기</button>");
-
-                                $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
-
-                                $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
-                            }else{
-                                $("[data-popup_box]").show();
-                                $("[data-mobile_content_box]").append("<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>최종 제출</button>");
-                            }
-                        }
-
-                        const element = $("[data-print_wrap]");
-                        $(document).on("click", "[data-print_btn]", function () {
-                            html2canvas(element[0], { scale: 4 }).then(canvas => {
-                                const doc = new jsPDF('p', 'mm', 'a4');
-                                const margin = 15; // 여백 값
-                                const width = doc.internal.pageSize.getWidth() - margin * 2; // 페이지 너비에서 여백을 뺀 값
-                                const height = doc.internal.pageSize.getHeight() - margin * 2; // 페이지 높이에서 여백을 뺀 값
-                                doc.addImage(canvas.toDataURL('image/jpeg'), 'JPEG', margin, margin, width, height);
-                                doc.save('견적서.pdf');
-                            });
-                        });
-                    },
-                    error: function (error) {
-                        alert("error")
-                    }
+        </footer>
+        <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+        <script>
+            $(document).ready(function () {
+                let attend_id = sessionStorage.getItem("attend_id");
+                function getParameterByName(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+                    const results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return "";
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+                let id_num = getParameterByName("id");
+                if (id_num !== null) {
+                    attend_id = id_num;
+                }
+                // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
+                var swiper = new Swiper(".mySwiper", {
+                    slidesPerView: "auto",
+                    spaceBetween: 23.5,
+                    freeMode: true,
                 });
-                $(document).on("click", "[data-submit_btn]", function () { 
-                    $("[data-popup_box]").show();
-                    $("[data-popup_box] form").show();
-                    $("[data-notice_txt]").hide();
-                })
-                $("[data-close_btn], [data-notice_close_btn]").on("click", function () { 
-                    if($(this).data("notice_close_btn") === "done"){
-                        $("[data-popup_box]").hide();
-                        window.location.reload();
-                    }else{
-                        $("[data-popup_box]").hide()
-                    }
-                });
-                $("[data-done_btn]").on("click", function () {
-                    $("[data-done_btn]").prop("disabled", true);
+                const tour_type = {
+                    NONE: "없음",
+                    NATURAL: "자연경관",
+                    CULTURE_TOUR: "문화탐방",
+                    CULTURE_EXP: "문화체험",
+                    HEALING_TOUR: "힐링투어",
+                };
+
+                if (attend_id !== null) {
                     $.ajax({
-                        "type": "PATCH",
-                        "url": "https://"+ base_url +"/api/v1/attends/"+ attend_id +"/done",
-                        "contentType": 'application/json',
+                        type: "GET",
+                        url: base_url + "/api/v1/attends/all-data?attendId=" + attend_id,
                         beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            if (sessionStorage.getItem("token")) {
+                                xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
                             }
                         },
                         success: function (response) {
-                            $("[data-popup_box] form").hide();
-                            $("[data-done_txt]").show();
+                            const cost = response.finalCost;
+                            const main = response.mainAttender;
+                            const relation = {
+                                PARENTS: "부모",
+                                SPOUSE: "배우자",
+                                CHILD: "자녀",
+                                RELATIVE: "친척",
+                                STAFF: "직원",
+                                GRAND_CHILD: "손자녀",
+                                ETC: "기타",
+                            };
+                            const location = {
+                                JEJU_AIRPORT: "제주공항",
+                                LOTTE_HOTEL: "롯데호텔",
+                            };
+                            const today_date = moment(response.updatedAt).format("YYYY년 MM월 DD일");
+
+                            if (window.innerWidth > 760) {
+                                $("[data-total_data]").append(
+                                    "<tr><td>" +
+                                        cost.attendTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.flightTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.hotelTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.renterCarTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.golfCourseTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.tourTotalCost.toLocaleString() +
+                                        "원</td><td>" +
+                                        cost.totalCost.toLocaleString() +
+                                        "원</td></tr>"
+                                );
+
+                                $("[data-attend_data]").append(
+                                    "<tr><td>" +
+                                        main.koreaName +
+                                        "</td><td>" +
+                                        main.grade +
+                                        "</td><td>" +
+                                        (main.juminNumber.substring(8, main.juminNumber - 6) + "******") +
+                                        "</td><td>" +
+                                        main.mobilePhone +
+                                        "</td><td>" +
+                                        main.telephone +
+                                        "</td><td>" +
+                                        main.email +
+                                        "</td></tr>"
+                                );
+
+                                $.each(response.familyAttenders, function (index, item) {
+                                    $("[data-family_data]").append(
+                                        "<tr><td>" +
+                                            relation[item.relation] +
+                                            "</td><td>" +
+                                            item.name +
+                                            "</td><td>" +
+                                            (item.juminNumber.substring(8, item.juminNumber - 6) + "******") +
+                                            "</td><td>" +
+                                            item.mobilePhone +
+                                            "</td></tr>"
+                                    );
+                                });
+
+                                if (response.flight.isIndividualOrder === true) {
+                                    $("[data-flight_data]").append("<tr><td></td><td></td><td>개별 예약</td><td style='width: 15%'>" + response.flight.userMemo + "</td></tr>");
+                                } else {
+                                    $.each(response.flight.flightTickets, function (index, item) {
+                                        $("[data-flight_data]").append(
+                                            "<tr><td>" +
+                                                item.flight.startCity +
+                                                " - " +
+                                                item.flight.landingCity +
+                                                "</td><td>" +
+                                                item.attenderName +
+                                                "</td><td>[" +
+                                                item.flight.startCity +
+                                                "발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.startDate +
+                                                " " +
+                                                item.flight.startTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.startFlight +
+                                                " - " +
+                                                "[" +
+                                                item.flight.landingCity +
+                                                "발]" +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.landingDate +
+                                                " " +
+                                                item.flight.landingTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.endFlight +
+                                                "</td><td style='width: 15%'>" +
+                                                response.flight.userMemo +
+                                                "</td></tr>"
+                                        );
+                                    });
+                                }
+
+                                $.each(response.hotel.hotelOrders, function (index, item) {
+                                    if (item.hotel.type === "INDIVIDUAL") {
+                                        $("[data-hotel_data]").append(
+                                            "<tr><td>" +
+                                                item.stayStartDate +
+                                                " ~ " +
+                                                item.stayEndDate +
+                                                "</td><td>" +
+                                                item.hotel.bedType +
+                                                "</td><td></td><td></td><td>" +
+                                                response.hotel.userMemo +
+                                                "</td></tr>"
+                                        );
+                                    } else {
+                                        $("[data-hotel_data]").append(
+                                            "<tr><td>" +
+                                                item.stayStartDate +
+                                                " ~ " +
+                                                item.stayEndDate +
+                                                "</td><td>" +
+                                                item.hotel.roomType +
+                                                (item.hotel.bedType ? " | " + item.hotel.bedType : "") +
+                                                "</td><td>" +
+                                                (item.isSubBedPresent === true ? "보조 침대" : "") +
+                                                "</td><td>" +
+                                                response.hotel.estimatedCheckInTime.slice(0, -3) +
+                                                "</td><td>" +
+                                                response.hotel.userMemo +
+                                                "</td></tr>"
+                                        );
+                                    }
+                                });
+
+                                $.each(response.renterCar.renterCarOrders, function (index, item) {
+                                    $("[data-rental_data]").append(
+                                        "<tr><td>" +
+                                            item.renterStartDate +
+                                            " " +
+                                            item.renterStartTime.slice(0, -3) +
+                                            " ~ " +
+                                            item.renterEndDate +
+                                            " " +
+                                            item.renterEndTime.slice(0, -3) +
+                                            "</td><td>" +
+                                            item.renterCar.name +
+                                            "</td><td>" +
+                                            location[item.pickUpPlace] +
+                                            " / " +
+                                            location[item.returnPlace] +
+                                            "</td><td>" +
+                                            response.renterCar.userMemo +
+                                            "</td></tr>"
+                                    );
+                                });
+
+                                $.each(response.golf.golfCourseAttenders, function (index, item) {
+                                    $("[data-golf_data]").append("<tr><td>" + item.roundDate + "</td><td>" + item.GolfCourseName + "</td>><td>" + item.attenderName + "</td></tr>");
+                                });
+
+                                $.each(response.tour.tourAttenders, function (index, item) {
+                                    $("[data-program_data]").append(
+                                        "<tr><td>" + item.tourStartDate + "</td><td>" + tour_type[item.tourType] + "</td><td>" + item.description + "</td><td>" + item.attenderName + "</td></tr>"
+                                    );
+                                });
+
+                                $.each(response.familySession.familySessionAttenders, function (index, item) {
+                                    $("[data-program_data]").append(
+                                        "<tr><td>" + item.familySession.startDate + "</td><td>Family</td><td>" + item.familySession.title + "</td><td>" + item.attenderName + "</td></tr>"
+                                    );
+                                });
+
+                                if (response.attendStatus === "DONE") {
+                                    $("[data-pc_content_box]").append(
+                                        "<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>견적서 다운로드</button>"
+                                    );
+
+                                    $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
+
+                                    $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
+                                    $("[data-popup_box]").show(); //250510 추가: attendStatus가 "DONE"일 때만 data-apply-end 팝업을 보여줌
+                                    $("[data-notice_txt]").hide(); 
+                                    $("[data-apply-end]").show();
+                                } else {
+                                    $("[data-popup_box]").show();
+                                    $("[data-pc_content_box]").append(
+                                        "<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>최종 제출</button>"
+                                    );
+                                }
+                            } else {
+                                $("[data-total_data]").append(
+                                    "<tr><th>참가비</th><td>" +
+                                        cost.attendTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>항공</th><td>" +
+                                        cost.flightTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>호텔</th><td>" +
+                                        cost.hotelTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>렌터카</th><td>" +
+                                        cost.renterCarTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>골프</th><td>" +
+                                        cost.golfCourseTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>투어</th><td>" +
+                                        cost.tourTotalCost.toLocaleString() +
+                                        "원</td></tr><tr><th>총액</th><td>" +
+                                        cost.totalCost.toLocaleString() +
+                                        "원</td></tr>"
+                                );
+
+                                $("[data-attend_data]").append(
+                                    "<tr><th>참가자 이름</th><td>" +
+                                        main.koreaName +
+                                        "</td></tr><tr><th>직위</th><td>" +
+                                        main.grade +
+                                        "</td></tr><tr><th>주민등록번호</th><td>" +
+                                        (main.juminNumber.substring(8, main.juminNumber - 6) + "******") +
+                                        "</td></tr><tr><th>휴대전화번호</th><td>" +
+                                        main.mobilePhone +
+                                        "</td></tr><tr><th>전화번호</th><td>" +
+                                        main.telephone +
+                                        "</td></tr><tr><th>이메일</th><td>" +
+                                        main.email +
+                                        "</td></tr>"
+                                );
+
+                                $.each(response.familyAttenders, function (index, item) {
+                                    $("[data-family_data]").append(
+                                        "<tr><td>" +
+                                            relation[item.relation] +
+                                            "</td><td>" +
+                                            item.name +
+                                            "</td><td>" +
+                                            (item.juminNumber.substring(8, item.juminNumber - 6) + "******") +
+                                            "</td><td>" +
+                                            item.mobilePhone +
+                                            "</td></tr>"
+                                    );
+                                });
+
+                                if (response.flight.isIndividualOrder === true) {
+                                    $("[data-table_box='flight']").append(
+                                        "<div data-flight_data='mobile'><p></p><p>개별예약</p><div data-request_box><span>요청사항</span><p>" + response.flight.userMemo + "</p></div></div>"
+                                    );
+                                } else {
+                                    $.each(response.flight.flightTickets, function (index, item) {
+                                        $("[data-table_box='flight']").append(
+                                            "<div data-flight_data='mobile'><p>" +
+                                                item.flight.startCity +
+                                                " - " +
+                                                item.flight.landingCity +
+                                                " | <span>" +
+                                                item.attenderName +
+                                                "</span></p><p>[" +
+                                                item.flight.startCity +
+                                                "발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.startTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.startFlight +
+                                                "</p><p>[" +
+                                                item.flight.landingCity +
+                                                "발] " +
+                                                item.flight.airline +
+                                                " " +
+                                                item.flight.seatClass +
+                                                " " +
+                                                item.flight.landingTime.slice(0, -3) +
+                                                " / " +
+                                                item.flight.endFlight +
+                                                "</p><div data-request_box><span>요청사항</span><p>" +
+                                                response.flight.userMemo +
+                                                "</p></div></div>"
+                                        );
+                                    });
+                                }
+
+                                $.each(response.hotel.hotelOrders, function (index, item) {
+                                    if (item.hotel.type === "INDIVIDUAL") {
+                                        $("[data-table_box='hotel']").append(
+                                            "<div data-hotel_data='mobile'><p>" +
+                                                item.stayStartDate +
+                                                " ~ " +
+                                                item.stayEndDate +
+                                                "</p><p>" +
+                                                item.hotel.bedType +
+                                                " (롯데호텔 外)</p>" +
+                                                (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") +
+                                                "</div>"
+                                        );
+                                    } else {
+                                        $("[data-table_box='hotel']").append(
+                                            "<div data-hotel_data='mobile'><p>" +
+                                                item.stayStartDate +
+                                                " ~ " +
+                                                item.stayEndDate +
+                                                " | " +
+                                                response.hotel.estimatedCheckInTime.slice(0, -3) +
+                                                " (체크인)</p><p>" +
+                                                item.hotel.roomType +
+                                                (item.hotel.bedType ? " | " + item.hotel.bedType : "") +
+                                                " | " +
+                                                (item.isSubBedPresent === true ? "보조 침대" : "") +
+                                                "</p>" +
+                                                (response.hotel.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.hotel.userMemo + "</p></div>" : "") +
+                                                "</div>"
+                                        );
+                                    }
+                                });
+
+                                $.each(response.renterCar.renterCarOrders, function (index, item) {
+                                    $("[data-table_box='rental']").append(
+                                        "<div data-rental_data='mobile'><p>" +
+                                            item.renterStartDate +
+                                            " " +
+                                            item.renterStartTime.slice(0, -3) +
+                                            " ~ " +
+                                            item.renterEndDate +
+                                            " " +
+                                            item.renterEndTime.slice(0, -3) +
+                                            "</p><p>" +
+                                            item.renterCar.name +
+                                            "</p><p data-location_row>수령장소 <span>" +
+                                            location[item.pickUpPlace] +
+                                            "</span> 반납장소 <span>" +
+                                            location[item.returnPlace] +
+                                            "</span></p>" +
+                                            (response.renterCar.userMemo !== null ? "<div data-request_box><span>요청사항</span><p>" + response.renterCar.userMemo + "</p></div>" : "") +
+                                            "</div>"
+                                    );
+                                });
+
+                                $.each(response.golf.golfCourseAttenders, function (index, item) {
+                                    $("[data-table_box='golf']").append(
+                                        "<div data-golf_data='mobile'><p>" + item.roundDate + " | " + item.GolfCourseName + " | <span>" + item.attenderName + "</span></p></div>"
+                                    );
+                                });
+
+                                $.each(response.tour.tourAttenders, function (index, item) {
+                                    $("[data-table_box='program']").append(
+                                        "<div data-program_data='mobile'><p>" +
+                                            item.tourStartDate +
+                                            " | " +
+                                            tour_type[item.tourType] +
+                                            " | <span>" +
+                                            item.attenderName +
+                                            "</span></p><p>" +
+                                            item.description +
+                                            "</p></div>"
+                                    );
+                                });
+
+                                $.each(response.familySession.familySessionAttenders, function (index, item) {
+                                    $("[data-table_box='program']").append(
+                                        "<div data-program_data='mobile'><p>" + item.familySession.startDate + " | " + item.familySession.title + " | <span>" + item.attenderName + "</span></p></div>"
+                                    );
+                                });
+
+                                if (response.attendStatus === "DONE") {
+                                    $("[data-mobile_content_box]").append(
+                                        "<p data-done_txt>제출 완료</p><div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-print_btn type='button'>견적서 다운로드</button>"
+                                    );
+
+                                    $("[data-add_text_box='1']").append("<h1>견적서</h1><p>견적일자 : " + today_date + "</p>");
+
+                                    $("[data-add_text_box='2']").append("<p data-sign_txt>한국표준협회 <span>(직인생략)</span></p>");
+                                } else {
+                                    $("[data-popup_box]").show();
+                                    $("[data-mobile_content_box]").append(
+                                        "<div data-button_box><button data-before_btn onclick='history.back()'>이전</button><button data-submit_btn type='button'>최종 제출</button>"
+                                    );
+                                }
+                            }
+
+                            const element = $("[data-print_wrap]");
+                            $(document).on("click", "[data-print_btn]", function () {
+                                html2canvas(element[0], { scale: 4 }).then((canvas) => {
+                                    const doc = new jsPDF("p", "mm", "a4");
+                                    const margin = 15; // 여백 값
+                                    const width = doc.internal.pageSize.getWidth() - margin * 2; // 페이지 너비에서 여백을 뺀 값
+                                    const height = doc.internal.pageSize.getHeight() - margin * 2; // 페이지 높이에서 여백을 뺀 값
+                                    doc.addImage(canvas.toDataURL("image/jpeg"), "JPEG", margin, margin, width, height);
+                                    doc.save("견적서.pdf");
+                                });
+                            });
                         },
-                        error: function (xhr) {
-                            $("[data-done_btn]").prop("disabled", false);
-                            alert("저장에 실패 하였습니다.")
+                        error: function (error) {
+                            alert("error");
+                        },
+                    });
+                    $(document).on("click", "[data-submit_btn]", function () {
+                        $("[data-popup_box]").show();
+                        $("[data-popup_box] form").show();
+                        $("[data-notice_txt]").hide();
+                    });
+                    $("[data-close_btn], [data-notice_close_btn], [data-apply_close_btn]").on("click", function () {
+                        if ($(this).data("notice_close_btn") === "done") {
+                            $("[data-popup_box]").hide();
+                            window.location.reload();
+                        } else {
+                            $("[data-popup_box]").hide();
                         }
                     });
-                });
-            }
-            else {
-                alert("잘못된 요청입니다.");
-                window.location.href = "./Application.html";
-            }
-        })
-    </script>
-</body>
+                    $("[data-done_btn]").on("click", function () {
+                        $("[data-done_btn]").prop("disabled", true);
+                        $.ajax({
+                            type: "PATCH",
+                            url: base_url + "/api/v1/attends/" + attend_id + "/done",
+                            contentType: "application/json",
+                            beforeSend: function (xhr) {
+                                if (sessionStorage.getItem("token")) {
+                                    xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
+                                }
+                            },
+                            success: function (response) {
+                                $("[data-popup_box] form").hide();
+                                $("[data-done_txt]").show();
+                                if (response.attendStatus === "DONE") {
+                                    $("[data-apply-end]").show(); // 250510 추가: attendStatus가 "DONE"일 때만 data-apply-end 팝업을 보여줌
+                                }
+                            },
+                            error: function (xhr) {
+                                $("[data-done_btn]").prop("disabled", false);
+                                alert("저장에 실패 하였습니다.");
+                            },
+                        });
+                    });
+                } else {
+                    alert("잘못된 요청입니다.");
+                    window.location.href = "./Application.html";
+                }
+
+                //250424 확인용 스크립트
+                $("[data-popup_box]").hide();
+                $("[data-popup_box] [data-apply-end]").hide();
+            });
+        </script>
+    </body>
 </html>

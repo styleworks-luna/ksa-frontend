@@ -16,6 +16,7 @@
         rel="stylesheet">
     <link href="css/button.css" rel="stylesheet">
     <link href="css/sb-admin-2.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
     <style>
         /* #content-wrapper {
             width: 100%;
@@ -33,44 +34,8 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-        
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -119,8 +84,8 @@
                                         <th class="table-dark">성인운임</th>
                                         <th class="table-dark">소인운임</th>
                                         <th class="table-dark">좌석수</th>
-                                        <th class="table-dark">예비좌석</th>
-                                        <th class="table-dark">신청</th>
+                                        <th class="table-dark">예비좌석(홀드)</th>
+                                        <th class="table-dark">신청중+완료</th>
                                         <th class="table-dark"></th>
                                     </tr>
                                 </thead>
@@ -214,9 +179,9 @@
                                         <th class="table-dark">가격</th>
                                         <th class="table-dark">보조침대 가격</th>
                                         <th class="table-dark">객실수</th>
-                                        <th class="table-dark">예비객실</th>
+                                        <th class="table-dark">예비객실(홀드)</th>
+                                        <th class="table-dark">신청중+완료</th>
                                         <th class="table-dark">보조침대 유무</th>
-                                        <th class="table-dark">신청수</th>
                                         <th class="table-dark"></th>
                                     </tr>
                                 </thead>
@@ -251,8 +216,9 @@
                                         <td><input type="text" id="add_subBedCost" class="reset"></td>
                                         <td><input type="text" id="add_roomQuantity" class="reset"></td>
                                         <td><input type="text" id="add_hotelKeepQuantity" class="reset"></td>
+                                        <td></td>
                                         <td><input type="checkbox" id="add_isSubBed" class="reset"></td>
-                                        <td colspan="2"><button type="button" class="hotel-add-btn btn btn-success btn-m pl-4 pr-4">추가</button></td>
+                                        <td><button type="button" class="hotel-add-btn btn btn-success btn-m pl-4 pr-4">추가</button></td>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -280,8 +246,8 @@
                                         <th class="table-dark">이름</th>
                                         <th class="table-dark">가격</th>
                                         <th class="table-dark">대수</th>
-                                        <th class="table-dark">예비 대수</th>
-                                        <th class="table-dark">신청 대수</th>
+                                        <th class="table-dark">예비 차량(홀드)</th>
+                                        <th class="table-dark">신청중+완료</th>
                                         <th class="table-dark"></th>
                                     </tr>
                                 </thead>
@@ -293,9 +259,9 @@
                                             <select id="add_type" class="reset">
                                                 <option value="" disabled selected>선택</option>
                                                 <option value="LUXURY">고급</option>
-                                                <option value="MID_SIZE">중형</option>
+                                                <option value="MID_SIZE">일반</option>
                                                 <option value="SUV">SUV</option>
-                                                <option value="CARNIVAL">카니발급</option>
+                                                <option value="CARNIVAL">승합</option>
                                                 <option value="ELECTRIC">전기차</option>
                                             </select>
                                         </td>
@@ -316,6 +282,47 @@
                                 <button type="button" class="rental-save-btn btn btn-warning btn-m pl-4 pr-4">렌터카 수정 사항 저장</button>
                                 <button type="button" class="add-rental-save-btn btn btn-info btn-m pl-4 pr-4 ml-3">추가 입력 사항 저장</button>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex justify-flex-end align-items-center mt-2 mb-3">
+                            <h1 class="h3 mt-0 mb-0 text-gray-800">파일 설정</h1>
+                        </div>
+                    </div>
+                    <div class="card shadow mb-4" style="width: 50%">
+                        <div class="card-body">
+                            <table class="table text-center font-weight-bold">
+                                <thead>
+                                    <tr>
+                                        <th class="table-dark">파일 종류</th>
+                                        <th class="table-dark">파일링크</th>
+                                        <th class="table-dark">관리</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ksa_file_list_body">
+                                    <!-- 리스트 -->
+                                </tbody>
+                                <tfoot style="border-top: solid 3px #1c82ff;">
+                                    <!-- 등록용 -->
+                                    <tr>
+                                        <td>
+                                            <select id="ksa_file_type" class="form-control">
+                                                <option value="BUSINESS_REGISTRATION">사업자등록증</option>
+                                                <option value="COPY_OF_BANKBOOK">통장사본</option>
+                                                <option value="BROCHURE">브로셔</option>
+                                                <option value="APPLICATION_FORM">신청서</option>
+                                                <option value="PROPOSAL">제안서</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="file" id="ksa_file_input" class="form-control-file">
+                                        </td>
+                                        <td>
+                                            <button type="button" id="ksa_file_upload_btn" class="btn btn-primary btn-m pl-3 pr-3">등록</button>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -348,6 +355,7 @@
 <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="js/sb-admin-2.js"></script>
 <script src="/js/common.js"></script>
+<script src="/admin/js/common.js"></script>
 <script>
     $(document).ready(function () {
         let flight_list = [];
@@ -358,7 +366,7 @@
         let add_rental_list = [];
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/flights?year=2024&hideFullFlight=false",
+            "url": base_url + "/api/v1/flights?year="+current_year+"&hideFullFlight=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -385,7 +393,7 @@
             };
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/flights?year=2024",
+                "url": base_url + "/api/v1/flights?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -409,7 +417,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/flights?year=2024",
+                "url": base_url + "/api/v1/flights?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -498,7 +506,7 @@
                     }
                     $.ajax({
                         "type": "DELETE",
-                        "url": "https://" + base_url + "/api/v1/flights",
+                        "url": base_url + "/api/v1/flights",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -556,7 +564,7 @@
         //----------------------------------호텔 정보----------------------------------------
         $.ajax({
             "type": "GET",
-            "url": "https://" + base_url + "/api/v1/hotels?year=2024&isRoomRemaining=false",
+            "url": base_url + "/api/v1/hotels?year="+current_year+"&isRoomRemaining=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -583,7 +591,7 @@
                 };
                 $.each(response, function (index, item) {
                     if (item.type === "NORMAL") {
-                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (item.roomType === "온돌" ? "selected" : "") + '>온돌</option><option value="LOTTE_CHARLOTTE_GARDEN" ' + (item.roomType === "샤롯데 가든" ? "selected" : "") + '>샤롯데 가든</option><option value="LOTTE_CORNER_SUITE" ' + (item.roomType === "코너 스위트" ? "selected" : "") + '>코너 스위트</option><option value="LOTTE_SUITE_DELUXE_MOUNTAIN" ' + (item.roomType === "스위트 디럭스 마운틴" ? "selected" : "") + '>스위트 디럭스 마운틴</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY" ' + (item.bedType === "패밀리" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + item.hotelKeepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (item.isSubBed ? 'checked' : '') + '></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                        $("[data-hotel_body]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (item.roomType === "디럭스 마운틴" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (item.roomType === "디럭스 가든" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_PREMIER_GARDEN" ' + (item.roomType === "프리미어 가든" ? "selected" : "") + '>프리미어 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (item.roomType === "샤롯데 오션" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (item.roomType === "프리미어 오션" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (item.roomType === "온돌" ? "selected" : "") + '>온돌</option><option value="LOTTE_CHARLOTTE_GARDEN" ' + (item.roomType === "샤롯데 가든" ? "selected" : "") + '>샤롯데 가든</option><option value="LOTTE_CORNER_SUITE" ' + (item.roomType === "코너 스위트" ? "selected" : "") + '>코너 스위트</option><option value="LOTTE_SUITE_DELUXE_MOUNTAIN" ' + (item.roomType === "스위트 디럭스 마운틴" ? "selected" : "") + '>스위트 디럭스 마운틴</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="TWIN" ' + (item.bedType === "트윈" ? "selected" : "") + '>트윈</option><option value="DOUBLE" ' + (item.bedType === "더블" ? "selected" : "") + '>더블</option><option value="FAMILY_DOUBLE" ' + (item.bedType === "패밀리더블" ? "selected" : "") + '>패밀리더블</option><option value="FAMILY_TWIN" ' + (item.bedType === "패밀리트윈" ? "selected" : "") + '>패밀리트윈</option><option value="FAMILY" ' + (item.bedType === "패밀리" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + item.cost + '"></td><td><input type="text" id="subBedCost" value="' + item.subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + item.roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + item.hotelKeepQuantity + '"></td><td class="hotel-num">' + item.currentRoomGuestNumber + '</td><td><input type="checkbox" id="isSubBed" ' + (item.isSubBed ? 'checked' : '') + '></td><td><button type="button" data-id="' + item.hotelId + '" class="hotel-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                         hotel_list.push({
                             "hotelId": item.hotelId,
@@ -625,7 +633,7 @@
                     }
                     $.ajax({
                         "type": "DELETE",
-                        "url": "https://" + base_url + "/api/v1/hotels",
+                        "url": base_url + "/api/v1/hotels",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -683,7 +691,7 @@
                     "isSubBed": isSubBed,
                     "currentRoomGuestNumber": 0
                 });
-                $("[data-hotel_foot]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_DELUXE_MOUNTAIN" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (roomType === "LOTTE_DELUXE_GARDEN" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (roomType === "LOTTE_CHARLOTTE_OCEAN" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (roomType === "LOTTE_PREMIER_OCEAN" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (roomType === "LOTTE_ON_DOL" ? "selected" : "") + '>온돌</option><option value="LOTTE_CHARLOTTE_GARDEN" ' + (roomType === "LOTTE_CHARLOTTE_GARDEN" ? "selected" : "") + '>샤롯데 가든</option><option value="LOTTE_CORNER_SUITE" ' + (roomType === "LOTTE_CORNER_SUITE" ? "selected" : "") + '>코너 스위트</option><option value="LOTTE_SUITE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_SUITE_DELUXE_MOUNTAIN" ? "selected" : "") + '>스위트 디럭스 마운틴</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="트윈" ' + (bedType === "TWIN" ? "selected" : "") + '>트윈</option><option value="더블" ' + (bedType === "DOUBLE" ? "selected" : "") + '>더블</option><option value="패밀리 더블" ' + (bedType === "FAMILY_DOUBLE" ? "selected" : "") + '>패밀리 더블</option><option value="패밀리 트윈" ' + (bedType === "FAMILY_TWIN" ? "selected" : "") + '>패밀리 트윈</option><option value="패밀리" ' + (bedType === "FAMILY" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="subBedCost" value="' + subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + hotelKeepQuantity + '"></td><td><input type="checkbox" id="isSubBed" ' + (isSubBed ? 'checked' : '') + '></td><td colspan="3"><button type="button" class="hotel-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
+                $("[data-hotel_foot]").append('<tr><td><select id="roomType"><option value="" disabled selected>선택</option><option value="LOTTE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_DELUXE_MOUNTAIN" ? "selected" : "") + '>디럭스 마운틴</option><option value="LOTTE_DELUXE_GARDEN" ' + (roomType === "LOTTE_DELUXE_GARDEN" ? "selected" : "") + '>디럭스 가든</option><option value="LOTTE_CHARLOTTE_OCEAN" ' + (roomType === "LOTTE_CHARLOTTE_OCEAN" ? "selected" : "") + '>샤롯데 오션</option><option value="LOTTE_PREMIER_OCEAN" ' + (roomType === "LOTTE_PREMIER_OCEAN" ? "selected" : "") + '>프리미어 오션</option><option value="LOTTE_ON_DOL" ' + (roomType === "LOTTE_ON_DOL" ? "selected" : "") + '>온돌</option><option value="LOTTE_CHARLOTTE_GARDEN" ' + (roomType === "LOTTE_CHARLOTTE_GARDEN" ? "selected" : "") + '>샤롯데 가든</option><option value="LOTTE_CORNER_SUITE" ' + (roomType === "LOTTE_CORNER_SUITE" ? "selected" : "") + '>코너 스위트</option><option value="LOTTE_SUITE_DELUXE_MOUNTAIN" ' + (roomType === "LOTTE_SUITE_DELUXE_MOUNTAIN" ? "selected" : "") + '>스위트 디럭스 마운틴</option></select></td><td><select id="bedType"><option value="" disabled selected>선택</option><option value="트윈" ' + (bedType === "TWIN" ? "selected" : "") + '>트윈</option><option value="더블" ' + (bedType === "DOUBLE" ? "selected" : "") + '>더블</option><option value="패밀리 더블" ' + (bedType === "FAMILY_DOUBLE" ? "selected" : "") + '>패밀리 더블</option><option value="패밀리 트윈" ' + (bedType === "FAMILY_TWIN" ? "selected" : "") + '>패밀리 트윈</option><option value="패밀리" ' + (bedType === "FAMILY" ? "selected" : "") + '>패밀리</option></select></td><td><input type="text" id="cost" value="' + cost + '"></td><td><input type="text" id="subBedCost" value="' + subBedCost + '"></td><td><input type="text" id="roomQuantity" value="' + roomQuantity + '"></td><td><input type="text" id="hotelKeepQuantity" value="' + hotelKeepQuantity + '"></td><td></td><td><input type="checkbox" id="isSubBed" ' + (isSubBed ? 'checked' : '') + '></td><td><button type="button" class="hotel-add-delete-btn btn btn-danger btn-m pl-4 pr-4">삭제</button></td></tr>');
 
                 $('.reset').val("");
             }
@@ -722,7 +730,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
+                "url": base_url + "/api/v1/hotels?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -746,7 +754,7 @@
             };
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/hotels?year=2024",
+                "url": base_url + "/api/v1/hotels?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -767,7 +775,7 @@
         //----------------------------------렌터카 정보----------------------------------------
         $.ajax({
             "type": "GET",
-             "url": "https://" + base_url + "/api/v1/renter-cars?year=2024&hideFullRenterCar=false",
+             "url": base_url + "/api/v1/renter-cars?year="+current_year+"&hideFullRenterCar=false",
             beforeSend: function (xhr) {
                 if (sessionStorage.getItem('token')) {
                     xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
@@ -776,9 +784,9 @@
             success: function (response) {
                 const type = {
                     "고급": "LUXURY",
-                    "중형": "MID_SIZE",
+                    "일반": "MID_SIZE",
                     "SUV": "SUV",
-                    "CARNIVAL": "카니발급",
+                    "CARNIVAL": "승합",
                     "ELECTRIC": "전기차"
                 };
 
@@ -821,7 +829,7 @@
                     }
                     $.ajax({
                         "type": "DELETE",
-                        "url": "https://" + base_url + "/api/v1/renter-cars",
+                        "url": base_url + "/api/v1/renter-cars",
                         "data": JSON.stringify(data),
                         "contentType": 'application/json',
                         beforeSend: function (xhr) {
@@ -911,7 +919,7 @@
             console.log(data)
             $.ajax({
                 "type": "PATCH",
-                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
+                "url": base_url + "/api/v1/renter-cars?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -929,6 +937,105 @@
             });
         });
 
+        //----------------------------------KSA 파일 등록----------------------------------------
+        function getKsaFiles() {
+            $.ajax({
+                type: "GET",
+                url: base_url + "/api/v1/ksa/files/list?year=" + current_year,
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    const fileTypeName = {
+                        "BUSINESS_REGISTRATION": "사업자등록증",
+                        "COPY_OF_BANKBOOK": "통장사본",
+                        "BROCHURE": "브로셔",
+                        "PROPOSAL": "제안서",
+                        "APPLICATION_FORM": "신청서"
+                    };
+                    let html = '';
+                    $.each(response, function (index, item) {
+                        const downloadUrl = `${base_url}/api/v1/ksa/files?year=${current_year}&ksaFileType=${item.ksaFileType}`;
+                        html += `
+                            <tr>
+                                <td>${fileTypeName[item.ksaFileType] || item.ksaFileType}</td>
+                                <td><a href="${downloadUrl}" target="_blank">${item.originalFileName}</a></td>
+                                <td>
+                                    <button type="button" class="btn btn-danger btn-m pl-3 pr-3 ksa-file-delete-btn" data-id="${item.id}">삭제</button>
+                                </td>
+                            </tr>
+                        `;
+                    });
+                    $("#ksa_file_list_body").html(html);
+                },
+                error: function (xhr) {
+                    $("#ksa_file_list_body").html('<tr><td colspan="3">등록된 파일이 없습니다.</td></tr>');
+                }
+            });
+        }
+
+        getKsaFiles();
+
+        $("#ksa_file_upload_btn").click(function () {
+            var fileType = $("#ksa_file_type").val();
+            var fileInput = $("#ksa_file_input")[0];
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("파일을 선택해주세요.");
+                return;
+            }
+            var formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+            $.ajax({
+                "type": "POST",
+                "url": base_url + "/api/v1/ksa/files?year=" + current_year + "&ksaFileType=" + fileType,
+                "data": formData,
+                "processData": false,
+                "contentType": false,
+                beforeSend: function (xhr) {
+                    if (localStorage.getItem('token')) {
+                        xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                    }
+                },
+                success: function (response) {
+                    alert("파일이 등록되었습니다.");
+                    $("#ksa_file_input").val("");
+                    getKsaFiles();
+                },
+                error: function (xhr) {
+                    alert(xhr.responseJSON ? xhr.responseJSON.message : "파일 등록에 실패했습니다.");
+                }
+            });
+        });
+
+        $(document).on("click", ".ksa-file-delete-btn", function() {
+            const fileId = $(this).data("id");
+            if(confirm("정말로 이 파일을 삭제하시겠습니까?")) {
+                $.ajax({
+                    type: "DELETE",
+                    url: base_url + "/api/v1/ksa/files/" + fileId,
+                    beforeSend: function (xhr) {
+                        if (localStorage.getItem('token')) {
+                            xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
+                        }
+                    },
+                    success: function() {
+                        alert("삭제되었습니다.");
+                        getKsaFiles();
+                    },
+                    error: function(xhr) {
+                        if (xhr.status === 401) {
+                            alert("로그인이 필요한 페이지입니다.");
+                            window.location.href = 'login.html';
+                        } else {
+                            alert("파일 삭제에 실패했습니다: " + (xhr.responseJSON ? xhr.responseJSON.message : "알 수 없는 오류"));
+                        }
+                    }
+                });
+            }
+        });
+
         $(".add-rental-save-btn").click(function () {
             const data = {
                 "renterCars": add_rental_list,
@@ -936,7 +1043,7 @@
             console.log(data)
             $.ajax({
                 "type": "POST",
-                "url": "https://" + base_url + "/api/v1/renter-cars?year=2024",
+                "url": base_url + "/api/v1/renter-cars?year=" + current_year,
                 "data": JSON.stringify(data),
                 "contentType": 'application/json',
                 beforeSend: function (xhr) {
@@ -956,5 +1063,6 @@
     })
 </script>
 </body>
+
 
 </html>

@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="kor">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KSA 하계포럼</title>
-    <meta property="og:image" content="/images/2024_m_top.png">
+    <meta property="og:image" content="/images/2025_m_top.png">
     <meta property="og:description" content="KSA 하계포럼입니다.">
     <link rel="stylesheet" href="/css/reset.css">
     <link rel="stylesheet" href="/css/common.css">
@@ -15,16 +16,30 @@
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="/js/common.js"></script>
 </head>
+
 <body>
+    <div id="main_popup" style="display:none;">
+        <div class="popup_content">
+            <a href="Notice.html">
+                <img src="/images/popup_2026.png" alt="공지사항 팝업" style="width:100%; display:block;">
+            </a>
+            <div class="popup_footer">
+                <label>
+                    <input type="checkbox" id="chk_today"> 오늘 하루 보지 않기
+                </label>
+                <button type="button" onclick="closePopup()">닫기</button>
+            </div>
+        </div>
+    </div>
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
+            <li><a href="Ceomessage.html">인사말</a></li>
             <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Schedule.html">행사일정</a></li>
             <li><a href="Speaker.html">연사</a></li>
             <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
+            <li><a href="FourmInfo.html">참가안내</a></li>
             <li data-more_box></li>
         </ul>
         <div data-menu_box>
@@ -32,13 +47,16 @@
                 <button data-close_box></button>
             </div>
             <ul>
+                <li><a href="Ceomessage.html">CEO 인삿말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li><a href="Application.html">참가신청 및 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
             </ul>
     </header>
     <header data-mobile_header>
@@ -51,28 +69,175 @@
                 <button data-close_box></button>
             </div>
             <ul>
+                <li><a href="Ceomessage.html">CEO 인삿말</a></li>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li><a href="Application.html">참가신청 및 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
             </ul>
         </div>
     </header>
     <main>
-        <a data-kakao_link href="http://pf.kakao.com/_pxnfYxj/chat">1:1 문의</a>
+        <!--a data-kakao_link href="FAQ.html">FAQ</a-->
+        <div class="floating_menu">
+            <div class="menu_main">
+                <span>FILE<br>DOWN</span>
+            </div>
+            <ul class="menu_items">
+                <li><a href="/files/%5B%ED%95%9C%EA%B5%AD%ED%91%9C%EC%A4%80%ED%98%91%ED%9A%8C%5D%20%EC%A0%9C72%ED%9A%8C%20KSA%20%ED%95%98%EA%B3%84CEO%ED%8F%AC%EB%9F%BC%20%EA%B0%9C%EC%B5%9C%20%EC%95%88%EB%82%B4%20%EA%B3%B5%EB%AC%B8.pdf" download="[한국표준협회] 제72회 KSA 하계CEO포럼 개최 안내 공문.pdf">개최공문</a></li>
+                <li><a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=BUSINESS_REGISTRATION" download>사업자등록증</a></li>
+                <li><a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=COPY_OF_BANKBOOK" download>통장사본</a></li>
+                <li><a href="https://ceoforum.ksa.or.kr/Notice.html?title=%EC%A0%9C72%ED%9A%8C%20KSA%ED%95%98%EA%B3%84CEO%ED%8F%AC%EB%9F%BC%20%EC%88%98%EB%A3%8C%EC%A6%9D%20%EB%B0%9C%EA%B8%89%20%EC%95%88%EB%82%B4" target="_blank" rel="noopener noreferrer">수료증안내</a></li>
+            </ul>
+        </div>
         <div data-main_wrap>
             <div data-main_box>
                 <div data-button_wrap>
                     <div data-button_box>
                         <a href="Application.html">참가신청</a>
-                        <a data-brochure_link href="" download="">브로셔 다운</a>
+                        <a data-brochure_link href="/api/v1/ksa/files?year=2026&amp;ksaFileType=BROCHURE" download>브로셔 다운</a>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- 공식파트너 시작-->
+        <div data-speaker_box class="partner_section">
+            <div data-speaker_btn>
+                <span>PARTNERS</span>
+                <a href="javascript:void(0);" onclick="openPartnerPopup();">공식파트너십 문의 ></a>
+            </div>
+            <div class="swiper partnerSwiper">
+                <div class="swiper-wrapper partner">
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_01.png" alt="DB손해보험"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_02.png" alt="젠한국"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_03.png" alt="파트너사1"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_04.png" alt="광동"></div>
+                    </div>  
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_05.png" alt="그래미"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_06.png" alt="금호리조트"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_07.png" alt="나래식품농장"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_08.png" alt="대한항공"></div>
+                    </div>                     
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_09.png" alt="대한항공면세"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_10.png" alt="매일경제"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_11.png" alt="미디어스트리트"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_12.png" alt="롯데호텔리조트"></div>
+                    </div>       
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_13.png" alt="롯데월드"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_14.png" alt="롯데렌터카"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_15.png" alt="롯데스카이힐"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_16.png" alt="알펜시아"></div>
+                    </div>  
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_17.png" alt="삼육두유"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_18.png" alt="에버랜드리조트"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_19.png" alt="시몬스"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_20.png" alt="신일"></div>
+                    </div>                     
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_21.png" alt="신한은행"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_22.png" alt="씰리침대"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_23.png" alt="인산가"></div>
+                    </div>
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_24.png" alt="엘리시안제주"></div>
+                    </div>                
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_25.png" alt="일동후디스"></div>
+                    </div>  
+                     <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_26.png" alt="일화"></div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div data-img><img src="/images/sp_2026_27.png" alt="후지필름"></div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+
+        <div id="partner_popup" class="modal_popup" style="display:none;">
+            <div class="popup_content partner_form">
+                <div class="popup_header">
+                    <h3>공식파트너십 문의</h3>
+                    <button type="button" onclick="closePartnerPopup();" class="btn_close">×</button>
+                </div>
+                <div class="popup_body">
+                    <p class="popup_notice">정보를 기입하시면 사무국에서 별도 연락 드리겠습니다.</p>
+                    <form id="partnerForm">
+                        <div class="input_row">
+                            <label>소속</label>
+                            <input type="text" name="company" placeholder="소속을 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>이름/직위</label>
+                            <input type="text" name="name" placeholder="이름과 직위를 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>연락처</label>
+                            <input type="text" name="tel" placeholder="연락처를 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>이메일</label>
+                            <input type="email" name="email" placeholder="이메일을 입력하세요">
+                        </div>
+                        <div class="input_row">
+                            <label>내용</label>
+                            <textarea name="content" placeholder="문의 내용을 입력하세요"></textarea>
+                        </div>
+                        <div class="btn_group">
+                            <button type="button" onclick="submitPartnerInquiry();" class="btn_submit">문의하기</button>
+                            <a href="/files/제안서_2026.pdf" class="btn_download" download>제안서 다운로드</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--공식 파트너 끝 -->
         <div data-speaker_box>
             <div data-speaker_btn>
                 <span>SPEAKER</span>
@@ -82,108 +247,75 @@
                 <div class="swiper-wrapper speaker">
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/1.png" alt="1">
+                            <img src="/images/sph_2026_1.png" alt="1">
                         </div>
-                        <span>기조강연</span>
-                        <p data-pink>디지털 시대와 표준</p>
-                        <p data-pc><span>조성환</span> | ISO회장</p>
-                        <p data-mobile><span>조성환</span><br>ISO회장</p>
+                        <span>기조 | AX Keynote</span>
+                        <p data-black>AX, 문명사적 변화와 <br />그 전환의 본질</p>
+                        <p data-pc>前 연세대 총장 | <span>김용학</span></p>
+                        <p data-mobile>前 연세대 총장<br /><span>김용학</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/2.png" alt="2">
+                            <img src="/images/sph_2026_2.png" alt="2">
                         </div>
-                        <span>만찬 및 환영공연</span>
-                        <p data-pink>한 여름밤의<br>
-                            페스티벌</p>
-                        <p data-pc><span>박상민</span> | 가수</p>
-                        <p data-mobile><span>박상민</span><br>가수</p>
+                        <span>CEO | AX Business</span>
+                        <p data-black>글로벌 항공산업과<br />차세대 디지털 제조 혁신</p>
+                        <p data-pc>한국항공우주산업(KAI) 전무 | <span>박경은</span></p>
+                        <p data-mobile>한국항공우주산업(KAI) 전무<br /><span>박경은</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/3.png" alt="3">
+                            <img src="/images/sph_2026_3.png" alt="3">
                         </div>
-                        <span>Management</span>
-                        <p data-sky>저성장시대,<br>
-                            기업의 대응전략 </p>
-                        <p data-pc><span>김현철</span> | 교수</p>
-                        <p data-mobile><span>김현철</span><br>교수</p>
+                        <span>CEO | AX Technology</span>
+                        <p data-black>피지컬 AI 및<br />자율 로봇 동향</p>
+                        <p data-pc>KAIST 전기및전자공학부 교수 | <span>명현</span></p>
+                        <p data-mobile>KAIST 전기및전자공학부 교수<br /><span>명현</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/4.png" alt="4">
+                            <img src="/images/sph_2026_4.png" alt="4">
                         </div>
-                        <span>Digital</span>
-                        <p data-sky>디지털자산<br>시대에 살아남는법 </p>
-                        <p data-pc><span>홍기훈</span> | 홍익대학교 교수</p>
-                        <p data-mobile><span>홍기훈</span><br>홍익대학교 교수</p>
+                        <span>Family | 예술과 사람</span>
+                        <p data-black>예술과 주목자본<br />(Attention Capital)</p>
+                        <p data-pc>숨 프로젝트 대표 | <span>이지윤</span></p>
+                        <p data-mobile>숨 프로젝트 대표<br /><span>이지윤</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/5.png" alt="5">
+                            <img src="/images/sph_2026_5.png" alt="5">
                         </div>
-                        <span>Family Session</span>
-                        <p data-sky>미술품 소비시대, 글로벌 미술시장과 아트컬렉션</p>
-                        <p data-pc><span>박혜경</span> | 에이트인스티튜트 대표</p>
-                        <p data-mobile><span>박혜경</span><br>에이트인스티튜트 대표</p>
+                        <span>CEO | Beyond AX</span>
+                        <p data-black>두 번째 지능과<br />인간의 역할 재정의</p>
+                        <p data-pc>경희대 경영대학원 교수 | <span>김상균</span></p>
+                        <p data-mobile>경희대 경영대학원 교수<br /><span>김상균</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/6.png" alt="6">
+                            <img src="/images/sph_2026_6.png" alt="6">
                         </div>
-                        <span>AI</span>
-                        <p data-sky>인공지능 시대,<br>
-                            주목해야 할 AI트렌드</p>
-                        <p data-pc><span>정지훈</span> | DGIST 교수</p>
-                        <p data-mobile><span>정지훈</span><br>DGIST 교수</p>
+                        <span>CEO | Beyond Leadership</span>
+                        <p data-black>조직문화와<br />리더십에 대하여</p>
+                        <p data-pc>TBWA KOREA 조직문화연구소장 | <span>박웅현</span></p>
+                        <p data-mobile>TBWA KOREA 조직문화연구소장<br /><span>박웅현</span></p>
                     </div>
                     <div class="swiper-slide">
                         <div data-img>
-                            <img src="/images/7.png" alt="7">
+                            <img src="/images/sph_2026_7.png" alt="7">
                         </div>
-                        <span>New Space</span>
-                        <p data-sky>뉴 스페이스 시대의<br> 
-                            비즈니스 기회</p>
-                        <p data-pc><span>이성희</span> | 컨텍 대표이사</p>
-                        <p data-mobile><span>이성희</span><br>컨텍 대표이사</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <div data-img>
-                            <img src="/images/13.png" alt="8">
-                        </div>
-                        <span>Family Session</span>
-                        <p data-sky>당신의 다이어트,<br>건강하신가요?</p>
-                        <p data-pc><span>정재훈</span> | 약사</p>
-                        <p data-mobile><span>정재훈</span><br>약사</p>
+                        <span>Family | 선택과 도전</span>
+                        <p data-black>남극 세종기지 연구원이<br />회사를 그만두고<br />도전을 선택한 이유</p>
+                        <p data-pc>작가, 前 기상청 기상예보관 | <span>오영식</span></p>
+                        <p data-mobile>작가, 前 기상청 기상예보관<br /><span>오영식</span></p>
                     </div>
                     <div class="swiper-slide space">
                         <div data-img>
-                            <img src="/images/15.png" alt="15">
+                            <img src="/images/sph_2026_8.png" alt="15">
                         </div>
-                        <span>Humanities</span>
-                        <p data-green>민주주의의 명장면: 고대<br>
-                            그리스와 로마의 새로운 좌표</p>
-                        <p data-pc><span>김상근</span> | 연세대학교 교수</p>
-                        <p data-mobile><span>김상근</span><br>연세대학교 교수</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <div data-img>
-                            <img src="/images/14.png" alt="11">
-                        </div>
-                        <span>폐막강연</span>
-                        <p data-green>진정한<br>프로란</p>
-                        <p data-pc><span>허구연</span> | 한국야구위원회(KBO) 총재</p>
-                        <p data-mobile><span>허구연</span><br>한국야구위원회(KBO) 총재</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <div data-img>
-                            <img src="/images/12.png" alt="12">
-                        </div>
-                        <span>환송공연</span>
-                        <p data-black>맨발의<br>
-                            디바</p>
-                        <p data-pc><span>이은미</span> | 가수</p>
-                        <p data-mobile><span>이은미</span><br>가수</p>
+                        <span>폐막 | Beyond Essence</span>
+                        <p data-black>한국문화의 뿌리와 힘</p>
+                        <p data-pc>국립중앙박물관장 | <span>유홍준</span></p>
+                        <p data-mobile>국립중앙박물관장<br /><span>유홍준</span></p>
                     </div>
                 </div>
                 <div class="swiper-button-next"></div>
@@ -200,27 +332,34 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-        </div>
+        </div><!-- 
         <div data-sponsore_box>
             <span>협찬</span>
             <div data-pc_img_box></div>
             <div data-mobile_img_box></div>
-        </div>
+        </div> -->
     </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
-                <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
-                </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a><a href="/admin/login.html" target="_blank">관리자 페이지</a></p>
+            <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     <script>
-        const downloadLink = `https://${base_url}/api/v1/ksa/files?year=2024&ksaFileType=BROCHURE`;
+        const downloadLink = `${base_url}/api/v1/ksa/files?year=` + current_year + `&ksaFileType=BROCHURE`;
         $("[data-brochure_link]").attr("href", downloadLink);
         function getDirection() {
             var windowWidth = window.innerWidth;
@@ -306,10 +445,10 @@
 
         $.ajax({
             type: "GET",
-            url: "https://" + base_url + "/api/v1/galleries/all",
+            url: base_url + "/api/v1/galleries/all",
             success: function (response) {
                 $.each(response, function (response, item) {
-                    $(".gallery-swiper").append('<div class="swiper-slide"><img src="https://' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
+                    $(".gallery-swiper").append('<div class="swiper-slide"><img src="' + base_url + '/' + item.image.fileUri + '" alt="' + item.image.originalFileName + '"></div">');
                 });
             },
             error: function (xhr) {
@@ -320,11 +459,105 @@
         $(document).ready(function () {
             sessionStorage.removeItem('attend_id');
         })
+
+        /* 레이어 팝업 비활성화
+        $(document).ready(function () {
+            const popupValue = localStorage.getItem("hideMainPopup");
+            const now = new Date().getTime();
+
+            if (!popupValue || now > parseInt(popupValue)) {
+                $("#main_popup").fadeIn();
+            }
+        });
+        */
+
+        function closePopup() {
+            if ($("#chk_today").is(":checked")) {
+                const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
+                localStorage.setItem("hideMainPopup", expiryTime);
+            }
+            $("#main_popup").fadeOut();
+        }
+
+        /* 공싴파트너사 팝업*/
+        var partnerSwiper = new Swiper(".partnerSwiper", {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false,
+            },
+            speed: 4000,
+            freeMode: true,
+            observer: true,
+            observeParents: true,
+            navigation: {
+                nextEl: ".partnerSwiper .swiper-button-next",
+                prevEl: ".partnerSwiper .swiper-button-prev",
+            },
+            breakpoints: {
+                768: { slidesPerView: 4, spaceBetween: 30 },
+                1024: { slidesPerView: 5, spaceBetween: 40 }
+            }
+        });
+
+        // 팝업 열기
+        function openPartnerPopup() {
+            $("#partner_popup").fadeIn(200);
+            $("body").css("overflow", "hidden");
+        }
+
+        // 팝업 닫기
+        function closePartnerPopup() {
+            $("#partner_popup").fadeOut(200);
+            $("body").css("overflow", "auto");
+        }
+
+        // 문의하기 제출
+        function submitPartnerInquiry() {
+            const name = $("input[name='name']").val();
+            const email = $("input[name='email']").val(); 
+            const title = $("input[name='company']").val() + " 공식파트너쉽 문의"; 
+            const content = `소속: ${$("input[name='company']").val()}\n연락처: ${$("input[name='tel']").val()}\n내용: ${$("textarea[name='content']").val() || ''}`;
+
+            if (!name) { alert("이름을 입력해주세요."); return; }
+            if (!email) { alert("이메일을 입력해주세요."); return; } 
+
+            const requestData = {
+                name: name,
+                email: email,
+                title: title,
+                content: content
+            };
+
+            const $submitBtn = $(".btn_submit");
+            $submitBtn.prop("disabled", true).text("전송 중...");
+
+            $.ajax({
+                url: '/api/v2/official-partner', 
+                type: 'POST',
+                contentType: 'application/json', 
+                data: JSON.stringify(requestData), 
+                success: function (response) {
+                    alert("문의가 성공적으로 접수되었습니다. 사무국에서 확인 후 연락드리겠습니다.");
+                    $("#partnerForm")[0].reset();
+                    if (typeof closePartnerPopup === 'function') closePartnerPopup();
+                },
+                error: function (xhr, status, error) {
+                    console.error("에러 발생:", error);
+                    alert("접수 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.");
+                },
+                complete: function () {
+                    $submitBtn.prop("disabled", false).text("문의하기");
+                }
+            });
+        }
+
     </script>
     <style>
-        .space [data-green] {
-            letter-spacing: -1px;
-        }
+
     </style>
 </body>
+
 </html>

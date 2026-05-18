@@ -1,31 +1,87 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KSA 하계포럼</title>
 
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/common.css">
-    <link rel="stylesheet" href="/css/program.css">
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <link rel="stylesheet" href="/css/program.css" />
     <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="/js/common.js"></script>
     <script src="/js/information.js"></script>
+    <style>
+        .passenger-radio-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 5px;
+        }
+
+        .passenger-radio-item {
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            background: #fff;
+            font-size: 14px;
+            color: #9cd4b8;
+            transition: all 0.2s;
+        }
+
+        .passenger-radio-item input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 1px solid #9cd4b8;
+            border-radius: 2px;
+            /* 사각형 모양 */
+            margin-right: 8px;
+            position: relative;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        .passenger-radio-item input[type="radio"]:checked {
+            background-color: #9cd4b8;
+        }
+
+        .passenger-radio-item input[type="radio"]:checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 12px;
+        }
+
+        .passenger-radio-item:has(input:checked) {
+            background: #9cd4b8;
+            color: #fff;
+        }
+    </style>
 </head>
+
 <body>
     <header data-pc_header>
         <a href="Index.html" data-logo_box></a>
         <ul>
+            <li><a href="Ceomessage.html">인사말</a></li>
             <li><a href="Notice.html">공지사항</a></li>
+            <li><a href="Schedule.html">행사일정</a></li>
             <li><a href="Speaker.html">연사</a></li>
             <li><a href="Performance.html">공연</a></li>
-            <li><a href="Gallery.html">갤러리</a></li>
-            <li><a href="FourmInfo.html">포럼안내</a></li>
-            <li><a href="Brochure.html">연도별 브로셔</a></li>
+            <li><a href="FourmInfo.html">참가안내</a></li>
             <li data-more_box></li>
         </ul>
         <div data-menu_box>
@@ -34,12 +90,14 @@
             </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li><a href="Application.html">참가신청 및 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
             </ul>
         </div>
     </header>
@@ -54,12 +112,14 @@
             </div>
             <ul>
                 <li><a href="Notice.html">공지사항</a></li>
+                <li><a href="Schedule.html">행사일정</a></li>
                 <li><a href="Speaker.html">연사</a></li>
                 <li><a href="Performance.html">공연</a></li>
-                <li><a href="Gallery.html">갤러리</a></li>
-                <li><a href="FourmInfo.html">포럼안내</a></li>
-                <li><a href="Application.html">참가신청 / 확인</a></li>
+                <li><a href="FourmInfo.html">참가안내</a></li>
+                <li><a href="Application.html">참가신청 및 확인</a></li>
                 <li><a href="Brochure.html">연도별 브로셔</a></li>
+                <li><a href="Gallery.html">갤러리</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
             </ul>
         </div>
     </header>
@@ -70,7 +130,7 @@
                 <li><a href="./Flight.html">항공예약</a></li>
                 <li><a href="./Hotel.html">호텔예약</a></li>
                 <li><a href="./Rentalcar.html">렌터카예약</a></li>
-                <li class="present"><a href="./Program.html">프로그램</a></li>
+                <li class="present"><a href="./Program.html">골프/관광 외</a></li>
                 <li><a href="./InformationConfirm.html">신청확인</a></li>
                 <li><button type="button" data-logout_btn>로그아웃</button></li>
             </ul>
@@ -91,7 +151,7 @@
                         <a href="./Rentalcar.html">렌터카예약</a>
                     </div>
                     <div class="swiper-slide present">
-                        <a href="./Program.html">프로그램</a>
+                        <a href="./Program.html">골프/관광 외</a>
                     </div>
                     <div class="swiper-slide">
                         <a href="./InformationConfirm.html">신청확인</a>
@@ -103,63 +163,92 @@
             </div>
         </div>
         <div data-content_box="pc">
-            <div data-title_box>프로그램</div>
+            <div data-title_box>골프/관광 외</div>
+            <div data-notice_box>
+                <p>※ 날짜별 1개 프로그램만 신청 가능합니다. (예: 동일 날짜에 골프와 관광 중복 신청 불가)</p>
+                <p>※ 프로그램별 정원 초과 시 선착순 마감될 수 있습니다.</p>
+                <p>※ 골프백은 행사 기간 중 공항-골프장-호텔 간 이동 지원 예정입니다.</p>
+                <p>첫날 제주공항 셔틀버스 승강장에서 스태프에게 전달해 주시면 행사 기간 중 안전하게 관리되어 각 골프장으로 이동됩니다. 마지막 날 호텔 로비에서 수령하여 공항으로 이동해 주세요.</p>
+                <p>※ <span style="color: red;">자택 → 골프장 직접 탁송</span> 예정인 경우 수령지를 일자별 골프장 또는 호텔로 설정해주시기 바랍니다.</p>
+                <p>※ <span style="color: red;">반드시 요청사항에 기재</span>해주신 뒤, 사무국으로 사전 연락 부탁드립니다. <span style="color: red;">미연락 시 분실·오배송이 발생할 수 있습니다.</span></p>
+            </div>
             <div data-table_box>
-                <span data-date_row>7월 25일 (목)</span>
+                <span data-date_row>7월 23일 (목)</span>
                 <table data-golf_thu_table>
                     <tr>
                         <th>종류</th>
                         <th>내용</th>
                         <th>참가비</th>
-                        <th>참여자</th>
-                        <th>기타</th>
+                        <th>신청자 선택</th>
+                        <th>선택 결과</th>
                     </tr>
-                    <tr data-golf_thu_row> </tr>
+                    <tr data-golf_thu_row></tr>
                 </table>
-                <p data-notice_row>· 참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>
+                <!-- <p data-notice_row>· 참가비에는 이동비, 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집)가 포함되어 있습니다.</p>
+            --><table data-total_table style="margin: 0 0 30px">
+                    <tr>
+                        <th>골프 요청사항</th>
+                        <td>
+                            <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                </table>
                 <table data-tour_thu_table>
                     <tr>
                         <th>종류</th>
                         <th>내용</th>
                         <th>참가비</th>
-                        <th>참여자</th>
-                        <th>기타</th>
+                        <th>신청자 선택</th>
+                        <th>선택 결과</th>
                     </tr>
                 </table>
                 <table data-family_thu_table></table>
+                <p data-notice_row>
+                    · 관광 프로그램 소인 요금은 초등학생(만 12세 이하)까지 적용됩니다. <br />
+                </p>
             </div>
             <div data-table_box>
-                <span data-date_row>7월 26일 (금)</span>
+                <span data-date_row>7월 24일 (금)</span>
                 <table data-golf_fri_table>
                     <tr>
                         <th>종류</th>
                         <th>내용</th>
                         <th>참가비</th>
-                        <th>참여자</th>
-                        <th>기타</th>
+                        <th>신청자 선택</th>
+                        <th>선택 결과</th>
                     </tr>
-                    <tr data-golf_fri_row>
-
+                    <tr data-golf_fri_row></tr>
+                </table>
+                <!-- <p data-notice_row>· 참가비에는 이동비, 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집)가 포함되어 있습니다.</p>
+            --> <table data-total_table style="margin: 0 0 30px">
+                    <tr>
+                        <th>골프 요청사항</th>
+                        <td>
+                            <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
                     </tr>
                 </table>
-                <p data-notice_row>· 참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>
                 <table data-tour_fri_table>
                     <tr>
                         <th>종류</th>
                         <th>내용</th>
                         <th>참가비</th>
-                        <th>참여자</th>
-                        <th>기타</th>
+                        <th>신청자 선택</th>
+                        <th>선택 결과</th>
                     </tr>
                 </table>
+
                 <table data-family_fri_table></table>
+                <p data-notice_row>
+                    · 관광 프로그램 소인 요금은 초등학생(만 12세 이하)까지 적용됩니다. <br />
+                </p>
                 <table data-total_table>
-                    <tr>
-                        <th>요청사항</th>
+                    <!-- <tr>
+                        <th>기타 추가 요청사항</th>
                         <td>
                             <textarea placeholder="요청사항을 입력해주세요."></textarea>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr>
                         <th><span>합계총액</span></th>
                         <td>
@@ -168,35 +257,73 @@
                     </tr>
                 </table>
             </div>
-            <div data-notice_box>
-                <p data-notice_row>· 참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>
-            </div>
             <div data-button_box>
                 <button data-pre_btn type="button">이전</button>
-                <button type="submit">프로그램 저장</button>
+                <button type="submit" data-save_button>프로그램 임시저장</button>
+            </div>            
+            <div data-notice_box>
+                <p style="color: #ff2200">※ 제출 전 반드시 확인해 주세요.</p>
+                <p>• 사전 신청제로 운영되며, 현장 신청은 불가합니다. (7.1(수) 마감 이후 신청 시 사무국에 별도 문의)</p>
+                <p>• 기상 및 현지 사정에 따라 일정이 변경·취소될 수 있습니다.</p>
+                <table>
+                    <tr>
+                        <th>골프</th>
+                        <th>관광</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            • 참가비에는 중식, 이동, 그린피, 캐디피, 카트피가 포함됩니다.<br />
+                            • 조편성 결과는 목·금 오전 중 연회장에 안내됩니다.<br />
+                            • 그늘집 기본 세트 외 추가 주문 비용은 별도 부담입니다.<br />
+                            • 골프채 렌탈은 별도 문의 바랍니다.
+                        </td>
+                        <td>
+                            • 관광 참가비에는 중식, 이동, 입장료, 가이드 비용이 포함됩니다.<br />
+                            • 날짜별 1개 코스(A/B/C 중 택1)만 신청 가능합니다.<br />
+                            • 코스별 최소 인원(20명) 미달 시 취소될 수 있으며, 모든 코스는 오전 11:30 롯데호텔에서 출발합니다.
+                        </td>
+                    </tr>
+                </table>
             </div>
+
         </div>
         <div data-content_box="mobile">
-            <div data-title_box>프로그램</div>
+            <div data-title_box>골프/관광 외</div>
             <div data-table_box>
-                <span data-date_row>7월 25일 (목)</span>
+                <span data-date_row>7월 23일 (목)</span>
                 <div data-content="golf_thu"></div>
+                <table data-total_table>
+                    <tr>
+                        <th>골프 요청사항</th>
+                        <td>
+                            <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                </table>
                 <div data-content="tour_thu"></div>
                 <div data-content="family_thu"></div>
             </div>
             <div data-table_box>
-                <span data-date_row>7월 26일 (금)</span>
+                <span data-date_row>7월 24일 (금)</span>
                 <div data-content="golf_fri"></div>
+                <table data-total_table>
+                    <tr>
+                        <th>골프 요청사항</th>
+                        <td>
+                            <textarea placeholder="요청사항을 입력해주세요."></textarea>
+                        </td>
+                    </tr>
+                </table>
                 <div data-content="tour_fri"></div>
                 <div data-content="family_fri"></div>
             </div>
             <table data-total_table>
-                <tr>
-                    <th>요청사항</th>
+                <!-- <tr>
+                    <th>기타 추가 요청사항</th>
                     <td>
                         <textarea placeholder="요청사항을 입력해주세요."></textarea>
                     </td>
-                </tr>
+                </tr> -->
                 <tr>
                     <th><span>합계총액</span></th>
                     <td>
@@ -204,46 +331,99 @@
                     </td>
                 </tr>
             </table>
-            <div data-notice_box>
-                <p data-notice_row>· 참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>
-            </div>
             <div data-button_box>
                 <button data-pre_btn type="button">이전</button>
-                <button type="submit">프로그램 저장</button>
+                <button type="submit" data-save_button>프로그램 임시저장</button>
+            </div>            
+            <div data-notice_box>
+                <p style="color: #ff2200">※ 제출 전 반드시 확인해 주세요.</p>
+                <p>• 사전 신청제로 운영되며, 현장 신청은 불가합니다. (7.1(수) 마감 이후 신청 시 사무국에 별도 문의)</p>
+                <p>• 기상 및 현지 사정에 따라 일정이 변경·취소될 수 있습니다.</p>
+                <table>
+                    <tr>
+                        <th>골프</th>
+                        <th>관광</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            • 참가비에는 중식, 이동, 그린피, 캐디피, 카트피가 포함됩니다.<br />
+                            • 조편성 결과는 목·금 오전 중 연회장에 안내됩니다.<br />
+                            • 그늘집 기본 세트 외 추가 주문 비용은 별도 부담입니다.<br />
+                            • 골프채 렌탈은 별도 문의 바랍니다.
+                        </td>
+                        <td>
+                            • 관광 참가비에는 중식, 이동, 입장료, 가이드 비용이 포함됩니다.<br />
+                            • 날짜별 1개 코스(A/B/C 중 택1)만 신청 가능합니다.<br />
+                            • 코스별 최소 인원(20명) 미달 시 취소될 수 있으며, 모든 코스는 오전 11:30 롯데호텔에서 출발합니다.
+                        </td>
+                    </tr>
+                </table>
             </div>
+
         </div>
-    </main>
-    <footer>
-        <div data-footer_wrap>
-            <div data-logo_box></div>
-            <div data-text_box>
+        <!-- 250509 -->
+        <div data-popup_box>
+            <div data-notice_txt>
                 <p>
-                    한국표준협회 ㅣ 대표자 강명수 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br>
-                    하계CEO포럼 사무국 02-6240-4981, 4983 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    <!-- 임시 저장되었습니다.
+                        “최종제출”전까지는 로그인하셔서 수정이 가능합니다. -->
+                    임시저장이 완료되었습니다.<br />
+                    제출 전 임시저장 상태에서는 본 등록 페이지에 로그인하여 <br />
+                    신청 내용 수정이 가능합니다.
                 </p>
-                <p><a href="./Privacy.html"><span>개인정보처리방침</span></a></p>
+                <div>
+                    <button data-notice_close_btn="notice" type="button">닫기</button>
+                </div>
             </div>
         </div>
-    </footer>
+        <!-- //250509 -->
+    </main>
+            <footer>
+            <div data-footer_wrap>
+                <div data-logo_box></div>
+                <div data-text_box>
+                    <div data-foot-btn-area>
+                        <a data-bank_download href="" download class="btn">통장사본</a>
+                        <a data-bussiness_download href="" download class="btn">사업자등록증</a>
+                        <a href="/api/v1/ksa/files?year=2026&amp;ksaFileType=APPLICATION_FORM" download class="btn">참가신청서</a>
+                    </div>
+                    <p>
+                        한국표준협회 ㅣ 대표자 문동민 ㅣ 사업자등록번호 105-82-00617 ㅣ 대표번호 1670-6009<br />
+                        하계CEO포럼 사무국 02-6240-4981, 4982 ㅣ 06160 서울시 강남구 테헤란로69길 5 (삼성동,DT센터)
+                    </p>
+                    <p>
+                        <a href="./Privacy.html"><span>개인정보처리방침</span></a>
+                    </p>
+                </div>
+            </div>
+        </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script>
         function getParameterByName(name, url) {
             if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, '\\$&');
-            const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+            name = name.replace(/[\[\]]/g, "\\$&");
+            const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
             const results = regex.exec(url);
             if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+            if (!results[2]) return "";
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
-        const id_num = getParameterByName('id');
+        const id_num = getParameterByName("id");
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 'auto',
+            slidesPerView: "auto",
             spaceBetween: 23.5,
             freeMode: true,
         });
         $(document).ready(function () {
-            const attend_id = sessionStorage.getItem('attend_id');
+            //250509 임시저장 클릭시
+            $("[data-save_button]").on("click", function () {
+                $("[data-popup_box]").show();
+            });
+            $("[data-notice_close_btn='notice']").on("click", function () {
+                $("[data-popup_box]").hide();
+            });
+
+            const attend_id = sessionStorage.getItem("attend_id");
             let golf_list = [];
             let tour_list = [];
             let family_list = [];
@@ -256,23 +436,23 @@
             let total_cost = [];
             let thu_list = [];
             let fri_list = [];
-            let passenger
+            let passenger;
             const tour_type = {
-                "NONE" : "없음",
-                "NATURAL" : "자연경관",
-                "CULTURE_TOUR" : "문화탐방",
-                "CULTURE_EXP" : "문화체험",
-                "HEALING_TOUR" : "힐링투어",
-            }
-            
+                NONE: "없음",
+                NATURAL: "여유",
+                CULTURE_TOUR: "로컬",
+                CULTURE_EXP: "문화체험",
+                HEALING_TOUR: "힐링",
+            };
+
             // 어텐드 아이디가없다면 정상적인 경로로 들어온 것이 아니기 때문에 리다이렉트
-            if(attend_id !== null){
+            if (attend_id !== null) {
                 $.ajax({
-                    "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/program-orders?attendId=" + attend_id,
+                    type: "GET",
+                    url: base_url + "/api/v1/program-orders?attendId=" + attend_id,
                     beforeSend: function (xhr) {
-                        if (sessionStorage.getItem('token')) {
-                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                        if (sessionStorage.getItem("token")) {
+                            xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
                         }
                     },
                     success: function (response) {
@@ -282,14 +462,14 @@
                         }
                     },
                     error: function (error) {
-                        alert("error")
-                    }
-                });   
+                        alert("error");
+                    },
+                });
 
                 //투어 정보 가져오기 (목) --> 투어 정보를 가져오고 동행인 리스트를 가져옴
                 $.ajax({
-                    "type": "GET",
-                    "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-25",
+                    type: "GET",
+                    url: base_url + "/api/v1/programs?date=2026-07-23",
                     success: function (response) {
                         const data = response;
                         const tour = data.tours;
@@ -298,36 +478,115 @@
                         if (window.innerWidth > 760) {
                             $.each(golf, function (index, item) {
                                 let full = item.capacity <= item.currentAttenderNumber;
-                                $("[data-golf_thu_table]").append("<tr  " + (full === true ? "data-full_row" : "") + "><td>골프</td><td>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select data-thu_golf " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='golf'>" + (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") + "</div></td></tr>");
+                                $("[data-golf_thu_table]").append(
+                                    "<tr  " +
+                                    (full === true ? "data-full_row" : "") +
+                                    "><td>골프</td><td>" +
+                                    item.name +
+                                    "</td><td data-amount_row>" +
+                                    item.cost.toLocaleString() +
+                                    "원</td><td><div class='passenger-radio-group' data-thu_golf " + (full === true ? "style='display:none;'" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='" + item.roundDate + "'></div></td><td><div data-show_box='golf'>" +
+                                    (full === true ? "정원 초과로 인해<br> 신청 하실 수 없습니다." : "") +
+                                    "</div></td></tr>"
+                                );
                             });
                             $.each(tour, function (index, array) {
                                 $.each(array, function (index, item) {
                                     let full = item.capacity <= item.currentAttenderNumber;
-                                    $("[data-tour_thu_table]").append("<tr data-index='" + index + "'><td rowspan='"+ array.length +"'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select " + (full === true ? "disabled" : "") + "  data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType +"' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select>" + (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") + "</td><td><div data-show_box='tour'></div></td></tr>");
+                                    $("[data-tour_thu_table]").append(
+                                        "<tr data-index='" +
+                                        index +
+                                        "'><td rowspan='" +
+                                        array.length +
+                                        "'>" +
+                                        tour_type[item.tourType] +
+                                        "</td><td><div data-description_row><p>" +
+                                        item.description +
+                                        "</p></div</td><td data-amount_row data-adult=" +
+                                        item.adultCost +
+                                        " data-child=" +
+                                        item.childCost +
+                                        "><p>성인 " +
+                                        item.adultCost.toLocaleString() +
+                                        "원</p><p>소인 " +
+                                        item.childCost.toLocaleString() +
+                                        "원</p></td><td><div class='passenger-radio-group' data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" +
+                                        item.tourType +
+                                        "' data-id='" +
+                                        item.tourId + "'></div>" +
+                                        (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") +
+                                        "</td><td><div data-show_box='tour'></div></td></tr>"
+                                    );
                                 });
                             });
                             $.each(family, function (index, item) {
-                                $("[data-family_thu_table]").append("<tr><td>Family Session</td><td><div data-description_row><p>" + item.title + "</p></div</td><td data-amount_row data-adult=" + 0 + " data-child=" + 0 +">무료</td><td><select data-date='" + item.startDate + "' data-thu_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='family'></div></td></tr>");
+                                $("[data-family_thu_table]").append(
+                                    "<tr><td>Kids Session<br />(10:00~11:10)</td><td><div data-description_row><p>" +
+                                    item.title +
+                                    "</p></div</td><td data-amount_row data-adult=" +
+                                    0 +
+                                    " data-child=" + 0 + ">무료</td><td><div class='passenger-radio-group' data-date='" + item.startDate +
+                                    "' data-thu_family data-family data-id='" + item.id + "'></div></td><td><div data-show_box='family'></div></td></tr>"
+                                );
                             });
-                        } else{
+                        } else {
                             $.each(golf, function (index, item) {
                                 let full = item.capacity <= item.currentAttenderNumber;
-                                $("[data-content='golf_thu']").append("<div data-text_wrap><div data-flex_box='" + (full === true ? "full" : "") + "'><div data-text_box><span>골프</span><span>" + item.name + "</span><span>참가비 <span>" + item.cost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.roundDate + "' " + (full === true ? "disabled" : "") + " data-thu_golf data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost +"'><option selected disabled value=''>선택</option></select></div></div><div data-show_box='golf'></div></div>" + (full === true ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>" : "<p>참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>") + "");
+                                $("[data-content='golf_thu']").append(
+                                    "<div data-text_wrap><div data-flex_box='" +
+                                    (full === true ? "full" : "") +
+                                    "'><div data-text_box><span>골프</span><span>" +
+                                    item.name +
+                                    "</span><span>참가비 <span>" +
+                                    item.cost.toLocaleString() +
+                                    "</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.roundDate +
+                                    "' data-thu_golf data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'></div></div></div><div data-show_box='golf'></div></div>" +
+                                    (full === true
+                                        ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>"
+                                        : "<p>참가비에는 이동비, 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집)가 포함되어 있습니다.</p>") +
+                                    ""
+                                );
                             });
                             $.each(tour, function (index, array) {
                                 $.each(array, function (index, item) {
                                     let full = item.capacity <= item.currentAttenderNumber;
-                                    $("[data-content='tour_thu']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>" + tour_type[item.tourType] + "</span><span>" + item.description + "</span><span data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +">성인 <span>" + item.adultCost.toLocaleString() + "</span>소인 <span>" + item.childCost.toLocaleString() + "</span></span></div><div data-select_box><select " + (full === true ? "disabled" : "") + "  data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select>" + (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") + "</div></div><div data-show_box='tour'></div></div>");
+                                    $("[data-content='tour_thu']").append(
+                                        "<div data-text_wrap><div data-flex_box><div data-text_box><span>" +
+                                        tour_type[item.tourType] +
+                                        "</span><span>" +
+                                        item.description +
+                                        "</span><span data-amount_row data-adult=" +
+                                        item.adultCost +
+                                        " data-child=" +
+                                        item.childCost +
+                                        ">성인 <span>" +
+                                        item.adultCost.toLocaleString() +
+                                        "</span>소인 <span>" +
+                                        item.childCost.toLocaleString() +
+                                        "</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.tourStartDate + "' data-thu_tour data-tour='" +
+                                        item.tourType +
+                                        "' data-id='" +
+                                        item.tourId + "'></div>" +
+                                        (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") +
+                                        "</div></div><div data-show_box='tour'></div></div>"
+                                    );
                                 });
                             });
                             $.each(family, function (index, item) {
-                                $("[data-content='family_thu']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>Family Session</span><span>" + item.title + "</span><span data-amount_row data-adult=" + 0 + " data-child=" + 0 + "><span>무료</span></span></div><div data-select_box><select data-date='" + item.startDate + "' data-thu_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></div></div><div data-show_box='family'></div></div>");
+                                $("[data-content='family_thu']").append(
+                                    "<div data-text_wrap><div data-flex_box><div data-text_box><span>Kids Session (10:00~11:10)</span><span>" +
+                                    item.title +
+                                    "</span><span data-amount_row data-adult=" +
+                                    0 +
+                                    " data-child=" + 0 + "><span>무료</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.startDate +
+                                    "' data-thu_family data-family data-id='" + item.id + "'></div></div></div><div data-show_box='family'></div></div>"
+                                );
                             });
                         }
                         //투어 정보 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/programs?date=2024-07-26",
+                            type: "GET",
+                            url: base_url + "/api/v1/programs?date=2026-07-24",
                             success: function (response) {
                                 const data = response;
                                 const tour = data.tours;
@@ -336,45 +595,138 @@
                                 if (window.innerWidth > 760) {
                                     $.each(golf, function (index, item) {
                                         let full = item.capacity <= item.currentAttenderNumber;
-                                        $("[data-golf_fri_table]").append("<tr  " + (full === true ? "data-full_row" : "") + "><td>골프</td><td>" + item.name + "</td><td data-amount_row>" + item.cost.toLocaleString() + "원</td><td><select data-date='" + item.roundDate + "' data-fri_golf " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></td><td><div data-show_box='golf'></div></td></tr>");
+                                        $("[data-golf_fri_table]").append(
+                                            "<tr  " +
+                                            (full === true ? "data-full_row" : "") +
+                                            "><td>골프</td><td>" +
+                                            item.name +
+                                            "</td><td data-amount_row>" +
+                                            item.cost.toLocaleString() +
+                                            "원</td><td><div class='passenger-radio-group' data-date='" + item.roundDate + "' data-fri_golf " + (full === true ? "style='display:none;'" : "") +
+                                            " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'></div></td><td><div data-show_box='golf'></div></td></tr>"
+                                        );
                                     });
                                     $.each(tour, function (index, array) {
                                         var rowspan = array.length;
                                         $.each(array, function (index, item) {
                                             let full = item.capacity <= item.currentAttenderNumber;
                                             if (index == 0) {
-                                                $("[data-tour_fri_table]").append("<tr><td rowspan='" + rowspan + "'>" + tour_type[item.tourType] + "</td><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select " + (full === true ? "disabled" : "") + " data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select>" + (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") + "</td><td><div data-show_box='tour'></div></td></tr>");
+                                                $("[data-tour_fri_table]").append(
+                                                    "<tr><td rowspan='" +
+                                                    rowspan +
+                                                    "'>" +
+                                                    tour_type[item.tourType] +
+                                                    "</td><td><div data-description_row><p>" +
+                                                    item.description +
+                                                    "</p></div</td><td data-amount_row data-adult=" +
+                                                    item.adultCost +
+                                                    " data-child=" +
+                                                    item.childCost +
+                                                    "><p>성인 " +
+                                                    item.adultCost.toLocaleString() +
+                                                    "원</p><p>소인 " +
+                                                    item.childCost.toLocaleString() +
+                                                    "원</p></td><td><div class='passenger-radio-group' data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" +
+                                                    item.tourType +
+                                                    "' data-id='" +
+                                                    item.tourId + "'></div>" +
+                                                    (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") +
+                                                    "</td><td><div data-show_box='tour'></div></td></tr>"
+                                                );
                                             } else {
-                                                $("[data-tour_fri_table]").append("<tr><td><div data-description_row><p>" + item.description + "</p></div</td><td data-amount_row data-adult="+ item.adultCost +" data-child=" + item.childCost +"><p>성인 " + item.adultCost.toLocaleString() + "원</p><p>소인 " + item.childCost.toLocaleString() + "원</p></td><td><select " + (full === true ? "disabled" : "") + "  data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "'><option selected disabled value=''>선택</option></select>" + (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") + "</td><td><div data-show_box='tour'></div></td></tr>");
+                                                $("[data-tour_fri_table]").append(
+                                                    "<tr><td><div data-description_row><p>" +
+                                                    item.description +
+                                                    "</p></div</td><td data-amount_row data-adult=" +
+                                                    item.adultCost +
+                                                    " data-child=" +
+                                                    item.childCost +
+                                                    "><p>성인 " +
+                                                    item.adultCost.toLocaleString() +
+                                                    "원</p><p>소인 " +
+                                                    item.childCost.toLocaleString() +
+                                                    "원</p></td><td><div class='passenger-radio-group' data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" +
+                                                    item.tourType +
+                                                    "' data-id='" +
+                                                    item.tourId + "'></div>" +
+                                                    (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") +
+                                                    "</td><td><div data-show_box='tour'></div></td></tr>"
+                                                );
                                             }
                                         });
                                     });
                                     $.each(family, function (index, item) {
-                                        $("[data-family_fri_table]").append("<tr><td>Family Session</td><td><div data-description_row><p>" + item.title + "</p></div</td><td data-amount_row data-adult=" + 0 + " data-child=" + 0 + ">무료</td><td><select data-date='" + item.startDate + "' data-fri_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></td><td><div data-show_box='family'></div></td></tr>");
+                                        $("[data-family_fri_table]").append(
+                                            "<tr><td>Kids Session<br />(10:00~11:10)</td><td><div data-description_row><p>" +
+                                            item.title +
+                                            "</p></div</td><td data-amount_row data-adult=" +
+                                            0 +
+                                            " data-child=" + 0 + ">무료</td><td><div class='passenger-radio-group' data-date='" + item.startDate +
+                                            "' data-fri_family data-family data-id='" + item.id + "'></div></td><td><div data-show_box='family'></div></td></tr>"
+                                        );
                                     });
-                                } else{
+                                } else {
                                     $.each(golf, function (index, item) {
                                         let full = item.capacity <= item.currentAttenderNumber;
-                                        $("[data-content='golf_fri']").append("<div data-text_wrap><div data-flex_box='" + (full === true ? "full" : "") + "'><div data-text_box><span>골프</span><span>" + item.name + "</span><span>참가비 <span>" + item.cost.toLocaleString() + "</span></span></div><div data-select_box><select data-date='" + item.roundDate + "' data-fri_golf  " + (full === true ? "disabled" : "") + " data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'><option selected disabled value=''>선택</option></select></div></div><div data-show_box='golf'></div></div>" + (full === true ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>" : "<p>참가비에는 이동비 및 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집 비용)가 포함되어 있습니다.</p>") + "");
+                                        $("[data-content='golf_fri']").append(
+                                            "<div data-text_wrap><div data-flex_box='" +
+                                            (full === true ? "full" : "") +
+                                            "'><div data-text_box><span>골프</span><span>" +
+                                            item.name +
+                                            "</span><span>참가비 <span>" +
+                                            item.cost.toLocaleString() +
+                                            "</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.roundDate +
+                                            "' data-fri_golf data-golf data-id='" + item.golfCourseId + "' data-cost='" + item.cost + "'></div></div></div><div data-show_box='golf'></div></div>" +
+                                            (full === true
+                                                ? "<p data-disabled_row>정원 초과로 인해 신청 하실 수 없습니다.</p>"
+                                                : "<p>참가비에는 이동비, 중식비, 프로그램비(그린피, 캐디피, 카트피, 그늘집)가 포함되어 있습니다.</p>") +
+                                            ""
+                                        );
                                     });
                                     $.each(tour, function (index, array) {
                                         $.each(array, function (index, item) {
                                             let full = item.capacity <= item.currentAttenderNumber;
-                                            $("[data-content='tour_fri']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>" + tour_type[item.tourType] + "</span><span>" + item.description + "</span><span data-amount_row data-adult=" + item.adultCost + " data-child=" + item.childCost + ">성인 <span>" + item.adultCost.toLocaleString() + "</span>소인 <span>" + item.childCost.toLocaleString() + "</span></span></div><div data-select_box><select " + (full === true ? "disabled" : "") + "  data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" + item.tourType + "' data-id='" + item.tourId + "' ><option selected disabled value=''>선택</option></select>" + (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") + "</div></div><div data-show_box='tour'></div></div>");
+                                            $("[data-content='tour_fri']").append(
+                                                "<div data-text_wrap><div data-flex_box><div data-text_box><span>" +
+                                                tour_type[item.tourType] +
+                                                "</span><span>" +
+                                                item.description +
+                                                "</span><span data-amount_row data-adult=" +
+                                                item.adultCost +
+                                                " data-child=" +
+                                                item.childCost +
+                                                ">성인 <span>" +
+                                                item.adultCost.toLocaleString() +
+                                                "</span>소인 <span>" +
+                                                item.childCost.toLocaleString() +
+                                                "</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.tourStartDate + "' data-fri_tour data-tour='" +
+                                                item.tourType +
+                                                "' data-id='" +
+                                                item.tourId + "'></div>" +
+                                                (full === true ? "<p class='error-txt'>정원 초과로 인해<br> 신청 하실 수 없습니다.<p>" : "") +
+                                                "</div></div><div data-show_box='tour'></div></div>"
+                                            );
                                         });
                                     });
                                     $.each(family, function (index, item) {
-                                        $("[data-content='family_fri']").append("<div data-text_wrap><div data-flex_box><div data-text_box><span>Family Session</span><span>" + item.title + "</span><span data-amount_row data-adult=" + 0 + " data-child=" + 0 + "><span>무료</span></span></div><div data-select_box><select data-date='" + item.startDate + "' data-fri_family data-family data-id='" + item.id + "' ><option selected disabled value=''>선택</option></select></div></div><div data-show_box='family'></div></div>");
+                                        $("[data-content='family_fri']").append(
+                                            "<div data-text_wrap><div data-flex_box><div data-text_box><span>Kids Session (10:00~11:10)</span><span>" +
+                                            item.title +
+                                            "</span><span data-amount_row data-adult=" +
+                                            0 +
+                                            " data-child=" + 0 + "><span>무료</span></span></div><div data-select_box><div class='passenger-radio-group' data-date='" + item.startDate +
+                                            "' data-fri_family data-family data-id='" + item.id + "'></div></div></div><div data-show_box='family'></div></div>"
+                                        );
                                     });
                                 }
-                                
+
                                 // 이미 신청한 상황이라면 신청내역 보여주기
                                 $.ajax({
-                                    "type": "GET",
-                                    "url": "https://"+ base_url +"/api/v1/program-orders?attendId=" + attend_id,
+                                    type: "GET",
+                                    url: base_url + "/api/v1/program-orders?attendId=" + attend_id,
                                     beforeSend: function (xhr) {
-                                        if (sessionStorage.getItem('token')) {
-                                            xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                                        if (sessionStorage.getItem("token")) {
+                                            xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
                                         }
                                     },
                                     success: function (response) {
@@ -384,13 +736,13 @@
                                         const tour_data = tour.tourAttenders;
                                         const family = response.familySessionOrder;
                                         const family_data = family.familySessionAttenders;
-                                        $("textarea").val(response.userMemo)
+                                        $("textarea").val(response.userMemo);
                                         if (golf_data !== null || tour_data !== null || family_data !== null) {
-                                            if(tour_data !== null){
+                                            if (tour_data !== null) {
                                                 const toursOnSameDate = (attenders, date) => {
-                                                    const filteredAttenders = attenders.filter(attender => attender.tourStartDate === date);
+                                                    const filteredAttenders = attenders.filter((attender) => attender.tourStartDate === date);
                                                     const result = filteredAttenders.reduce((acc, attender) => {
-                                                        const attenderIndex = acc.findIndex(el => el.attenderId === attender.attenderId);
+                                                        const attenderIndex = acc.findIndex((el) => el.attenderId === attender.attenderId);
                                                         if (attenderIndex > -1) {
                                                             acc[attenderIndex].tours.push(attender);
                                                         } else {
@@ -398,22 +750,22 @@
                                                                 attenderId: attender.attenderId,
                                                                 attenderName: attender.attenderName,
                                                                 date: attender.tourStartDate,
-                                                                tours: [attender]
+                                                                tours: [attender],
                                                             });
                                                         }
                                                         return acc;
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_tour_list = toursOnSameDate(tour_data, '2024-07-25');
-                                                fri_tour_list = toursOnSameDate(tour_data, '2024-07-26');
+                                                thu_tour_list = toursOnSameDate(tour_data, "2026-07-23");
+                                                fri_tour_list = toursOnSameDate(tour_data, "2026-07-24");
                                             }
 
-                                            if(family_data !== null){
+                                            if (family_data !== null) {
                                                 const familyOnSameDate = (attenders, date) => {
-                                                    const filteredAttenders = attenders.filter(attender => attender.familySession.startDate === date);
+                                                    const filteredAttenders = attenders.filter((attender) => attender.familySession.startDate === date);
                                                     const result = filteredAttenders.reduce((acc, attender) => {
-                                                        const attenderIndex = acc.findIndex(el => el.attenderId === attender.attenderId);
+                                                        const attenderIndex = acc.findIndex((el) => el.attenderId === attender.attenderId);
                                                         if (attenderIndex > -1) {
                                                             acc[attenderIndex].tours.push(attender);
                                                         } else {
@@ -421,22 +773,22 @@
                                                                 attenderId: attender.attenderId,
                                                                 attenderName: attender.attenderName,
                                                                 date: attender.familySession.startDate,
-                                                                tours: [attender]
+                                                                tours: [attender],
                                                             });
                                                         }
                                                         return acc;
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_family_list = familyOnSameDate(family_data, '2024-07-25');
-                                                fri_family_list = familyOnSameDate(family_data, '2024-07-26');
+                                                thu_family_list = familyOnSameDate(family_data, "2026-07-23");
+                                                fri_family_list = familyOnSameDate(family_data, "2026-07-24");
                                             }
 
                                             if (golf_data !== null) {
                                                 const golfOnSameDate = (attenders, date) => {
-                                                    const filteredAttenders = attenders.filter(attender => attender.roundDate === date);
+                                                    const filteredAttenders = attenders.filter((attender) => attender.roundDate === date);
                                                     const result = filteredAttenders.reduce((acc, attender) => {
-                                                        const attenderIndex = acc.findIndex(el => el.attenderId === attender.attenderId);
+                                                        const attenderIndex = acc.findIndex((el) => el.attenderId === attender.attenderId);
                                                         if (attenderIndex > -1) {
                                                             acc[attenderIndex].tours.push(attender);
                                                         } else {
@@ -444,316 +796,453 @@
                                                                 attenderId: attender.attenderId,
                                                                 attenderName: attender.attenderName,
                                                                 date: attender.roundDate,
-                                                                tours: [attender]
+                                                                tours: [attender],
                                                             });
                                                         }
                                                         return acc;
                                                     }, []);
                                                     return result;
                                                 };
-                                                thu_golf_list = golfOnSameDate(golf_data, '2024-07-25');
-                                                fri_golf_list = golfOnSameDate(golf_data, '2024-07-26');
+                                                thu_golf_list = golfOnSameDate(golf_data, "2026-07-23");
+                                                fri_golf_list = golfOnSameDate(golf_data, "2026-07-24");
                                             }
-                                            thu_list = thu_tour_list.concat(thu_golf_list)
+                                            thu_list = thu_tour_list.concat(thu_golf_list);
                                             fri_list = fri_tour_list.concat(fri_golf_list);
                                             $.each(golf_data, function (index, item) {
                                                 golf_list.push({
-                                                    "handicap": item.handicap,
-                                                    "attenderId": item.attenderId,
-                                                    "golfCourseId": item.golfCourseId,
+                                                    handicap: item.handicap,
+                                                    attenderId: item.attenderId,
+                                                    golfCourseId: item.golfCourseId,
                                                 });
                                                 total_cost.push({
-                                                    "attenderId": item.attenderId,
-                                                    "Id": item.golfCourseId,
-                                                    "cost": item.cost,
+                                                    attenderId: item.attenderId,
+                                                    Id: item.golfCourseId,
+                                                    cost: item.cost,
                                                 });
                                             });
                                             $.each(tour_data, function (index, item) {
                                                 tour_list.push({
-                                                    "attenderId": item.attenderId,
-                                                    "tourId": item.tourId,
+                                                    attenderId: item.attenderId,
+                                                    tourId: item.tourId,
                                                 });
                                                 total_cost.push({
-                                                    "attenderId": item.attenderId,
-                                                    "Id": item.tourId,
-                                                    "cost": item.cost
+                                                    attenderId: item.attenderId,
+                                                    Id: item.tourId,
+                                                    cost: item.cost,
                                                 });
                                             });
                                             $.each(family_data, function (index, item) {
                                                 family_list.push({
-                                                    "attenderId": item.attenderId,
-                                                    "familySessionId": item.familySession.id,
+                                                    attenderId: item.attenderId,
+                                                    familySessionId: item.familySession.id,
                                                 });
                                             });
-                                            
+
                                             totalCost();
-                                            
+
                                             $.each(golf_data, function (index, item) {
                                                 let full = item.capacity === item.currentAttenderNumber;
                                                 let golfCourseId = item.golfCourseId;
                                                 if (window.innerWidth > 760) {
-                                                    let $showBox = $("[data-id='" + golfCourseId + "']").closest('tr').find("[data-show_box='golf']");
-    
-                                                    $showBox.append("<div data-golf_row data-attender_id='" + item.attenderId + "' data-golf_id='" + item.golfCourseId + "' data-cost='" + item.cost + "' data-date='"+ item.roundDate +"'><span>" + item.attenderName + "</span><input type='text' placeholder='핸디값' data-handy_input value='"+ item.handicap +"'><button type='button' >X</button></div>");
-                                                }else{
-                                                    const $showBox = $("[data-id='" + golfCourseId + "']").closest("[data-text_wrap]").find("[data-show_box='golf']");
-                                                    
-                                                    $showBox.append("<div data-golf_row data-date='" + item.roundDate +"' data-attender_id='" + item.attenderId + "' data-golf_id='" + item.golfCourseId + "' data-cost='" + item.cost  + "'><span>" + item.attenderName + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + item.handicap +"'><button type='button'>X</button></div>");
+                                                    let $showBox = $("[data-id='" + golfCourseId + "']")
+                                                        .closest("tr")
+                                                        .find("[data-show_box='golf']");
+
+                                                    $showBox.append(
+                                                        "<div data-golf_row data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-golf_id='" +
+                                                        item.golfCourseId +
+                                                        "' data-cost='" +
+                                                        item.cost +
+                                                        "' data-date='" +
+                                                        item.roundDate +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><input type='text' placeholder='핸디값' data-handy_input value='" +
+                                                        item.handicap +
+                                                        "'><button type='button' >X</button></div>"
+                                                    );
+                                                } else {
+                                                    const $showBox = $("[data-id='" + golfCourseId + "']")
+                                                        .closest("[data-text_wrap]")
+                                                        .find("[data-show_box='golf']");
+
+                                                    $showBox.append(
+                                                        "<div data-golf_row data-date='" +
+                                                        item.roundDate +
+                                                        "' data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-golf_id='" +
+                                                        item.golfCourseId +
+                                                        "' data-cost='" +
+                                                        item.cost +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><input type='text' placeholder='핸디값'data-handy_input value='" +
+                                                        item.handicap +
+                                                        "'><button type='button'>X</button></div>"
+                                                    );
                                                 }
                                             });
-                                           
+
                                             $.each(tour_data, function (index, item) {
                                                 if (window.innerWidth > 760) {
-                                                    let $showBox = $("[data-id='" + item.tourId + "']").closest('tr').find("[data-show_box='tour']");
-    
-                                                    $showBox.append("<div data-tour_row data-date='" + item.tourStartDate +"' data-attender_id='" + item.attenderId + "' data-tour_id='" + item.tourId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
-                                                }else{
-                                                    let $showBox = $("[data-id='" + item.tourId + "']").closest('[data-text_wrap]').find("[data-show_box='tour']");
+                                                    let $showBox = $("[data-id='" + item.tourId + "']")
+                                                        .closest("tr")
+                                                        .find("[data-show_box='tour']");
 
-                                                    $showBox.append("<div data-tour_row data-date='" + item.tourStartDate +"' data-attender_id='" + item.attenderId + "' data-tour_id='" + item.tourId + "' data-cost='" + item.cost + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
+                                                    $showBox.append(
+                                                        "<div data-tour_row data-date='" +
+                                                        item.tourStartDate +
+                                                        "' data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-tour_id='" +
+                                                        item.tourId +
+                                                        "' data-cost='" +
+                                                        item.cost +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><button type='button'>X</button></div>"
+                                                    );
+                                                } else {
+                                                    let $showBox = $("[data-id='" + item.tourId + "']")
+                                                        .closest("[data-text_wrap]")
+                                                        .find("[data-show_box='tour']");
+
+                                                    $showBox.append(
+                                                        "<div data-tour_row data-date='" +
+                                                        item.tourStartDate +
+                                                        "' data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-tour_id='" +
+                                                        item.tourId +
+                                                        "' data-cost='" +
+                                                        item.cost +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><button type='button'>X</button></div>"
+                                                    );
                                                 }
                                             });
-                                            
+
                                             $.each(family_data, function (index, item) {
                                                 if (window.innerWidth > 760) {
-                                                    console.log(family_data)
-                                                    let $showBox = $("[data-id='" + item.familySession.id + "']").closest('tr').find("[data-show_box='family']");
-    
-                                                    $showBox.append("<div data-family_row data-date='" + item.familySession.startDate +"' data-attender_id='" + item.attenderId + "' data-family_id='" + item.familySession.id + "' data-cost='" + 0 + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
-                                                }else{
-                                                    let $showBox = $("[data-id='" + item.familySession.id + "']").closest('[data-text_wrap]').find("[data-show_box='family']");
+                                                    console.log(family_data);
+                                                    let $showBox = $("[data-id='" + item.familySession.id + "']")
+                                                        .closest("tr")
+                                                        .find("[data-show_box='family']");
 
-                                                    $showBox.append("<div data-family_row data-date='" + item.familySession.startDate +"' data-attender_id='" + item.attenderId + "' data-family_id='" + item.familySession.id + "' data-cost='" + 0 + "'><span>" + item.attenderName + "</span><button type='button'>X</button></div>");
+                                                    $showBox.append(
+                                                        "<div data-family_row data-date='" +
+                                                        item.familySession.startDate +
+                                                        "' data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-family_id='" +
+                                                        item.familySession.id +
+                                                        "' data-cost='" +
+                                                        0 +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><button type='button'>X</button></div>"
+                                                    );
+                                                } else {
+                                                    let $showBox = $("[data-id='" + item.familySession.id + "']")
+                                                        .closest("[data-text_wrap]")
+                                                        .find("[data-show_box='family']");
+
+                                                    $showBox.append(
+                                                        "<div data-family_row data-date='" +
+                                                        item.familySession.startDate +
+                                                        "' data-attender_id='" +
+                                                        item.attenderId +
+                                                        "' data-family_id='" +
+                                                        item.familySession.id +
+                                                        "' data-cost='" +
+                                                        0 +
+                                                        "'><span>" +
+                                                        item.attenderName +
+                                                        "</span><button type='button'>X</button></div>"
+                                                    );
                                                 }
                                             });
-                                            
+
                                             // API 호출하여 동행인 목록 가져오기 (목 골프)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-thu_golf] option:not(:first-child)").remove();
+                                                    $("[data-thu_golf]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-thu_golf]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="thu_golf_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
 
                                             // API 호출하여 동행인 목록 가져오기 (목 투어)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-thu_tour] option:not(:first-child)").remove();
+                                                    $("[data-thu_tour]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-thu_tour]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="thu_tour_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
 
                                             // API 호출하여 동행인 목록 가져오기 (목 패밀리)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-thu_family] option:not(:first-child)").remove();
+                                                    $("[data-thu_family]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!thu_family_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!thu_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-thu_family]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="thu_fam_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
 
                                             // API 호출하여 동행인 목록 가져오기 (금 골프)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-fri_golf] option:not(:first-child)").remove();
+                                                    $("[data-fri_golf]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-fri_golf").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-fri_golf]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="fri_golf_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
 
                                             // API 호출하여 동행인 목록 가져오기 (금 투어)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-fri_tour] option:not(:first-child)").remove();
+                                                    $("[data-fri_tour]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-fri_tour]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="fri_tour_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
 
                                             // API 호출하여 동행인 목록 가져오기 (금 패밀리)
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("[data-fri_family] option:not(:first-child)").remove();
+                                                    $("[data-fri_family]").empty();
                                                     $.each(passenger, function (index, item) {
-                                                        if (!fri_family_list.some(p => p.attenderId == item.attenderId)) {
-                                                            $("[data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                        if (!fri_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                                            $("[data-fri_family]").append(
+                                                                '<label class="passenger-radio-item"><input type="radio" name="fri_fam_' + item.attenderId + '" data-type="' +
+                                                                item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                                            );
                                                         }
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
-                                        }else{
+                                        } else {
                                             $.ajax({
-                                                "type": "GET",
-                                                "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                                                type: "GET",
+                                                url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                                                 success: function (response) {
                                                     passenger = response;
-                                                    $("select").each(function () {
+                                                    $(".passenger-radio-group").each(function () {
                                                         var select = $(this);
+                                                        select.empty();
                                                         $.each(passenger, function (index, item) {
-                                                            select.append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                                            select.append('<label class="passenger-radio-item"><input type="radio" value="' + item.attenderId + '" data-type="' + item.flightCostType + '"> ' + item.name + '</label>');
                                                         });
                                                     });
                                                 },
                                                 error: function (error) {
-                                                    alert("error")
-                                                }
+                                                    alert("error");
+                                                },
                                             });
                                         }
                                     },
                                     error: function (error) {
-                                        alert("error")
-                                    }
+                                        alert("error");
+                                    },
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     },
                     error: function (error) {
-                        alert("error")
-                    }
+                        alert("error");
+                    },
                 });
 
-                //골프 참여자 선택시 리스트에 추가
-                $(document).on("change", "[data-golf]", function () {
+                //골프 신청자 선택 선택시 리스트에 추가
+                $(document).on("change", "[data-golf] input[type='radio']", function () {
                     const val = $(this).val();
-                    const text = $(this).find("option:selected").text();
-                    const id = $(this).data("id");
-                    const date = $(this).data("date");
-                    const cost = $(this).data("cost");
-                    let handicap = ''; // 새로 생성될 input의 핸디값
+                    const text = $(this).closest('label').text().trim();
+                    const id = $(this).closest('.passenger-radio-group').data("id");
+                    const date = $(this).closest('.passenger-radio-group').data("date");
+                    const cost = $(this).closest('.passenger-radio-group').data("cost");
+                    let handicap = ""; // 새로 생성될 input의 핸디값
 
                     // golf_list에서 해당 아이디와 일치하는 input의 핸디값을 찾아 복사
-                    const index = golf_list.findIndex(item => item.attenderId == val);
+                    const index = golf_list.findIndex((item) => item.attenderId == val);
                     if (index !== -1) {
                         handicap = golf_list[index].handicap;
                     }
-                    if (window.innerWidth > 760){
+                    if (window.innerWidth > 760) {
                         const $showBox = $("[data-show_box='golf']", $(this).closest("tr"));
-                        $showBox.append("<div data-golf_row data-date='"+ date +"' data-attender_id='" + val + "' data-golf_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값' data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
-                    }else {
+                        $showBox.append(
+                            "<div data-golf_row data-date='" +
+                            date +
+                            "' data-attender_id='" +
+                            val +
+                            "' data-golf_id='" +
+                            id +
+                            "' data-cost='" +
+                            cost +
+                            "'><span>" +
+                            text +
+                            "</span><input type='text' placeholder='핸디값' data-handy_input value='" +
+                            handicap +
+                            "'><button type='button'>X</button></div>"
+                        );
+                    } else {
                         const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='golf']");
-                        $showBox.append("<div data-golf_row data-attender_id='" + val + "' data-golf_id='" + id + "' data-date='" + date +"' data-cost='" + cost + "'><span>" + text + "</span><input type='text' placeholder='핸디값'data-handy_input value='" + handicap + "'><button type='button'>X</button></div>");
+                        $showBox.append(
+                            "<div data-golf_row data-attender_id='" +
+                            val +
+                            "' data-golf_id='" +
+                            id +
+                            "' data-date='" +
+                            date +
+                            "' data-cost='" +
+                            cost +
+                            "'><span>" +
+                            text +
+                            "</span><input type='text' placeholder='핸디값'data-handy_input value='" +
+                            handicap +
+                            "'><button type='button'>X</button></div>"
+                        );
                     }
 
-                    if(date == '2024-07-25') {
+                    if (date == "2026-07-23") {
                         thu_list.push({
-                            "attenderId": val,
-                            "Id": text,
-                            "date" : date
+                            attenderId: val,
+                            Id: text,
+                            date: date,
                         });
                         // API 호출하여 동행인 목록 가져오기 (목 골프)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $("[data-thu_golf], [data-thu_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
-                                        $("[data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-thu_golf]").append(radioHtml);
+                                        $("[data-thu_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    }else if( date == '2024-07-26' ){
+                    } else if (date == "2026-07-24") {
                         fri_list.push({
-                           "attenderId": val,
-                            "Id": text,
-                            "date": date
+                            attenderId: val,
+                            Id: text,
+                            date: date,
                         });
                         // API 호출하여 동행인 목록 가져오기 (금 골프)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $("[data-fri_golf], [data-fri_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-fri_golf], [data-fri_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                     golf_list.push({
-                        "handicap": 0,
-                        "attenderId": val,
-                        "golfCourseId": id
+                        handicap: 0,
+                        attenderId: val,
+                        golfCourseId: id,
+                        date: date,
                     });
                     total_cost.push({
-                        "attenderId": val,
-                        "Id": id,
-                        "cost": cost,
+                        attenderId: val,
+                        Id: id,
+                        cost: cost,
                     });
                     totalCost();
-                    $("[data-golf]").val("");
-
+                    $(this).prop("checked", false); // 선택 후 해제
                 });
 
-                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 골프 리스트에서도 삭제
+                // 삭제 버튼 클릭 시 해당 신청자 선택 삭제 후 골프 리스트에서도 삭제
                 $(document).on("click", "[data-golf_row] button", function () {
                     const id = $(this).closest("[data-golf_row]").data("golf_id");
                     const val = $(this).closest("[data-golf_row]").data("attender_id");
@@ -768,151 +1257,187 @@
                     $(this).closest("[data-golf_row]").remove();
                     totalCost();
 
-                    if (date == '2024-07-25') {
+                    if (date == "2026-07-23") {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
 
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $("[data-thu_golf], [data-thu_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf], [data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-thu_golf], [data-thu_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    } else if (date == '2024-07-26') {
-                        
+                    } else if (date == "2026-07-24") {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
-                       // API 호출하여 동행인 목록 가져오기 (금)
+                        // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $("[data-fri_golf], [data-fri_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-fri_golf], [data-fri_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                 });
 
                 // 골프 핸디값 입력시
                 $(document).on("input", "[data-handy_input]", function () {
-                    const val = $(this).closest("[data-golf_row]").data("attender_id");
-                    golf_list.forEach(item => {
-                        if (item.attenderId == val) {
-                            item.handicap = $(this).val();
+                    const $row = $(this).closest("[data-golf_row]");
+                    const attenderId = $row.data("attender_id");
+                    const golfCourseId = $row.data("golf_id");
+                    const date = $row.data("date");
+                    const handyValue = $(this).val();
+
+                    golf_list.forEach((item) => {
+                        if (
+                            item.attenderId == attenderId &&
+                            item.golfCourseId == golfCourseId &&
+                            item.date == date
+                        ) {
+                            item.handicap = handyValue;
                         }
                     });
-                    $("[data-golf_row][data-attender_id='" + val + "'] [data-handy_input]").val($(this).val());
+                    // 동기화 필요 없음, 입력한 input만 반영하면 됨
                 });
 
-               // 투어 참여자 선택시 리스트에 추가
-                $(document).on("change", "[data-tour]", function () {
+                // 투어 신청자 선택 선택시 리스트에 추가
+                $(document).on("change", "[data-tour] input[type='radio']", function () {
                     const val = $(this).val();
-                    const text = $(this).find("option:selected").text();
-                    const type = $(this).data("tour");
-                    const date = $(this).data("date");
-                    const id = $(this).data("id");
-                    const age = $(this).find("option:selected").data("type");
+                    const text = $(this).closest('label').text().trim();
+                    const date = $(this).closest('.passenger-radio-group').data("date");
+                    const id = $(this).closest('.passenger-radio-group').data("id");
+                    const age = $(this).data("type");
                     let cost;
+
                     if (window.innerWidth > 760) {
                         const adult = $(this).closest("tr").find("[data-amount_row]").data("adult");
                         const child = $(this).closest("tr").find("[data-amount_row]").data("child");
                         const $showBox = $("[data-show_box='tour']", $(this).closest("tr"));
                         cost = age === "child" ? child : adult;
 
-                        $showBox.append("<div data-tour_row data-date='" + date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
-                    }else {
+                        $showBox.append(
+                            "<div data-tour_row data-date='" +
+                            date +
+                            "' data-attender_id='" +
+                            val +
+                            "' data-tour_id='" +
+                            id +
+                            "' data-cost='" +
+                            cost +
+                            "'><span>" +
+                            text +
+                            "</span><button type='button'>X</button></div>"
+                        );
+                    } else {
                         const adult = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("adult");
                         const child = $(this).closest("[data-text_wrap]").find("[data-amount_row]").data("child");
                         const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='tour']");
                         cost = age === "child" ? child : adult;
 
-                        $showBox.append("<div data-tour_row data-date='"+ date +"' data-attender_id='" + val + "' data-tour_id='" + id + "' data-cost='" + cost + "'><span>" + text + "</span><button type='button'>X</button></div>");
+                        $showBox.append(
+                            "<div data-tour_row data-date='" +
+                            date +
+                            "' data-attender_id='" +
+                            val +
+                            "' data-tour_id='" +
+                            id +
+                            "' data-cost='" +
+                            cost +
+                            "'><span>" +
+                            text +
+                            "</span><button type='button'>X</button></div>"
+                        );
                     }
-                    
+
                     tour_list.push({
-                        "attenderId": val,
-                        "tourId": id
+                        attenderId: val,
+                        tourId: id,
                     });
 
                     total_cost.push({
-                        "attenderId": val,
-                        "Id": id,
-                        "cost": cost
+                        attenderId: val,
+                        Id: id,
+                        cost: cost,
                     });
-                    $("[data-tour]").val("");
+                    $(this).prop("checked", false);
                     totalCost();
 
-                    if (date == '2024-07-25') {
+                    if (date == "2026-07-23") {
                         thu_list.push({
-                            "attenderId": val,
-                            "Id": text,
+                            attenderId: val,
+                            Id: text,
                         });
 
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $("[data-thu_golf], [data-thu_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf], [data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-thu_golf], [data-thu_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == "2026-07-24") {
                         fri_list.push({
-                            "attenderId": val,
-                            "Id": text,
+                            attenderId: val,
+                            Id: text,
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $("[data-fri_golf], [data-fri_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-fri_golf], [data-fri_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                 });
 
-                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 투어 리스트에서도 삭제
+                // 삭제 버튼 클릭 시 해당 신청자 선택 삭제 후 투어 리스트에서도 삭제
                 $(document).on("click", "[data-tour_row] button", function () {
                     const id = $(this).closest("[data-tour_row]").data("tour_id");
                     const val = $(this).closest("[data-tour_row]").data("attender_id");
@@ -926,126 +1451,154 @@
                     });
                     $(this).closest("[data-tour_row]").remove();
                     totalCost();
-                    
-                    if (date == '2024-07-25') {
+
+                    if (date == "2026-07-23") {
                         thu_list = thu_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_golf] option:not(:first-child), [data-thu_tour] option:not(:first-child)").remove();
+                                $("[data-thu_golf], [data-thu_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_golf], [data-thu_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-thu_golf], [data-thu_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == "2026-07-24") {
                         fri_list = fri_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://"+ base_url +"/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_golf] option:not(:first-child), [data-fri_tour] option:not(:first-child)").remove();
+                                $("[data-fri_golf], [data-fri_tour]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_golf], [data-fri_tour]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_list.some((p) => p.attenderId == item.attenderId)) {
+                                        const radioHtml = '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>';
+                                        $("[data-fri_golf], [data-fri_tour]").append(radioHtml);
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                 });
 
-                // 패밀리 참여자 선택시 리스트에 추가
-                $(document).on("change", "[data-family]", function () {
+                // 패밀리 신청자 선택 선택시 리스트에 추가
+                $(document).on("change", "[data-family] input[type='radio']", function () {
                     const val = $(this).val();
-                    const text = $(this).find("option:selected").text();
-                    const type = $(this).data("tour");
-                    const date = $(this).data("date");
-                    const id = $(this).data("id");
-                    const age = $(this).find("option:selected").data("type");
+                    const text = $(this).closest('label').text().trim();
+                    const date = $(this).closest('.passenger-radio-group').data("date");
+                    const id = $(this).closest('.passenger-radio-group').data("id");
+
                     if (window.innerWidth > 760) {
                         const $showBox = $("[data-show_box='family']", $(this).closest("tr"));
 
-                        $showBox.append("<div data-family_row data-date='" + date + "' data-attender_id='" + val + "' data-family_id='" + id + "' data-cost='" + 0 + "'><span>" + text + "</span><button type='button'>X</button></div>");
+                        $showBox.append(
+                            "<div data-family_row data-date='" +
+                            date +
+                            "' data-attender_id='" +
+                            val +
+                            "' data-family_id='" +
+                            id +
+                            "' data-cost='" +
+                            0 +
+                            "'><span>" +
+                            text +
+                            "</span><button type='button'>X</button></div>"
+                        );
                     } else {
                         const $showBox = $(this).closest("[data-text_wrap]").find("[data-show_box='family']");
-                        $showBox.append("<div data-family_row data-date='" + date + "' data-attender_id='" + val + "' data-family_id='" + id + "' data-cost='" + 0 + "'><span>" + text + "</span><button type='button'>X</button></div>");
+                        $showBox.append(
+                            "<div data-family_row data-date='" +
+                            date +
+                            "' data-attender_id='" +
+                            val +
+                            "' data-family_id='" +
+                            id +
+                            "' data-cost='" +
+                            0 +
+                            "'><span>" +
+                            text +
+                            "</span><button type='button'>X</button></div>"
+                        );
                     }
 
-                   family_list.push({
-                        "attenderId": val,
-                        "familySessionId": id
+                    family_list.push({
+                        attenderId: val,
+                        familySessionId: id,
                     });
 
-                    $("[data-family]").val("");
+                    $(this).prop("checked", false);
 
-
-                    if (date == '2024-07-25') {
+                    if (date == "2026-07-23") {
                         thu_family_list.push({
-                            "attenderId": val,
-                            "Id": text,
+                            attenderId: val,
+                            Id: text,
                         });
 
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_family] option:not(:first-child)").remove();
+                                $("[data-thu_family]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_family_list.some(p => p.attenderId == item.attenderId)) {
-                                     $("[data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_family]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                        );
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == "2026-07-24") {
                         fri_family_list.push({
-                            "attenderId": val,
-                            "Id": text,
+                            attenderId: val,
+                            Id: text,
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_family] option:not(:first-child)").remove();
+                                $("[data-fri_family]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_family_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_family]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                        );
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                 });
 
-                // 삭제 버튼 클릭 시 해당 참여자 삭제 후 패밀리 리스트에서도 삭제
+                // 삭제 버튼 클릭 시 해당 신청자 선택 삭제 후 패밀리 리스트에서도 삭제
                 $(document).on("click", "[data-family_row] button", function () {
                     const id = $(this).closest("[data-family_row]").data("family_id");
                     const val = $(this).closest("[data-family_row]").data("attender_id");
@@ -1055,47 +1608,51 @@
                         return !(item.attenderId == val && item.familySessionId == id);
                     });
                     $(this).closest("[data-family_row]").remove();
-                    if (date == '2024-07-25') {
+                    if (date == "2026-07-23") {
                         thu_family_list = thu_family_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (목)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-thu_family] option:not(:first-child)").remove();
+                                $("[data-thu_family]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!thu_family_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-thu_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!thu_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                        $("[data-thu_family]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                        );
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
-                    } else if (date == '2024-07-26') {
+                    } else if (date == "2026-07-24") {
                         fri_family_list = fri_family_list.filter(function (item) {
                             return !(item.attenderId == val);
                         });
                         // API 호출하여 동행인 목록 가져오기 (금)
                         $.ajax({
-                            "type": "GET",
-                            "url": "https://" + base_url + "/api/v1/attenders?attendId=" + attend_id,
+                            type: "GET",
+                            url: base_url + "/api/v1/attenders?attendId=" + attend_id,
                             success: function (response) {
                                 passenger = response;
-                                $("[data-fri_family] option:not(:first-child)").remove();
+                                $("[data-fri_family]").empty();
                                 $.each(passenger, function (index, item) {
-                                    if (!fri_family_list.some(p => p.attenderId == item.attenderId)) {
-                                        $("[data-fri_family]").append('<option data-type="' + item.flightCostType + '" value="' + item.attenderId + '">' + item.name + '</option>');
+                                    if (!fri_family_list.some((p) => p.attenderId == item.attenderId)) {
+                                        $("[data-fri_family]").append(
+                                            '<label class="passenger-radio-item"><input type="radio" data-type="' + item.flightCostType + '" value="' + item.attenderId + '"> ' + item.name + '</label>'
+                                        );
                                     }
                                 });
                             },
                             error: function (error) {
-                                alert("error")
-                            }
+                                alert("error");
+                            },
                         });
                     }
                 });
@@ -1103,42 +1660,42 @@
                 function totalCost() {
                     const sum = total_cost.reduce((acc, obj) => acc + obj.cost, 0);
                     $("[data-total]").text(sum.toLocaleString());
-                };
+                }
 
-                 $("button[type='submit']").click(function () {
+                $("button[type='submit']").click(function () {
                     const individual_date = $("input[type='date']").val();
                     const time = $("input[type='time']").val();
                     const data = {
-                        "attendId": attend_id,
-                        "golfCourseOrders": golf_list,
-                        "tourOrders": tour_list,
-                        "familySessionOrders": family_list,
-                        "userMemo": $("textarea").val()
+                        attendId: attend_id,
+                        golfCourseOrders: golf_list,
+                        tourOrders: tour_list,
+                        familySessionOrders: family_list,
+                        userMemo: $("textarea").val(),
                     };
                     $.ajax({
-                        "type": "POST",
-                        "url": "https://"+ base_url +"/api/v1/program-orders",
-                        "data": JSON.stringify(data),
-                        "contentType": 'application/json',
+                        type: "POST",
+                        url: base_url + "/api/v1/program-orders",
+                        data: JSON.stringify(data),
+                        contentType: "application/json",
                         beforeSend: function (xhr) {
-                            if (sessionStorage.getItem('token')) {
-                                xhr.setRequestHeader('Authorization', 'Bearer ' + sessionStorage.getItem('token'));
+                            if (sessionStorage.getItem("token")) {
+                                xhr.setRequestHeader("Authorization", "Bearer " + sessionStorage.getItem("token"));
                             }
                         },
                         success: function (response) {
-                            alert("저장이 완료 되었습니다.")
-                            window.location.href = "./InformationConfirm.html";
+                            alert("저장이 완료 되었습니다.");
                         },
                         error: function (xhr) {
-                            alert("저장에 실패 하였습니다.")
-                        }
+                            alert("저장에 실패 하였습니다.");
+                        },
                     });
                 });
-            }else{
+            } else {
                 alert("잘못된 요청입니다.");
                 window.location.href = "./Application.html";
             }
         });
     </script>
 </body>
+
 </html>

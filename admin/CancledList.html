@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="kor">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,55 +15,21 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
     <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">
     <div id="wrapper">
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-text mx-3">KSA</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-        
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>현황표</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="ParticipantList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>참가자 명단</span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="CancledList.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>취소자 명단</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="NoticeList.html">
-                    <i class='fa fa-bell'></i>
-                    <span>공지사항</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="GalleryList.html">
-                    <i class='fas fa-image'></i>
-                    <span>갤러리</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="AdminSetting.html">
-                    <i class="fas fa-cogs fa-sm fa-fw mr-2"></i>
-                    <span>관리자 설정</span></a>
-            </li>
-            <hr class="sidebar-divider d-none d-md-block">
-        </ul>
+        <!-- 사이드바 -->
+        <div id="sidebar-placeholder"></div>
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <div class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <a href="/index.html">
-                            <img width="200px" class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
+                            <img width="200px"
+                                class="d-none d-sm-inline-block form-inline mr-auto ml-md-4 my-2 my-md-0 mw-100"
                                 src="/images/header-logo.png" alt="">
                         </a>
                     </div>
@@ -72,8 +39,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">관리자</span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
@@ -88,11 +54,14 @@
                 <div class="container-fluid">
                     <div class="row">
                         <h1 class="h3 mt-1 text-gray-800 col align-self-end">취소자 명단</h1>
-                        <button type="button" href="" class="excel-btn btn btn-primary mr-3 mb-2 font-weight-bold">명단 엑셀 다운로드</button>
+                        <button type="button" href="" class="excel-btn btn btn-primary mr-3 mb-2 font-weight-bold">명단 엑셀
+                            다운로드</button>
                     </div>
                     <div>
                         <select id="year" class="form-control font-weight-bold mb-3" style="width: 300px">
-                            <option selected value="2024">2024년</option>
+                            <option selected value="2026">2026년</option>
+                            <option value="2025">2025년</option>
+                            <option value="2024">2024년</option>
                             <option value="2023">2023년</option>
                         </select>
                     </div>
@@ -100,7 +69,8 @@
                         <div class="card-body">
                             <div class="table-responsive">
                                 <div data-excel_table style="width: 99%">
-                                    <table class="table table-bordered text-center font-weight-bold" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered text-center font-weight-bold" id="dataTable"
+                                        width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th width="5%">No</th>
@@ -151,6 +121,7 @@
     <script src="js/sb-admin-2.js"></script>
     <script src="js/demo/datatables-demo.js"></script>
     <script src="/js/common.js"></script>
+    <script src="/admin/js/common.js"></script>
     <script>
         const data = [
             {
@@ -173,13 +144,13 @@
             },
             {
                 render: function (data, type, row) {
-                    if( row.ksaCompanyType === "MEMBER" ){
+                    if (row.ksaCompanyType === "MEMBER") {
                         return '회원사';
-                    } else if( row.ksaCompanyType === "NOT_MEMBER" ){
+                    } else if (row.ksaCompanyType === "NOT_MEMBER") {
                         return '비회원사';
                     } else if (row.ksaCompanyType === "HIGHEST_LEVEL") {
                         return '최고위과정 및 서비스포럼사';
-                    }else{
+                    } else {
                         return '해당없음';
                     }
                 },
@@ -209,11 +180,11 @@
                 },
                 "searchable": false
             },
-            
+
         ];
         $('#dataTable').dataTable({
             "ajax": {
-                "url": "https://" + base_url + "/api/v1/attends/canceled?year=2024",
+                "url": base_url + "/api/v1/attends/canceled?year=" + current_year,
                 beforeSend: function (xhr) {
                     if (localStorage.getItem('token')) {
                         xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -239,7 +210,7 @@
         });
         $('#year').on('change', function () {
             year = $('#year option:selected').val();
-            var url = "https://" + base_url + "/api/v1/attends/canceled?year=" + year;
+            var url = base_url + "/api/v1/attends/canceled?year=" + year;
             $('#dataTable').DataTable().ajax.url(url).load();
         });
         $('#dataTable').on('click', '.delete-btn', function () {
@@ -247,7 +218,7 @@
             if (confirm("목록에서 삭제 하시겠습니까? \n이 동작은 되돌릴 수 없습니다.")) {
                 $.ajax({
                     type: "DELETE",
-                    url: "https://" + base_url + "/api/v1/attends/" + id_num,
+                    url: base_url + "/api/v1/attends/" + id_num,
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
@@ -264,13 +235,13 @@
                 });
             }
         });
-        
+
         $('#dataTable').on('click', '.back-btn', function () {
             const id_num = $(this).val();
             if (confirm("신청을 복구 하시겠습니까?")) {
                 $.ajax({
                     type: "PATCH",
-                    url: "https://" + base_url + "/api/v1/attends/" + id_num + "/comeback",
+                    url: base_url + "/api/v1/attends/" + id_num + "/comeback",
                     beforeSend: function (xhr) {
                         if (localStorage.getItem('token')) {
                             xhr.setRequestHeader('Authorization', 'Bearer ' + localStorage.getItem('token'));
