@@ -1,0 +1,31 @@
+name: Deploy frontend to production on master merge
+
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+
+jobs:
+  deploy:
+    # PR이 닫혔지만 "머지된 경우"에만 실행 (단순 close 제외)
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.STYLEWORKS_HOST }}
+          username: ${{ secrets.STYLEWORKS_USER }}
+          key: ${{ secrets.STYLEWORKS_CO_KR_DEPLOYKEY }}
+          port: 22
+          script: |
+            set -e
+            echo "=== Deploy started at $(date) ==="
+            echo "Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+            echo "Merged by: ${{ github.event.pull_request.merged_by.login }}"
+            echo "Running on $(hostname) as $(whoami)"
+            
+            bash /home/styleworks/public/ksa/scripts/deploy-prod-frontend.sh
+            
+            echo "=== Deploy finished at $(date) ==="
