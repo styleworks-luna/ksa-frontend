@@ -486,9 +486,8 @@
                                 $("#cardNumber").val(response.cardNumber);
                                 $("#cardExpiryDate").val(response.cardExpiryDate);
                             }
-                            if (response.isBreakfastRequested !== null) {
-                                $("input[name='breakfast_status'][value='" + response.isBreakfastRequested + "']").prop("checked", true);
-                            }
+                            const breakfastStatus = response.isBreakfastRequested === false ? "false" : "true";
+                            $("input[name='breakfast_status'][value='" + breakfastStatus + "']").prop("checked", true);
                         },
                         error: function (error) {
                             alert("error");
