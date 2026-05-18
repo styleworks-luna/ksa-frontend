@@ -1,0 +1,24 @@
+name: Deploy frontend to production on master merge
+
+on:
+  pull_request:
+    branches: [master]
+    types: [closed]
+
+jobs:
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: self-hosted
+
+    steps:
+      - name: Run deploy script
+        run: |
+          set -e
+          echo "=== Deploy started at $(date) ==="
+          echo "Triggered by PR #${{ github.event.pull_request.number }}: ${{ github.event.pull_request.title }}"
+          echo "Merged by: ${{ github.event.pull_request.merged_by.login }}"
+          echo "Running on $(hostname) as $(whoami)"
+
+          bash /home/styleworks/public/ksa/scripts/deploy-prod-frontend.sh
+
+          echo "=== Deploy finished at $(date) ==="
