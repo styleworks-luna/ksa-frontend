@@ -333,6 +333,14 @@
                 freeMode: true,
             });
             $(document).ready(function () {
+                function setBreakfastStatus(value) {
+                    const breakfastStatus = value === false || value === "false" ? "false" : "true";
+                    $("input[name='breakfast_status']").prop("checked", false);
+                    $("input[name='breakfast_status'][value='" + breakfastStatus + "']").prop("checked", true);
+                }
+
+                setBreakfastStatus(true);
+
                 //250509 임시저장 클릭시
                 $("[data-save_button]").on("click", function () {
                     $("[data-popup_box]").show();
@@ -486,8 +494,7 @@
                                 $("#cardNumber").val(response.cardNumber);
                                 $("#cardExpiryDate").val(response.cardExpiryDate);
                             }
-                            const breakfastStatus = response.isBreakfastRequested === false ? "false" : "true";
-                            $("input[name='breakfast_status'][value='" + breakfastStatus + "']").prop("checked", true);
+                            setBreakfastStatus(response.isBreakfastRequested);
                         },
                         error: function (error) {
                             alert("error");
