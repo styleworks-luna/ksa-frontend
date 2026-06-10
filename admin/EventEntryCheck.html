@@ -100,6 +100,9 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">오늘의 입장자 명단</h6>
                         </div>
+                        <div class="card-header py-3 d-flex justify-content-end">
+                            <button id="downloadEntryExcel" class="btn btn-primary btn-sm">입장자 명단 엑셀 다운로드</button>
+                        </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered font-weight-bold text-center" id="entryTable" width="100%">
@@ -567,6 +570,34 @@
                         $input.val('');
                     }, 5000);
                 }
+            });
+
+            // 입장자 명단 엑셀 다운로드
+            $('#downloadEntryExcel').click(function() {
+                if (!selectedEventId) {
+                    showAlertModal("행사를 먼저 선택해주세요.");
+                    return;
+                }
+                $.ajax({
+                    url: base_url + `/api/v1/excel/events/${selectedEventId}/entries`,
+                    method: 'GET',
+                    "Content-Type": "application/json",
+                    xhrFields: {
+                        responseType: 'blob' 
+                    },
+                    headers: { 'Authorization': 'Bearer ' + localStorage.getItem('token') },
+                    success: function (response) {
+                        const aTag = document.createElement('a');
+                        const url = window.URL.createObjectURL(response);
+                        aTag.href = url;
+                        aTag.download = '입장자 명단.xlsx';
+                        aTag.click();
+                        window.URL.revokeObjectURL(url);
+                    },
+                    error: function (xhr) {
+                        alert(xhr.responseJSON.message);
+                    }
+                });
             });
         });
     </script>
