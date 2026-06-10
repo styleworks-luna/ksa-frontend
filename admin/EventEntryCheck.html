@@ -546,6 +546,12 @@
                 handleSearch($('#qrSearchInput').val());
             });
 
+            $('#qrSearchInput').on('keydown', function(e) {
+                if (e.key === 'Enter') {
+                    handleSearch($(this).val());
+                }
+            });
+
             $('#qrSearchInput').on('input', function() {
                 const $input = $(this);
                 const val = $input.val().trim();
