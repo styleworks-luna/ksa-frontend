@@ -590,7 +590,11 @@
                         const aTag = document.createElement('a');
                         const url = window.URL.createObjectURL(response);
                         aTag.href = url;
-                        aTag.download = '입장자 명단.xlsx';
+                        const selectedEvent = eventsData.find(e => e.id == selectedEventId);
+                        const eventYear = $("#forumYear").val();
+                        const eventTitle = selectedEvent ? selectedEvent.title : "\uC785\uC7A5\uC790";
+                        const safeEventTitle = eventTitle.replace(/[\\/:*?"<>|]/g, "_");
+                        aTag.download = `${eventYear}_${safeEventTitle}_\uC785\uC7A5\uC790\uBA85\uB2E8.xlsx`;
                         aTag.click();
                         window.URL.revokeObjectURL(url);
                     },
