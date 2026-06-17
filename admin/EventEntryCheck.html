@@ -100,7 +100,10 @@
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">오늘의 입장자 명단</h6>
                         </div>
-                        <div class="card-header py-3 d-flex justify-content-end">
+                        <div class="card-header py-3 d-flex justify-content-end align-items-center">
+                            <div class="mr-auto font-weight-bold text-dark h5 mb-0">
+                                입장 현황: <span id="currentEnteredCount" class="text-primary font-weight-bold">0</span> / <span id="maxCapacityCount">0</span> 명
+                            </div>
                             <button id="downloadEntryExcel" class="btn btn-primary btn-sm">입장자 명단 엑셀 다운로드</button>
                         </div>
                         <div class="card-body">
@@ -350,6 +353,7 @@
                             currentEnteredCount++;
                         });
                     }
+                    $('#currentEnteredCount').text(currentEnteredCount.toLocaleString());
                 }
             });
         }
@@ -517,6 +521,8 @@
                 selectedEventId = null;
                 selectedEventMaxCapacity = 0;
                 currentEnteredCount = 0;
+                $('#currentEnteredCount').text('0');
+                $('#maxCapacityCount').text('0');
                 $('#entryBody').empty();
                 enteredIds.clear();
                 checkSearchActivation();
@@ -528,6 +534,7 @@
                     const event = eventsData.find(e => e.id == selectedEventId);
                     if (event) {
                         selectedEventMaxCapacity = event.maxCapacity;
+                        $('#maxCapacityCount').text(selectedEventMaxCapacity.toLocaleString());
                         currentEnteredCount = 0; 
                         $('#entryBody').empty(); 
                         enteredIds.clear(); 
@@ -538,6 +545,8 @@
                 } else {
                     selectedEventMaxCapacity = 0;
                     currentEnteredCount = 0;
+                    $('#currentEnteredCount').text('0');
+                    $('#maxCapacityCount').text('0');
                     stopAutoRefresh();
                     $('#entryBody').empty();
                     enteredIds.clear();
