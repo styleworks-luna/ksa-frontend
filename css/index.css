@@ -932,12 +932,22 @@ main [data-sponsore_box] [data-moblie_img_box] {
             align-items: center;
             justify-content: center;
         }
-        .popup_content {
-            width: 90%;
-            max-width: 450px; /* 팝업 최대 너비 */
+        /* 팝업 크기는 이미지 크기에 맞춤 (화면을 넘으면 비율 유지하며 축소) */
+        #main_popup .popup_content {
+            display: inline-flex;
+            flex-direction: column;
+            width: auto;
+            max-width: 90vw;
             background: #fff;
             border-radius: 8px;
             overflow: hidden;
+        }
+        #main_popup .popup_img {
+            display: block;
+            width: auto;
+            height: auto;
+            max-width: 90vw;
+            max-height: calc(100vh - 100px); /* 하단 바 + 여백 */
         }
         .popup_footer {
             display: flex;
@@ -948,11 +958,18 @@ main [data-sponsore_box] [data-moblie_img_box] {
             color: #fff;
             font-size: 14px;
         }
-        .popup_footer button {
+        .popup_footer label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .popup_footer .popup_close_text {
             background: none;
-            border: 1px solid #fff;
+            border: none;
+            padding: 0;
             color: #fff;
-            padding: 3px 10px;
+            font-size: 14px;
             cursor: pointer;
         }
 

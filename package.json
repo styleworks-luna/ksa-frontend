@@ -1,4 +1,11 @@
 {
+
+  "name": "ksa-frontend",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-server.js",
+    "dev:prod-api": "API_TARGET=https://ceoforum.ksa.or.kr node scripts/dev-server.js"
+  },
   "dependencies": {
     "jquery": "^3.6.3"
   }
