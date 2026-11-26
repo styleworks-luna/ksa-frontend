@@ -20,14 +20,12 @@
 <body>
     <div id="main_popup" style="display:none;">
         <div class="popup_content">
-            <a href="Notice.html">
-                <img src="/images/popup_2026.png" alt="공지사항 팝업" style="width:100%; display:block;">
-            </a>
+            <img src="/images/261124_popup.png" alt="공지사항 팝업" class="popup_img">
             <div class="popup_footer">
                 <label>
-                    <input type="checkbox" id="chk_today"> 오늘 하루 보지 않기
+                    <input type="checkbox" id="chk_today"> 오늘 하루 안보기
                 </label>
-                <button type="button" onclick="closePopup()">닫기</button>
+                <button type="button" class="popup_close_text" onclick="closePopup()">닫기</button>
             </div>
         </div>
     </div>
@@ -460,21 +458,24 @@
             sessionStorage.removeItem('attend_id');
         })
 
-        /* 레이어 팝업 비활성화
-        $(document).ready(function () {
-            const popupValue = localStorage.getItem("hideMainPopup");
-            const now = new Date().getTime();
+        /* 메인 레이어 팝업 (261124) */
+        const MAIN_POPUP_KEY = "hideMainPopup_261124";
 
-            if (!popupValue || now > parseInt(popupValue)) {
+        $(document).ready(function () {
+            let hideUntil = null;
+            try { hideUntil = localStorage.getItem(MAIN_POPUP_KEY); } catch (e) {}
+
+            if (!hideUntil || Date.now() > parseInt(hideUntil, 10)) {
                 $("#main_popup").fadeIn();
             }
         });
-        */
 
         function closePopup() {
             if ($("#chk_today").is(":checked")) {
-                const expiryTime = new Date().getTime() + (24 * 60 * 60 * 1000);
-                localStorage.setItem("hideMainPopup", expiryTime);
+                // 오늘 자정까지 노출 안함
+                const endOfToday = new Date();
+                endOfToday.setHours(23, 59, 59, 999);
+                try { localStorage.setItem(MAIN_POPUP_KEY, endOfToday.getTime()); } catch (e) {}
             }
             $("#main_popup").fadeOut();
         }
